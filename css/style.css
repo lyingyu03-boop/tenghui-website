@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    騰煇企業 TENG SELENDOR - 官方網站極致中階炭灰美學樣式表 (零死黑、毛玻璃、溫潤中階灰 #27272a)
    ========================================================================== */
 
@@ -1335,4 +1335,49 @@ img {
   .ppg-viewer-box > div:first-child {
     height: 200px !important;
   }
+}
+
+
+/* ==========================================================================
+   FAQ 常見問題區域 (極致大氣、舒適留白)
+   ========================================================================== */
+.faq-section {
+  padding: 100px 0 !important;
+  background: #fafafa;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px !important;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: #ffffff;
+  border: 1px solid var(--th-border-color);
+  border-radius: 16px;
+  padding: 36px 40px !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);
+  transition: var(--th-transition);
+}
+
+.faq-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-color: rgba(58, 58, 63, 0.2);
+}
+
+.faq-card h3 {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--th-brand-dark);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.faq-card p {
+  font-size: 0.96rem;
+  color: var(--th-text-secondary);
+  line-height: 1.8;
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -157,6 +157,17 @@
             </div>
           </div>
         </div>
+        
+        <!-- GRC 生產製造實錄影片 (GRC製成250722) -->
+        <div style="background: rgba(255,255,255,0.92); border: 1px solid rgba(58,58,63,0.08); border-radius: 16px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">GRC 廠區生產與開模預鑄工藝實錄</h3>
+            <span style="font-size: 0.78rem; background: #3a3a3f; color: #ffffff; padding: 4px 10px; border-radius: 4px; font-weight: 700;">FACTORY RECORDING</span>
+          </div>
+          <div style="max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #000000; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+            <video src="img/grc-process.mp4" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-height: 480px; display: block; object-fit: contain;"></video>
+          </div>
+        </div>
 
         <!-- 💥 專案工程 6 步圖面輪播展示：台中雅園新潮 (無多餘長文字，防止法務爭議) -->
         <div style="background: rgba(255,255,255,0.92); border: 1px solid rgba(58,58,63,0.08); border-radius: 16px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.03);">
@@ -198,61 +209,49 @@
             { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
             { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
             { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 }
+            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 }
           ];
 
-          let grcCurrentIdx = 0;
-
-          function renderGrcSlide(index) {
-            grcCurrentIdx = index;
-            const data = grcSimpleSlides[index];
+          let curGrcIdx = 0;
+          function renderGrcSlide(idx) {
+            const data = grcSimpleSlides[idx];
             const img = document.getElementById('grcSlideImg');
             const badge = document.getElementById('grcSlideBadge');
-            const btns = document.querySelectorAll('#grcSlideDots .grc-tab-btn');
+            const dots = document.querySelectorAll('#grcSlideDots .grc-tab-btn');
 
-            btns.forEach((b, i) => {
-              if (i === data.stepIdx) b.classList.add('active');
-              else b.classList.remove('active');
+            img.style.opacity = 0;
+            setTimeout(() => {
+              img.src = data.img;
+              img.style.objectFit = data.fit;
+              img.style.objectPosition = data.pos;
+              img.style.transform = `scale(${data.scale})`;
+              badge.innerText = data.badge;
+              img.style.opacity = 1;
+            }, 150);
+
+            dots.forEach((d, i) => {
+              d.classList.toggle('active', i === data.stepIdx);
             });
-
-            if (img) {
-              img.style.opacity = '0.3';
-              setTimeout(() => {
-                img.src = data.img;
-                img.style.objectFit = data.fit || 'contain';
-                img.style.objectPosition = data.pos || 'center center';
-                img.style.transform = `scale(${data.scale || 1})`;
-                img.style.padding = (data.fit === 'cover') ? '0' : '8px';
-                img.style.opacity = '1';
-              }, 180);
-            }
-            if (badge) badge.innerText = data.badge;
+            curGrcIdx = idx;
           }
 
           function nextGrcSlide() {
-            let nextIdx = (grcCurrentIdx + 1) % grcSimpleSlides.length;
-            renderGrcSlide(nextIdx);
+            let n = (curGrcIdx + 1) % grcSimpleSlides.length;
+            renderGrcSlide(n);
           }
 
           function prevGrcSlide() {
-            let prevIdx = (grcCurrentIdx - 1 + grcSimpleSlides.length) % grcSimpleSlides.length;
-            renderGrcSlide(prevIdx);
+            let n = (curGrcIdx - 1 + grcSimpleSlides.length) % grcSimpleSlides.length;
+            renderGrcSlide(n);
           }
 
-          function goGrcSlide(idx) {
-            renderGrcSlide(idx);
+          function goGrcSlide(stepIdx) {
+            let targetIdx = grcSimpleSlides.findIndex(s => s.stepIdx === stepIdx);
+            if (targetIdx !== -1) renderGrcSlide(targetIdx);
           }
         </script>
       </section>
 
-      <!-- 2. PPG 塗料系統 (連工帶料 - 高階頁籤解說) -->
-      <section id="ppg" style="margin-bottom: 60px; background: #ffffff; border-radius: 16px; padding: 36px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); scroll-margin-top: 100px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
-          <div>
-            <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f;">02. PPG 申紐麗漆建築高耐候塗料系統</h2>
-            <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;">全系列產品皆具備「透氣不透水」長效防護特性，避免外在水氣造成漆膜起泡與壁癌。</span>
-          </div>
-          <img src="img/ppg-logo.png" alt="PPG 原廠標誌" style="height: 52px; width: auto; object-fit: contain;">
         </div>
 
         <div style="background: #f8fafc; border-left: 4px solid #3a3a3f; border-radius: 6px; padding: 16px 20px; margin-bottom: 24px;">
@@ -265,7 +264,7 @@
         <!-- PPG 產品五大頁籤按鈕 -->
         <div style="display: flex; gap: 10px; border-bottom: 1px solid rgba(58,58,63,0.08); padding-bottom: 12px; margin-bottom: 24px; flex-wrap: wrap;" id="ppgTabs">
           <button class="grc-tab-btn active" onclick="switchPpgTab(0)">龐亞漆</button>
-          <button class="grc-tab-btn" onclick="switchPpgTab(1)">Stuccos 質感塗料</button>
+          <button class="grc-tab-btn" onclick="switchPpgTab(1)">彈性佩能漆</button>
           <button class="grc-tab-btn" onclick="switchPpgTab(2)">臻石漆</button>
           <button class="grc-tab-btn" onclick="switchPpgTab(3)">絢岩臻彩漆</button>
           <button class="grc-tab-btn" onclick="switchPpgTab(4)">雅飾彈性 500</button>
@@ -325,7 +324,7 @@
             <button class="grc-tab-btn" onclick="switchRenovCase(1)"><span>02</span> 桃園薑母島軍營</button>
             <button class="grc-tab-btn" onclick="switchRenovCase(2)"><span>03</span> 桃園廠房 (主立面)</button>
             <button class="grc-tab-btn" onclick="switchRenovCase(3)"><span>04</span> 桃園廠房 (側立面)</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(4)"><span>05</span> 桃園校舍翻新</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(4)"><span>05</span> 高雄仁武AI廠</button>
           </div>
         </div>
 
@@ -345,12 +344,13 @@
             ]
           },
           {
-            title: "Stuccos 質感塗料",
-            img: "img/ppg/stocco.avif",
+            title: "彈性佩能漆（PainTex Coating）",
+            img: "img/projects/ppg-yuanjian.jpg",
             list: [
-              "<strong>抗 UV 耐候：</strong> 優良抗紫外線老化及極佳外牆耐候性能。",
-              "<strong>微裂紋彌補：</strong> 可修飾水泥基面缺陷，彌補表面微小裂紋。",
-              "<strong>多變造型手感：</strong> 依設計需求採用不同手法呈現多元表面質感。"
+              "<strong>卓越彈性裂縫延伸率：</strong> 能有效跨越基底微細裂縫，防止水氣侵入結構內部。",
+              "<strong>高耐候與自潔防污：</strong> 抵抗紫外線與酸雨侵蝕，面層平滑不易附著塵埃污染。",
+              "<strong>優異透氣防滲水性能：</strong> 阻隔外部大雨滲透，同時允許牆體內部濕氣自然透出。",
+              "<strong>指標專案應用：</strong> 廣泛應用於元健大和宜蘭總部、小磨坊斗六廠等大型商業與廠房專案。"
             ]
           },
           {
@@ -421,9 +421,9 @@
             after: "img/renovation/renov3b-after.jpg"
           },
           {
-            badge: "CASE 04 ｜ 桃園龜山 校舍翻新工程",
-            before: "img/renovation/renov4-before.jpg",
-            after: "img/renovation/renov4-after.jpg"
+            badge: "CASE 05 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
+            before: "img/renovation/renwu-before.jpg",
+            after: "img/renovation/renwu-after.jpg"
           }
         ];
 
@@ -497,10 +497,9 @@
       <!-- 實體聯絡資訊 (來自圖二舊官網資料) -->
       <div class="footer-contact-info" style="color: #9d9da6; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
         <h5 style="color: #d8d8dc; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600;">聯絡我們 (服務地區：台灣全區)</h5>
-        <p>地址：台中市大甲區武陵里興安路321巷102號</p>
-        <p>電話：04-26872899</p>
-        <p>傳真：04-26864726</p>
-        <p>信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
+        <p>台中總公司：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄分公司：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
       </div>
 
       <div class="footer-links">
