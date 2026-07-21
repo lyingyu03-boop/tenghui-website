@@ -5,22 +5,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap');
 
 :root {
-  /* 💥 全站告別死黑！採用極致質感炭灰 #27272a 與中階灰階系統 */
-  --th-brand-dark: #27272a;       /* 溫潤炭灰 (完全無死黑，質感絕佳) */
-  --th-brand-slate: #3f3f46;      /* 質感中階板岩灰 */
+  /* 全站採用溫潤炭灰色系 — 告別純黑，質感升級 */
+  --th-brand-dark: #3a3a3f;       /* 主色：質感炭灰（非純黑，有溫度感） */
+  --th-brand-slate: #505058;      /* 輔色：中階板岩灰 */
 
   --th-bg-main: #fafafa;          /* 輕盈淡微灰背景 */
-  --th-bg-card: rgba(255, 255, 255, 0.92); /* 霧面半透明卡片 */
+  --th-bg-card: rgba(255, 255, 255, 0.92);
   --th-bg-header: rgba(255, 255, 255, 0.88);
-  --th-border-color: rgba(39, 39, 42, 0.08);
+  --th-border-color: rgba(58, 58, 63, 0.1);
 
-  --th-text-primary: #27272a;     /* 💥 炭灰主字標題 (告別死黑) */
-  --th-text-secondary: #52525b;   /* 💥 質感中階灰 (溫潤親和) */
-  --th-text-muted: #71717a;       /* 柔和中階灰 */
+  --th-text-primary: #333338;     /* 主文字：深炭灰，閱讀舒適 */
+  --th-text-secondary: #55555e;   /* 次文字：中階灰 */
+  --th-text-muted: #7a7a85;       /* 輔助文字：柔和灰 */
 
-  --th-accent: #27272a;
-  --th-accent-hover: #3f3f46;
-  --th-btn-bg: #27272a;           /* 炭灰按鈕背景 */
+  --th-accent: #3a3a3f;
+  --th-accent-hover: #505058;
+  --th-btn-bg: #46464e;           /* 按鈕：清楚的深炭灰，不是黑 */
   --th-btn-text: #ffffff;
 
   --th-max-width: 1200px;
