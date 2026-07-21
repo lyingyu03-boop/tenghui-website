@@ -1094,12 +1094,220 @@ img {
   letter-spacing: 0.5px;
 }
 
+/* ==========================================================================
+   RWD 響應式斷點 — 三層精準控制 (Tablet 960px / Mobile 768px / Small 480px)
+   ========================================================================== */
+
+/* ── 平板橫向 (960px 以下) ── */
 @media (max-width: 960px) {
+  /* Hero */
   .hero-slide-title { font-size: 2.2rem; }
-  .workflow-steps-wrap, .philosophy-grid, .grid-2 { grid-template-columns: 1fr; }
+  .hero-slide-desc { font-size: 0.95rem; }
+
+  /* Nav 隱藏桌面選單，顯示漢堡按鈕 */
   .nav-menu { display: none; }
   .mobile-toggle { display: block; }
-  .ba-slider-container { height: 260px; }
+
+  /* 社群 icon 隱藏 border */
+  .social-icons-group {
+    border-left: none;
+    padding-left: 8px;
+  }
+
+  /* Video Theater */
   .vt-main-card { grid-template-columns: 1fr; }
-  .vt-img-wrap { height: 240px; }
+  .vt-img-wrap { height: 260px; }
+
+  /* Before/After Slider */
+  .ba-slider-container { height: 240px; }
+
+  /* GRC 互動展示 — 固定px欄改自適應 */
+  .grc-step-viewer { grid-template-columns: 1fr; gap: 16px; }
+  .grc-viewer-img-wrap { height: 200px; }
+
+  /* Grid 系列 */
+  .workflow-steps-wrap { grid-template-columns: repeat(3, 1fr); }
+  .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; gap: 24px; }
+  .footer-links { flex-wrap: wrap; gap: 24px; }
+}
+
+/* ── 平板直向 / 大型手機 (768px 以下) ── */
+@media (max-width: 768px) {
+  /* Header 高度縮小 */
+  .site-header { height: 64px; }
+  .brand-logo-img { height: 36px; }
+  .brand-company-en { display: none; } /* 英文全銜太長，手機隱藏 */
+  .brand-company-name { font-size: 1rem; }
+
+  /* 社群 icon 在 768 以下也隱藏，節省空間 */
+  .social-icons-group { display: none; }
+
+  /* Mobile menu 展開樣式 */
+  .nav-menu.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    padding: 16px 0;
+    overflow-y: auto;
+    border-top: 1px solid rgba(39, 39, 42, 0.1);
+    animation: slideDown 0.25s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav-menu.is-open li { width: 100%; }
+  .nav-menu.is-open .nav-link {
+    display: block;
+    padding: 16px 28px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(39, 39, 42, 0.06);
+    color: var(--th-text-primary);
+  }
+  .nav-menu.is-open .nav-link:hover { background: rgba(39,39,42,0.04); }
+
+  /* Dropdown 在手機展開顯示 */
+  .nav-menu.is-open .dropdown-menu {
+    display: block;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    background: rgba(39,39,42,0.03);
+  }
+  .nav-menu.is-open .dropdown-item {
+    padding: 12px 44px;
+    font-size: 0.92rem;
+    border-bottom: 1px solid rgba(39,39,42,0.04);
+  }
+
+  /* Hero */
+  .hero-slider-section { height: 460px; }
+  .hero-slide-title { font-size: 1.75rem; letter-spacing: -0.2px; }
+  .hero-slide-desc { font-size: 0.9rem; }
+  .hero-slide-content { max-width: 100%; }
+  .btn-hero-cta { padding: 12px 22px; font-size: 0.88rem; }
+
+  /* Sections spacing */
+  .philosophy-section,
+  .workflow-section,
+  .projects-section { padding: 56px 0; }
+  .section-title { font-size: 1.65rem; }
+
+  /* Grid layout */
+  .philosophy-grid,
+  .workflow-steps-wrap,
+  .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Video theater 縮高 */
+  .vt-img-wrap { height: 220px; }
+  .vt-info-panel { padding: 24px 20px; }
+  .vt-info-panel h3 { font-size: 1.2rem; }
+
+  /* Before/After Slider 縮高 */
+  .ba-slider-container { height: 210px; }
+
+  /* Form */
+  .form-box { padding: 28px 20px; }
+
+  /* Footer */
+  .footer-links { flex-direction: column; gap: 24px; }
+  .site-footer { padding: 44px 0 24px; }
+}
+
+/* ── 手機 (480px 以下) ── */
+@media (max-width: 480px) {
+  /* 容器 padding 收窄 */
+  .container { padding: 0 16px; }
+
+  /* Header */
+  .site-header { height: 58px; }
+  .brand-logo-img { height: 32px; }
+  .brand-company-name { font-size: 0.95rem; }
+
+  .nav-menu.is-open { top: 58px; height: calc(100vh - 58px); }
+
+  /* Hero 更小 */
+  .hero-slider-section { height: 400px; }
+  .hero-slide-title { font-size: 1.5rem; }
+  .hero-slide-desc { display: none; } /* 超小屏不顯示副標，保持整潔 */
+  .slider-arrow { width: 38px; height: 38px; font-size: 1.1rem; }
+  .slider-arrow-prev { left: 12px; }
+  .slider-arrow-next { right: 12px; }
+
+  /* Hero tag */
+  .hero-cat-tag { font-size: 0.7rem; padding: 4px 12px; margin-bottom: 12px; }
+
+  /* Sections */
+  .philosophy-section,
+  .workflow-section,
+  .projects-section { padding: 44px 0; }
+  .section-header { margin-bottom: 32px; }
+  .section-title { font-size: 1.45rem; }
+
+  /* GRC tab 按鈕 */
+  .grc-tab-btn { font-size: 0.78rem; padding: 6px 10px; }
+
+  /* BA Slider 進一步縮小 */
+  .ba-slider-container { height: 180px; border-radius: 10px; }
+  .ba-label { font-size: 0.65rem; }
+  .ba-handle-circle { width: 28px; height: 28px; font-size: 0.8rem; }
+
+  /* VT Theater */
+  .vt-img-wrap { height: 190px; }
+  .vt-info-panel { padding: 18px 16px; }
+  .vt-info-panel h3 { font-size: 1.05rem; }
+  .vt-thumb { flex: 0 0 100px; }
+  .vt-thumb img { height: 58px; }
+  .vt-thumb span { font-size: 0.68rem; }
+
+  /* Project cards */
+  .project-card { padding: 20px 16px; }
+  .project-card h3 { font-size: 1.05rem; }
+
+  /* Philosophy cards */
+  .ph-card { padding: 22px 18px; }
+
+  /* Workflow */
+  .wf-step-card { padding: 18px 14px; }
+
+  /* Form */
+  .form-box { padding: 22px 14px; border-radius: 12px; }
+  .btn-submit { padding: 13px; }
+
+  /* Footer */
+  .footer-brand h4 { font-size: 1rem; }
+  .footer-links { gap: 20px; }
+
+  /* ESG certs 如果是 grid 也要換行 */
+  [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* PPG viewer box: collapse on narrow screens */
+@media (max-width: 720px) {
+  .ppg-viewer-box {
+    grid-template-columns: 1fr !important;
+  }
+  .ppg-viewer-box > div:first-child {
+    height: 200px !important;
+  }
 }

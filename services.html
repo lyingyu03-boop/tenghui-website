@@ -272,7 +272,7 @@
         </div>
 
         <!-- PPG 產品詳細展示卡 (左圖右文) -->
-        <div style="display: grid; grid-template-columns: 420px 1fr; gap: 32px; background: #f8fafc; border: 1px solid rgba(39,39,42,0.08); border-radius: 14px; padding: 24px; align-items: center;" id="ppgViewerBox">
+        <div style="display: grid; grid-template-columns: min(420px, 45%) 1fr; gap: 32px; background: #f8fafc; border: 1px solid rgba(39,39,42,0.08); border-radius: 14px; padding: 24px; align-items: center;" id="ppgViewerBox" class="ppg-viewer-box">
           <div style="height: 260px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid rgba(39,39,42,0.08);">
             <img src="img/ppg/龐亞漆2.avif" id="ppgImg" alt="PPG 塗料樣品" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
@@ -572,6 +572,26 @@
     initBaSliders();
   </script>
 
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? 'x' : '=';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('is-open');
+          mobileToggle.textContent = '=';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
 

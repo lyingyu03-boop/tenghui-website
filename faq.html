@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -208,5 +208,25 @@
     </div>
   </footer>
 
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? 'x' : '=';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('is-open');
+          mobileToggle.textContent = '=';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>

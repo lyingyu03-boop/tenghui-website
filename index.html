@@ -395,6 +395,25 @@
     slideInterval = setInterval(nextSlide, 5000);
   </script>
 
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('is-open');
+      mobileToggle.textContent = isOpen ? '✕' : '☰';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    // 點選連結後關閉選單
+    navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('is-open');
+        mobileToggle.textContent = '☰';
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+
 </body>
 </html>
 
