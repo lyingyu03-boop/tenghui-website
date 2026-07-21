@@ -127,22 +127,23 @@ img {
 .nav-right-wrap {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   list-style: none;
 }
 
 .nav-link {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--th-text-secondary);
   font-weight: 600;
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;   /* ← 防止文字換行 */
 }
 
 .nav-link:hover, .nav-link.active {
@@ -1031,8 +1032,8 @@ img {
    頁尾 Footer (無彩色深灰 #262626)
    ========================================================================== */
 .site-footer {
-  background: #262626;
-  color: #a1a1aa;
+  background: #3c3c3f;   /* 比 #262626 明顯亮一階，溫潤深灰 */
+  color: #9d9da6;
   padding: 60px 0 30px 0;
   font-size: 0.88rem;
 }
@@ -1046,14 +1047,14 @@ img {
 }
 
 .footer-brand h4 {
-  color: #f4f4f5;
-  font-size: 1.15rem;
+  color: #e8e8ea;         /* 柔和偏米白，不刺眼 */
+  font-size: 1.1rem;
   margin-bottom: 10px;
-  font-weight: 800;
+  font-weight: 600;       /* 從 800 降到 600 */
 }
 
 .footer-contact-info p {
-  color: #a1a1aa;
+  color: #9d9da6;
 }
 
 .footer-links {
@@ -1062,10 +1063,10 @@ img {
 }
 
 .footer-col h5 {
-  color: #f4f4f5;
+  color: #d8d8dc;         /* 較柔和的標題白 */
   margin-bottom: 14px;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;       /* 從 700 降到 600 */
   letter-spacing: 0.5px;
 }
 
@@ -1086,11 +1087,11 @@ img {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 24px;
   text-align: center;
   font-size: 0.8rem;
-  color: #71717a;
+  color: #8a8a92;
   letter-spacing: 0.5px;
 }
 
