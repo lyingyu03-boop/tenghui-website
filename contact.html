@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -60,15 +60,22 @@
         <span class="section-tag">TECHNICAL CONSULTATION</span>
         <h1 class="section-title" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; margin-top: 6px;">專案技術諮詢與現勘評估</h1>
         <p style="font-size: 0.98rem; color: #55555e; max-width: 660px; margin: 12px auto 0 auto; line-height: 1.65;">
-          解決傳統造型難以施工的問題，為您實現設計上的理想。<br>歡迎建築師、室內設計師、營造團隊或業主提供 CAD / BIM 圖面或現勘需求，騰煇專業團隊將於 24 小時內回覆。
+          解決傳統造型難以施工的問題，為您實現設計上的理想。<br>歡迎建築師、室內設計師、營造團隊或業主填寫諮詢表單，我們將於工作時間內盡速與您聯絡。
         </p>
       </div>
 
       <div class="form-box" style="background: rgba(255,255,255,0.95); border: 1px solid rgba(58,58,63,0.08); border-radius: 16px; padding: 40px; box-shadow: 0 8px 30px rgba(0,0,0,0.03);">
-        <form onsubmit="alert('您的諮詢表單已成功送出！騰煇工程團隊將會於 24 小時內與您聯繫。'); return false;">
+        <form action="https://formsubmit.co/w862726@gmail.com" method="POST">
+
+          <!-- FormSubmit.co 設定 -->
+          <input type="hidden" name="_subject" value="[騰煇官網] 新技術諮詢表單">
+          <input type="hidden" name="_next" value="https://lyingyu03-boop.github.io/tenghui-website/contact.html?sent=1">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none">
+
           <div class="form-group" style="margin-bottom: 20px;">
             <label class="form-label" style="font-weight: 700; color: #3a3a3f;">您的專業身份</label>
-            <select class="form-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+            <select name="身份" class="form-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
               <option>建築師 / 設計師</option>
               <option>營造廠 / 建設公司</option>
               <option>業主 / 屋主個人</option>
@@ -80,36 +87,62 @@
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
             <div class="form-group">
               <label class="form-label" style="font-weight: 700; color: #3a3a3f;">聯絡人姓名 *</label>
-              <input type="text" required class="form-input" placeholder="請輸入姓名" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+              <input type="text" name="姓名" required class="form-input" placeholder="請輸入姓名" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
             </div>
-
             <div class="form-group">
               <label class="form-label" style="font-weight: 700; color: #3a3a3f;">聯絡電話 *</label>
-              <input type="tel" required class="form-input" placeholder="09xx-xxx-xxx 或 市話" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+              <input type="tel" name="電話" required class="form-input" placeholder="09xx-xxx-xxx 或市話" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
             </div>
           </div>
 
-          <div class="form-group" style="margin-bottom: 20px;">
-            <label class="form-label" style="font-weight: 700; color: #3a3a3f;">電子信箱</label>
-            <input type="email" class="form-input" placeholder="yourname@domain.com" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <div class="form-group">
+              <label class="form-label" style="font-weight: 700; color: #3a3a3f;">電子信箱</label>
+              <input type="email" name="信箱" class="form-input" placeholder="yourname@domain.com" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+            </div>
+            <div class="form-group">
+              <label class="form-label" style="font-weight: 700; color: #3a3a3f;">施工地區</label>
+              <select name="施工地區" class="form-input" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px;">
+                <option value="">請選擇地區</option>
+                <option>基隆市</option>
+                <option>台北市</option>
+                <option>新北市</option>
+                <option>桃園市</option>
+                <option>新竹市 / 新竹縣</option>
+                <option>苗栗縣</option>
+                <option>台中市</option>
+                <option>彰化縣</option>
+                <option>南投縣</option>
+                <option>雲林縣</option>
+                <option>嘉義市 / 嘉義縣</option>
+                <option>台南市</option>
+                <option>高雄市</option>
+                <option>屏東縣</option>
+                <option>宜蘭縣</option>
+                <option>花蓮縣</option>
+                <option>台東縣</option>
+                <option>澎湖 / 金門 / 馬祖</option>
+                <option>其他 / 待確認</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group" style="margin-bottom: 20px;">
             <label class="form-label" style="font-weight: 700; color: #3a3a3f;">您的工程需求項目（可複選）</label>
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 8px;">
-              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox"> GRC 預鑄造型工程 / 3D BIM 放樣</label>
-              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox"> PPG 建築塗料系統 (連工帶料)</label>
-              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox"> 外牆拉皮整合翻新工程</label>
-              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox"> 外牆滴水條 / 導水板配件系統</label>
+              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox" name="需求_GRC"> GRC 特殊造型工程</label>
+              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox" name="需求_PPG"> 建築外牆防護塗料</label>
+              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox" name="需求_翻新"> 外牆翻新整合工程</label>
+              <label style="font-size: 0.9rem; color: #55555e;"><input type="checkbox" name="需求_其他"> 其他 / 現勘評估</label>
             </div>
           </div>
 
           <div class="form-group" style="margin-bottom: 24px;">
-            <label class="form-label" style="font-weight: 700; color: #3a3a3f;">專案說明或圖面備註</label>
-            <textarea class="form-input" rows="4" placeholder="請簡述案名、預計施工地點、需求時程或是否已備妥 CAD/BIM 圖面..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px; font-family: inherit;"></textarea>
+            <label class="form-label" style="font-weight: 700; color: #3a3a3f;">專案說明或補充備註</label>
+            <textarea name="說明" class="form-input" rows="4" placeholder="請簡述案名、需求時程、或是否已備妥 CAD/BIM 圖面..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(58,58,63,0.15); font-size: 0.92rem; margin-top: 6px; font-family: inherit;"></textarea>
           </div>
 
-          <button type="submit" class="btn-submit" style="width: 100%; padding: 14px; background: #3a3a3f; color: #ffffff; font-weight: 800; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: opacity 0.2s;">送出技術諮詢表單</button>
+          <button type="submit" class="btn-submit" style="width: 100%; padding: 14px; background: #3a3a3f; color: #ffffff; font-weight: 700; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">送出諮詢表單</button>
         </form>
       </div>
 
@@ -189,6 +222,11 @@
           document.body.style.overflow = '';
         });
       });
+    }
+
+    // 成功送出表單提示
+    if (window.location.search.includes('sent=1')) {
+      alert('您的諮詢表單已成功送出！請確認您的電子信箱是否有收到 FormSubmit 的確認信 (首次送出時需要點擊確認信以啟用，隨後表單將自動投遞至騰煇信箱 w862726@gmail.com)。');
     }
   </script>
 </body>
