@@ -1681,7 +1681,7 @@ img {
   }
   .service-card-rwd {
     padding: 20px 16px !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 75px !important; /* ← 拉寬區塊上下間距，保留舒適呼吸空間 */
   }
   .service-subcard-rwd {
     padding: 16px 12px !important;
@@ -1690,6 +1690,14 @@ img {
   /* BEFORE/AFTER 翻新滑桿在手機版拉高，以展現更佳對比效果 */
   .ba-slider-container {
     height: 290px !important;
+  }
+  /* 手機版隱藏左右箭頭，防止擋到文字 (手機用戶滑動即可切換) */
+  .slider-arrow {
+    display: none !important;
+  }
+  /* 避免長標題在手機版掉字 */
+  .section-title {
+    font-size: 1.3rem !important;
   }
 }
 
@@ -1700,6 +1708,6 @@ img {
   }
   /* 縮小手機端標題，防斷行 */
   .section-title {
-    font-size: 1.35rem !important;
+    font-size: 1.15rem !important;
   }
 }
