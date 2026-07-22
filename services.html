@@ -169,6 +169,33 @@
           </div>
         </div>
 
+                <!-- ================= GRC Web3D 互動模型拆解器 ================= -->
+        <div style="background: rgba(255,255,255,0.92); border: 1px solid rgba(58,58,63,0.08); border-radius: 16px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.03);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">GRC Web3D 構件互動拆解器</h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">拖曳可 3D 旋轉與縮放模型，切換不同檢視模式查看 GRC 預鑄工藝結構細節。</p>
+            </div>
+            <!-- 控制按鈕組 -->
+            <div style="display: flex; gap: 8px;" id="web3dControls">
+              <button class="grc-tab-btn active" onclick="set3dMode('outer', this)">外觀噴漆</button>
+              <button class="grc-tab-btn" onclick="set3dMode('mold', this)">模具分割</button>
+              <button class="grc-tab-btn" onclick="set3dMode('steel', this)">內部防護鋼骨</button>
+            </div>
+          </div>
+
+          <!-- 3D 渲染視窗 -->
+          <div style="position: relative; width: 100%; max-width: 860px; height: 420px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #18181b; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
+            <!-- 3D Canvas will be injected here -->
+            <div id="loader3d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #18181b; color: #94a3b8; font-size: 0.9rem; z-index: 10;">
+              <div style="text-align: center;">
+                <div style="margin-bottom: 8px;">3D 模型引擎啟動中...</div>
+                <div style="font-size: 0.75rem; color: #71717a;">支援滑鼠拖曳旋轉、滾輪縮放 / 手機單指滑動</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- 💥 專案工程 6 步圖面輪播展示：台中雅園新潮 (無多餘長文字，防止法務爭議) -->
         <div style="background: rgba(255,255,255,0.92); border: 1px solid rgba(58,58,63,0.08); border-radius: 16px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.03);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
@@ -597,6 +624,320 @@
       });
     }
   </script>
+  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
+  <div class="floating-contact-bar">
+    <!-- LINE -->
+    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
+      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
+    </a>
+    <!-- Telephone -->
+    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+    <!-- Google Maps -->
+    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </a>
+    <!-- Back to Top -->
+    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
+      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Back to top behavior
+    const btnToTop = document.getElementById('btnToTop');
+    if (btnToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnToTop.classList.add('show');
+        } else {
+          btnToTop.classList.remove('show');
+        }
+      });
+      btnToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+
+  <!-- Three.js 3D 引擎與控制器 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    let scene, camera, renderer, grcGroup;
+    let concreteMesh, moldLines, steelFrameGroup;
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+    let rotationSpeed = 0.005;
+    let targetRotationX = 0.3;
+    let targetRotationY = -0.5;
+
+    function initWeb3D() {
+      const container = document.getElementById('canvas3dContainer');
+      const loader = document.getElementById('loader3d');
+      if (!container) return;
+
+      // 檢查 Three.js 是否成功載入
+      if (typeof THREE === 'undefined') {
+        loader.innerHTML = '<div style="color: #ef4444;">3D 引擎載入失敗，請檢查您的網路連線。</div>';
+        return;
+      }
+
+      // 1. 初始化場景
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x18181b);
+
+      // 2. 初始化相機
+      camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+      camera.position.set(0, 0, 7);
+
+      // 3. 初始化渲染器
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(renderer.domElement);
+
+      if (loader) loader.style.display = 'none';
+
+      // 4. 建立光源
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+      dirLight1.position.set(5, 10, 7);
+      scene.add(dirLight1);
+
+      const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+      dirLight2.position.set(-5, -5, -5);
+      scene.add(dirLight2);
+
+      // 5. 建立 GRC 構件群組
+      grcGroup = new THREE.Group();
+      grcGroup.rotation.set(targetRotationX, targetRotationY, 0);
+      scene.add(grcGroup);
+
+      // --- A. 建立彎曲混凝土外殼 (GRC Concrete Panel) ---
+      const curveShape = new THREE.Shape();
+      // 繪製一個拱形剖面
+      curveShape.moveTo(-2.2, -1.2);
+      curveShape.quadraticCurveTo(0, -0.6, 2.2, -1.2);
+      curveShape.lineTo(2.2, 1.2);
+      curveShape.quadraticCurveTo(0, 1.8, -2.2, 1.2);
+      curveShape.closePath();
+
+      const extrudeSettings = {
+        depth: 0.15,
+        bevelEnabled: true,
+        bevelSegments: 3,
+        steps: 1,
+        bevelSize: 0.03,
+        bevelThickness: 0.03
+      };
+
+      const concreteGeom = new THREE.ExtrudeGeometry(curveShape, extrudeSettings);
+      concreteGeom.center(); // 置中
+
+      // 混凝土面層材質 (高品質磨砂感)
+      const concreteMat = new THREE.MeshStandardMaterial({
+        color: 0xd4d4d8,
+        roughness: 0.85,
+        metalness: 0.1,
+        transparent: true,
+        opacity: 1.0
+      });
+      concreteMesh = new THREE.Mesh(concreteGeom, concreteMat);
+      grcGroup.add(concreteMesh);
+
+      // --- B. 建立模具分割線 (Mold Lines) ---
+      const edges = new THREE.EdgesGeometry(concreteGeom);
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0x3f3f46,
+        linewidth: 2,
+        transparent: true,
+        opacity: 0.0 // 預設隱藏
+      });
+      moldLines = new THREE.LineSegments(edges, lineMat);
+      grcGroup.add(moldLines);
+
+      // --- C. 建立內部鋼骨結構架 (Steel Framing) ---
+      steelFrameGroup = new THREE.Group();
+      steelFrameGroup.visible = false; // 預設隱藏
+      grcGroup.add(steelFrameGroup);
+
+      const steelMat = new THREE.MeshStandardMaterial({
+        color: 0xf59e0b, // 亮橘黃色鋼骨
+        metalness: 0.8,
+        roughness: 0.2
+      });
+
+      const rebarMat = new THREE.MeshStandardMaterial({
+        color: 0xa1a1aa, // 灰銀色副肋 rebar
+        metalness: 0.7,
+        roughness: 0.3
+      });
+
+      // 建立主結構框支撐 (大鋼骨)
+      const pipeGeom = new THREE.CylinderGeometry(0.04, 0.04, 2.2, 8);
+      
+      const leftBar = new THREE.Mesh(pipeGeom, steelMat);
+      leftBar.position.set(-1.8, 0, -0.05);
+      steelFrameGroup.add(leftBar);
+
+      const rightBar = new THREE.Mesh(pipeGeom, steelMat);
+      rightBar.position.set(1.8, 0, -0.05);
+      steelFrameGroup.add(rightBar);
+
+      const centerBar = new THREE.Mesh(pipeGeom, steelMat);
+      centerBar.position.set(0, 0.1, -0.05);
+      steelFrameGroup.add(centerBar);
+
+      // 建立橫向連接鋼筋 (副肋網)
+      const horizGeom = new THREE.CylinderGeometry(0.015, 0.015, 3.8, 8);
+      for (let y = -0.9; y <= 0.9; y += 0.3) {
+        const hBar = new THREE.Mesh(horizGeom, rebarMat);
+        hBar.rotation.z = Math.PI / 2;
+        hBar.position.set(0, y, -0.05);
+        steelFrameGroup.add(hBar);
+      }
+
+      // 建立背面吊掛錨件支架 (L-Brackets)
+      const bracketGeom = new THREE.BoxGeometry(0.12, 0.12, 0.25);
+      const bracketMat = new THREE.MeshStandardMaterial({ color: 0x71717a, metalness: 0.9, roughness: 0.1 });
+      
+      const b1 = new THREE.Mesh(bracketGeom, bracketMat);
+      b1.position.set(-1.0, 0.6, -0.2);
+      steelFrameGroup.add(b1);
+
+      const b2 = new THREE.Mesh(bracketGeom, bracketMat);
+      b2.position.set(1.0, 0.6, -0.2);
+      steelFrameGroup.add(b2);
+
+      const b3 = new THREE.Mesh(bracketGeom, bracketMat);
+      b3.position.set(-1.0, -0.6, -0.2);
+      steelFrameGroup.add(b3);
+
+      const b4 = new THREE.Mesh(bracketGeom, bracketMat);
+      b4.position.set(1.0, -0.6, -0.2);
+      steelFrameGroup.add(b4);
+
+      // 6. 滑鼠/觸控事件監聽 (手動拖曳旋轉)
+      const onPointerDown = (e) => {
+        isDragging = true;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        previousMousePosition = { x: clientX, y: clientY };
+      };
+
+      const onPointerMove = (e) => {
+        if (!isDragging) return;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+        const deltaMove = {
+          x: clientX - previousMousePosition.x,
+          y: clientY - previousMousePosition.y
+        };
+
+        targetRotationY += deltaMove.x * rotationSpeed;
+        targetRotationX += deltaMove.y * rotationSpeed;
+
+        // 限制 X 軸旋轉避免倒轉
+        targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+
+        previousMousePosition = { x: clientX, y: clientY };
+      };
+
+      const onPointerUp = () => {
+        isDragging = false;
+      };
+
+      // 滑鼠滾輪縮放
+      const onWheel = (e) => {
+        e.preventDefault();
+        camera.position.z += e.deltaY * 0.005;
+        camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+      };
+
+      container.addEventListener('mousedown', onPointerDown);
+      container.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      container.addEventListener('touchstart', onPointerDown, { passive: true });
+      container.addEventListener('touchmove', onPointerMove, { passive: true });
+      window.addEventListener('touchend', onPointerUp);
+      
+      container.addEventListener('wheel', onWheel, { passive: false });
+
+      // RWD 調整
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      // 7. 啟動動畫循環
+      animate();
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // 滑順緩動旋轉
+      if (grcGroup) {
+        grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
+        grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
+
+        // 閒置時緩慢自轉
+        if (!isDragging) {
+          targetRotationY += 0.0015;
+        }
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // 切換 3D 展示模式
+    window.set3dMode = function(mode, btnEl) {
+      if (!concreteMesh) return;
+
+      // 切換按鈕 active 樣式
+      const btns = document.querySelectorAll('#web3dControls .grc-tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      if (mode === 'outer') {
+        // 外觀模式：實體混凝土，隱藏分割線與鋼骨
+        concreteMesh.material.opacity = 1.0;
+        concreteMesh.material.color.setHex(0xd4d4d8);
+        moldLines.material.opacity = 0.0;
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'mold') {
+        // 模具分割模式：顯示拼裝接縫與模具分割黑線
+        concreteMesh.material.opacity = 0.85;
+        concreteMesh.material.color.setHex(0xa1a1aa);
+        moldLines.material.opacity = 1.0;
+        moldLines.material.color.setHex(0x18181b); // 黑線
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'steel') {
+        // 內部防護鋼骨模式：混凝土極透明，鋼骨亮起
+        concreteMesh.material.opacity = 0.12;
+        concreteMesh.material.color.setHex(0xe4e4e7);
+        moldLines.material.opacity = 0.3;
+        moldLines.material.color.setHex(0xa1a1aa);
+        steelFrameGroup.visible = true;
+      }
+    };
+
+    // 初始化啟動
+    document.addEventListener('DOMContentLoaded', () => {
+      // 延遲 500ms 啟動，避開首頁主要渲染阻塞
+      setTimeout(initWeb3D, 500);
+    });
+  </script>
+
 </body>
 </html>
 

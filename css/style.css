@@ -1384,3 +1384,242 @@ img {
   color: var(--th-text-secondary);
   line-height: 1.8;
 }
+
+/* ==========================================================================
+   最新消息與公告 (Latest News)
+   ========================================================================== */
+.news-section {
+  padding: 80px 0;
+  background: #ffffff;
+  border-bottom: 1px solid var(--th-border-color);
+}
+
+.news-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  background: #fafafa;
+  border: 1px solid var(--th-border-color);
+  border-radius: 12px;
+  transition: var(--th-transition);
+  text-decoration: none;
+}
+
+.news-item:hover {
+  background: #ffffff;
+  border-color: rgba(58, 58, 63, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.news-date {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--th-text-secondary);
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.news-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-right: 20px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.news-tag.tag-cert {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.news-tag.tag-case {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.news-tag.tag-tech {
+  background: rgba(107, 114, 128, 0.1);
+  color: #4b5563;
+}
+
+.news-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--th-brand-dark);
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.news-arrow {
+  font-size: 1.1rem;
+  color: var(--th-text-muted);
+  transition: var(--th-transition);
+}
+
+.news-item:hover .news-arrow {
+  color: var(--th-brand-dark);
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .news-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px;
+  }
+  .news-date {
+    width: auto;
+  }
+  .news-tag {
+    margin-right: 0;
+  }
+  .news-arrow {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   全站右側懸浮快捷聯絡列 (Floating Action Bar)
+   ========================================================================== */
+.floating-contact-bar {
+  position: fixed;
+  right: 24px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #3a3a3f;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+  position: relative;
+}
+
+.floating-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.floating-btn.btn-line {
+  background: #06c755;
+}
+
+.floating-btn.btn-line:hover {
+  background: #05b04b;
+}
+
+.floating-btn.btn-tel {
+  background: #3a3a3f;
+}
+
+.floating-btn.btn-tel:hover {
+  background: #4a4a50;
+}
+
+.floating-btn.btn-map {
+  background: #4285f4;
+}
+
+.floating-btn.btn-map:hover {
+  background: #357ae8;
+}
+
+.floating-btn.btn-totop {
+  background: #ffffff;
+  color: #3a3a3f;
+  border: 1px solid var(--th-border-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.floating-btn.btn-totop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-btn.btn-totop:hover {
+  background: #fafafa;
+  color: #27272a;
+}
+
+/* 懸浮展開文字標籤 (僅電腦版) */
+@media (min-width: 769px) {
+  .floating-btn::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: #27272a;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .floating-btn:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* RWD 手機版置底排版 */
+@media (max-width: 768px) {
+  .floating-contact-bar {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--th-border-color);
+    padding: 10px 16px;
+    gap: 0;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.06);
+  }
+
+  .floating-btn {
+    width: 44px;
+    height: 44px;
+    box-shadow: none;
+  }
+
+  .floating-btn.btn-totop {
+    display: none !important; /* 手機版不放 ToTop 佔底 */
+  }
+}
