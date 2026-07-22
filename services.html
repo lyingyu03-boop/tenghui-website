@@ -821,35 +821,61 @@
       b4.position.set(1.0, -0.6, -0.2);
       steelFrameGroup.add(b4);
 
-      // 6. 滑鼠/觸控事件監聽 (手動拖曳旋轉)
+      // 6. 滑鼠/觸控事件監聽 (支援手機單指拖曳旋轉、雙指捏合縮放)
+      let initialPinchDistance = 0;
+      let initialCameraZ = 7;
+
+      const getPinchDistance = (e) => {
+        if (!e.touches || e.touches.length < 2) return 0;
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+      };
+
       const onPointerDown = (e) => {
         isDragging = true;
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        previousMousePosition = { x: clientX, y: clientY };
+        if (e.touches && e.touches.length === 2) {
+          initialPinchDistance = getPinchDistance(e);
+          initialCameraZ = camera.position.z;
+        } else {
+          const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+          const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+          previousMousePosition = { x: clientX, y: clientY };
+        }
       };
 
       const onPointerMove = (e) => {
         if (!isDragging) return;
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
-        const deltaMove = {
-          x: clientX - previousMousePosition.x,
-          y: clientY - previousMousePosition.y
-        };
+        if (e.touches && e.touches.length === 2) {
+          // 雙指縮放
+          const currentDistance = getPinchDistance(e);
+          if (initialPinchDistance > 0 && currentDistance > 0) {
+            const ratio = initialPinchDistance / currentDistance;
+            camera.position.z = initialCameraZ * ratio;
+            camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+          }
+        } else {
+          // 單指/滑鼠旋轉
+          const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+          const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
-        targetRotationY += deltaMove.x * rotationSpeed;
-        targetRotationX += deltaMove.y * rotationSpeed;
+          const deltaMove = {
+            x: clientX - previousMousePosition.x,
+            y: clientY - previousMousePosition.y
+          };
 
-        // 限制 X 軸旋轉避免倒轉
-        targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+          targetRotationY += deltaMove.x * rotationSpeed;
+          targetRotationX += deltaMove.y * rotationSpeed;
+          targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
 
-        previousMousePosition = { x: clientX, y: clientY };
+          previousMousePosition = { x: clientX, y: clientY };
+        }
       };
 
       const onPointerUp = () => {
         isDragging = false;
+        initialPinchDistance = 0;
       };
 
       // 滑鼠滾輪縮放
