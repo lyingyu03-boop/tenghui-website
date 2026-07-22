@@ -1153,7 +1153,7 @@
         object.scale.set(scale, scale, scale);
       }
 
-      // 套用灰石顆粒質感材質
+      // 套用灰石顆粒質感材質並生成模具分割接縫線 (userMoldLines)
       object.traverse(function (child) {
         if (child.isMesh) {
           child.material = new THREE.MeshStandardMaterial({
@@ -1164,6 +1164,20 @@
           });
           child.castShadow = true;
           child.receiveShadow = true;
+
+          // 生成該網格的稜線/接縫分割線 (對應模具分割模式)
+          if (child.geometry) {
+            const edges = new THREE.EdgesGeometry(child.geometry, 15);
+            const lineMat = new THREE.LineBasicMaterial({
+              color: 0x18181b,
+              transparent: true,
+              opacity: 0.85
+            });
+            const lineSegments = new THREE.LineSegments(edges, lineMat);
+            lineSegments.name = 'userMoldLines';
+            lineSegments.visible = false; // 預設隱藏
+            child.add(lineSegments); // 作為子元件隨之旋轉移動
+          }
         }
       });
 
@@ -1358,12 +1372,30 @@
       if (userModelGroup) {
         userModelGroup.traverse(function(child) {
           if (child.isMesh) {
-            if (mode === 'steel') {
-              child.material.wireframe = true;
-              child.material.opacity = 0.8;
-            } else {
+            const userLines = child.getObjectByName('userMoldLines');
+            
+            if (mode === 'outer') {
               child.material.wireframe = false;
               child.material.opacity = 1.0;
+              child.material.color.setHex(0xb5b5ba); // 混凝土灰色
+              if (userLines) userLines.visible = false;
+            }
+            else if (mode === 'mold') {
+              child.material.wireframe = false;
+              child.material.opacity = 0.85;
+              child.material.color.setHex(0x94a3b8); // 略深色背景，襯托黑色線框
+              if (userLines) {
+                userLines.visible = true;
+                userLines.material.color.setHex(0x18181b); // 黑色拼接縫
+                userLines.material.opacity = 0.85;
+              }
+            }
+            else if (mode === 'steel') {
+              // 用戶上傳模型以「黃金高亮半透線框」呈現，非常有科技結構感！
+              child.material.wireframe = true;
+              child.material.opacity = 0.25;
+              child.material.color.setHex(0xf59e0b); // 亮金黃鋼架
+              if (userLines) userLines.visible = false;
             }
           }
         });
