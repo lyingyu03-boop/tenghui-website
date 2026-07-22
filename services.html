@@ -177,8 +177,8 @@
               <p style="font-size: 0.82rem; color: #64748b; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span>拖曳可 3D 旋轉與縮放模型，切換不同模式檢視結構細節。</span>
                 <span style="display: inline-flex; background: rgba(58,58,63,0.06); border-radius: 6px; padding: 2px;" id="gestureModeControls">
-                  <button class="grc-tab-btn active" id="btnModeRotate" onclick="setGestureMode('rotate')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">🔄 旋轉</button>
-                  <button class="grc-tab-btn" id="btnModePan" onclick="setGestureMode('pan')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">✋ 平移</button>
+                  <button class="grc-tab-btn active" id="btnModeRotate" onclick="setGestureMode('rotate')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">旋轉</button>
+                  <button class="grc-tab-btn" id="btnModePan" onclick="setGestureMode('pan')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">平移</button>
                 </span>
               </p>
             </div>
@@ -193,9 +193,9 @@
           <!-- 3D 渲染視窗 -->
           <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
             
-            <!-- 📂 3D 檔案拖曳與上傳控制列 -->
+            <!-- 3D 檔案拖曳與上傳控制列 -->
             <div id="dropZone3d" style="position: absolute; top: 12px; left: 12px; right: 12px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(18,18,20,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #a1a1aa; font-size: 0.75rem; z-index: 20; transition: all 0.2s;">
-              <span style="font-weight: 600;">📂 拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
+              <span style="font-weight: 600;">拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
               <div style="display: flex; gap: 8px; align-items: center;">
                 <input type="file" id="fileInput3d" accept=".gltf,.glb,.obj,.stl" style="display: none;">
                 <button onclick="document.getElementById('fileInput3d').click()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">選取檔案</button>
@@ -772,11 +772,18 @@
       animate();
     }
 
-    // 🚀 切換手勢模式 (旋轉/平移)
+    // 切換手勢模式 (旋轉/平移)
     window.setGestureMode = function(mode) {
       gestureMode = mode;
       document.getElementById('btnModeRotate').classList.toggle('active', mode === 'rotate');
       document.getElementById('btnModePan').classList.toggle('active', mode === 'pan');
+    };
+
+    // 🚀 手機端/快捷按鈕縮放函式
+    window.zoom3D = function(factor) {
+      if (!camera) return;
+      camera.position.z *= factor;
+      camera.position.z = Math.max(3, Math.min(12, camera.position.z));
     };
 
     // --- 🏛️ 建立實體有厚度雙曲鞍形預鑄板 + 結構背骨鋼架 (Offset behind panel) ---
