@@ -1623,3 +1623,83 @@ img {
     display: none !important; /* 手機版不放 ToTop 佔底 */
   }
 }
+
+/* ==========================================================================
+   手機版優化與窄版相容樣式 (Mobile RWD Spacing Helper)
+   ========================================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(58,58,63,0.08);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+}
+
+.grid-3-to-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* 服務項目大卡片 class */
+.service-card-rwd {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  margin-bottom: 70px;
+  scroll-margin-top: 100px;
+}
+
+/* 服務項目內嵌子卡片 class */
+.service-subcard-rwd {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(58,58,63,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+}
+
+@media (max-width: 900px) {
+  .grid-3-to-1 {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+  .service-card-rwd {
+    padding: 20px 16px !important;
+    margin-bottom: 40px !important;
+  }
+  .service-subcard-rwd {
+    padding: 16px 12px !important;
+    margin-top: 16px !important;
+  }
+  /* BEFORE/AFTER 翻新滑桿在手機版拉高，以展現更佳對比效果 */
+  .ba-slider-container {
+    height: 290px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+  /* 縮小手機端標題，防斷行 */
+  .section-title {
+    font-size: 1.35rem !important;
+  }
+}
