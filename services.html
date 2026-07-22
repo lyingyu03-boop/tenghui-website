@@ -185,12 +185,23 @@
           </div>
 
           <!-- 3D 渲染視窗 -->
-          <div style="position: relative; width: 100%; max-width: 860px; height: 420px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #18181b; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
+          <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
+            
+            <!-- 📂 3D 檔案拖曳與上傳控制列 -->
+            <div id="dropZone3d" style="position: absolute; top: 12px; left: 12px; right: 12px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(18,18,20,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #a1a1aa; font-size: 0.75rem; z-index: 20; transition: all 0.2s;">
+              <span style="font-weight: 600;">📂 拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="file" id="fileInput3d" accept=".gltf,.glb,.obj,.stl" style="display: none;">
+                <button onclick="document.getElementById('fileInput3d').click()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">選取檔案</button>
+                <button id="btnReset3d" onclick="reset3dModel()" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設模型</button>
+              </div>
+            </div>
+
             <!-- 3D Canvas will be injected here -->
-            <div id="loader3d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #18181b; color: #94a3b8; font-size: 0.9rem; z-index: 10;">
+            <div id="loader3d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #121214; color: #94a3b8; font-size: 0.9rem; z-index: 10;">
               <div style="text-align: center;">
-                <div style="margin-bottom: 8px;">3D 模型引擎啟動中...</div>
-                <div style="font-size: 0.75rem; color: #71717a;">支援滑鼠拖曳旋轉、滾輪縮放 / 手機單指滑動</div>
+                <div style="margin-bottom: 8px; font-weight: 700;">3D 引擎初始化中...</div>
+                <div style="font-size: 0.75rem; color: #71717a;">拖曳旋轉、雙指縮放 ｜ 支援本機檔案載入</div>
               </div>
             </div>
           </div>
@@ -624,6 +635,634 @@
       });
     }
   </script>
+  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
+  <div class="floating-contact-bar">
+    <!-- LINE -->
+    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
+      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
+    </a>
+    <!-- Telephone -->
+    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+    <!-- Google Maps -->
+    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </a>
+    <!-- Back to Top -->
+    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
+      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Back to top behavior
+    const btnToTop = document.getElementById('btnToTop');
+    if (btnToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnToTop.classList.add('show');
+        } else {
+          btnToTop.classList.remove('show');
+        }
+      });
+      btnToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+
+  
+  
+  <!-- Three.js 3D 核心與擴充載入器 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+  
+  <script>
+    let scene, camera, renderer, grcGroup;
+    let concreteMesh, moldLines, steelFrameGroup;
+    let userModelGroup = null; // 用戶上傳的模型
+    let isDragging = false;
+    let isScrolling = false;
+    let isInteracting = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let previousMousePosition = { x: 0, y: 0 };
+    let rotationSpeed = 0.006;
+    let targetRotationX = 0.35;
+    let targetRotationY = -0.6;
+    let initialPinchDistance = 0;
+    let initialCameraZ = 7;
+    let currentMode = 'outer';
+
+    function initWeb3D() {
+      const container = document.getElementById('canvas3dContainer');
+      const loader = document.getElementById('loader3d');
+      if (!container) return;
+
+      if (typeof THREE === 'undefined') {
+        loader.innerHTML = '<div style="color: #ef4444; font-weight: 700;">3D 引擎載入失敗，請檢查網路。</div>';
+        return;
+      }
+
+      // 1. 場景初始化
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x121214);
+
+      // 2. 相機初始化
+      camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+      camera.position.set(0, 0, 7.5);
+
+      // 3. 渲染器初始化
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(renderer.domElement);
+
+      if (loader) loader.style.display = 'none';
+
+      // 4. 立體光影設計 (增加冷暖對比，強化凹凸曲面雕塑感)
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.9);
+      dirLight1.position.set(8, 12, 10);
+      scene.add(dirLight1);
+
+      const dirLight2 = new THREE.DirectionalLight(0x60a5fa, 0.5); // 冰藍色側補光
+      dirLight2.position.set(-8, -4, -2);
+      scene.add(dirLight2);
+
+      const dirLight3 = new THREE.DirectionalLight(0xfeb019, 0.2); // 暖陽光頂光
+      dirLight3.position.set(0, 8, 2);
+      scene.add(dirLight3);
+
+      // 5. 建立主 GRC 群組
+      grcGroup = new THREE.Group();
+      grcGroup.rotation.set(targetRotationX, targetRotationY, 0);
+      scene.add(grcGroup);
+
+      // 建立預設模型
+      createDefaultSaddleModel();
+
+      // 6. 初始化 Drag & Drop / File Upload 監聽器
+      initFileUpload();
+
+      // 7. 註冊觸控/滑鼠手勢
+      registerGestures(container);
+
+      // RWD 調整
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      animate();
+    }
+
+    // --- 🏛️ 建立極致專業：雙曲鞍形外裝飾板 + 三維太空桁架骨架 ---
+    function createDefaultSaddleModel() {
+      // 清空舊模型
+      if (concreteMesh) grcGroup.remove(concreteMesh);
+      if (moldLines) grcGroup.remove(moldLines);
+      if (steelFrameGroup) grcGroup.remove(steelFrameGroup);
+
+      // 建立雙曲拋物面幾何 (經典 GRC 挑戰級雙曲造型)
+      const uSegments = 40;
+      const vSegments = 40;
+      const xRange = 4.6;
+      const yRange = 2.4;
+      
+      // 用自訂函數產生鞍形面板
+      const concreteGeom = new THREE.BufferGeometry();
+      const vertices = [];
+      const indices = [];
+      const normals = [];
+
+      for (let j = 0; j <= vSegments; j++) {
+        const v = j / vSegments;
+        const y = (v - 0.5) * yRange;
+        for (let i = 0; i <= uSegments; i++) {
+          const u = i / uSegments;
+          const x = (u - 0.5) * xRange;
+          
+          // 鞍形公式：z = x^2/6 - y^2/4 (雙曲拋物線)
+          // 加上波浪裝飾刻線 (Flutes)
+          const flute = 0.08 * Math.sin(u * Math.PI * 6);
+          const z = (x*x)/7.5 - (y*y)/5.5 + flute;
+          
+          vertices.push(x, y, z);
+        }
+      }
+
+      for (let j = 0; j < vSegments; j++) {
+        for (let i = 0; i < uSegments; i++) {
+          const row1 = j * (uSegments + 1);
+          const row2 = (j + 1) * (uSegments + 1);
+          
+          // 三角形 1
+          indices.push(row1 + i, row1 + i + 1, row2 + i);
+          // 三角形 2
+          indices.push(row1 + i + 1, row2 + i + 1, row2 + i);
+        }
+      }
+
+      concreteGeom.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      concreteGeom.setIndex(indices);
+      concreteGeom.computeVertexNormals();
+
+      // 材質 (高品質仿混凝土，粗糙微晶顆粒)
+      const concreteMat = new THREE.MeshStandardMaterial({
+        color: 0xe4e4e7,
+        roughness: 0.85,
+        metalness: 0.05,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 1.0
+      });
+      concreteMesh = new THREE.Mesh(concreteGeom, concreteMat);
+      grcGroup.add(concreteMesh);
+
+      // 建立模具分割線 (邊界與接合縫)
+      const edges = new THREE.EdgesGeometry(concreteGeom, 15); // 角度閾值 15
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0x18181b,
+        linewidth: 2.5,
+        transparent: true,
+        opacity: 0.0 // 預設隱藏
+      });
+      moldLines = new THREE.LineSegments(edges, lineMat);
+      grcGroup.add(moldLines);
+
+      // --- C. 建立立體三角太空桁架鋼骨架 (3D Space Truss) ---
+      steelFrameGroup = new THREE.Group();
+      steelFrameGroup.visible = false;
+      grcGroup.add(steelFrameGroup);
+
+      const mainTrussMat = new THREE.MeshStandardMaterial({
+        color: 0xf59e0b, // 亮金黃主鋼架
+        metalness: 0.88,
+        roughness: 0.12
+      });
+
+      const diagonalMat = new THREE.MeshStandardMaterial({
+        color: 0x94a3b8, // 鋼灰色斜拉支撐
+        metalness: 0.8,
+        roughness: 0.2
+      });
+
+      // 1. 主橫向背骨 (鞍形圓弧管)
+      const createCurvedPipe = (yOffset, thickness, mat) => {
+        const points = [];
+        for (let i = 0; i <= 20; i++) {
+          const t = i / 20;
+          const x = -2.1 + t * 4.2;
+          const z = (x*x)/7.5 - (yOffset*yOffset)/5.5 - 0.12; // 置於面板背面內側
+          points.push(new THREE.Vector3(x, yOffset, z));
+        }
+        const curve = new THREE.CatmullRomCurve3(points);
+        const tubeGeom = new THREE.TubeGeometry(curve, 30, thickness, 8, false);
+        const tubeMesh = new THREE.Mesh(tubeGeom, mat);
+        steelFrameGroup.add(tubeMesh);
+      };
+
+      // 建立上下兩根粗主背骨
+      createCurvedPipe(0.8, 0.045, mainTrussMat);
+      createCurvedPipe(-0.8, 0.045, mainTrussMat);
+
+      // 2. 建立立體三角拉索支撐 (Truss Web Webbing)
+      const cylinderGeom = new THREE.CylinderGeometry(0.015, 0.015, 1.6, 8);
+      for (let x = -1.8; x <= 1.8; x += 0.6) {
+        // 連接上下主背骨的垂直腹桿
+        const zUpper = (x*x)/7.5 - (0.8*0.8)/5.5 - 0.12;
+        const zLower = (x*x)/7.5 - (-0.8*-0.8)/5.5 - 0.12;
+        
+        const verticalStrut = new THREE.Mesh(cylinderGeom, diagonalMat);
+        verticalStrut.position.set(x, 0, (zUpper + zLower)/2);
+        verticalStrut.rotation.x = Math.PI / 2; // 轉為立體支撐
+        steelFrameGroup.add(verticalStrut);
+
+        // 立體三角斜拉撐 (向外拉伸吊掛鐵件)
+        const diagonalStrut = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 1.8, 8), diagonalMat);
+        diagonalStrut.position.set(x, 0, (zUpper + zLower)/2 - 0.15);
+        diagonalStrut.rotation.set(0.3, 0, Math.PI / 4);
+        steelFrameGroup.add(diagonalStrut);
+      }
+
+      // 建立圓形重型吊掛錨座 (Anchor Mounting Plates)
+      const discGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.03, 16);
+      const discMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9, roughness: 0.1 });
+      for (let x = -1.2; x <= 1.2; x += 2.4) {
+        for (let y = -0.6; y <= 0.6; y += 1.2) {
+          const anchor = new THREE.Mesh(discGeom, discMat);
+          const z = (x*x)/7.5 - (y*y)/5.5 - 0.32;
+          anchor.position.set(x, y, z);
+          anchor.rotation.x = Math.PI / 2;
+          steelFrameGroup.add(anchor);
+        }
+      }
+
+      // 回復當前顯示模式
+      set3dMode(currentMode, null);
+    }
+
+    // --- 📂 用戶 Drag & Drop 3D 檔案上傳讀取邏輯 ---
+    function initFileUpload() {
+      const container = document.getElementById('canvas3dContainer');
+      const dropZone = document.getElementById('dropZone3d');
+      const fileInput = document.getElementById('fileInput3d');
+
+      if (!container || !dropZone || !fileInput) return;
+
+      // 拖曳進入效果高亮
+      container.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#f59e0b';
+        dropZone.style.background = 'rgba(18,18,20,0.9)';
+      });
+
+      container.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+        dropZone.style.background = 'rgba(18,18,20,0.75)';
+      });
+
+      container.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+        dropZone.style.background = 'rgba(18,18,20,0.75)';
+
+        const file = e.dataTransfer.files[0];
+        if (file) handleUploadedFile(file);
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) handleUploadedFile(file);
+      });
+    }
+
+    function handleUploadedFile(file) {
+      const loaderEl = document.getElementById('loader3d');
+      const resetBtn = document.getElementById('btnReset3d');
+      if (!loaderEl) return;
+
+      loaderEl.style.display = 'flex';
+      loaderEl.innerHTML = `<div style="text-align:center;"><div style="margin-bottom:8px;font-weight:700;">讀取並載入中: ${file.name}</div><div style="font-size:0.75rem;color:#71717a;">本機安全解碼中，絕不上傳檔案</div></div>`;
+
+      const reader = new FileReader();
+      const ext = file.name.split('.').pop().toLowerCase();
+
+      // 隱藏預設 GRC 構件
+      if (concreteMesh) concreteMesh.visible = false;
+      if (moldLines) moldLines.visible = false;
+      if (steelFrameGroup) steelFrameGroup.visible = false;
+
+      // 移除先前的用戶模型
+      if (userModelGroup) scene.remove(userModelGroup);
+      userModelGroup = new THREE.Group();
+      scene.add(userModelGroup);
+
+      reader.onload = function (e) {
+        const contents = e.target.result;
+
+        try {
+          if (ext === 'glb' || ext === 'gltf') {
+            const gltfLoader = new THREE.GLTFLoader();
+            gltfLoader.parse(contents, '', function (gltf) {
+              const loadedObject = gltf.scene;
+              adjustAndAddToScene(loadedObject);
+            }, function(err) {
+              showError("GLTF 解析失敗: " + err.message);
+            });
+          } 
+          else if (ext === 'obj') {
+            const text = new TextDecoder("utf-8").decode(contents);
+            const objLoader = new THREE.OBJLoader();
+            const loadedObject = objLoader.parse(text);
+            adjustAndAddToScene(loadedObject);
+          } 
+          else if (ext === 'stl') {
+            const stlLoader = new THREE.STLLoader();
+            const geometry = stlLoader.parse(contents);
+            const material = new THREE.MeshStandardMaterial({
+              color: 0x94a3b8,
+              roughness: 0.5,
+              metalness: 0.5
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            const wrapperGroup = new THREE.Group();
+            wrapperGroup.add(mesh);
+            adjustAndAddToScene(wrapperGroup);
+          }
+        } catch (error) {
+          showError("模型載入異常: " + error.message);
+        }
+      };
+
+      // 依格式選取 FileReader 讀取模式
+      if (ext === 'obj') {
+        reader.readAsArrayBuffer(file); // 使用 TextDecoder 解碼
+      } else {
+        reader.readAsArrayBuffer(file); // GLB/GLTF/STL 二進位
+      }
+    }
+
+    function adjustAndAddToScene(object) {
+      const loaderEl = document.getElementById('loader3d');
+      const resetBtn = document.getElementById('btnReset3d');
+
+      // 計算模型邊界，自動縮放與置中
+      const box = new THREE.Box3().setFromObject(object);
+      const size = box.getSize(new THREE.Vector3());
+      const center = box.getCenter(new THREE.Vector3());
+
+      // 平移置中
+      object.position.x += (object.position.x - center.x);
+      object.position.y += (object.position.y - center.y);
+      object.position.z += (object.position.z - center.z);
+
+      // 自動縮放比例 (使其高度/寬度適合渲染視窗)
+      const maxDim = Math.max(size.x, size.y, size.z);
+      if (maxDim > 0) {
+        const scale = 3.6 / maxDim; // 歸一化比例
+        object.scale.set(scale, scale, scale);
+      }
+
+      // 為用戶模型套用材質與光影
+      object.traverse(function (child) {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xa1a1aa,
+            roughness: 0.6,
+            metalness: 0.3,
+            side: THREE.DoubleSide
+          });
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      userModelGroup.add(object);
+      
+      if (loaderEl) loaderEl.style.display = 'none';
+      if (resetBtn) resetBtn.style.display = 'inline-block'; // 顯示重設模型
+
+      // 旋轉重設為稍側
+      targetRotationX = 0.35;
+      targetRotationY = -0.6;
+    }
+
+    function showError(msg) {
+      const loaderEl = document.getElementById('loader3d');
+      if (loaderEl) {
+        loaderEl.style.display = 'flex';
+        loaderEl.innerHTML = `<div style="text-align:center;padding:20px;"><div style="color:#ef4444;font-weight:700;margin-bottom:8px;">⚠️ 載入失敗</div><div style="font-size:0.75rem;color:#a1a1aa;">${msg}</div><button onclick="reset3dModel()" style="margin-top:12px;background:#3f3f46;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.75rem;">重設模型</button></div>`;
+      }
+    }
+
+    // 點擊「重設模型」返回預設 GRC 構件
+    window.reset3dModel = function() {
+      const loaderEl = document.getElementById('loader3d');
+      const resetBtn = document.getElementById('btnReset3d');
+
+      if (userModelGroup) {
+        scene.remove(userModelGroup);
+        userModelGroup = null;
+      }
+
+      if (concreteMesh) concreteMesh.visible = true;
+      if (moldLines) moldLines.visible = true;
+      if (steelFrameGroup) steelFrameGroup.visible = true;
+
+      // 重設顯示模式為當前模式
+      set3dMode(currentMode, null);
+
+      if (loaderEl) loaderEl.style.display = 'none';
+      if (resetBtn) resetBtn.style.display = 'none';
+      
+      targetRotationX = 0.35;
+      targetRotationY = -0.6;
+    };
+
+    // --- 6. 滑鼠/觸控事件監聽 (智慧定向判定，防止手機干擾頁面滾動) ---
+    function registerGestures(container) {
+      const onPointerDown = (e) => {
+        isDragging = true;
+        isScrolling = false;
+        isInteracting = false;
+
+        if (e.touches) {
+          const clientX = e.touches[0].clientX;
+          const clientY = e.touches[0].clientY;
+          touchStartX = clientX;
+          touchStartY = clientY;
+
+          if (e.touches.length === 2) {
+            initialPinchDistance = getPinchDistance(e);
+            initialCameraZ = camera.position.z;
+          } else {
+            previousMousePosition = { x: clientX, y: clientY };
+          }
+        } else {
+          previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      };
+
+      const onPointerMove = (e) => {
+        if (!isDragging) return;
+
+        if (e.touches && e.touches.length === 2) {
+          // 雙指捏合縮放模式：鎖定網頁滾動
+          if (e.cancelable) e.preventDefault();
+          const currentDistance = getPinchDistance(e);
+          if (initialPinchDistance > 0 && currentDistance > 0) {
+            const ratio = initialPinchDistance / currentDistance;
+            camera.position.z = initialCameraZ * ratio;
+            camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+          }
+        } else if (e.touches && e.touches.length === 1) {
+          const clientX = e.touches[0].clientX;
+          const clientY = e.touches[0].clientY;
+
+          const deltaX = clientX - touchStartX;
+          const deltaY = clientY - touchStartY;
+
+          // 判斷滑動方向
+          if (!isScrolling && !isInteracting) {
+            // 如果垂直方向滑動大於水平的 1.2 倍，判定為用戶要滑動網頁，不干涉滾動
+            if (Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
+              isScrolling = true;
+              isDragging = false;
+              return;
+            } else {
+              isInteracting = true;
+            }
+          }
+
+          if (isInteracting) {
+            // 判定為 3D 互動時，完全鎖定網頁滾動，只旋轉模型
+            if (e.cancelable) e.preventDefault();
+
+            const deltaMove = {
+              x: clientX - previousMousePosition.x,
+              y: clientY - previousMousePosition.y
+            };
+
+            targetRotationY += deltaMove.x * rotationSpeed;
+            targetRotationX += deltaMove.y * rotationSpeed;
+            targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+
+            previousMousePosition = { x: clientX, y: clientY };
+          }
+        } else {
+          // 桌機滑鼠滑動
+          const deltaMove = {
+            x: e.clientX - previousMousePosition.x,
+            y: e.clientY - previousMousePosition.y
+          };
+          targetRotationY += deltaMove.x * rotationSpeed;
+          targetRotationX += deltaMove.y * rotationSpeed;
+          targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+          previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      };
+
+      const onPointerUp = () => {
+        isDragging = false;
+        isScrolling = false;
+        isInteracting = false;
+        initialPinchDistance = 0;
+      };
+
+      const onWheel = (e) => {
+        e.preventDefault();
+        camera.position.z += e.deltaY * 0.005;
+        camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+      };
+
+      container.addEventListener('mousedown', onPointerDown);
+      container.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      container.addEventListener('touchstart', onPointerDown, { passive: false });
+      container.addEventListener('touchmove', onPointerMove, { passive: false });
+      window.addEventListener('touchend', onPointerUp);
+      
+      container.addEventListener('wheel', onWheel, { passive: false });
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (grcGroup) {
+        grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
+        grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
+
+        if (!isDragging) {
+          targetRotationY += 0.0015; // 閒置自轉
+        }
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // 切換 3D 展示模式
+    window.set3dMode = function(mode, btnEl) {
+      currentMode = mode;
+      if (!concreteMesh) return;
+
+      const btns = document.querySelectorAll('#web3dControls .grc-tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      // 若有上傳用戶模型，僅提供單一外觀與線框切換
+      if (userModelGroup) {
+        userModelGroup.traverse(function(child) {
+          if (child.isMesh) {
+            if (mode === 'steel') {
+              child.material.wireframe = true;
+              child.material.opacity = 0.8;
+            } else {
+              child.material.wireframe = false;
+              child.material.opacity = 1.0;
+            }
+          }
+        });
+        return;
+      }
+
+      if (mode === 'outer') {
+        concreteMesh.material.opacity = 1.0;
+        concreteMesh.material.color.setHex(0xe4e4e7);
+        moldLines.material.opacity = 0.0;
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'mold') {
+        concreteMesh.material.opacity = 0.85;
+        concreteMesh.material.color.setHex(0xa1a1aa);
+        moldLines.material.opacity = 1.0;
+        moldLines.material.color.setHex(0x18181b);
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'steel') {
+        concreteMesh.material.opacity = 0.12;
+        concreteMesh.material.color.setHex(0xe4e4e7);
+        moldLines.material.opacity = 0.3;
+        moldLines.material.color.setHex(0xa1a1aa);
+        steelFrameGroup.visible = true;
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initWeb3D, 500);
+    });
+  </script>
+
   <!-- ================= 全站快捷懸浮聯絡列 ================= -->
   <div class="floating-contact-bar">
     <!-- LINE -->
