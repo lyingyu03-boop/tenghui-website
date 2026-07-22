@@ -1039,9 +1039,9 @@
       if (steelFrameGroup) steelFrameGroup.visible = false;
 
       // 移除上一次上傳的模型
-      if (userModelGroup) scene.remove(userModelGroup);
+      if (userModelGroup) grcGroup.remove(userModelGroup);
       userModelGroup = new THREE.Group();
-      scene.add(userModelGroup);
+      grcGroup.add(userModelGroup);
 
       reader.onload = function (e) {
         const contents = e.target.result;
@@ -1145,7 +1145,7 @@
       const resetBtn = document.getElementById('btnReset3d');
 
       if (userModelGroup) {
-        scene.remove(userModelGroup);
+        grcGroup.remove(userModelGroup);
         userModelGroup = null;
       }
 
