@@ -174,7 +174,13 @@
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
               <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">GRC Web3D 構件互動拆解器</h3>
-              <p style="font-size: 0.82rem; color: #64748b; margin: 0;">拖曳可 3D 旋轉與縮放模型，切換不同檢視模式查看 GRC 預鑄工藝結構細節。</p>
+              <p style="font-size: 0.82rem; color: #64748b; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span>拖曳可 3D 旋轉與縮放模型，切換不同模式檢視結構細節。</span>
+                <span style="display: inline-flex; background: rgba(58,58,63,0.06); border-radius: 6px; padding: 2px;" id="gestureModeControls">
+                  <button class="grc-tab-btn active" id="btnModeRotate" onclick="setGestureMode('rotate')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">🔄 旋轉</button>
+                  <button class="grc-tab-btn" id="btnModePan" onclick="setGestureMode('pan')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">✋ 平移</button>
+                </span>
+              </p>
             </div>
             <!-- 控制按鈕組 -->
             <div style="display: flex; gap: 8px;" id="web3dControls">
@@ -674,6 +680,7 @@
 
 
   
+  
   <!-- Three.js 3D 核心與擴充載入器 (新增 DRACO 解碼器) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
@@ -697,6 +704,7 @@
     let initialPinchDistance = 0;
     let initialCameraZ = 7.5;
     let currentMode = 'outer';
+    let gestureMode = 'rotate'; // 🚀 手勢操作模式: 'rotate' (旋轉) 或是 'pan' (平移)
 
     function initWeb3D() {
       const container = document.getElementById('canvas3dContainer');
@@ -763,6 +771,13 @@
 
       animate();
     }
+
+    // 🚀 切換手勢模式 (旋轉/平移)
+    window.setGestureMode = function(mode) {
+      gestureMode = mode;
+      document.getElementById('btnModeRotate').classList.toggle('active', mode === 'rotate');
+      document.getElementById('btnModePan').classList.toggle('active', mode === 'pan');
+    };
 
     // --- 🏛️ 建立實體有厚度雙曲鞍形預鑄板 + 結構背骨鋼架 (Offset behind panel) ---
     function createDefaultSaddleModel() {
@@ -1050,7 +1065,7 @@
           if (ext === 'glb' || ext === 'gltf') {
             const gltfLoader = new THREE.GLTFLoader();
             
-            // 配置 Google DRACO 解碼器，確保 Draco 壓縮的 GLB 檔案正常載入
+            // 配置 Google DRACO 解碼器
             const dracoLoader = new THREE.DRACOLoader();
             dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
             gltfLoader.setDRACOLoader(dracoLoader);
@@ -1093,12 +1108,42 @@
       const loaderEl = document.getElementById('loader3d');
       const resetBtn = document.getElementById('btnReset3d');
 
-      // 修正置中計算，將重心平移至 (0, 0, 0)
-      const box = new THREE.Box3().setFromObject(object);
-      const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
+      // 🎯 核心升級：遞迴計算所有真實可見網格 (Mesh) 的包圍盒，完全排除輔助相機、骨骼或點光源產生的偏置
+      const box = new THREE.Box3();
+      let hasMesh = false;
+      
+      object.traverse(function(child) {
+        if (child.isMesh && child.visible) {
+          // 強制更新矩陣世界以獲得真實坐標
+          child.updateMatrixWorld(true);
+          if (child.geometry) {
+            if (!child.geometry.boundingBox) {
+              child.geometry.computeBoundingBox();
+            }
+            const meshBox = new THREE.Box3().copy(child.geometry.boundingBox).applyMatrix4(child.matrixWorld);
+            if (!hasMesh) {
+              box.copy(meshBox);
+              hasMesh = true;
+            } else {
+              box.union(meshBox);
+            }
+          }
+        }
+      });
 
-      // 修正平移向量
+      const center = new THREE.Vector3();
+      const size = new THREE.Vector3();
+
+      if (hasMesh) {
+        box.getCenter(center);
+        box.getSize(size);
+      } else {
+        box.setFromObject(object);
+        box.getCenter(center);
+        box.getSize(size);
+      }
+
+      // 平移重心至座標原點 (0, 0, 0)，確保以此為物理中心完美旋轉！
       object.position.sub(center);
 
       // 自動縮放比例
@@ -1135,7 +1180,6 @@
       const loaderEl = document.getElementById('loader3d');
       if (loaderEl) {
         loaderEl.style.display = 'flex';
-        // 使用一般的字串拼接，避免 Python 字串轉義錯誤
         loaderEl.innerHTML = '<div style="text-align:center;padding:20px;"><div style="color:#ef4444;font-weight:700;margin-bottom:8px;">⚠️ 載入失敗</div><div style="font-size:0.72rem;color:#a1a1aa;line-height:1.5;max-width:280px;margin:0 auto 12px auto;">' + msg + '</div><button onclick="reset3dModel()" style="background:#3f3f46;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.75rem;">重設模型</button></div>';
       }
     }
@@ -1158,11 +1202,15 @@
       if (loaderEl) loaderEl.style.display = 'none';
       if (resetBtn) resetBtn.style.display = 'none';
       
+      // 🚀 重設平移位置與手勢模式
+      grcGroup.position.set(0, 0, 0);
+      setGestureMode('rotate');
+      
       targetRotationX = 0.35;
       targetRotationY = -0.6;
     };
 
-    // --- 6. 滑鼠/觸控事件監聽 (智慧定向判定，防止手機干擾頁面滾動) ---
+    // --- 6. 滑鼠/觸控事件監聽 (智慧定向判定，包含平移拖拽支援) ---
     function registerGestures(container) {
       const onPointerDown = (e) => {
         isDragging = true;
@@ -1221,20 +1269,41 @@
               y: clientY - previousMousePosition.y
             };
 
-            targetRotationY += deltaMove.x * rotationSpeed;
-            targetRotationX += deltaMove.y * rotationSpeed;
-            targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+            // 🚀 手勢操作分支判定 (旋轉 vs. 平移)
+            if (gestureMode === 'rotate') {
+              targetRotationY += deltaMove.x * rotationSpeed;
+              targetRotationX += deltaMove.y * rotationSpeed;
+              targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+            } else {
+              // 平移模式：動態根據相機深度估算平移速度
+              const factor = camera.position.z * 0.0016;
+              grcGroup.position.x += deltaMove.x * factor;
+              grcGroup.position.y -= deltaMove.y * factor;
+            }
             previousMousePosition = { x: clientX, y: clientY };
           }
         } else {
+          // 桌機鼠標互動
+          const clientX = e.clientX;
+          const clientY = e.clientY;
+          
           const deltaMove = {
-            x: e.clientX - previousMousePosition.x,
-            y: e.clientY - previousMousePosition.y
+            x: clientX - previousMousePosition.x,
+            y: clientY - previousMousePosition.y
           };
-          targetRotationY += deltaMove.x * rotationSpeed;
-          targetRotationX += deltaMove.y * rotationSpeed;
-          targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
-          previousMousePosition = { x: e.clientX, y: e.clientY };
+
+          // 🚀 桌機操作分支 (若是右鍵拖曳，或是平移模式，則觸發平移)
+          const isRightClick = (e.button === 2 || e.buttons === 2);
+          if (gestureMode === 'pan' || isRightClick) {
+            const factor = camera.position.z * 0.0016;
+            grcGroup.position.x += deltaMove.x * factor;
+            grcGroup.position.y -= deltaMove.y * factor;
+          } else {
+            targetRotationY += deltaMove.x * rotationSpeed;
+            targetRotationX += deltaMove.y * rotationSpeed;
+            targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+          }
+          previousMousePosition = { x: clientX, y: clientY };
         }
       };
 
@@ -1250,6 +1319,9 @@
         camera.position.z += e.deltaY * 0.005;
         camera.position.z = Math.max(3, Math.min(12, camera.position.z));
       };
+
+      // 防止右鍵彈出選單干涉拖拽
+      container.addEventListener('contextmenu', (e) => e.preventDefault());
 
       container.addEventListener('mousedown', onPointerDown);
       container.addEventListener('mousemove', onPointerMove);
@@ -1267,8 +1339,8 @@
       if (grcGroup) {
         grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
         grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
-        if (!isDragging) {
-          targetRotationY += 0.0015;
+        if (!isDragging && gestureMode === 'rotate') {
+          targetRotationY += 0.0015; // 僅在旋轉模式閒置時自動旋轉
         }
       }
       renderer.render(scene, camera);
