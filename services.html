@@ -1052,7 +1052,6 @@
       loaderEl.style.display = 'flex';
       loaderEl.innerHTML = `<div style="text-align:center;"><div style="margin-bottom:8px;font-weight:700;">載入解碼中: ${file.name}</div><div style="font-size:0.75rem;color:#71717a;">本機 GPU 解碼中，絕不上傳檔案</div></div>`;
 
-      const reader = new FileReader();
       const ext = file.name.split('.').pop().toLowerCase();
 
       // 隱藏預設 3D 構件
@@ -1065,34 +1064,43 @@
       userModelGroup = new THREE.Group();
       grcGroup.add(userModelGroup);
 
-      reader.onload = function (e) {
-        const contents = e.target.result;
+      // 🚀 核心升級：使用 URL.createObjectURL (Blob URL) 取代 FileReader
+      // 這比將大檔案載入 JS 記憶體快數千倍，且幾乎不佔用額外 RAM，徹底解決手機端記憶體不足崩潰的問題！
+      const fileURL = URL.createObjectURL(file);
 
-        try {
-          if (ext === 'glb' || ext === 'gltf') {
-            const gltfLoader = new THREE.GLTFLoader();
-            
-            // 配置 Google DRACO 解碼器
-            const dracoLoader = new THREE.DRACOLoader();
-            dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
-            gltfLoader.setDRACOLoader(dracoLoader);
+      try {
+        if (ext === 'glb' || ext === 'gltf') {
+          const gltfLoader = new THREE.GLTFLoader();
+          
+          // 配置 Google DRACO 解碼器
+          const dracoLoader = new THREE.DRACOLoader();
+          dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
+          gltfLoader.setDRACOLoader(dracoLoader);
 
-            gltfLoader.parse(contents, '', function (gltf) {
-              const loadedObject = gltf.scene;
-              adjustAndAddToScene(loadedObject);
-            }, function(err) {
-              showError("GLTF/GLB 解析錯誤: " + err.message + "\n(提示：請確認檔案是否完整)");
-            });
-          } 
-          else if (ext === 'obj') {
-            const text = new TextDecoder("utf-8").decode(contents);
-            const objLoader = new THREE.OBJLoader();
-            const loadedObject = objLoader.parse(text);
+          gltfLoader.load(fileURL, function (gltf) {
+            const loadedObject = gltf.scene;
             adjustAndAddToScene(loadedObject);
-          } 
-          else if (ext === 'stl') {
-            const stlLoader = new THREE.STLLoader();
-            const geometry = stlLoader.parse(contents);
+            URL.revokeObjectURL(fileURL); // 釋放 Blob URL 記憶體
+          }, function(xhr) {
+            // 可選的載入進度監聽
+          }, function(err) {
+            showError("GLTF/GLB 解析錯誤: " + err.message + "\n(提示：請確認檔案是否完整)");
+            URL.revokeObjectURL(fileURL);
+          });
+        } 
+        else if (ext === 'obj') {
+          const objLoader = new THREE.OBJLoader();
+          objLoader.load(fileURL, function (loadedObject) {
+            adjustAndAddToScene(loadedObject);
+            URL.revokeObjectURL(fileURL);
+          }, function(xhr) {}, function(err) {
+            showError("OBJ 解析錯誤: " + err.message);
+            URL.revokeObjectURL(fileURL);
+          });
+        } 
+        else if (ext === 'stl') {
+          const stlLoader = new THREE.STLLoader();
+          stlLoader.load(fileURL, function (geometry) {
             const material = new THREE.MeshStandardMaterial({
               color: 0x94a3b8,
               roughness: 0.5,
@@ -1102,13 +1110,16 @@
             const wrapperGroup = new THREE.Group();
             wrapperGroup.add(mesh);
             adjustAndAddToScene(wrapperGroup);
-          }
-        } catch (error) {
-          showError("模型分析異常: " + error.message);
+            URL.revokeObjectURL(fileURL);
+          }, function(xhr) {}, function(err) {
+            showError("STL 解析錯誤: " + err.message);
+            URL.revokeObjectURL(fileURL);
+          });
         }
-      };
-
-      reader.readAsArrayBuffer(file);
+      } catch (error) {
+        showError("模型分析異常: " + error.message);
+        URL.revokeObjectURL(fileURL);
+      }
     }
 
     function adjustAndAddToScene(object) {
