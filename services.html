@@ -197,6 +197,7 @@
             
             <!-- 手機端快捷縮放按鍵組 (防觸控冒泡阻斷) -->
             <div style="position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 25;">
+              <button id="btnToggleRotate" ontouchstart="event.stopPropagation(); toggleAutoRotate();" onclick="toggleAutoRotate()" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" title="暫停自轉">⏸</button>
               <button ontouchstart="event.stopPropagation(); zoom3D(0.82);" onclick="zoom3D(0.82)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="放大">+</button>
               <button ontouchstart="event.stopPropagation(); zoom3D(1.22);" onclick="zoom3D(1.22)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="縮小">-</button>
             </div>
@@ -702,6 +703,7 @@
     let concreteMesh, moldLines, steelFrameGroup;
     let userModelGroup = null; // 用戶上傳的模型
     let isDragging = false;
+    let isAutoRotating = true; // 是否開啟自動旋轉播放
     let isScrolling = false;
     let isInteracting = false;
     let touchStartX = 0;
@@ -1183,6 +1185,11 @@
       // 套用灰石顆粒質感材質並生成模具分割接縫線 (userMoldLines)
       object.traverse(function (child) {
         if (child.isMesh) {
+          // 🚀 強制重新計算頂點法線，解決部分 OBJ/STL 檔因缺少法線資訊而呈現全黑或完全隱形的問題！
+          if (child.geometry) {
+            child.geometry.computeVertexNormals();
+          }
+
           child.material = new THREE.MeshStandardMaterial({
             color: 0xb5b5ba,
             roughness: 0.65,
@@ -1386,13 +1393,23 @@
       container.addEventListener('wheel', onWheel, { passive: false });
     }
 
+    window.toggleAutoRotate = function() {
+      isAutoRotating = !isAutoRotating;
+      const btn = document.getElementById('btnToggleRotate');
+      if (btn) {
+        btn.textContent = isAutoRotating ? '⏸' : '▶';
+        btn.title = isAutoRotating ? '暫停自轉' : '開始自轉';
+      }
+    };
+
     function animate() {
       requestAnimationFrame(animate);
       if (grcGroup) {
         grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
         grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
-        if (!isDragging && gestureMode === 'rotate') {
-          targetRotationY += 0.0015; // 僅在旋轉模式閒置時自動旋轉
+        // 🚀 支援手動暫停/播放自動旋轉
+        if (isAutoRotating && !isDragging && gestureMode === 'rotate') {
+          targetRotationY += 0.0015; // 僅在自轉開啟、旋轉模式且閒置時自動旋轉
         }
       }
       renderer.render(scene, camera);
