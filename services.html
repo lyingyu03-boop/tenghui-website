@@ -188,12 +188,16 @@
             <div style="display: flex; gap: 8px;" id="web3dControls">
               <button class="grc-tab-btn active" onclick="set3dMode('outer', this)">外觀噴漆</button>
               <button class="grc-tab-btn" onclick="set3dMode('mold', this)">模具分割</button>
-              <button class="grc-tab-btn" onclick="set3dMode('steel', this)">內部防護鋼骨</button>
+              
             </div>
           </div>
 
           <!-- 3D 渲染視窗 -->
           <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
+            <!-- 僅供參考標語 -->
+            <div style="position: absolute; top: 12px; left: 12px; background: rgba(18,18,20,0.65); color: rgba(255,255,255,0.7); font-size: 0.72rem; padding: 4px 10px; border-radius: 4px; pointer-events: none; z-index: 20; letter-spacing: 0.5px;">
+              ※ 3D 互動模型為示意效果，僅供設計與施工參考
+            </div>
             
             <!-- 手機端快捷縮放按鈕組 (防觸控冒泡阻斷) -->
             <div style="position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 25;">
@@ -655,7 +659,7 @@
   <div class="floating-contact-bar">
     <!-- LINE -->
     <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
-      <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: #ffffff;"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 5.523 2 9.857c0 3.657 3.086 6.743 7.2 7.886.286.086.686.229.8.457.2.457.114 1.314.057 1.657 0 .229.171.229.286.229.114 0 .229 0 .343-.057 2.057-1.143 4.286-2.514 5.714-4.229 1.429-1.714 2.4-4.057 2.4-6.629C22 5.523 17.523 2 12 2zm5.714 7.029h-2.286c-.4 0-.686.286-.686.686v3.429c0 .4.286.686.686.686.4 0 .686-.286.686-.686v-2.743h1.6c.4 0 .686-.286.686-.686s-.286-.686-.686-.686zm-3.657 0c-.4 0-.686.286-.686.686v3.429c0 .4.286.686.686.686.4 0 .686-.286.686-.686V9.715c0-.4-.286-.686-.686-.686zm-3.886 0c-.4 0-.686.286-.686.686v3.429c0 .4.286.686.686.686.4 0 .686-.286.686-.686V9.715c0-.4-.286-.686-.686-.686zm-3.086 0c-.4 0-.686.286-.686.686v4.114c0 .4.286.686.686.686.4 0 .686-.286.686-.686V9.715c0-.4-.286-.686-.686-.686z"/></svg>
+      <img src="img/line-icon.png" alt="LINE" style="width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 50%;">
     </a>
     <!-- Telephone -->
     <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
@@ -966,58 +970,7 @@
         steelFrameGroup.add(tubeMesh);
       };
 
-      // 建立上下主背骨 (Offset = 0.2 單位)
-      createCurvedPipe(0.8, thickness, 0.2, mainTrussMat);
-      createCurvedPipe(-0.8, thickness, 0.2, mainTrussMat);
-
-      // 建立立體三角桁架腹桿 (Space Truss Web)
-      const strutGeom = new THREE.CylinderGeometry(0.018, 0.018, 1.6, 8);
-      for (let x = -1.8; x <= 1.8; x += 0.6) {
-        const zUpper = (x*x)/7.5 - (0.8*0.8)/5.5 - thickness - 0.2;
-        const zLower = (x*x)/7.5 - (-0.8*-0.8)/5.5 - thickness - 0.2;
-        
-        // 垂直腹桿
-        const strut = new THREE.Mesh(strutGeom, diagonalMat);
-        strut.position.set(x, 0, (zUpper + zLower)/2);
-        strut.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(strut);
-
-        // 斜向支撐
-        const diagStrut = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.7, 8), diagonalMat);
-        diagStrut.position.set(x, 0, (zUpper + zLower)/2 - 0.1);
-        diagStrut.rotation.set(0.2, 0, Math.PI / 4);
-        steelFrameGroup.add(diagStrut);
-
-        // --- 🔗 建立 GRC 柔性固定錨栓 (Flex Anchor Pins) ---
-        // 連接混凝土背板與桁架架構的專用支撐連接栓 (跨越面板與鋼骨的空隙)
-        const pinGeom = new THREE.CylinderGeometry(0.012, 0.012, 0.24, 8);
-        const pinMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.85, roughness: 0.15 });
-        
-        // 上排錨栓
-        const pinUpper = new THREE.Mesh(pinGeom, pinMat);
-        pinUpper.position.set(x, 0.8, (zUpper + (zUpper + 0.2)) / 2);
-        pinUpper.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(pinUpper);
-
-        // 下排錨栓
-        const pinLower = new THREE.Mesh(pinGeom, pinMat);
-        pinLower.position.set(x, -0.8, (zLower + (zLower + 0.2)) / 2);
-        pinLower.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(pinLower);
-      }
-
-      // 重型背部固定鋼板
-      const discGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.02, 16);
-      const discMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9, roughness: 0.1 });
-      for (let x = -1.2; x <= 1.2; x += 2.4) {
-        for (let y = -0.6; y <= 0.6; y += 1.2) {
-          const zBase = (x*x)/7.5 - (y*y)/5.5 - thickness - 0.42;
-          const anchor = new THREE.Mesh(discGeom, discMat);
-          anchor.position.set(x, y, zBase);
-          anchor.rotation.x = Math.PI / 2;
-          steelFrameGroup.add(anchor);
-        }
-      }
+      // [鋼構背骨架構已依需求停用移除，避免混淆]
 
       set3dMode(currentMode, null);
     }
@@ -1483,7 +1436,6 @@ window.toggleAutoRotate = function() {
 
   </body>
 </html>
-
 
 
 

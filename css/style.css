@@ -1526,11 +1526,11 @@ img {
 }
 
 .floating-btn.btn-line {
-  background: #3ecf09;
+  background: transparent;
 }
 
 .floating-btn.btn-line:hover {
-  background: #35b307;
+  background: transparent;
 }
 
 .floating-btn.btn-tel {
