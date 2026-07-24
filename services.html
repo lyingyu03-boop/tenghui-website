@@ -1,1476 +1,1476 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>服務項目 | 騰煇企業 TENG SELENDOR</title>
-  <meta name="description" content="外牆工程，找騰煇。騰煇企業，實現你的不可能。騰煇外牆工程 6 大模組：GRC造型工程、建築外牆工程、PPG塗料系統（連工帶料）、公共藝術、外牆拉皮與配件系統。">
-    <link rel="icon" href="img/logo-icon.png" type="image/png">
-  <link rel="apple-touch-icon" href="img/logo-icon.png">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .grc-workflow-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 24px;
-    }
-    .grc-wf-card {
-      background: #ffffff;
-      border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 12px;
-      padding: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-    }
-    .grc-wf-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-    .grc-wf-card h4 {
-      font-size: 0.98rem;
-      color: #3a3a3f;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-    .grc-wf-card p {
-      font-size: 0.84rem;
-      color: #475569;
-      line-height: 1.5;
-    }
-    
-    /* 4 大前後對比卡片網格 (移除笨重黑邊框，呈現極簡懸浮視覺) */
-    .renov-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      margin-top: 24px;
-    }
-    .renov-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    
-    @media (max-width: 900px) {
-      .grc-workflow-grid, .renov-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo-wrap">
-        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
-        <div class="brand-text-block">
-          <span class="brand-company-name">騰煇企業有限公司</span>
-          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
-        </div>
-      </a>
-
-      <div class="nav-right-wrap">
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="nav-link">首頁</a></li>
-            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
-            
-            <li class="dropdown">
-              <a href="services.html" class="nav-link active">服務項目</a>
-              <ul class="dropdown-menu">
-                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
-                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
-                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
-              </ul>
-            </li>
-
-            <li><a href="process.html" class="nav-link">工程流程</a></li>
-            <li><a href="projects.html" class="nav-link">案例分享</a></li>
-            <li><a href="faq.html" class="nav-link">常見問題</a></li>
-            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
-          </ul>
-        </nav>
-
-        <div class="social-icons-group">
-          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
-
-        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
-      </div>
-    </div>
-  </header>
-
-  <main style="padding: 60px 0;">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">SERVICES &amp; PROCESS</span>
-        <h1 class="section-title">騰煇連工帶料整合服務項目</h1>
-      </div>
-
-      <!-- 1. GRC 造型工程 -->
-      <section id="grc" class="service-card-rwd">
-        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">01. GRC 特殊造型工程 (從設計圖到實體落地)</h2>
-        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
-          依據立面造型與幾何需求，靈活整合高精度木作工藝模具與 3D 數位開模技術。提供從 3D 電腦放樣、預鑄開模、工廠養護到現場吊掛組裝的一條龍服務。適合歐式古典花紋、高難度非標幾何曲面與公共藝術裝置。
-        </p>
-
-        <!-- GRC 建築風格與專業應用範疇 (簡潔工程大氣排版) -->
-        <div style="margin-top: 28px; margin-bottom: 28px;">
-          <h3 style="font-size: 1.1rem; color: #3a3a3f; font-weight: 800; margin-bottom: 16px; border-left: 3px solid #3a3a3f; padding-left: 10px;">GRC 建築風格與專業應用範疇</h3>
-          <div class="grid-3-to-1">
-            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 01</span>
-              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">歐式古典建築風格</h4>
-              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">精雕飾柱、巴洛克造型簷線、古典穹頂與複雜幾何切割，呈現厚實典雅的建築質感。</p>
-            </div>
-            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 02</span>
-              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">自然曲面與仿生立面</h4>
-              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">有機流動立面曲面、大跨距拱門與連續波浪造型，為現代建築賦予有機的視覺張力。</p>
-            </div>
-            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 03</span>
-              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">3D 參數化幾何造型</h4>
-              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">配合當代 3D 電腦放樣與多軸加工，完美實現非標幾何切面與前衛立面外飾需求。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- GRC 永續與材料優勢 -->
-        <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; margin-bottom: 28px;">
-          <h4 style="font-size: 1rem; color: #3a3a3f; font-weight: 800; margin-bottom: 14px;">GRC 預鑄工藝特點與永續優勢</h4>
-          <div class="grid-3-to-1">
-            <div>
-              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">結構輕量減載</h5>
-              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">高強度輕量化，大幅降低建築主體自重負載，減少混凝土與鋼筋用量。</p>
-            </div>
-            <div>
-              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">永續減廢低碳</h5>
-              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">替代傳統外推造型工法，大幅減少施工過程木模板與保麗龍廢棄物。</p>
-            </div>
-            <div>
-              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 700; margin-bottom: 4px;">耐候防火防潮</h5>
-              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">玻璃纖維有效提升抗張強度，純水泥基材具備一級防火與極佳耐候性。</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- GRC 生產製造實錄影片 (GRC製成250722) -->
-        <div class="service-subcard-rwd">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">GRC製程實錄</h3>
-            <span style="font-size: 0.78rem; background: #3a3a3f; color: #ffffff; padding: 4px 10px; border-radius: 4px; font-weight: 700;">FACTORY RECORDING</span>
-          </div>
-          <div style="max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #000000; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid rgba(58,58,63,0.15);">
-            <video src="img/grc-process.mp4" controls autoplay muted loop playsinline style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; display: block; border-radius: 10px;"></video>
-          </div>
-        </div>
-
-                <!-- ================= GRC Web3D 互動模型拆解器 ================= -->
-        <div class="service-subcard-rwd">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-            <div>
-              <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">GRC Web3D 構件互動拆解器</h3>
-              <p style="font-size: 0.82rem; color: #64748b; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <span>拖曳可 3D 旋轉與縮放模型，切換不同模式檢視結構細節。</span>
-                <span style="display: inline-flex; background: rgba(58,58,63,0.06); border-radius: 6px; padding: 2px;" id="gestureModeControls">
-                  <button class="grc-tab-btn active" id="btnModeRotate" onclick="setGestureMode('rotate')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">旋轉</button>
-                  <button class="grc-tab-btn" id="btnModePan" onclick="setGestureMode('pan')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">平移</button>
-                </span>
-              </p>
-            </div>
-            <!-- 控制按鈕組 -->
-            <div style="display: flex; gap: 8px;" id="web3dControls">
-              <button class="grc-tab-btn active" onclick="set3dMode('outer', this)">外觀噴漆</button>
-              <button class="grc-tab-btn" onclick="set3dMode('mold', this)">模具分割</button>
-              <button class="grc-tab-btn" onclick="set3dMode('steel', this)">內部防護鋼骨</button>
-            </div>
-          </div>
-
-          <!-- 3D 渲染視窗 -->
-          <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
-            
-            <!-- 手機端快捷縮放按鍵組 (防觸控冒泡阻斷) -->
-            <div style="position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 25;">
-              <button ontouchstart="event.stopPropagation(); zoom3D(0.82);" onclick="zoom3D(0.82)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="放大">+</button>
-              <button ontouchstart="event.stopPropagation(); zoom3D(1.22);" onclick="zoom3D(1.22)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="縮小">-</button>
-            </div>
-
-            <!-- 3D 檔案拖曳與上傳控制列 -->
-            <div id="dropZone3d" style="position: absolute; top: 12px; left: 12px; right: 12px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(18,18,20,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #a1a1aa; font-size: 0.75rem; z-index: 20; transition: all 0.2s;">
-              <span style="font-weight: 600;">拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
-              <div style="display: flex; gap: 8px; align-items: center;">
-                <input type="file" id="fileInput3d" accept=".gltf,.glb,.obj,.stl" style="display: none;">
-                <button onclick="document.getElementById('fileInput3d').click()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">選取檔案</button>
-                <button id="btnRecenter3d" onclick="recenter3dView()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設視角</button>
-                <button id="btnReset3d" onclick="reset3dModel()" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設模型</button>
-              </div>
-            </div>
-
-            <!-- 3D Canvas will be injected here -->
-            <div id="loader3d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #121214; color: #94a3b8; font-size: 0.9rem; z-index: 10;">
-              <div style="text-align: center;">
-                <div style="margin-bottom: 8px; font-weight: 700;">3D 引擎初始化中...</div>
-                <div style="font-size: 0.75rem; color: #71717a;">拖曳旋轉、雙指縮放 ｜ 支援本機檔案載入</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 💥 專案工程 6 步圖面輪播展示：台中雅園新潮 (無多餘長文字，防止法務爭議) -->
-        <div class="service-subcard-rwd">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
-            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">台中雅園新潮</h3>
-            <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="link-text" style="font-size: 0.85rem;">觀看雅園新潮 IG 短片 &rarr;</a>
-          </div>
-
-          <!-- 投影片大圖視窗 (全寬限高，無多餘長冗字) -->
-          <div style="position: relative; width: 100%; max-width: 860px; height: 380px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #f4f4f5; border: 1px solid rgba(58,58,63,0.08);">
-            <img decoding="async" loading="lazy" src="img/grc-workflow/設計圖手繪.png" id="grcSlideImg" alt="工程步驟圖" style="width: 100%; height: 100%; object-fit: contain; background: #ffffff; transition: opacity 0.3s ease; padding: 10px;">
-            
-            <span id="grcSlideBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(58, 58, 63, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.5px;">
-              STEP 01 / 06 ｜ 概念手繪
-            </span>
-
-            <button onclick="prevGrcSlide()" style="position: absolute; top: 50%; left: 14px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(58,58,63,0.1); color: #3a3a3f; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center;" aria-label="上一張">&lsaquo;</button>
-            <button onclick="nextGrcSlide()" style="position: absolute; top: 50%; right: 14px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(58,58,63,0.1); color: #3a3a3f; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center;" aria-label="下一張">&rsaquo;</button>
-          </div>
-
-          <!-- 01 ~ 06 簡潔頁籤導覽 (剛好 1 排完整不掉列) -->
-          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 16px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px;" id="grcSlideDots">
-            <button class="grc-tab-btn active" onclick="goGrcSlide(0)"><span>01</span> 概念手繪</button>
-            <button class="grc-tab-btn" onclick="goGrcSlide(1)"><span>02</span> 3D BIM 建模</button>
-            <button class="grc-tab-btn" onclick="goGrcSlide(2)"><span>03</span> 3D列印</button>
-            <button class="grc-tab-btn" onclick="goGrcSlide(3)"><span>04</span> 造型製作</button>
-            <button class="grc-tab-btn" onclick="goGrcSlide(4)"><span>05</span> 現場吊掛</button>
-            <button class="grc-tab-btn" onclick="goGrcSlide(5)"><span>06</span> 完工落地</button>
-          </div>
-        </div>
-
-        <script>
-          const grcSimpleSlides = [
-            { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/設計圖手繪.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 0 },
-            { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/Rhino.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 1 },
-            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "cover", pos: "center 60%", scale: 1.25, stepIdx: 2 },
-            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "cover", pos: "center 40%", scale: 1.3, stepIdx: 3 },
-            { badge: "STEP 05 / 06 ｜ 現場吊掛安裝", img: "img/grc-workflow/grc-site-hoisting.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 4 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 }
-          ];
-
-          let curGrcIdx = 0;
-          function renderGrcSlide(idx) {
-            const data = grcSimpleSlides[idx];
-            const img = document.getElementById('grcSlideImg');
-            const badge = document.getElementById('grcSlideBadge');
-            const dots = document.querySelectorAll('#grcSlideDots .grc-tab-btn');
-
-            img.style.opacity = 0;
-            setTimeout(() => {
-              img.src = data.img;
-              img.style.objectFit = data.fit;
-              img.style.objectPosition = data.pos;
-              img.style.transform = `scale(${data.scale})`;
-              badge.innerText = data.badge;
-              img.style.opacity = 1;
-            }, 150);
-
-            dots.forEach((d, i) => {
-              d.classList.toggle('active', i === data.stepIdx);
-            });
-            curGrcIdx = idx;
-          }
-
-          function nextGrcSlide() {
-            let n = (curGrcIdx + 1) % grcSimpleSlides.length;
-            renderGrcSlide(n);
-          }
-
-          function prevGrcSlide() {
-            let n = (curGrcIdx - 1 + grcSimpleSlides.length) % grcSimpleSlides.length;
-            renderGrcSlide(n);
-          }
-
-          function goGrcSlide(stepIdx) {
-            let targetIdx = grcSimpleSlides.findIndex(s => s.stepIdx === stepIdx);
-            if (targetIdx !== -1) renderGrcSlide(targetIdx);
-          }
-        </script>
-      <!-- 2. 建築外牆高耐候塗料系統 (PPG 申紐麗漆) -->
-      <section id="ppg" class="service-card-rwd">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
-          <div>
-            <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 6px; border-left: 4px solid #3a3a3f; padding-left: 12px;">02. 建築外牆高耐候塗料系統 (PPG)</h2>
-            <span style="font-size: 0.88rem; color: #64748b; font-weight: 600;">全系列產品皆具備「透氣不透水」長效防護特性，避免外在水氣造成漆膜起泡與壁癌。</span>
-          </div>
-          <img src="img/ppg-logo.png" alt="PPG 原廠標誌" style="height: 48px; width: auto; object-fit: contain;">
-        </div>
-
-        <div style="background: #f8fafc; border-left: 4px solid #3a3a3f; border-radius: 6px; padding: 16px 20px; margin-bottom: 24px;">
-          <h4 style="font-size: 0.95rem; color: #3a3a3f; font-weight: 800; margin-bottom: 6px;">【騰煇服務說明：專案整合施作（連工帶料）】</h4>
-          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
-            騰煇為 PPG 原廠授權外牆工程團隊，<strong>專注於「現場基底檢測 ➔ 選材建議 ➔ 專業連工帶料噴塗」整體專案服務，不單純零售塗料桶</strong>。因為外牆塗料的長效耐久，取決於現場基底處置與標準化施工品質。
-          </p>
-        </div>
-
-        <!-- PPG 產品五大頁籤按鈕 -->
-        <div style="display: flex; gap: 10px; border-bottom: 1px solid rgba(58,58,63,0.08); padding-bottom: 12px; margin-bottom: 24px; flex-wrap: wrap;" id="ppgTabs">
-          <button class="grc-tab-btn active" onclick="switchPpgTab(0)">龐亞漆</button>
-          <button class="grc-tab-btn" onclick="switchPpgTab(1)">彈性佩能漆</button>
-          <button class="grc-tab-btn" onclick="switchPpgTab(2)">臻石漆</button>
-          <button class="grc-tab-btn" onclick="switchPpgTab(3)">絢岩臻彩漆</button>
-          <button class="grc-tab-btn" onclick="switchPpgTab(4)">雅飾彈性 500</button>
-        </div>
-
-        <!-- PPG 產品詳細展示卡 (左圖右文) -->
-        <div style="display: grid; grid-template-columns: min(420px, 45%) 1fr; gap: 32px; background: #f8fafc; border: 1px solid rgba(58,58,63,0.08); border-radius: 14px; padding: 24px; align-items: center;" id="ppgViewerBox" class="ppg-viewer-box">
-          <div style="height: 260px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid rgba(58,58,63,0.08);">
-            <img decoding="async" loading="lazy" src="img/ppg/龐亞漆2.avif" id="ppgImg" alt="PPG 塗料樣品" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div>
-            <h3 id="ppgTitle" style="font-size: 1.35rem; color: #3a3a3f; font-weight: 800; margin-bottom: 12px;">龐亞漆（Panya Coating）</h3>
-            <ul id="ppgList" style="font-size: 0.92rem; color: #55555e; padding-left: 20px; line-height: 1.8; display: flex; flex-direction: column; gap: 8px;">
-              <li><strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。</li>
-              <li><strong>奈米級分子：</strong> 乳液分子達 10 納米，耐污防塵性能極佳。</li>
-              <li><strong>抗潮透氣：</strong> 漆膜乾燥後甚至可浸泡於水中，抗風化性強。</li>
-              <li><strong>清水模美學：</strong> 仿清水模效果優異，顏色亦可依專案客製。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. 外牆拉皮整合翻新 (互動式前後對比展示 - 滑桿完整保留) -->
-      <section id="renovation" class="service-card-rwd">
-        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">03. 外牆拉皮整合翻新工程</h2>
-        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
-          針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
-        </p>
-
-        <!-- 互動對比展示視窗 (保留前後滑桿拉桿) -->
-        <div class="service-subcard-rwd">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h3>
-          </div>
-
-          <!-- 中央互動對比滑桿視窗 -->
-          <div class="ba-slider-container" style="height: 420px; max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden;" id="renovBaContainer">
-            <img decoding="async" loading="lazy" src="img/renovation/renov1-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image ba-image-after">
-            <span class="ba-label ba-label-after">AFTER 施工後</span>
-            
-            <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
-              <img decoding="async" loading="lazy" src="img/renovation/renov1-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image ba-image-before">
-              <span class="ba-label ba-label-before">BEFORE 施工前</span>
-            </div>
-
-            <div class="ba-handle" id="renovHandle" style="left: 50%;"><div class="ba-handle-circle"><span>&lsaquo;</span><span>&rsaquo;</span></div></div>
-            <input type="range" min="0" max="100" value="50" class="ba-range-slider" id="renovRangeInput">
-            
-            <span id="renovCaseBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(58, 58, 63, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; z-index: 10;">
-              CASE 01 ｜ 台南北區民宅透天拉皮
-            </span>
-          </div>
-
-          <!-- 5 大案例快速頁籤切換按鈕 -->
-          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; flex-wrap: wrap;" id="renovCaseDots">
-            <button class="grc-tab-btn active" onclick="switchRenovCase(0)"><span>01</span> 台南民宅透天</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(1)"><span>02</span> 桃園薑母島軍營</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(2)"><span>03</span> 桃園廠房 (主立面)</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(3)"><span>04</span> 桃園廠房 (側立面)</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(4)"><span>05</span> 高雄仁武AI廠</button>
-          </div>
-        </div>
-
-      </section>
-
-      <script>
-        // 💥 PPG 塗料頁籤切換邏輯
-        const ppgData = [
-          {
-            title: "龐亞漆（Panya Coating）",
-            img: "img/ppg/龐亞漆2.avif",
-            list: [
-              "<strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。",
-              "<strong>奈米級分子：</strong> 乳液分子達 10 納米，耐污防塵性能極佳。",
-              "<strong>抗潮透氣：</strong> 漆膜乾燥後甚至可浸泡於水中，抗風化性強。",
-              "<strong>清水模美學：</strong> 仿清水模效果優異，顏色亦可依專案客製。"
-            ]
-          },
-          {
-            title: "彈性佩能漆（PainTex Coating）",
-            img: "img/ppg/彈性佩能漆.jpg",
-            list: [
-              "<strong>卓越彈性裂縫延伸率：</strong> 能有效跨越基底微細裂縫，防止水氣侵入結構內部。",
-              "<strong>高耐候與自潔防污：</strong> 抵抗紫外線與酸雨侵蝕，面層平滑不易附著塵埃污染。",
-              "<strong>優異透氣防滲水性能：</strong> 阻隔外部大雨滲透，同時允許牆體內部濕氣自然透出。",
-              "<strong>指標專案應用：</strong> 廣泛應用於元健大和宜蘭總部、小磨坊斗六廠等大型商業與廠房專案。"
-            ]
-          },
-          {
-            title: "臻石漆（Real Stone Coating）",
-            img: "img/ppg/臻石漆1.avif",
-            list: [
-              "<strong>天然彩色礦石粉：</strong> 採用天然礦石碎粉非市售染色漆，不退色。",
-              "<strong>漆膜具備柔韌彈性：</strong> 克服市售真石漆易龜裂與退色問題。",
-              "<strong>輕量比擬石材：</strong> 比擬天然花崗石質感，但重量極輕安全。"
-            ]
-          },
-          {
-            title: "絢岩臻彩漆（Granite Coating）",
-            img: "img/ppg/絢岩臻彩漆1.avif",
-            list: [
-              "<strong>花崗岩質感：</strong> 單桶包覆主材與色漿，一次噴塗即展現花崗石質感。",
-              "<strong>客製色樣：</strong> 顏色選擇多樣，可依建築設計樣板調配。",
-              "<strong>高CP值與安全性：</strong> 比天然花崗岩更輕量且性價比優異。"
-            ]
-          },
-          {
-            title: "雅飾彈性 500（Elastic 500）",
-            img: "img/ppg/IMG_574_雅飾彈性500_案例圖.avif",
-            list: [
-              "<strong>低溫優秀彈性：</strong> 在不同氣溫條件下皆保有彈性，有效遮蓋牆體表面龜裂紋。",
-              "<strong>長效保色抗粉化：</strong> 優良抗紫外線與保色性能，適合大樓與透天外牆翻新防護。"
-            ]
-          }
-        ];
-
-        function switchPpgTab(index) {
-          const data = ppgData[index];
-          const title = document.getElementById('ppgTitle');
-          const img = document.getElementById('ppgImg');
-          const list = document.getElementById('ppgList');
-          const btns = document.querySelectorAll('#ppgTabs .grc-tab-btn');
-
-          btns.forEach((b, i) => {
-            if (i === index) b.classList.add('active');
-            else b.classList.remove('active');
-          });
-
-          if (img) img.src = data.img;
-          if (title) title.innerText = data.title;
-          if (list) list.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
-        }
-
-        // 💥 外牆拉皮前後對比展示切換邏輯 (保留動態滑桿)
-        const renovCasesData = [
-          {
-            badge: "CASE 01 ｜ 台南北區民宅透天拉皮",
-            before: "img/renovation/renov1-before.jpg",
-            after: "img/renovation/renov1-after.jpg"
-          },
-          {
-            badge: "CASE 02 ｜ 桃園大溪 薑母島軍營",
-            before: "img/renovation/renov2-before.jpg",
-            after: "img/renovation/renov2-after.jpg"
-          },
-          {
-            badge: "CASE 03-A ｜ 桃園觀音 廠房大樓 (主立面)",
-            before: "img/renovation/renov3a-before.jpg",
-            after: "img/renovation/renov3a-after.jpg"
-          },
-          {
-            badge: "CASE 03-B ｜ 桃園觀音 廠房大樓 (側立面)",
-            before: "img/renovation/renov3b-before.jpg",
-            after: "img/renovation/renov3b-after.jpg"
-          },
-          {
-            badge: "CASE 05 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
-            before: "img/renovation/renwu-before.jpg",
-            after: "img/renovation/renwu-after.jpg"
-          }
-        ];
-
-        function switchRenovCase(index) {
-          const data = renovCasesData[index];
-          const badge = document.getElementById('renovCaseBadge');
-          const beforeImg = document.getElementById('renovBeforeImg');
-          const afterImg = document.getElementById('renovAfterImg');
-          const rangeInput = document.getElementById('renovRangeInput');
-          const beforeWrapper = document.getElementById('renovBeforeWrapper');
-          const handle = document.getElementById('renovHandle');
-          const btns = document.querySelectorAll('#renovCaseDots .grc-tab-btn');
-
-          btns.forEach((b, i) => {
-            if (i === index) b.classList.add('active');
-            else b.classList.remove('active');
-          });
-
-          if (beforeImg) beforeImg.src = data.before;
-          if (afterImg) afterImg.src = data.after;
-          if (badge) badge.innerText = data.badge;
-
-          // 重置滑桿到中央 50%
-          if (rangeInput) rangeInput.value = 50;
-          if (beforeWrapper) beforeWrapper.style.width = '50%';
-          if (handle) handle.style.left = '50%';
-        }
-
-        // 動態監聽對比滑桿
-        document.addEventListener('DOMContentLoaded', () => {
-          const input = document.getElementById('renovRangeInput');
-          const wrapper = document.getElementById('renovBeforeWrapper');
-          const handle = document.getElementById('renovHandle');
-          
-          if (input) {
-            input.addEventListener('input', (e) => {
-              const val = e.target.value;
-              if (wrapper) wrapper.style.width = val + '%';
-              if (handle) handle.style.left = val + '%';
-            });
-          }
-        });
-      </script>
-
-      <!-- 4. 外牆配件系統 -->
-      <section id="accessories" style="margin-bottom: 60px; scroll-margin-top: 100px;">
-        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">04. 外牆細部配件系統 (滴水條 / 導水板)</h2>
-        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px; line-height: 1.7;">
-          外牆長效乾淨的關鍵細節！搭配專利鋁合金與不鏽鋼滴水條、導水板，有效導引雨水避免牆面產生髒污黑水痕。
-        </p>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- 💥 頁尾升級 (採用白色 LOGO3-02、雙標語、聯絡資訊與全台服務) -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand" style="max-width: 420px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-          <img decoding="async" loading="lazy" src="img/logo-white.png" alt="騰煇企業 白色 Logo" style="height: 44px; width: auto;">
-          <div>
-            <h4 style="color: #e8e8ea; font-size: 1.05rem; margin: 0; font-weight: 600;">騰煇企業有限公司</h4>
-            <span style="font-size: 0.72rem; color: #71717a; font-weight: 600;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
-          </div>
-        </div>
-        <p style="color: #d8d8dc; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
-        <p style="font-size: 0.85rem; color: #9d9da6; line-height: 1.6;">美感，由設計定義。耐久，由工程守護。<br>40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
-      </div>
-
-      <!-- 實體聯絡資訊 (來自圖二舊官網資料) -->
-      <div class="footer-contact-info" style="color: #9d9da6; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
-        <h5 style="color: #d8d8dc; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600;">聯絡我們 (服務地區：台灣全區)</h5>
-        <p>台中總公司：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
-        <p>高雄分公司：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
-        <p>傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h5>服務項目</h5>
-          <ul>
-            <li><a href="services.html#grc">GRC 造型工程</a></li>
-            
-            <li><a href="services.html#ppg">建築外牆防護塗料</a></li>
-            <li><a href="services.html#renovation">外牆翻新整合工程</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>快速連結</h5>
-          <ul>
-            <li><a href="about.html">關於騰煇</a></li>
-            <li><a href="process.html">工程流程</a></li>
-            <li><a href="projects.html">案例分享</a></li>
-            <li><a href="faq.html">常見問題</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區</p>
-    </div>
-  </footer>
-
-  <script>
-    // 通用多對比拉桿 JS 控制器 (邊緣標籤動態隱藏機制)
-    function initBaSliders() {
-      document.querySelectorAll('.ba-slider-container').forEach(container => {
-        const range = container.querySelector('.ba-range-slider');
-        const wrapper = container.querySelector('.ba-before-wrapper');
-        const handle = container.querySelector('.ba-handle');
-        const imgBefore = container.querySelector('.ba-image-before');
-        const labelBefore = container.querySelector('.ba-label-before');
-        const labelAfter = container.querySelector('.ba-label-after');
-
-        function syncWidth() {
-          if (imgBefore && container) {
-            const containerWidth = container.getBoundingClientRect().width;
-            imgBefore.style.width = containerWidth + 'px';
-            imgBefore.style.maxWidth = 'none';
-          }
-        }
-
-        window.addEventListener('resize', syncWidth);
-        syncWidth();
-        setTimeout(syncWidth, 100);
-        setTimeout(syncWidth, 500);
-
-        if (range) {
-          range.addEventListener('input', (e) => {
-            const val = parseFloat(e.target.value);
-            wrapper.style.width = val + '%';
-            handle.style.left = val + '%';
-
-            if (labelBefore) labelBefore.style.opacity = val < 4 ? '0' : '1';
-            if (labelAfter) labelAfter.style.opacity = val > 96 ? '0' : '1';
-          });
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', initBaSliders);
-    window.addEventListener('load', initBaSliders);
-    initBaSliders();
-  </script>
-
-
-  <!-- Mobile Menu Toggle -->
-  <script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('is-open');
-        mobileToggle.textContent = isOpen ? 'x' : '=';
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navMenu.classList.remove('is-open');
-          mobileToggle.textContent = '=';
-          document.body.style.overflow = '';
-        });
-      });
-    }
-  </script>
-  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
-  <div class="floating-contact-bar">
-    <!-- LINE -->
-    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
-      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
-    </a>
-    <!-- Telephone -->
-    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
-      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    </a>
-    <!-- Google Maps -->
-    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
-      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-    </a>
-    <!-- Back to Top -->
-    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
-      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-    </button>
-  </div>
-
-  <script>
-    // Back to top behavior
-    const btnToTop = document.getElementById('btnToTop');
-    if (btnToTop) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          btnToTop.classList.add('show');
-        } else {
-          btnToTop.classList.remove('show');
-        }
-      });
-      btnToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  </script>
-
-
-  
-  
-  <!-- Three.js 3D 核心與擴充載入器 (新增 DRACO 解碼器) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
-  
-  <script>
-    let scene, camera, renderer, grcGroup;
-    let concreteMesh, moldLines, steelFrameGroup;
-    let userModelGroup = null; // 用戶上傳的模型
-    let isDragging = false;
-    let isScrolling = false;
-    let isInteracting = false;
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let previousMousePosition = { x: 0, y: 0 };
-    let rotationSpeed = 0.006;
-    let targetRotationX = 0.35;
-    let targetRotationY = -0.6;
-    let initialPinchDistance = 0;
-    let initialCameraZ = 7.5;
-    let currentMode = 'outer';
-    let gestureMode = 'rotate'; // 🚀 手勢操作模式: 'rotate' (旋轉) 或是 'pan' (平移)
-
-    function initWeb3D() {
-      const container = document.getElementById('canvas3dContainer');
-      const loader = document.getElementById('loader3d');
-      if (!container) return;
-
-      if (typeof THREE === 'undefined') {
-        loader.innerHTML = '<div style="color: #ef4444; font-weight: 700;">3D 引擎載入失敗，請檢查網路。</div>';
-        return;
-      }
-
-      // 1. 場景初始化
-      scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x121214);
-
-      // 2. 相機初始化
-      camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
-      camera.position.set(0, 0, 7.5);
-
-      // 3. 渲染器初始化
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(window.devicePixelRatio);
-      container.appendChild(renderer.domElement);
-
-      if (loader) loader.style.display = 'none';
-
-      // 4. 立體光影設計
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-      scene.add(ambientLight);
-
-      const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.95);
-      dirLight1.position.set(8, 12, 10);
-      scene.add(dirLight1);
-
-      const dirLight2 = new THREE.DirectionalLight(0x60a5fa, 0.5); // 冰藍色側光
-      dirLight2.position.set(-8, -4, -2);
-      scene.add(dirLight2);
-
-      const dirLight3 = new THREE.DirectionalLight(0xfeb019, 0.25); // 暖陽頂光
-      dirLight3.position.set(0, 8, 2);
-      scene.add(dirLight3);
-
-      // 5. 建立主 GRC 群組
-      grcGroup = new THREE.Group();
-      grcGroup.rotation.set(targetRotationX, targetRotationY, 0);
-      scene.add(grcGroup);
-
-      // 建立雙曲實體預鑄板模型
-      createDefaultSaddleModel();
-
-      // 6. 初始化 File Upload / Drop 監聽
-      initFileUpload();
-
-      // 7. 註冊觸控/滑鼠手勢
-      registerGestures(container);
-
-      // RWD 調整
-      window.addEventListener('resize', () => {
-        camera.aspect = container.clientWidth / container.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-      });
-
-      animate();
-    }
-
-    // 切換手勢模式 (旋轉/平移)
-    window.setGestureMode = function(mode) {
-      gestureMode = mode;
-      document.getElementById('btnModeRotate').classList.toggle('active', mode === 'rotate');
-      document.getElementById('btnModePan').classList.toggle('active', mode === 'pan');
-    };
-
-    // 🚀 手機端/快捷按鈕縮放函式
-    window.zoom3D = function(factor) {
-      if (!camera) return;
-      camera.position.z *= factor;
-      camera.position.z = Math.max(3, Math.min(12, camera.position.z));
-    };
-
-    // --- 🏛️ 建立實體有厚度雙曲鞍形預鑄板 + 結構背骨鋼架 (Offset behind panel) ---
-    function createDefaultSaddleModel() {
-      if (concreteMesh) grcGroup.remove(concreteMesh);
-      if (moldLines) grcGroup.remove(moldLines);
-      if (steelFrameGroup) grcGroup.remove(steelFrameGroup);
-
-      const uSegments = 30;
-      const vSegments = 30;
-      const xRange = 4.4;
-      const yRange = 2.2;
-      const thickness = 0.16; // 實體 GRC 面板厚度 (約 160mm)
-
-      const vertices = [];
-      const indices = [];
-
-      const getSaddlePoint = (u, v, isBack) => {
-        const x = (u - 0.5) * xRange;
-        const y = (v - 0.5) * yRange;
-        // 雙曲鞍形公式 + 裝飾條紋刻線
-        const flute = 0.08 * Math.sin(u * Math.PI * 6);
-        const zBase = (x*x)/7.5 - (y*y)/5.5 + flute;
-        // 厚度偏移 (往 z 軸負方向偏移，創造背板)
-        const z = isBack ? (zBase - thickness) : zBase;
-        return new THREE.Vector3(x, y, z);
-      };
-
-      // 1. 前面板頂點 (Front Skin)
-      for (let j = 0; j <= vSegments; j++) {
-        const v = j / vSegments;
-        for (let i = 0; i <= uSegments; i++) {
-          const u = i / uSegments;
-          const p = getSaddlePoint(u, v, false);
-          vertices.push(p.x, p.y, p.z);
-        }
-      }
-
-      // 2. 背面板頂點 (Back Skin)
-      const numPoints = (uSegments + 1) * (vSegments + 1);
-      for (let j = 0; j <= vSegments; j++) {
-        const v = j / vSegments;
-        for (let i = 0; i <= uSegments; i++) {
-          const u = i / uSegments;
-          const p = getSaddlePoint(u, v, true);
-          vertices.push(p.x, p.y, p.z);
-        }
-      }
-
-      // 3. 縫合前面板三角面
-      for (let j = 0; j < vSegments; j++) {
-        for (let i = 0; i < uSegments; i++) {
-          const r1 = j * (uSegments + 1);
-          const r2 = (j + 1) * (uSegments + 1);
-          indices.push(r1 + i, r1 + i + 1, r2 + i);
-          indices.push(r1 + i + 1, r2 + i + 1, r2 + i);
-        }
-      }
-
-      // 4. 縫合背面板三角面 (逆繞使法相朝外)
-      for (let j = 0; j < vSegments; j++) {
-        for (let i = 0; i < uSegments; i++) {
-          const r1 = numPoints + j * (uSegments + 1);
-          const r2 = numPoints + (j + 1) * (uSegments + 1);
-          indices.push(r1 + i, r2 + i, r1 + i + 1);
-          indices.push(r1 + i + 1, r2 + i, r2 + i + 1);
-        }
-      }
-
-      // 5. 縫合頂邊邊界
-      const topStartFront = vSegments * (uSegments + 1);
-      const topStartBack = numPoints + topStartFront;
-      for (let i = 0; i < uSegments; i++) {
-        const f1 = topStartFront + i;
-        const f2 = topStartFront + i + 1;
-        const b1 = topStartBack + i;
-        const b2 = topStartBack + i + 1;
-        indices.push(f1, b1, f2);
-        indices.push(f2, b1, b2);
-      }
-
-      // 6. 縫合底邊邊界
-      for (let i = 0; i < uSegments; i++) {
-        const f1 = i;
-        const f2 = i + 1;
-        const b1 = numPoints + i;
-        const b2 = numPoints + i + 1;
-        indices.push(f1, f2, b1);
-        indices.push(f2, b2, b1);
-      }
-
-      // 7. 縫合左側邊界
-      for (let j = 0; j < vSegments; j++) {
-        const f1 = j * (uSegments + 1);
-        const f2 = (j + 1) * (uSegments + 1);
-        const b1 = numPoints + f1;
-        const b2 = numPoints + f2;
-        indices.push(f1, b1, f2);
-        indices.push(f2, b1, b2);
-      }
-
-      // 8. 縫合右側邊界
-      for (let j = 0; j < vSegments; j++) {
-        const f1 = j * (uSegments + 1) + uSegments;
-        const f2 = (j + 1) * (uSegments + 1) + uSegments;
-        const b1 = numPoints + f1;
-        const b2 = numPoints + f2;
-        indices.push(f1, f2, b1);
-        indices.push(f2, b2, b1);
-      }
-
-      const concreteGeom = new THREE.BufferGeometry();
-      concreteGeom.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-      concreteGeom.setIndex(indices);
-      concreteGeom.computeVertexNormals();
-
-      // 混凝土實體材質 (高品質磨砂顆粒面)
-      const concreteMat = new THREE.MeshStandardMaterial({
-        color: 0xe4e4e7,
-        roughness: 0.86,
-        metalness: 0.05,
-        transparent: true,
-        opacity: 1.0
-      });
-      concreteMesh = new THREE.Mesh(concreteGeom, concreteMat);
-      grcGroup.add(concreteMesh);
-
-      // 接縫高亮邊界
-      const edges = new THREE.EdgesGeometry(concreteGeom, 15);
-      const lineMat = new THREE.LineBasicMaterial({
-        color: 0x18181b,
-        linewidth: 2.5,
-        transparent: true,
-        opacity: 0.0
-      });
-      moldLines = new THREE.LineSegments(edges, lineMat);
-      grcGroup.add(moldLines);
-
-      // --- C. 建立立體背襯鋼架與固定錨栓 (Truss Offset Behind GRC Skin) ---
-      steelFrameGroup = new THREE.Group();
-      steelFrameGroup.visible = false;
-      grcGroup.add(steelFrameGroup);
-
-      const mainTrussMat = new THREE.MeshStandardMaterial({
-        color: 0xf59e0b, // 亮金黃主鋼骨
-        metalness: 0.88,
-        roughness: 0.12
-      });
-
-      const diagonalMat = new THREE.MeshStandardMaterial({
-        color: 0x94a3b8, // 鋼灰色斜拉支撐
-        metalness: 0.78,
-        roughness: 0.22
-      });
-
-      // 建立背襯主鋼骨
-      const createCurvedPipe = (yOffset, thickness, zOffset, mat) => {
-        const points = [];
-        for (let i = 0; i <= 20; i++) {
-          const t = i / 20;
-          const x = -2.1 + t * 4.2;
-          const zBase = (x*x)/7.5 - (yOffset*yOffset)/5.5;
-          // 完全偏移至背板後方
-          points.push(new THREE.Vector3(x, yOffset, zBase - thickness - zOffset));
-        }
-        const curve = new THREE.CatmullRomCurve3(points);
-        const tubeGeom = new THREE.TubeGeometry(curve, 30, 0.045, 8, false);
-        const tubeMesh = new THREE.Mesh(tubeGeom, mat);
-        steelFrameGroup.add(tubeMesh);
-      };
-
-      // 建立上下主背骨 (Offset = 0.2 單位)
-      createCurvedPipe(0.8, thickness, 0.2, mainTrussMat);
-      createCurvedPipe(-0.8, thickness, 0.2, mainTrussMat);
-
-      // 建立立體三角桁架腹桿 (Space Truss Web)
-      const strutGeom = new THREE.CylinderGeometry(0.018, 0.018, 1.6, 8);
-      for (let x = -1.8; x <= 1.8; x += 0.6) {
-        const zUpper = (x*x)/7.5 - (0.8*0.8)/5.5 - thickness - 0.2;
-        const zLower = (x*x)/7.5 - (-0.8*-0.8)/5.5 - thickness - 0.2;
-        
-        // 垂直腹桿
-        const strut = new THREE.Mesh(strutGeom, diagonalMat);
-        strut.position.set(x, 0, (zUpper + zLower)/2);
-        strut.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(strut);
-
-        // 斜向支撐
-        const diagStrut = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.7, 8), diagonalMat);
-        diagStrut.position.set(x, 0, (zUpper + zLower)/2 - 0.1);
-        diagStrut.rotation.set(0.2, 0, Math.PI / 4);
-        steelFrameGroup.add(diagStrut);
-
-        // --- 🔗 建立 GRC 柔性固定錨栓 (Flex Anchor Pins) ---
-        // 連接混凝土背板與桁架架構的專用支撐連接栓 (跨越面板與鋼骨的空隙)
-        const pinGeom = new THREE.CylinderGeometry(0.012, 0.012, 0.24, 8);
-        const pinMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.85, roughness: 0.15 });
-        
-        // 上排錨栓
-        const pinUpper = new THREE.Mesh(pinGeom, pinMat);
-        pinUpper.position.set(x, 0.8, (zUpper + (zUpper + 0.2)) / 2);
-        pinUpper.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(pinUpper);
-
-        // 下排錨栓
-        const pinLower = new THREE.Mesh(pinGeom, pinMat);
-        pinLower.position.set(x, -0.8, (zLower + (zLower + 0.2)) / 2);
-        pinLower.rotation.x = Math.PI / 2;
-        steelFrameGroup.add(pinLower);
-      }
-
-      // 重型背部固定鋼板
-      const discGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.02, 16);
-      const discMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9, roughness: 0.1 });
-      for (let x = -1.2; x <= 1.2; x += 2.4) {
-        for (let y = -0.6; y <= 0.6; y += 1.2) {
-          const zBase = (x*x)/7.5 - (y*y)/5.5 - thickness - 0.42;
-          const anchor = new THREE.Mesh(discGeom, discMat);
-          anchor.position.set(x, y, zBase);
-          anchor.rotation.x = Math.PI / 2;
-          steelFrameGroup.add(anchor);
-        }
-      }
-
-      set3dMode(currentMode, null);
-    }
-
-    // --- 📂 用戶 Drag & Drop 3D 檔案讀取、上傳與解碼 ---
-    function initFileUpload() {
-      const container = document.getElementById('canvas3dContainer');
-      const dropZone = document.getElementById('dropZone3d');
-      const fileInput = document.getElementById('fileInput3d');
-
-      if (!container || !dropZone || !fileInput) return;
-
-      container.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropZone.style.borderColor = '#f59e0b';
-        dropZone.style.background = 'rgba(18,18,20,0.9)';
-      });
-
-      container.addEventListener('dragleave', (e) => {
-        e.preventDefault();
-        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
-        dropZone.style.background = 'rgba(18,18,20,0.75)';
-      });
-
-      container.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
-        dropZone.style.background = 'rgba(18,18,20,0.75)';
-        const file = e.dataTransfer.files[0];
-        if (file) handleUploadedFile(file);
-      });
-
-      fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) handleUploadedFile(file);
-      });
-    }
-
-    function handleUploadedFile(file) {
-      const loaderEl = document.getElementById('loader3d');
-      if (!loaderEl) return;
-
-      loaderEl.style.display = 'flex';
-      loaderEl.innerHTML = `<div style="text-align:center;"><div style="margin-bottom:8px;font-weight:700;">載入解碼中: ${file.name}</div><div style="font-size:0.75rem;color:#71717a;">本機 GPU 解碼中，絕不上傳檔案</div></div>`;
-
-      const ext = file.name.split('.').pop().toLowerCase();
-
-      // 隱藏預設 3D 構件
-      if (concreteMesh) concreteMesh.visible = false;
-      if (moldLines) moldLines.visible = false;
-      if (steelFrameGroup) steelFrameGroup.visible = false;
-
-      // 移除上一次上傳的模型
-      if (userModelGroup) grcGroup.remove(userModelGroup);
-      userModelGroup = new THREE.Group();
-      grcGroup.add(userModelGroup);
-
-      // 🚀 核心升級：使用 URL.createObjectURL (Blob URL) 取代 FileReader
-      // 這比將大檔案載入 JS 記憶體快數千倍，且幾乎不佔用額外 RAM，徹底解決手機端記憶體不足崩潰的問題！
-      const fileURL = URL.createObjectURL(file);
-
-      try {
-        if (ext === 'glb' || ext === 'gltf') {
-          const gltfLoader = new THREE.GLTFLoader();
-          
-          // 配置 Google DRACO 解碼器
-          const dracoLoader = new THREE.DRACOLoader();
-          dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
-          gltfLoader.setDRACOLoader(dracoLoader);
-
-          gltfLoader.load(fileURL, function (gltf) {
-            const loadedObject = gltf.scene;
-            adjustAndAddToScene(loadedObject);
-            URL.revokeObjectURL(fileURL); // 釋放 Blob URL 記憶體
-          }, function(xhr) {
-            // 可選的載入進度監聽
-          }, function(err) {
-            showError("GLTF/GLB 解析錯誤: " + err.message + "\n(提示：請確認檔案是否完整)");
-            URL.revokeObjectURL(fileURL);
-          });
-        } 
-        else if (ext === 'obj') {
-          const objLoader = new THREE.OBJLoader();
-          objLoader.load(fileURL, function (loadedObject) {
-            adjustAndAddToScene(loadedObject);
-            URL.revokeObjectURL(fileURL);
-          }, function(xhr) {}, function(err) {
-            showError("OBJ 解析錯誤: " + err.message);
-            URL.revokeObjectURL(fileURL);
-          });
-        } 
-        else if (ext === 'stl') {
-          const stlLoader = new THREE.STLLoader();
-          stlLoader.load(fileURL, function (geometry) {
-            const material = new THREE.MeshStandardMaterial({
-              color: 0x94a3b8,
-              roughness: 0.5,
-              metalness: 0.5
-            });
-            const mesh = new THREE.Mesh(geometry, material);
-            const wrapperGroup = new THREE.Group();
-            wrapperGroup.add(mesh);
-            adjustAndAddToScene(wrapperGroup);
-            URL.revokeObjectURL(fileURL);
-          }, function(xhr) {}, function(err) {
-            showError("STL 解析錯誤: " + err.message);
-            URL.revokeObjectURL(fileURL);
-          });
-        }
-      } catch (error) {
-        showError("模型分析異常: " + error.message);
-        URL.revokeObjectURL(fileURL);
-      }
-    }
-
-    function adjustAndAddToScene(object) {
-      const loaderEl = document.getElementById('loader3d');
-      const resetBtn = document.getElementById('btnReset3d');
-
-      // 🎯 核心升級：遞迴計算所有真實可見網格 (Mesh) 的包圍盒，完全排除輔助相機、骨骼或點光源產生的偏置
-      const box = new THREE.Box3();
-      let hasMesh = false;
-      
-      object.traverse(function(child) {
-        if (child.isMesh && child.visible) {
-          // 強制更新矩陣世界以獲得真實坐標
-          child.updateMatrixWorld(true);
-          if (child.geometry) {
-            if (!child.geometry.boundingBox) {
-              child.geometry.computeBoundingBox();
-            }
-            const meshBox = new THREE.Box3().copy(child.geometry.boundingBox).applyMatrix4(child.matrixWorld);
-            if (!hasMesh) {
-              box.copy(meshBox);
-              hasMesh = true;
-            } else {
-              box.union(meshBox);
-            }
-          }
-        }
-      });
-
-      const center = new THREE.Vector3();
-      const size = new THREE.Vector3();
-
-      if (hasMesh) {
-        box.getCenter(center);
-        box.getSize(size);
-      } else {
-        box.setFromObject(object);
-        box.getCenter(center);
-        box.getSize(size);
-      }
-
-      // 平移重心至座標原點 (0, 0, 0)，確保以此為物理中心完美旋轉！
-      object.position.sub(center);
-
-      // 自動縮放比例
-      const maxDim = Math.max(size.x, size.y, size.z);
-      if (maxDim > 0) {
-        const scale = 3.8 / maxDim;
-        object.scale.set(scale, scale, scale);
-      }
-
-      // 套用灰石顆粒質感材質並生成模具分割接縫線 (userMoldLines)
-      object.traverse(function (child) {
-        if (child.isMesh) {
-          child.material = new THREE.MeshStandardMaterial({
-            color: 0xb5b5ba,
-            roughness: 0.65,
-            metalness: 0.2,
-            side: THREE.DoubleSide
-          });
-          child.castShadow = true;
-          child.receiveShadow = true;
-
-          // 生成該網格的稜線/接縫分割線 (對應模具分割模式)
-          if (child.geometry) {
-            const edges = new THREE.EdgesGeometry(child.geometry, 15);
-            const lineMat = new THREE.LineBasicMaterial({
-              color: 0x18181b,
-              transparent: true,
-              opacity: 0.85
-            });
-            const lineSegments = new THREE.LineSegments(edges, lineMat);
-            lineSegments.name = 'userMoldLines';
-            lineSegments.visible = false; // 預設隱藏
-            child.add(lineSegments); // 作為子元件隨之旋轉移動
-          }
-        }
-      });
-
-      userModelGroup.add(object);
-      
-      if (loaderEl) loaderEl.style.display = 'none';
-      if (resetBtn) resetBtn.style.display = 'inline-block';
-
-      targetRotationX = 0.35;
-      targetRotationY = -0.6;
-    }
-
-    function showError(msg) {
-      const loaderEl = document.getElementById('loader3d');
-      if (loaderEl) {
-        loaderEl.style.display = 'flex';
-        loaderEl.innerHTML = '<div style="text-align:center;padding:20px;"><div style="color:#ef4444;font-weight:700;margin-bottom:8px;">⚠️ 載入失敗</div><div style="font-size:0.72rem;color:#a1a1aa;line-height:1.5;max-width:280px;margin:0 auto 12px auto;">' + msg + '</div><button onclick="reset3dModel()" style="background:#3f3f46;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.75rem;">重設模型</button></div>';
-      }
-    }
-
-    window.recenter3dView = function() {
-      if (grcGroup) {
-        grcGroup.position.set(0, 0, 0);
-      }
-      if (camera) {
-        camera.position.set(0, 0, 7.5);
-      }
-      targetRotationX = 0.35;
-      targetRotationY = -0.6;
-    };
-
-    window.reset3dModel = function() {
-      const loaderEl = document.getElementById('loader3d');
-      const resetBtn = document.getElementById('btnReset3d');
-
-      if (userModelGroup) {
-        grcGroup.remove(userModelGroup);
-        userModelGroup = null;
-      }
-
-      if (concreteMesh) concreteMesh.visible = true;
-      if (moldLines) moldLines.visible = true;
-      if (steelFrameGroup) steelFrameGroup.visible = true;
-
-      set3dMode(currentMode, null);
-
-      if (loaderEl) loaderEl.style.display = 'none';
-      if (resetBtn) resetBtn.style.display = 'none';
-      
-      // 🚀 重設平移位置與手勢模式
-      grcGroup.position.set(0, 0, 0);
-      setGestureMode('rotate');
-      
-      targetRotationX = 0.35;
-      targetRotationY = -0.6;
-    };
-
-    // --- 6. 滑鼠/觸控事件監聽 (智慧定向判定，包含平移拖拽支援) ---
-    function registerGestures(container) {
-      const onPointerDown = (e) => {
-        isDragging = true;
-        isScrolling = false;
-        isInteracting = false;
-
-        if (e.touches) {
-          const clientX = e.touches[0].clientX;
-          const clientY = e.touches[0].clientY;
-          touchStartX = clientX;
-          touchStartY = clientY;
-
-          if (e.touches.length === 2) {
-            initialPinchDistance = getPinchDistance(e);
-            initialCameraZ = camera.position.z;
-          } else {
-            previousMousePosition = { x: clientX, y: clientY };
-          }
-        } else {
-          previousMousePosition = { x: e.clientX, y: e.clientY };
-        }
-      };
-
-      const onPointerMove = (e) => {
-        if (!isDragging) return;
-
-        if (e.touches && e.touches.length === 2) {
-          if (e.cancelable) e.preventDefault();
-          const currentDistance = getPinchDistance(e);
-          if (initialPinchDistance > 0 && currentDistance > 0) {
-            const ratio = initialPinchDistance / currentDistance;
-            camera.position.z = initialCameraZ * ratio;
-            camera.position.z = Math.max(3, Math.min(12, camera.position.z));
-          }
-        } else if (e.touches && e.touches.length === 1) {
-          const clientX = e.touches[0].clientX;
-          const clientY = e.touches[0].clientY;
-
-          const deltaX = clientX - touchStartX;
-          const deltaY = clientY - touchStartY;
-
-          if (!isScrolling && !isInteracting) {
-            if (Math.abs(deltaY) > Math.abs(deltaX) * 1.25) {
-              isScrolling = true;
-              isDragging = false;
-              return;
-            } else {
-              isInteracting = true;
-            }
-          }
-
-          if (isInteracting) {
-            if (e.cancelable) e.preventDefault();
-            const deltaMove = {
-              x: clientX - previousMousePosition.x,
-              y: clientY - previousMousePosition.y
-            };
-
-            // 🚀 手勢操作分支判定 (旋轉 vs. 平移)
-            if (gestureMode === 'rotate') {
-              targetRotationY += deltaMove.x * rotationSpeed;
-              targetRotationX += deltaMove.y * rotationSpeed;
-              targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
-            } else {
-              // 平移模式：動態根據相機深度估算平移速度
-              const factor = camera.position.z * 0.0016;
-              grcGroup.position.x += deltaMove.x * factor;
-              grcGroup.position.y -= deltaMove.y * factor;
-            }
-            previousMousePosition = { x: clientX, y: clientY };
-          }
-        } else {
-          // 桌機鼠標互動
-          const clientX = e.clientX;
-          const clientY = e.clientY;
-          
-          const deltaMove = {
-            x: clientX - previousMousePosition.x,
-            y: clientY - previousMousePosition.y
-          };
-
-          // 🚀 桌機操作分支 (若是右鍵拖曳，或是平移模式，則觸發平移)
-          const isRightClick = (e.button === 2 || e.buttons === 2);
-          if (gestureMode === 'pan' || isRightClick) {
-            const factor = camera.position.z * 0.0016;
-            grcGroup.position.x += deltaMove.x * factor;
-            grcGroup.position.y -= deltaMove.y * factor;
-          } else {
-            targetRotationY += deltaMove.x * rotationSpeed;
-            targetRotationX += deltaMove.y * rotationSpeed;
-            targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
-          }
-          previousMousePosition = { x: clientX, y: clientY };
-        }
-      };
-
-      const onPointerUp = () => {
-        isDragging = false;
-        isScrolling = false;
-        isInteracting = false;
-        initialPinchDistance = 0;
-      };
-
-      const onWheel = (e) => {
-        e.preventDefault();
-        camera.position.z += e.deltaY * 0.005;
-        camera.position.z = Math.max(3, Math.min(12, camera.position.z));
-      };
-
-      // 防止右鍵彈出選單干涉拖拽
-      container.addEventListener('contextmenu', (e) => e.preventDefault());
-
-      container.addEventListener('mousedown', onPointerDown);
-      container.addEventListener('mousemove', onPointerMove);
-      window.addEventListener('mouseup', onPointerUp);
-
-      container.addEventListener('touchstart', onPointerDown, { passive: false });
-      container.addEventListener('touchmove', onPointerMove, { passive: false });
-      window.addEventListener('touchend', onPointerUp);
-      
-      container.addEventListener('wheel', onWheel, { passive: false });
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      if (grcGroup) {
-        grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
-        grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
-        if (!isDragging && gestureMode === 'rotate') {
-          targetRotationY += 0.0015; // 僅在旋轉模式閒置時自動旋轉
-        }
-      }
-      renderer.render(scene, camera);
-    }
-
-    // 切換顯示模式
-    window.set3dMode = function(mode, btnEl) {
-      currentMode = mode;
-      if (!concreteMesh) return;
-
-      const btns = document.querySelectorAll('#web3dControls .grc-tab-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
-
-      if (userModelGroup) {
-        userModelGroup.traverse(function(child) {
-          if (child.isMesh) {
-            const userLines = child.getObjectByName('userMoldLines');
-            
-            if (mode === 'outer') {
-              child.material.wireframe = false;
-              child.material.opacity = 1.0;
-              child.material.color.setHex(0xb5b5ba); // 混凝土灰色
-              if (userLines) userLines.visible = false;
-            }
-            else if (mode === 'mold') {
-              child.material.wireframe = false;
-              child.material.opacity = 0.85;
-              child.material.color.setHex(0x94a3b8); // 略深色背景，襯托黑色線框
-              if (userLines) {
-                userLines.visible = true;
-                userLines.material.color.setHex(0x18181b); // 黑色拼接縫
-                userLines.material.opacity = 0.85;
-              }
-            }
-            else if (mode === 'steel') {
-              // 用戶上傳模型以「黃金高亮半透線框」呈現，非常有科技結構感！
-              child.material.wireframe = true;
-              child.material.opacity = 0.25;
-              child.material.color.setHex(0xf59e0b); // 亮金黃鋼架
-              if (userLines) userLines.visible = false;
-            }
-          }
-        });
-        return;
-      }
-
-      if (mode === 'outer') {
-        concreteMesh.material.opacity = 1.0;
-        concreteMesh.material.color.setHex(0xe4e4e7);
-        moldLines.material.opacity = 0.0;
-        steelFrameGroup.visible = false;
-      } 
-      else if (mode === 'mold') {
-        concreteMesh.material.opacity = 0.85;
-        concreteMesh.material.color.setHex(0xa1a1aa);
-        moldLines.material.opacity = 1.0;
-        moldLines.material.color.setHex(0x18181b);
-        steelFrameGroup.visible = false;
-      } 
-      else if (mode === 'steel') {
-        concreteMesh.material.opacity = 0.12;
-        concreteMesh.material.color.setHex(0xe4e4e7);
-        moldLines.material.opacity = 0.3;
-        moldLines.material.color.setHex(0xa1a1aa);
-        steelFrameGroup.visible = true;
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(initWeb3D, 500);
-    });
-  </script>
-
-  </body>
-</html>
-
-
-
-
-
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>服務項目 | 騰煇企業 TENG SELENDOR</title>
+  <meta name="description" content="外牆工程，找騰煇。騰煇企業，實現你的不可能。騰煇外牆工程 6 大模組：GRC造型工程、建築外牆工程、PPG塗料系統（連工帶料）、公共藝術、外牆拉皮與配件系統。">
+    <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .grc-workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .grc-wf-card {
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .grc-wf-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .grc-wf-card h4 {
+      font-size: 0.98rem;
+      color: #3a3a3f;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .grc-wf-card p {
+      font-size: 0.84rem;
+      color: #475569;
+      line-height: 1.5;
+    }
+    
+    /* 4 大前後對比卡片網格 (移除笨重黑邊框，呈現極簡懸浮視覺) */
+    .renov-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 24px;
+    }
+    .renov-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    @media (max-width: 900px) {
+      .grc-workflow-grid, .renov-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name">騰煇企業有限公司</span>
+          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            
+            <li class="dropdown">
+              <a href="services.html" class="nav-link active">服務項目</a>
+              <ul class="dropdown-menu">
+                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
+                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
+                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="faq.html" class="nav-link">常見問題</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-icons-group">
+          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">SERVICES &amp; PROCESS</span>
+        <h1 class="section-title">騰煇連工帶料整合服務項目</h1>
+      </div>
+
+      <!-- 1. GRC 造型工程 -->
+      <section id="grc" class="service-card-rwd">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">01. GRC 特殊造型工程 (從設計圖到實體落地)</h2>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
+          依據立面造型與幾何需求，靈活整合高精度木作工藝模具與 3D 數位開模技術。提供從 3D 電腦放樣、預鑄開模、工廠養護到現場吊掛組裝的一條龍服務。適合歐式古典花紋、高難度非標幾何曲面與公共藝術裝置。
+        </p>
+
+        <!-- GRC 建築風格與專業應用範疇 (簡潔工程大氣排版) -->
+        <div style="margin-top: 28px; margin-bottom: 28px;">
+          <h3 style="font-size: 1.1rem; color: #3a3a3f; font-weight: 800; margin-bottom: 16px; border-left: 3px solid #3a3a3f; padding-left: 10px;">GRC 建築風格與專業應用範疇</h3>
+          <div class="grid-3-to-1">
+            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 01</span>
+              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">歐式古典建築風格</h4>
+              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">精雕飾柱、巴洛克造型簷線、古典穹頂與複雜幾何切割，呈現厚實典雅的建築質感。</p>
+            </div>
+            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 02</span>
+              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">自然曲面與仿生立面</h4>
+              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">有機流動立面曲面、大跨距拱門與連續波浪造型，為現代建築賦予有機的視覺張力。</p>
+            </div>
+            <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+              <span style="font-size: 0.75rem; color: #71717a; font-weight: 800; letter-spacing: 1px; display: block; margin-bottom: 8px;">STYLE 03</span>
+              <h4 style="font-size: 1.05rem; color: #3a3a3f; font-weight: 800; margin-bottom: 8px;">3D 參數化幾何造型</h4>
+              <p style="font-size: 0.88rem; color: #55555e; line-height: 1.6; margin: 0;">配合當代 3D 電腦放樣與多軸加工，完美實現非標幾何切面與前衛立面外飾需求。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRC 永續與材料優勢 -->
+        <div style="background: #ffffff; border: 1px solid rgba(58,58,63,0.12); border-radius: 8px; padding: 22px; margin-bottom: 28px;">
+          <h4 style="font-size: 1rem; color: #3a3a3f; font-weight: 800; margin-bottom: 14px;">GRC 預鑄工藝特點與永續優勢</h4>
+          <div class="grid-3-to-1">
+            <div>
+              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">結構輕量減載</h5>
+              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">高強度輕量化，大幅降低建築主體自重負載，減少混凝土與鋼筋用量。</p>
+            </div>
+            <div>
+              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">永續減廢低碳</h5>
+              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">替代傳統外推造型工法，大幅減少施工過程木模板與保麗龍廢棄物。</p>
+            </div>
+            <div>
+              <h5 style="font-size: 0.9rem; color: #3a3a3f; font-weight: 700; margin-bottom: 4px;">耐候防火防潮</h5>
+              <p style="font-size: 0.85rem; color: #55555e; line-height: 1.6; margin: 0;">玻璃纖維有效提升抗張強度，純水泥基材具備一級防火與極佳耐候性。</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- GRC 生產製造實錄影片 (GRC製成250722) -->
+        <div class="service-subcard-rwd">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">GRC製程實錄</h3>
+            <span style="font-size: 0.78rem; background: #3a3a3f; color: #ffffff; padding: 4px 10px; border-radius: 4px; font-weight: 700;">FACTORY RECORDING</span>
+          </div>
+          <div style="max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #000000; box-shadow: 0 6px 20px rgba(0,0,0,0.1); border: 1px solid rgba(58,58,63,0.15);">
+            <video src="img/grc-process.mp4" controls autoplay muted loop playsinline style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; display: block; border-radius: 10px;"></video>
+          </div>
+        </div>
+
+                <!-- ================= GRC Web3D 互動模型拆解器 ================= -->
+        <div class="service-subcard-rwd">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">GRC Web3D 構件互動拆解器</h3>
+              <p style="font-size: 0.82rem; color: #64748b; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span>拖曳可 3D 旋轉與縮放模型，切換不同模式檢視結構細節。</span>
+                <span style="display: inline-flex; background: rgba(58,58,63,0.06); border-radius: 6px; padding: 2px;" id="gestureModeControls">
+                  <button class="grc-tab-btn active" id="btnModeRotate" onclick="setGestureMode('rotate')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">旋轉</button>
+                  <button class="grc-tab-btn" id="btnModePan" onclick="setGestureMode('pan')" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 4px; border: none; box-shadow: none;">平移</button>
+                </span>
+              </p>
+            </div>
+            <!-- 控制按鈕組 -->
+            <div style="display: flex; gap: 8px;" id="web3dControls">
+              <button class="grc-tab-btn active" onclick="set3dMode('outer', this)">外觀噴漆</button>
+              <button class="grc-tab-btn" onclick="set3dMode('mold', this)">模具分割</button>
+              <button class="grc-tab-btn" onclick="set3dMode('steel', this)">內部防護鋼骨</button>
+            </div>
+          </div>
+
+          <!-- 3D 渲染視窗 -->
+          <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
+            
+            <!-- 手機端快捷縮放按鍵組 (防觸控冒泡阻斷) -->
+            <div style="position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 25;">
+              <button ontouchstart="event.stopPropagation(); zoom3D(0.82);" onclick="zoom3D(0.82)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="放大">+</button>
+              <button ontouchstart="event.stopPropagation(); zoom3D(1.22);" onclick="zoom3D(1.22)" style="width: 40px; height: 40px; border-radius: 8px; background: rgba(18,18,20,0.85); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.2s;" aria-label="縮小">-</button>
+            </div>
+
+            <!-- 3D 檔案拖曳與上傳控制列 -->
+            <div id="dropZone3d" style="position: absolute; top: 12px; left: 12px; right: 12px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(18,18,20,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #a1a1aa; font-size: 0.75rem; z-index: 20; transition: all 0.2s;">
+              <span style="font-weight: 600;">拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <input type="file" id="fileInput3d" accept=".gltf,.glb,.obj,.stl" style="display: none;">
+                <button onclick="document.getElementById('fileInput3d').click()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">選取檔案</button>
+                <button id="btnRecenter3d" onclick="recenter3dView()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設視角</button>
+                <button id="btnReset3d" onclick="reset3dModel()" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設模型</button>
+              </div>
+            </div>
+
+            <!-- 3D Canvas will be injected here -->
+            <div id="loader3d" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #121214; color: #94a3b8; font-size: 0.9rem; z-index: 10;">
+              <div style="text-align: center;">
+                <div style="margin-bottom: 8px; font-weight: 700;">3D 引擎初始化中...</div>
+                <div style="font-size: 0.75rem; color: #71717a;">拖曳旋轉、雙指縮放 ｜ 支援本機檔案載入</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 💥 專案工程 6 步圖面輪播展示：台中雅園新潮 (無多餘長文字，防止法務爭議) -->
+        <div class="service-subcard-rwd">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">台中雅園新潮</h3>
+            <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="link-text" style="font-size: 0.85rem;">觀看雅園新潮 IG 短片 &rarr;</a>
+          </div>
+
+          <!-- 投影片大圖視窗 (全寬限高，無多餘長冗字) -->
+          <div style="position: relative; width: 100%; max-width: 860px; height: 380px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #f4f4f5; border: 1px solid rgba(58,58,63,0.08);">
+            <img decoding="async" loading="lazy" src="img/grc-workflow/設計圖手繪.png" id="grcSlideImg" alt="工程步驟圖" style="width: 100%; height: 100%; object-fit: contain; background: #ffffff; transition: opacity 0.3s ease; padding: 10px;">
+            
+            <span id="grcSlideBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(58, 58, 63, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.5px;">
+              STEP 01 / 06 ｜ 概念手繪
+            </span>
+
+            <button onclick="prevGrcSlide()" style="position: absolute; top: 50%; left: 14px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(58,58,63,0.1); color: #3a3a3f; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center;" aria-label="上一張">&lsaquo;</button>
+            <button onclick="nextGrcSlide()" style="position: absolute; top: 50%; right: 14px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.9); border: 1px solid rgba(58,58,63,0.1); color: #3a3a3f; font-size: 1.3rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center;" aria-label="下一張">&rsaquo;</button>
+          </div>
+
+          <!-- 01 ~ 06 簡潔頁籤導覽 (剛好 1 排完整不掉列) -->
+          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 16px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px;" id="grcSlideDots">
+            <button class="grc-tab-btn active" onclick="goGrcSlide(0)"><span>01</span> 概念手繪</button>
+            <button class="grc-tab-btn" onclick="goGrcSlide(1)"><span>02</span> 3D BIM 建模</button>
+            <button class="grc-tab-btn" onclick="goGrcSlide(2)"><span>03</span> 3D列印</button>
+            <button class="grc-tab-btn" onclick="goGrcSlide(3)"><span>04</span> 造型製作</button>
+            <button class="grc-tab-btn" onclick="goGrcSlide(4)"><span>05</span> 現場吊掛</button>
+            <button class="grc-tab-btn" onclick="goGrcSlide(5)"><span>06</span> 完工落地</button>
+          </div>
+        </div>
+
+        <script>
+          const grcSimpleSlides = [
+            { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/設計圖手繪.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 0 },
+            { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/Rhino.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 1 },
+            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "cover", pos: "center 60%", scale: 1.25, stepIdx: 2 },
+            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "cover", pos: "center 40%", scale: 1.3, stepIdx: 3 },
+            { badge: "STEP 05 / 06 ｜ 現場吊掛安裝", img: "img/grc-workflow/grc-site-hoisting.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 4 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 }
+          ];
+
+          let curGrcIdx = 0;
+          function renderGrcSlide(idx) {
+            const data = grcSimpleSlides[idx];
+            const img = document.getElementById('grcSlideImg');
+            const badge = document.getElementById('grcSlideBadge');
+            const dots = document.querySelectorAll('#grcSlideDots .grc-tab-btn');
+
+            img.style.opacity = 0;
+            setTimeout(() => {
+              img.src = data.img;
+              img.style.objectFit = data.fit;
+              img.style.objectPosition = data.pos;
+              img.style.transform = `scale(${data.scale})`;
+              badge.innerText = data.badge;
+              img.style.opacity = 1;
+            }, 150);
+
+            dots.forEach((d, i) => {
+              d.classList.toggle('active', i === data.stepIdx);
+            });
+            curGrcIdx = idx;
+          }
+
+          function nextGrcSlide() {
+            let n = (curGrcIdx + 1) % grcSimpleSlides.length;
+            renderGrcSlide(n);
+          }
+
+          function prevGrcSlide() {
+            let n = (curGrcIdx - 1 + grcSimpleSlides.length) % grcSimpleSlides.length;
+            renderGrcSlide(n);
+          }
+
+          function goGrcSlide(stepIdx) {
+            let targetIdx = grcSimpleSlides.findIndex(s => s.stepIdx === stepIdx);
+            if (targetIdx !== -1) renderGrcSlide(targetIdx);
+          }
+        </script>
+      <!-- 2. 建築外牆高耐候塗料系統 (PPG 申紐麗漆) -->
+      <section id="ppg" class="service-card-rwd">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 6px; border-left: 4px solid #3a3a3f; padding-left: 12px;">02. 建築外牆高耐候塗料系統 (PPG)</h2>
+            <span style="font-size: 0.88rem; color: #64748b; font-weight: 600;">全系列產品皆具備「透氣不透水」長效防護特性，避免外在水氣造成漆膜起泡與壁癌。</span>
+          </div>
+          <img src="img/ppg-logo.png" alt="PPG 原廠標誌" style="height: 48px; width: auto; object-fit: contain;">
+        </div>
+
+        <div style="background: #f8fafc; border-left: 4px solid #3a3a3f; border-radius: 6px; padding: 16px 20px; margin-bottom: 24px;">
+          <h4 style="font-size: 0.95rem; color: #3a3a3f; font-weight: 800; margin-bottom: 6px;">【騰煇服務說明：專案整合施作（連工帶料）】</h4>
+          <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+            騰煇為 PPG 原廠授權外牆工程團隊，<strong>專注於「現場基底檢測 ➔ 選材建議 ➔ 專業連工帶料噴塗」整體專案服務，不單純零售塗料桶</strong>。因為外牆塗料的長效耐久，取決於現場基底處置與標準化施工品質。
+          </p>
+        </div>
+
+        <!-- PPG 產品五大頁籤按鈕 -->
+        <div style="display: flex; gap: 10px; border-bottom: 1px solid rgba(58,58,63,0.08); padding-bottom: 12px; margin-bottom: 24px; flex-wrap: wrap;" id="ppgTabs">
+          <button class="grc-tab-btn active" onclick="switchPpgTab(0)">龐亞漆</button>
+          <button class="grc-tab-btn" onclick="switchPpgTab(1)">彈性佩能漆</button>
+          <button class="grc-tab-btn" onclick="switchPpgTab(2)">臻石漆</button>
+          <button class="grc-tab-btn" onclick="switchPpgTab(3)">絢岩臻彩漆</button>
+          <button class="grc-tab-btn" onclick="switchPpgTab(4)">雅飾彈性 500</button>
+        </div>
+
+        <!-- PPG 產品詳細展示卡 (左圖右文) -->
+        <div style="display: grid; grid-template-columns: min(420px, 45%) 1fr; gap: 32px; background: #f8fafc; border: 1px solid rgba(58,58,63,0.08); border-radius: 14px; padding: 24px; align-items: center;" id="ppgViewerBox" class="ppg-viewer-box">
+          <div style="height: 260px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid rgba(58,58,63,0.08);">
+            <img decoding="async" loading="lazy" src="img/ppg/龐亞漆2.avif" id="ppgImg" alt="PPG 塗料樣品" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <h3 id="ppgTitle" style="font-size: 1.35rem; color: #3a3a3f; font-weight: 800; margin-bottom: 12px;">龐亞漆（Panya Coating）</h3>
+            <ul id="ppgList" style="font-size: 0.92rem; color: #55555e; padding-left: 20px; line-height: 1.8; display: flex; flex-direction: column; gap: 8px;">
+              <li><strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。</li>
+              <li><strong>奈米級分子：</strong> 乳液分子達 10 納米，耐污防塵性能極佳。</li>
+              <li><strong>抗潮透氣：</strong> 漆膜乾燥後甚至可浸泡於水中，抗風化性強。</li>
+              <li><strong>清水模美學：</strong> 仿清水模效果優異，顏色亦可依專案客製。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 外牆拉皮整合翻新 (互動式前後對比展示 - 滑桿完整保留) -->
+      <section id="renovation" class="service-card-rwd">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">03. 外牆拉皮整合翻新工程</h2>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
+          針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
+        </p>
+
+        <!-- 互動對比展示視窗 (保留前後滑桿拉桿) -->
+        <div class="service-subcard-rwd">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h3>
+          </div>
+
+          <!-- 中央互動對比滑桿視窗 -->
+          <div class="ba-slider-container" style="height: 420px; max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden;" id="renovBaContainer">
+            <img decoding="async" loading="lazy" src="img/renovation/renov1-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image ba-image-after">
+            <span class="ba-label ba-label-after">AFTER 施工後</span>
+            
+            <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
+              <img decoding="async" loading="lazy" src="img/renovation/renov1-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image ba-image-before">
+              <span class="ba-label ba-label-before">BEFORE 施工前</span>
+            </div>
+
+            <div class="ba-handle" id="renovHandle" style="left: 50%;"><div class="ba-handle-circle"><span>&lsaquo;</span><span>&rsaquo;</span></div></div>
+            <input type="range" min="0" max="100" value="50" class="ba-range-slider" id="renovRangeInput">
+            
+            <span id="renovCaseBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(58, 58, 63, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; z-index: 10;">
+              CASE 01 ｜ 台南北區民宅透天拉皮
+            </span>
+          </div>
+
+          <!-- 5 大案例快速頁籤切換按鈕 -->
+          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; flex-wrap: wrap;" id="renovCaseDots">
+            <button class="grc-tab-btn active" onclick="switchRenovCase(0)"><span>01</span> 台南民宅透天</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(1)"><span>02</span> 桃園薑母島軍營</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(2)"><span>03</span> 桃園廠房 (主立面)</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(3)"><span>04</span> 桃園廠房 (側立面)</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(4)"><span>05</span> 高雄仁武AI廠</button>
+          </div>
+        </div>
+
+      </section>
+
+      <script>
+        // 💥 PPG 塗料頁籤切換邏輯
+        const ppgData = [
+          {
+            title: "龐亞漆（Panya Coating）",
+            img: "img/ppg/龐亞漆2.avif",
+            list: [
+              "<strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。",
+              "<strong>奈米級分子：</strong> 乳液分子達 10 納米，耐污防塵性能極佳。",
+              "<strong>抗潮透氣：</strong> 漆膜乾燥後甚至可浸泡於水中，抗風化性強。",
+              "<strong>清水模美學：</strong> 仿清水模效果優異，顏色亦可依專案客製。"
+            ]
+          },
+          {
+            title: "彈性佩能漆（PainTex Coating）",
+            img: "img/ppg/彈性佩能漆.jpg",
+            list: [
+              "<strong>卓越彈性裂縫延伸率：</strong> 能有效跨越基底微細裂縫，防止水氣侵入結構內部。",
+              "<strong>高耐候與自潔防污：</strong> 抵抗紫外線與酸雨侵蝕，面層平滑不易附著塵埃污染。",
+              "<strong>優異透氣防滲水性能：</strong> 阻隔外部大雨滲透，同時允許牆體內部濕氣自然透出。",
+              "<strong>指標專案應用：</strong> 廣泛應用於元健大和宜蘭總部、小磨坊斗六廠等大型商業與廠房專案。"
+            ]
+          },
+          {
+            title: "臻石漆（Real Stone Coating）",
+            img: "img/ppg/臻石漆1.avif",
+            list: [
+              "<strong>天然彩色礦石粉：</strong> 採用天然礦石碎粉非市售染色漆，不退色。",
+              "<strong>漆膜具備柔韌彈性：</strong> 克服市售真石漆易龜裂與退色問題。",
+              "<strong>輕量比擬石材：</strong> 比擬天然花崗石質感，但重量極輕安全。"
+            ]
+          },
+          {
+            title: "絢岩臻彩漆（Granite Coating）",
+            img: "img/ppg/絢岩臻彩漆1.avif",
+            list: [
+              "<strong>花崗岩質感：</strong> 單桶包覆主材與色漿，一次噴塗即展現花崗石質感。",
+              "<strong>客製色樣：</strong> 顏色選擇多樣，可依建築設計樣板調配。",
+              "<strong>高CP值與安全性：</strong> 比天然花崗岩更輕量且性價比優異。"
+            ]
+          },
+          {
+            title: "雅飾彈性 500（Elastic 500）",
+            img: "img/ppg/IMG_574_雅飾彈性500_案例圖.avif",
+            list: [
+              "<strong>低溫優秀彈性：</strong> 在不同氣溫條件下皆保有彈性，有效遮蓋牆體表面龜裂紋。",
+              "<strong>長效保色抗粉化：</strong> 優良抗紫外線與保色性能，適合大樓與透天外牆翻新防護。"
+            ]
+          }
+        ];
+
+        function switchPpgTab(index) {
+          const data = ppgData[index];
+          const title = document.getElementById('ppgTitle');
+          const img = document.getElementById('ppgImg');
+          const list = document.getElementById('ppgList');
+          const btns = document.querySelectorAll('#ppgTabs .grc-tab-btn');
+
+          btns.forEach((b, i) => {
+            if (i === index) b.classList.add('active');
+            else b.classList.remove('active');
+          });
+
+          if (img) img.src = data.img;
+          if (title) title.innerText = data.title;
+          if (list) list.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
+        }
+
+        // 💥 外牆拉皮前後對比展示切換邏輯 (保留動態滑桿)
+        const renovCasesData = [
+          {
+            badge: "CASE 01 ｜ 台南北區民宅透天拉皮",
+            before: "img/renovation/renov1-before.jpg",
+            after: "img/renovation/renov1-after.jpg"
+          },
+          {
+            badge: "CASE 02 ｜ 桃園大溪 薑母島軍營",
+            before: "img/renovation/renov2-before.jpg",
+            after: "img/renovation/renov2-after.jpg"
+          },
+          {
+            badge: "CASE 03-A ｜ 桃園觀音 廠房大樓 (主立面)",
+            before: "img/renovation/renov3a-before.jpg",
+            after: "img/renovation/renov3a-after.jpg"
+          },
+          {
+            badge: "CASE 03-B ｜ 桃園觀音 廠房大樓 (側立面)",
+            before: "img/renovation/renov3b-before.jpg",
+            after: "img/renovation/renov3b-after.jpg"
+          },
+          {
+            badge: "CASE 05 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
+            before: "img/renovation/renwu-before.jpg",
+            after: "img/renovation/renwu-after.jpg"
+          }
+        ];
+
+        function switchRenovCase(index) {
+          const data = renovCasesData[index];
+          const badge = document.getElementById('renovCaseBadge');
+          const beforeImg = document.getElementById('renovBeforeImg');
+          const afterImg = document.getElementById('renovAfterImg');
+          const rangeInput = document.getElementById('renovRangeInput');
+          const beforeWrapper = document.getElementById('renovBeforeWrapper');
+          const handle = document.getElementById('renovHandle');
+          const btns = document.querySelectorAll('#renovCaseDots .grc-tab-btn');
+
+          btns.forEach((b, i) => {
+            if (i === index) b.classList.add('active');
+            else b.classList.remove('active');
+          });
+
+          if (beforeImg) beforeImg.src = data.before;
+          if (afterImg) afterImg.src = data.after;
+          if (badge) badge.innerText = data.badge;
+
+          // 重置滑桿到中央 50%
+          if (rangeInput) rangeInput.value = 50;
+          if (beforeWrapper) beforeWrapper.style.width = '50%';
+          if (handle) handle.style.left = '50%';
+        }
+
+        // 動態監聽對比滑桿
+        document.addEventListener('DOMContentLoaded', () => {
+          const input = document.getElementById('renovRangeInput');
+          const wrapper = document.getElementById('renovBeforeWrapper');
+          const handle = document.getElementById('renovHandle');
+          
+          if (input) {
+            input.addEventListener('input', (e) => {
+              const val = e.target.value;
+              if (wrapper) wrapper.style.width = val + '%';
+              if (handle) handle.style.left = val + '%';
+            });
+          }
+        });
+      </script>
+
+      <!-- 4. 外牆配件系統 -->
+      <section id="accessories" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">04. 外牆細部配件系統 (滴水條 / 導水板)</h2>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px; line-height: 1.7;">
+          外牆長效乾淨的關鍵細節！搭配專利鋁合金與不鏽鋼滴水條、導水板，有效導引雨水避免牆面產生髒污黑水痕。
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- 💥 頁尾升級 (採用白色 LOGO3-02、雙標語、聯絡資訊與全台服務) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand" style="max-width: 420px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <img decoding="async" loading="lazy" src="img/logo-white.png" alt="騰煇企業 白色 Logo" style="height: 44px; width: auto;">
+          <div>
+            <h4 style="color: #e8e8ea; font-size: 1.05rem; margin: 0; font-weight: 600;">騰煇企業有限公司</h4>
+            <span style="font-size: 0.72rem; color: #71717a; font-weight: 600;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+          </div>
+        </div>
+        <p style="color: #d8d8dc; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.85rem; color: #9d9da6; line-height: 1.6;">美感，由設計定義。耐久，由工程守護。<br>40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+
+      <!-- 實體聯絡資訊 (來自圖二舊官網資料) -->
+      <div class="footer-contact-info" style="color: #9d9da6; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+        <h5 style="color: #d8d8dc; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600;">聯絡我們 (服務地區：台灣全區)</h5>
+        <p>台中總公司：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄分公司：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>服務項目</h5>
+          <ul>
+            <li><a href="services.html#grc">GRC 造型工程</a></li>
+            
+            <li><a href="services.html#ppg">建築外牆防護塗料</a></li>
+            <li><a href="services.html#renovation">外牆翻新整合工程</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>快速連結</h5>
+          <ul>
+            <li><a href="about.html">關於騰煇</a></li>
+            <li><a href="process.html">工程流程</a></li>
+            <li><a href="projects.html">案例分享</a></li>
+            <li><a href="faq.html">常見問題</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區</p>
+    </div>
+  </footer>
+
+  <script>
+    // 通用多對比拉桿 JS 控制器 (邊緣標籤動態隱藏機制)
+    function initBaSliders() {
+      document.querySelectorAll('.ba-slider-container').forEach(container => {
+        const range = container.querySelector('.ba-range-slider');
+        const wrapper = container.querySelector('.ba-before-wrapper');
+        const handle = container.querySelector('.ba-handle');
+        const imgBefore = container.querySelector('.ba-image-before');
+        const labelBefore = container.querySelector('.ba-label-before');
+        const labelAfter = container.querySelector('.ba-label-after');
+
+        function syncWidth() {
+          if (imgBefore && container) {
+            const containerWidth = container.getBoundingClientRect().width;
+            imgBefore.style.width = containerWidth + 'px';
+            imgBefore.style.maxWidth = 'none';
+          }
+        }
+
+        window.addEventListener('resize', syncWidth);
+        syncWidth();
+        setTimeout(syncWidth, 100);
+        setTimeout(syncWidth, 500);
+
+        if (range) {
+          range.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            wrapper.style.width = val + '%';
+            handle.style.left = val + '%';
+
+            if (labelBefore) labelBefore.style.opacity = val < 4 ? '0' : '1';
+            if (labelAfter) labelAfter.style.opacity = val > 96 ? '0' : '1';
+          });
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initBaSliders);
+    window.addEventListener('load', initBaSliders);
+    initBaSliders();
+  </script>
+
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? 'x' : '=';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('is-open');
+          mobileToggle.textContent = '=';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
+  <div class="floating-contact-bar">
+    <!-- LINE -->
+    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
+      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
+    </a>
+    <!-- Telephone -->
+    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+    <!-- Google Maps -->
+    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </a>
+    <!-- Back to Top -->
+    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
+      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Back to top behavior
+    const btnToTop = document.getElementById('btnToTop');
+    if (btnToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnToTop.classList.add('show');
+        } else {
+          btnToTop.classList.remove('show');
+        }
+      });
+      btnToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+
+  
+  
+  <!-- Three.js 3D 核心與擴充載入器 (新增 DRACO 解碼器) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+  
+  <script>
+    let scene, camera, renderer, grcGroup;
+    let concreteMesh, moldLines, steelFrameGroup;
+    let userModelGroup = null; // 用戶上傳的模型
+    let isDragging = false;
+    let isScrolling = false;
+    let isInteracting = false;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let previousMousePosition = { x: 0, y: 0 };
+    let rotationSpeed = 0.006;
+    let targetRotationX = 0.35;
+    let targetRotationY = -0.6;
+    let initialPinchDistance = 0;
+    let initialCameraZ = 7.5;
+    let currentMode = 'outer';
+    let gestureMode = 'rotate'; // 🚀 手勢操作模式: 'rotate' (旋轉) 或是 'pan' (平移)
+
+    function initWeb3D() {
+      const container = document.getElementById('canvas3dContainer');
+      const loader = document.getElementById('loader3d');
+      if (!container) return;
+
+      if (typeof THREE === 'undefined') {
+        loader.innerHTML = '<div style="color: #ef4444; font-weight: 700;">3D 引擎載入失敗，請檢查網路。</div>';
+        return;
+      }
+
+      // 1. 場景初始化
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x121214);
+
+      // 2. 相機初始化
+      camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+      camera.position.set(0, 0, 7.5);
+
+      // 3. 渲染器初始化
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      container.appendChild(renderer.domElement);
+
+      if (loader) loader.style.display = 'none';
+
+      // 4. 立體光影設計
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+      scene.add(ambientLight);
+
+      const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.95);
+      dirLight1.position.set(8, 12, 10);
+      scene.add(dirLight1);
+
+      const dirLight2 = new THREE.DirectionalLight(0x60a5fa, 0.5); // 冰藍色側光
+      dirLight2.position.set(-8, -4, -2);
+      scene.add(dirLight2);
+
+      const dirLight3 = new THREE.DirectionalLight(0xfeb019, 0.25); // 暖陽頂光
+      dirLight3.position.set(0, 8, 2);
+      scene.add(dirLight3);
+
+      // 5. 建立主 GRC 群組
+      grcGroup = new THREE.Group();
+      grcGroup.rotation.set(targetRotationX, targetRotationY, 0);
+      scene.add(grcGroup);
+
+      // 建立雙曲實體預鑄板模型
+      createDefaultSaddleModel();
+
+      // 6. 初始化 File Upload / Drop 監聽
+      initFileUpload();
+
+      // 7. 註冊觸控/滑鼠手勢
+      registerGestures(container);
+
+      // RWD 調整
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      animate();
+    }
+
+    // 切換手勢模式 (旋轉/平移)
+    window.setGestureMode = function(mode) {
+      gestureMode = mode;
+      document.getElementById('btnModeRotate').classList.toggle('active', mode === 'rotate');
+      document.getElementById('btnModePan').classList.toggle('active', mode === 'pan');
+    };
+
+    // 🚀 手機端/快捷按鈕縮放函式
+    window.zoom3D = function(factor) {
+      if (!camera) return;
+      camera.position.z *= factor;
+      camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+    };
+
+    // --- 🏛️ 建立實體有厚度雙曲鞍形預鑄板 + 結構背骨鋼架 (Offset behind panel) ---
+    function createDefaultSaddleModel() {
+      if (concreteMesh) grcGroup.remove(concreteMesh);
+      if (moldLines) grcGroup.remove(moldLines);
+      if (steelFrameGroup) grcGroup.remove(steelFrameGroup);
+
+      const uSegments = 30;
+      const vSegments = 30;
+      const xRange = 4.4;
+      const yRange = 2.2;
+      const thickness = 0.16; // 實體 GRC 面板厚度 (約 160mm)
+
+      const vertices = [];
+      const indices = [];
+
+      const getSaddlePoint = (u, v, isBack) => {
+        const x = (u - 0.5) * xRange;
+        const y = (v - 0.5) * yRange;
+        // 雙曲鞍形公式 + 裝飾條紋刻線
+        const flute = 0.08 * Math.sin(u * Math.PI * 6);
+        const zBase = (x*x)/7.5 - (y*y)/5.5 + flute;
+        // 厚度偏移 (往 z 軸負方向偏移，創造背板)
+        const z = isBack ? (zBase - thickness) : zBase;
+        return new THREE.Vector3(x, y, z);
+      };
+
+      // 1. 前面板頂點 (Front Skin)
+      for (let j = 0; j <= vSegments; j++) {
+        const v = j / vSegments;
+        for (let i = 0; i <= uSegments; i++) {
+          const u = i / uSegments;
+          const p = getSaddlePoint(u, v, false);
+          vertices.push(p.x, p.y, p.z);
+        }
+      }
+
+      // 2. 背面板頂點 (Back Skin)
+      const numPoints = (uSegments + 1) * (vSegments + 1);
+      for (let j = 0; j <= vSegments; j++) {
+        const v = j / vSegments;
+        for (let i = 0; i <= uSegments; i++) {
+          const u = i / uSegments;
+          const p = getSaddlePoint(u, v, true);
+          vertices.push(p.x, p.y, p.z);
+        }
+      }
+
+      // 3. 縫合前面板三角面
+      for (let j = 0; j < vSegments; j++) {
+        for (let i = 0; i < uSegments; i++) {
+          const r1 = j * (uSegments + 1);
+          const r2 = (j + 1) * (uSegments + 1);
+          indices.push(r1 + i, r1 + i + 1, r2 + i);
+          indices.push(r1 + i + 1, r2 + i + 1, r2 + i);
+        }
+      }
+
+      // 4. 縫合背面板三角面 (逆繞使法相朝外)
+      for (let j = 0; j < vSegments; j++) {
+        for (let i = 0; i < uSegments; i++) {
+          const r1 = numPoints + j * (uSegments + 1);
+          const r2 = numPoints + (j + 1) * (uSegments + 1);
+          indices.push(r1 + i, r2 + i, r1 + i + 1);
+          indices.push(r1 + i + 1, r2 + i, r2 + i + 1);
+        }
+      }
+
+      // 5. 縫合頂邊邊界
+      const topStartFront = vSegments * (uSegments + 1);
+      const topStartBack = numPoints + topStartFront;
+      for (let i = 0; i < uSegments; i++) {
+        const f1 = topStartFront + i;
+        const f2 = topStartFront + i + 1;
+        const b1 = topStartBack + i;
+        const b2 = topStartBack + i + 1;
+        indices.push(f1, b1, f2);
+        indices.push(f2, b1, b2);
+      }
+
+      // 6. 縫合底邊邊界
+      for (let i = 0; i < uSegments; i++) {
+        const f1 = i;
+        const f2 = i + 1;
+        const b1 = numPoints + i;
+        const b2 = numPoints + i + 1;
+        indices.push(f1, f2, b1);
+        indices.push(f2, b2, b1);
+      }
+
+      // 7. 縫合左側邊界
+      for (let j = 0; j < vSegments; j++) {
+        const f1 = j * (uSegments + 1);
+        const f2 = (j + 1) * (uSegments + 1);
+        const b1 = numPoints + f1;
+        const b2 = numPoints + f2;
+        indices.push(f1, b1, f2);
+        indices.push(f2, b1, b2);
+      }
+
+      // 8. 縫合右側邊界
+      for (let j = 0; j < vSegments; j++) {
+        const f1 = j * (uSegments + 1) + uSegments;
+        const f2 = (j + 1) * (uSegments + 1) + uSegments;
+        const b1 = numPoints + f1;
+        const b2 = numPoints + f2;
+        indices.push(f1, f2, b1);
+        indices.push(f2, b2, b1);
+      }
+
+      const concreteGeom = new THREE.BufferGeometry();
+      concreteGeom.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      concreteGeom.setIndex(indices);
+      concreteGeom.computeVertexNormals();
+
+      // 混凝土實體材質 (高品質磨砂顆粒面)
+      const concreteMat = new THREE.MeshStandardMaterial({
+        color: 0xe4e4e7,
+        roughness: 0.86,
+        metalness: 0.05,
+        transparent: true,
+        opacity: 1.0
+      });
+      concreteMesh = new THREE.Mesh(concreteGeom, concreteMat);
+      grcGroup.add(concreteMesh);
+
+      // 接縫高亮邊界
+      const edges = new THREE.EdgesGeometry(concreteGeom, 15);
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0x18181b,
+        linewidth: 2.5,
+        transparent: true,
+        opacity: 0.0
+      });
+      moldLines = new THREE.LineSegments(edges, lineMat);
+      grcGroup.add(moldLines);
+
+      // --- C. 建立立體背襯鋼架與固定錨栓 (Truss Offset Behind GRC Skin) ---
+      steelFrameGroup = new THREE.Group();
+      steelFrameGroup.visible = false;
+      grcGroup.add(steelFrameGroup);
+
+      const mainTrussMat = new THREE.MeshStandardMaterial({
+        color: 0xf59e0b, // 亮金黃主鋼骨
+        metalness: 0.88,
+        roughness: 0.12
+      });
+
+      const diagonalMat = new THREE.MeshStandardMaterial({
+        color: 0x94a3b8, // 鋼灰色斜拉支撐
+        metalness: 0.78,
+        roughness: 0.22
+      });
+
+      // 建立背襯主鋼骨
+      const createCurvedPipe = (yOffset, thickness, zOffset, mat) => {
+        const points = [];
+        for (let i = 0; i <= 20; i++) {
+          const t = i / 20;
+          const x = -2.1 + t * 4.2;
+          const zBase = (x*x)/7.5 - (yOffset*yOffset)/5.5;
+          // 完全偏移至背板後方
+          points.push(new THREE.Vector3(x, yOffset, zBase - thickness - zOffset));
+        }
+        const curve = new THREE.CatmullRomCurve3(points);
+        const tubeGeom = new THREE.TubeGeometry(curve, 30, 0.045, 8, false);
+        const tubeMesh = new THREE.Mesh(tubeGeom, mat);
+        steelFrameGroup.add(tubeMesh);
+      };
+
+      // 建立上下主背骨 (Offset = 0.2 單位)
+      createCurvedPipe(0.8, thickness, 0.2, mainTrussMat);
+      createCurvedPipe(-0.8, thickness, 0.2, mainTrussMat);
+
+      // 建立立體三角桁架腹桿 (Space Truss Web)
+      const strutGeom = new THREE.CylinderGeometry(0.018, 0.018, 1.6, 8);
+      for (let x = -1.8; x <= 1.8; x += 0.6) {
+        const zUpper = (x*x)/7.5 - (0.8*0.8)/5.5 - thickness - 0.2;
+        const zLower = (x*x)/7.5 - (-0.8*-0.8)/5.5 - thickness - 0.2;
+        
+        // 垂直腹桿
+        const strut = new THREE.Mesh(strutGeom, diagonalMat);
+        strut.position.set(x, 0, (zUpper + zLower)/2);
+        strut.rotation.x = Math.PI / 2;
+        steelFrameGroup.add(strut);
+
+        // 斜向支撐
+        const diagStrut = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.7, 8), diagonalMat);
+        diagStrut.position.set(x, 0, (zUpper + zLower)/2 - 0.1);
+        diagStrut.rotation.set(0.2, 0, Math.PI / 4);
+        steelFrameGroup.add(diagStrut);
+
+        // --- 🔗 建立 GRC 柔性固定錨栓 (Flex Anchor Pins) ---
+        // 連接混凝土背板與桁架架構的專用支撐連接栓 (跨越面板與鋼骨的空隙)
+        const pinGeom = new THREE.CylinderGeometry(0.012, 0.012, 0.24, 8);
+        const pinMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.85, roughness: 0.15 });
+        
+        // 上排錨栓
+        const pinUpper = new THREE.Mesh(pinGeom, pinMat);
+        pinUpper.position.set(x, 0.8, (zUpper + (zUpper + 0.2)) / 2);
+        pinUpper.rotation.x = Math.PI / 2;
+        steelFrameGroup.add(pinUpper);
+
+        // 下排錨栓
+        const pinLower = new THREE.Mesh(pinGeom, pinMat);
+        pinLower.position.set(x, -0.8, (zLower + (zLower + 0.2)) / 2);
+        pinLower.rotation.x = Math.PI / 2;
+        steelFrameGroup.add(pinLower);
+      }
+
+      // 重型背部固定鋼板
+      const discGeom = new THREE.CylinderGeometry(0.12, 0.12, 0.02, 16);
+      const discMat = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.9, roughness: 0.1 });
+      for (let x = -1.2; x <= 1.2; x += 2.4) {
+        for (let y = -0.6; y <= 0.6; y += 1.2) {
+          const zBase = (x*x)/7.5 - (y*y)/5.5 - thickness - 0.42;
+          const anchor = new THREE.Mesh(discGeom, discMat);
+          anchor.position.set(x, y, zBase);
+          anchor.rotation.x = Math.PI / 2;
+          steelFrameGroup.add(anchor);
+        }
+      }
+
+      set3dMode(currentMode, null);
+    }
+
+    // --- 📂 用戶 Drag & Drop 3D 檔案讀取、上傳與解碼 ---
+    function initFileUpload() {
+      const container = document.getElementById('canvas3dContainer');
+      const dropZone = document.getElementById('dropZone3d');
+      const fileInput = document.getElementById('fileInput3d');
+
+      if (!container || !dropZone || !fileInput) return;
+
+      container.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#f59e0b';
+        dropZone.style.background = 'rgba(18,18,20,0.9)';
+      });
+
+      container.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+        dropZone.style.background = 'rgba(18,18,20,0.75)';
+      });
+
+      container.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'rgba(255,255,255,0.15)';
+        dropZone.style.background = 'rgba(18,18,20,0.75)';
+        const file = e.dataTransfer.files[0];
+        if (file) handleUploadedFile(file);
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) handleUploadedFile(file);
+      });
+    }
+
+    function handleUploadedFile(file) {
+      const loaderEl = document.getElementById('loader3d');
+      if (!loaderEl) return;
+
+      loaderEl.style.display = 'flex';
+      loaderEl.innerHTML = `<div style="text-align:center;"><div style="margin-bottom:8px;font-weight:700;">載入解碼中: ${file.name}</div><div style="font-size:0.75rem;color:#71717a;">本機 GPU 解碼中，絕不上傳檔案</div></div>`;
+
+      const ext = file.name.split('.').pop().toLowerCase();
+
+      // 隱藏預設 3D 構件
+      if (concreteMesh) concreteMesh.visible = false;
+      if (moldLines) moldLines.visible = false;
+      if (steelFrameGroup) steelFrameGroup.visible = false;
+
+      // 移除上一次上傳的模型
+      if (userModelGroup) grcGroup.remove(userModelGroup);
+      userModelGroup = new THREE.Group();
+      grcGroup.add(userModelGroup);
+
+      // 🚀 核心升級：使用 URL.createObjectURL (Blob URL) 取代 FileReader
+      // 這比將大檔案載入 JS 記憶體快數千倍，且幾乎不佔用額外 RAM，徹底解決手機端記憶體不足崩潰的問題！
+      const fileURL = URL.createObjectURL(file);
+
+      try {
+        if (ext === 'glb' || ext === 'gltf') {
+          const gltfLoader = new THREE.GLTFLoader();
+          
+          // 配置 Google DRACO 解碼器
+          const dracoLoader = new THREE.DRACOLoader();
+          dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
+          gltfLoader.setDRACOLoader(dracoLoader);
+
+          gltfLoader.load(fileURL, function (gltf) {
+            const loadedObject = gltf.scene;
+            adjustAndAddToScene(loadedObject);
+            URL.revokeObjectURL(fileURL); // 釋放 Blob URL 記憶體
+          }, function(xhr) {
+            // 可選的載入進度監聽
+          }, function(err) {
+            showError("GLTF/GLB 解析錯誤: " + err.message + "\n(提示：請確認檔案是否完整)");
+            URL.revokeObjectURL(fileURL);
+          });
+        } 
+        else if (ext === 'obj') {
+          const objLoader = new THREE.OBJLoader();
+          objLoader.load(fileURL, function (loadedObject) {
+            adjustAndAddToScene(loadedObject);
+            URL.revokeObjectURL(fileURL);
+          }, function(xhr) {}, function(err) {
+            showError("OBJ 解析錯誤: " + err.message);
+            URL.revokeObjectURL(fileURL);
+          });
+        } 
+        else if (ext === 'stl') {
+          const stlLoader = new THREE.STLLoader();
+          stlLoader.load(fileURL, function (geometry) {
+            const material = new THREE.MeshStandardMaterial({
+              color: 0x94a3b8,
+              roughness: 0.5,
+              metalness: 0.5
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            const wrapperGroup = new THREE.Group();
+            wrapperGroup.add(mesh);
+            adjustAndAddToScene(wrapperGroup);
+            URL.revokeObjectURL(fileURL);
+          }, function(xhr) {}, function(err) {
+            showError("STL 解析錯誤: " + err.message);
+            URL.revokeObjectURL(fileURL);
+          });
+        }
+      } catch (error) {
+        showError("模型分析異常: " + error.message);
+        URL.revokeObjectURL(fileURL);
+      }
+    }
+
+    function adjustAndAddToScene(object) {
+      const loaderEl = document.getElementById('loader3d');
+      const resetBtn = document.getElementById('btnReset3d');
+
+      // 🎯 核心升級：遞迴計算所有真實可見網格 (Mesh) 的包圍盒，完全排除輔助相機、骨骼或點光源產生的偏置
+      const box = new THREE.Box3();
+      let hasMesh = false;
+      
+      object.traverse(function(child) {
+        if (child.isMesh && child.visible) {
+          // 強制更新矩陣世界以獲得真實坐標
+          child.updateMatrixWorld(true);
+          if (child.geometry) {
+            if (!child.geometry.boundingBox) {
+              child.geometry.computeBoundingBox();
+            }
+            const meshBox = new THREE.Box3().copy(child.geometry.boundingBox).applyMatrix4(child.matrixWorld);
+            if (!hasMesh) {
+              box.copy(meshBox);
+              hasMesh = true;
+            } else {
+              box.union(meshBox);
+            }
+          }
+        }
+      });
+
+      const center = new THREE.Vector3();
+      const size = new THREE.Vector3();
+
+      if (hasMesh) {
+        box.getCenter(center);
+        box.getSize(size);
+      } else {
+        box.setFromObject(object);
+        box.getCenter(center);
+        box.getSize(size);
+      }
+
+      // 平移重心至座標原點 (0, 0, 0)，確保以此為物理中心完美旋轉！
+      object.position.sub(center);
+
+      // 自動縮放比例
+      const maxDim = Math.max(size.x, size.y, size.z);
+      if (maxDim > 0) {
+        const scale = 3.8 / maxDim;
+        object.scale.set(scale, scale, scale);
+      }
+
+      // 套用灰石顆粒質感材質並生成模具分割接縫線 (userMoldLines)
+      object.traverse(function (child) {
+        if (child.isMesh) {
+          child.material = new THREE.MeshStandardMaterial({
+            color: 0xb5b5ba,
+            roughness: 0.65,
+            metalness: 0.2,
+            side: THREE.DoubleSide
+          });
+          child.castShadow = true;
+          child.receiveShadow = true;
+
+          // 生成該網格的稜線/接縫分割線 (對應模具分割模式)
+          if (child.geometry) {
+            const edges = new THREE.EdgesGeometry(child.geometry, 15);
+            const lineMat = new THREE.LineBasicMaterial({
+              color: 0x18181b,
+              transparent: true,
+              opacity: 0.85
+            });
+            const lineSegments = new THREE.LineSegments(edges, lineMat);
+            lineSegments.name = 'userMoldLines';
+            lineSegments.visible = false; // 預設隱藏
+            child.add(lineSegments); // 作為子元件隨之旋轉移動
+          }
+        }
+      });
+
+      userModelGroup.add(object);
+      
+      if (loaderEl) loaderEl.style.display = 'none';
+      if (resetBtn) resetBtn.style.display = 'inline-block';
+
+      targetRotationX = 0.35;
+      targetRotationY = -0.6;
+    }
+
+    function showError(msg) {
+      const loaderEl = document.getElementById('loader3d');
+      if (loaderEl) {
+        loaderEl.style.display = 'flex';
+        loaderEl.innerHTML = '<div style="text-align:center;padding:20px;"><div style="color:#ef4444;font-weight:700;margin-bottom:8px;">⚠️ 載入失敗</div><div style="font-size:0.72rem;color:#a1a1aa;line-height:1.5;max-width:280px;margin:0 auto 12px auto;">' + msg + '</div><button onclick="reset3dModel()" style="background:#3f3f46;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:0.75rem;">重設模型</button></div>';
+      }
+    }
+
+    window.recenter3dView = function() {
+      if (grcGroup) {
+        grcGroup.position.set(0, 0, 0);
+      }
+      if (camera) {
+        camera.position.set(0, 0, 7.5);
+      }
+      targetRotationX = 0.35;
+      targetRotationY = -0.6;
+    };
+
+    window.reset3dModel = function() {
+      const loaderEl = document.getElementById('loader3d');
+      const resetBtn = document.getElementById('btnReset3d');
+
+      if (userModelGroup) {
+        grcGroup.remove(userModelGroup);
+        userModelGroup = null;
+      }
+
+      if (concreteMesh) concreteMesh.visible = true;
+      if (moldLines) moldLines.visible = true;
+      if (steelFrameGroup) steelFrameGroup.visible = true;
+
+      set3dMode(currentMode, null);
+
+      if (loaderEl) loaderEl.style.display = 'none';
+      if (resetBtn) resetBtn.style.display = 'none';
+      
+      // 🚀 重設平移位置與手勢模式
+      grcGroup.position.set(0, 0, 0);
+      setGestureMode('rotate');
+      
+      targetRotationX = 0.35;
+      targetRotationY = -0.6;
+    };
+
+    // --- 6. 滑鼠/觸控事件監聽 (智慧定向判定，包含平移拖拽支援) ---
+    function registerGestures(container) {
+      const onPointerDown = (e) => {
+        isDragging = true;
+        isScrolling = false;
+        isInteracting = false;
+
+        if (e.touches) {
+          const clientX = e.touches[0].clientX;
+          const clientY = e.touches[0].clientY;
+          touchStartX = clientX;
+          touchStartY = clientY;
+
+          if (e.touches.length === 2) {
+            initialPinchDistance = getPinchDistance(e);
+            initialCameraZ = camera.position.z;
+          } else {
+            previousMousePosition = { x: clientX, y: clientY };
+          }
+        } else {
+          previousMousePosition = { x: e.clientX, y: e.clientY };
+        }
+      };
+
+      const onPointerMove = (e) => {
+        if (!isDragging) return;
+
+        if (e.touches && e.touches.length === 2) {
+          if (e.cancelable) e.preventDefault();
+          const currentDistance = getPinchDistance(e);
+          if (initialPinchDistance > 0 && currentDistance > 0) {
+            const ratio = initialPinchDistance / currentDistance;
+            camera.position.z = initialCameraZ * ratio;
+            camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+          }
+        } else if (e.touches && e.touches.length === 1) {
+          const clientX = e.touches[0].clientX;
+          const clientY = e.touches[0].clientY;
+
+          const deltaX = clientX - touchStartX;
+          const deltaY = clientY - touchStartY;
+
+          if (!isScrolling && !isInteracting) {
+            if (Math.abs(deltaY) > Math.abs(deltaX) * 1.25) {
+              isScrolling = true;
+              isDragging = false;
+              return;
+            } else {
+              isInteracting = true;
+            }
+          }
+
+          if (isInteracting) {
+            if (e.cancelable) e.preventDefault();
+            const deltaMove = {
+              x: clientX - previousMousePosition.x,
+              y: clientY - previousMousePosition.y
+            };
+
+            // 🚀 手勢操作分支判定 (旋轉 vs. 平移)
+            if (gestureMode === 'rotate') {
+              targetRotationY += deltaMove.x * rotationSpeed;
+              targetRotationX += deltaMove.y * rotationSpeed;
+              targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+            } else {
+              // 平移模式：動態根據相機深度估算平移速度
+              const factor = camera.position.z * 0.0016;
+              grcGroup.position.x += deltaMove.x * factor;
+              grcGroup.position.y -= deltaMove.y * factor;
+            }
+            previousMousePosition = { x: clientX, y: clientY };
+          }
+        } else {
+          // 桌機鼠標互動
+          const clientX = e.clientX;
+          const clientY = e.clientY;
+          
+          const deltaMove = {
+            x: clientX - previousMousePosition.x,
+            y: clientY - previousMousePosition.y
+          };
+
+          // 🚀 桌機操作分支 (若是右鍵拖曳，或是平移模式，則觸發平移)
+          const isRightClick = (e.button === 2 || e.buttons === 2);
+          if (gestureMode === 'pan' || isRightClick) {
+            const factor = camera.position.z * 0.0016;
+            grcGroup.position.x += deltaMove.x * factor;
+            grcGroup.position.y -= deltaMove.y * factor;
+          } else {
+            targetRotationY += deltaMove.x * rotationSpeed;
+            targetRotationX += deltaMove.y * rotationSpeed;
+            targetRotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, targetRotationX));
+          }
+          previousMousePosition = { x: clientX, y: clientY };
+        }
+      };
+
+      const onPointerUp = () => {
+        isDragging = false;
+        isScrolling = false;
+        isInteracting = false;
+        initialPinchDistance = 0;
+      };
+
+      const onWheel = (e) => {
+        e.preventDefault();
+        camera.position.z += e.deltaY * 0.005;
+        camera.position.z = Math.max(3, Math.min(12, camera.position.z));
+      };
+
+      // 防止右鍵彈出選單干涉拖拽
+      container.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      container.addEventListener('mousedown', onPointerDown);
+      container.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      container.addEventListener('touchstart', onPointerDown, { passive: false });
+      container.addEventListener('touchmove', onPointerMove, { passive: false });
+      window.addEventListener('touchend', onPointerUp);
+      
+      container.addEventListener('wheel', onWheel, { passive: false });
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (grcGroup) {
+        grcGroup.rotation.y += (targetRotationY - grcGroup.rotation.y) * 0.1;
+        grcGroup.rotation.x += (targetRotationX - grcGroup.rotation.x) * 0.1;
+        if (!isDragging && gestureMode === 'rotate') {
+          targetRotationY += 0.0015; // 僅在旋轉模式閒置時自動旋轉
+        }
+      }
+      renderer.render(scene, camera);
+    }
+
+    // 切換顯示模式
+    window.set3dMode = function(mode, btnEl) {
+      currentMode = mode;
+      if (!concreteMesh) return;
+
+      const btns = document.querySelectorAll('#web3dControls .grc-tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      if (userModelGroup) {
+        userModelGroup.traverse(function(child) {
+          if (child.isMesh) {
+            const userLines = child.getObjectByName('userMoldLines');
+            
+            if (mode === 'outer') {
+              child.material.wireframe = false;
+              child.material.opacity = 1.0;
+              child.material.color.setHex(0xb5b5ba); // 混凝土灰色
+              if (userLines) userLines.visible = false;
+            }
+            else if (mode === 'mold') {
+              child.material.wireframe = false;
+              child.material.opacity = 0.85;
+              child.material.color.setHex(0x94a3b8); // 略深色背景，襯托黑色線框
+              if (userLines) {
+                userLines.visible = true;
+                userLines.material.color.setHex(0x18181b); // 黑色拼接縫
+                userLines.material.opacity = 0.85;
+              }
+            }
+            else if (mode === 'steel') {
+              // 用戶上傳模型以「黃金高亮半透線框」呈現，非常有科技結構感！
+              child.material.wireframe = true;
+              child.material.opacity = 0.25;
+              child.material.color.setHex(0xf59e0b); // 亮金黃鋼架
+              if (userLines) userLines.visible = false;
+            }
+          }
+        });
+        return;
+      }
+
+      if (mode === 'outer') {
+        concreteMesh.material.opacity = 1.0;
+        concreteMesh.material.color.setHex(0xe4e4e7);
+        moldLines.material.opacity = 0.0;
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'mold') {
+        concreteMesh.material.opacity = 0.85;
+        concreteMesh.material.color.setHex(0xa1a1aa);
+        moldLines.material.opacity = 1.0;
+        moldLines.material.color.setHex(0x18181b);
+        steelFrameGroup.visible = false;
+      } 
+      else if (mode === 'steel') {
+        concreteMesh.material.opacity = 0.12;
+        concreteMesh.material.color.setHex(0xe4e4e7);
+        moldLines.material.opacity = 0.3;
+        moldLines.material.color.setHex(0xa1a1aa);
+        steelFrameGroup.visible = true;
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initWeb3D, 500);
+    });
+  </script>
+
+  </body>
+</html>
+
+
+
+
+
