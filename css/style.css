@@ -1526,19 +1526,11 @@ img {
 }
 
 .floating-btn.btn-line {
-  background: transparent;
+  background: #3ecf09;
 }
 
 .floating-btn.btn-line:hover {
-  background: transparent;
-}
-
-.floating-btn.btn-line img {
-  transition: opacity 0.2s;
-}
-
-.floating-btn.btn-line:hover img {
-  opacity: 0.88;
+  background: #35b307;
 }
 
 .floating-btn.btn-tel {
