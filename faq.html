@@ -1,268 +1,270 @@
-﻿<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>常見問題與知識庫 | 騰煇企業 TENG SELENDOR</title>
-  <meta name="description" content="解答 GRC 造型、曲面外牆 3D 建模、PPG 連工帶料塗裝與外牆拉皮等權威技術問題。">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <!-- ================= 導覽列 Header ================= -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo-wrap">
-        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
-        <div class="brand-text-block">
-          <span class="brand-company-name">騰煇企業有限公司</span>
-          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
-        </div>
-      </a>
-
-      <div class="nav-right-wrap">
-        <nav>
-          <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="nav-link">首頁</a></li>
-            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
-            
-            <li class="dropdown">
-              <a href="services.html" class="nav-link">服務項目</a>
-              <ul class="dropdown-menu">
-                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
-                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
-                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
-              </ul>
-            </li>
-
-            <li><a href="process.html" class="nav-link">工程流程</a></li>
-            <li><a href="projects.html" class="nav-link">案例分享</a></li>
-            <li><a href="faq.html" class="nav-link active">常見問題</a></li>
-            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
-          </ul>
-        </nav>
-
-        <div class="social-icons-group">
-          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
-
-        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- ================= 主內容區域 FAQ Main ================= -->
-  <main style="padding: 60px 0; background: #fafafa;">
-    <div class="container" style="max-width: 880px; margin: 0 auto;">
-      
-      <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-        <span class="section-tag">FAQ & KNOWLEDGE BASE</span>
-        <h1 class="section-title" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; margin-top: 6px;">常見問題與解答</h1>
-        <p style="font-size: 0.98rem; color: #55555e; max-width: 680px; margin: 12px auto 0 auto; line-height: 1.65;">
-          解答 GRC 造型預鑄工藝、曲面 3D 放樣、PPG 連工帶料塗裝與外牆配件水痕防護等工程知識。
-        </p>
-      </div>
-
-      <!-- FAQ 簡潔問題卡片列表 (高級大氣、寬敞排版) -->
-      <div style="display: flex; flex-direction: column; gap: 36px;">
-
-        <!-- FAQ 卡片 1 -->
-        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 40px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
-          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q1</span>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">GRC 是什麼？與傳統板模塑形有何不同？</h3>
-          </div>
-          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
-              GRC（Glassfiber Reinforced Concrete，玻璃纖維強化水泥）是以高耐鹼玻璃纖維補強的水泥基複合材料。
-            </p>
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
-              與傳統板模塑形相比，GRC 可在前期透過 3D 電腦建模於工廠預先開模製造，具備自重輕（僅 15-30mm 厚）、可塑性極高、抗拉強度大且品質穩定的特性，機能精準重現建築師高難度的曲面與幾何立面。
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 卡片 2 -->
-        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
-          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q2</span>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">為什麼騰煇外牆塗料提供「連工帶料」專案服務？</h3>
-          </div>
-          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
-              外牆塗料要長效耐用，現場施工工序與基底處置狀況相當重要。
-            </p>
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
-              騰煇專注於專案整合施作，不單純賣料桶。由專業工班在施工前先協助評估基底與現場條件，選用合適的 PPG 塗料系統與工法，由專業團隊全程掌握施作品質。
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 卡片 3 -->
-        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
-          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q3</span>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">曲面外牆如何透過 3D 建模避免現場安裝誤差？</h3>
-          </div>
-          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
-              騰煇在前期導入 3D BIM 電腦建模放樣，預先驗證分塊縫、鋼構吊掛點與結構應力。
-            </p>
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
-              在模具開發上，依據幾何複雜度靈活整合木作工藝與 3D 數位開模技術，確保元件到現場安裝時能達到毫米級精準度。
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 卡片 4 -->
-        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
-          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q4</span>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">外牆滴水條與導水板的作用是什麼？</h3>
-          </div>
-          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
-              雨水挾帶大氣中的灰塵流經外牆突出面時，若無引流設計，容易在立面上形成難看的水痕與污漬。
-            </p>
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
-              騰煇外牆配件系統（滴水條、導水板）能主動截斷並導引雨水，維持塗裝立面的長效美觀。
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 卡片 5 -->
-        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
-          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
-            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q5</span>
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">特殊造型工程如何估價？流程是什麼？</h3>
-          </div>
-          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
-              特殊造型工程的估價取決於 3D 幾何複雜度、模具開模數量（是否可重複使用）、GRC 板材厚度與現場吊掛環境。
-            </p>
-            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
-              建議提供 CAD/BIM 設計圖面，由騰煇工程師進行初步評估與結構估算。
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </main>
-
-  <!-- ================= 頁尾 Footer ================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand" style="max-width: 420px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-          <img decoding="async" loading="lazy" src="img/logo-white.png" alt="騰煇企業 白色 Logo" style="height: 44px; width: auto;">
-          <div>
-            <h4 style="color: #e8e8ea; font-size: 1.05rem; margin: 0; font-weight: 600;">騰煇企業有限公司</h4>
-            <span style="font-size: 0.72rem; color: #71717a; font-weight: 600;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
-          </div>
-        </div>
-        <p style="color: #d8d8dc; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
-        <p style="font-size: 0.85rem; color: #9d9da6; line-height: 1.6;">美感，由設計定義。耐久，由工程守護。<br>40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
-      </div>
-
-      <div class="footer-contact-info" style="color: #9d9da6; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
-        <h5 style="color: #d8d8dc; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600;">聯絡我們 (服務地區：台灣全區)</h5>
-        <p>台中總公司：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
-        <p>高雄分公司：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
-        <p>傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
-        <div style="display: flex; gap: 10px; margin-top: 6px;">
-          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="FB"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/tenghui1991/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="IG"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="YT"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <div class="footer-col">
-          <h5>服務項目</h5>
-          <ul>
-            <li><a href="services.html#grc">GRC 造型工程</a></li>
-            
-            <li><a href="services.html#ppg">建築外牆防護塗料</a></li>
-            <li><a href="services.html#renovation">外牆翻新整合工程</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>快速連結</h5>
-          <ul>
-            <li><a href="about.html">關於騰煇</a></li>
-            <li><a href="process.html">工程流程</a></li>
-            <li><a href="projects.html">案例分享</a></li>
-            <li><a href="faq.html">常見問題</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區</p>
-    </div>
-  </footer>
-
-
-  <!-- Mobile Menu Toggle -->
-  <script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('is-open');
-        mobileToggle.textContent = isOpen ? 'x' : '=';
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navMenu.classList.remove('is-open');
-          mobileToggle.textContent = '=';
-          document.body.style.overflow = '';
-        });
-      });
-    }
-  </script>
-  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
-  <div class="floating-contact-bar">
-    <!-- LINE -->
-    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
-      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
-    </a>
-    <!-- Telephone -->
-    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
-      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-    </a>
-    <!-- Google Maps -->
-    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
-      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-    </a>
-    <!-- Back to Top -->
-    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
-      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
-    </button>
-  </div>
-
-  <script>
-    // Back to top behavior
-    const btnToTop = document.getElementById('btnToTop');
-    if (btnToTop) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          btnToTop.classList.add('show');
-        } else {
-          btnToTop.classList.remove('show');
-        }
-      });
-      btnToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  </script>
-
-</body>
-</html>
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常見問題與知識庫 | 騰煇企業 TENG SELENDOR</title>
+  <meta name="description" content="解答 GRC 造型、曲面外牆 3D 建模、PPG 連工帶料塗裝與外牆拉皮等權威技術問題。">
+    <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ================= 導覽列 Header ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name">騰煇企業有限公司</span>
+          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            
+            <li class="dropdown">
+              <a href="services.html" class="nav-link">服務項目</a>
+              <ul class="dropdown-menu">
+                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
+                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
+                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="faq.html" class="nav-link active">常見問題</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-icons-group">
+          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 主內容區域 FAQ Main ================= -->
+  <main style="padding: 60px 0; background: #fafafa;">
+    <div class="container" style="max-width: 880px; margin: 0 auto;">
+      
+      <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+        <span class="section-tag">FAQ & KNOWLEDGE BASE</span>
+        <h1 class="section-title" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; margin-top: 6px;">常見問題與解答</h1>
+        <p style="font-size: 0.98rem; color: #55555e; max-width: 680px; margin: 12px auto 0 auto; line-height: 1.65;">
+          解答 GRC 造型預鑄工藝、曲面 3D 放樣、PPG 連工帶料塗裝與外牆配件水痕防護等工程知識。
+        </p>
+      </div>
+
+      <!-- FAQ 簡潔問題卡片列表 (高級大氣、寬敞排版) -->
+      <div style="display: flex; flex-direction: column; gap: 36px;">
+
+        <!-- FAQ 卡片 1 -->
+        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 40px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
+            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q1</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">GRC 是什麼？與傳統板模塑形有何不同？</h3>
+          </div>
+          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
+              GRC（Glassfiber Reinforced Concrete，玻璃纖維強化水泥）是以高耐鹼玻璃纖維補強的水泥基複合材料。
+            </p>
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
+              與傳統板模塑形相比，GRC 可在前期透過 3D 電腦建模於工廠預先開模製造，具備自重輕（僅 15-30mm 厚）、可塑性極高、抗拉強度大且品質穩定的特性，機能精準重現建築師高難度的曲面與幾何立面。
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 卡片 2 -->
+        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
+            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q2</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">為什麼騰煇外牆塗料提供「連工帶料」專案服務？</h3>
+          </div>
+          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
+              外牆塗料要長效耐用，現場施工工序與基底處置狀況相當重要。
+            </p>
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
+              騰煇專注於專案整合施作，不單純賣料桶。由專業工班在施工前先協助評估基底與現場條件，選用合適的 PPG 塗料系統與工法，由專業團隊全程掌握施作品質。
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 卡片 3 -->
+        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
+            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q3</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">曲面外牆如何透過 3D 建模避免現場安裝誤差？</h3>
+          </div>
+          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
+              騰煇在前期導入 3D BIM 電腦建模放樣，預先驗證分塊縫、鋼構吊掛點與結構應力。
+            </p>
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
+              在模具開發上，依據幾何複雜度靈活整合木作工藝與 3D 數位開模技術，確保元件到現場安裝時能達到毫米級精準度。
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 卡片 4 -->
+        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
+            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q4</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">外牆滴水條與導水板的作用是什麼？</h3>
+          </div>
+          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
+              雨水挾帶大氣中的灰塵流經外牆突出面時，若無引流設計，容易在立面上形成難看的水痕與污漬。
+            </p>
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
+              騰煇外牆配件系統（滴水條、導水板）能主動截斷並導引雨水，維持塗裝立面的長效美觀。
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 卡片 5 -->
+        <div style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(58, 58, 63, 0.08); border-radius: 16px; padding: 32px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.03);">
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;">
+            <span style="background: #3a3a3f; color: #ffffff; font-size: 0.9rem; font-weight: 900; padding: 4px 12px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;">Q5</span>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #3a3a3f; line-height: 1.45;">特殊造型工程如何估價？流程是什麼？</h3>
+          </div>
+          <div style="padding-left: 48px; border-left: 3px solid rgba(58, 58, 63, 0.1); margin-left: 6px;">
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin: 0;">
+              特殊造型工程的估價取決於 3D 幾何複雜度、模具開模數量（是否可重複使用）、GRC 板材厚度與現場吊掛環境。
+            </p>
+            <p style="font-size: 1rem; color: #55555e; line-height: 1.8; margin-top: 10px;">
+              建議提供 CAD/BIM 設計圖面，由騰煇工程師進行初步評估與結構估算。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= 頁尾 Footer ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand" style="max-width: 420px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <img decoding="async" loading="lazy" src="img/logo-white.png" alt="騰煇企業 白色 Logo" style="height: 44px; width: auto;">
+          <div>
+            <h4 style="color: #e8e8ea; font-size: 1.05rem; margin: 0; font-weight: 600;">騰煇企業有限公司</h4>
+            <span style="font-size: 0.72rem; color: #71717a; font-weight: 600;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+          </div>
+        </div>
+        <p style="color: #d8d8dc; font-weight: 600; font-size: 0.92rem; margin-bottom: 8px;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.85rem; color: #9d9da6; line-height: 1.6;">美感，由設計定義。耐久，由工程守護。<br>40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+
+      <div class="footer-contact-info" style="color: #9d9da6; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+        <h5 style="color: #d8d8dc; margin-bottom: 8px; font-size: 0.9rem; font-weight: 600;">聯絡我們 (服務地區：台灣全區)</h5>
+        <p>台中總公司：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄分公司：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
+        <div style="display: flex; gap: 10px; margin-top: 6px;">
+          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="FB"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="IG"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" style="color: #ffffff; background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;" title="YT"><svg viewBox="0 0 24 24" style="width:16px; height:16px; fill:currentColor;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>服務項目</h5>
+          <ul>
+            <li><a href="services.html#grc">GRC 造型工程</a></li>
+            
+            <li><a href="services.html#ppg">建築外牆防護塗料</a></li>
+            <li><a href="services.html#renovation">外牆翻新整合工程</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>快速連結</h5>
+          <ul>
+            <li><a href="about.html">關於騰煇</a></li>
+            <li><a href="process.html">工程流程</a></li>
+            <li><a href="projects.html">案例分享</a></li>
+            <li><a href="faq.html">常見問題</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區</p>
+    </div>
+  </footer>
+
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? 'x' : '=';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      navMenu.querySelectorAll('.nav-link, .dropdown-item').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('is-open');
+          mobileToggle.textContent = '=';
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+  <!-- ================= 全站快捷懸浮聯絡列 ================= -->
+  <div class="floating-contact-bar">
+    <!-- LINE -->
+    <a href="https://line.me/R/ti/p/@tenghui" target="_blank" class="floating-btn btn-line" data-label="LINE 線上諮詢">
+      <svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.588.391.084.922.258 1.057.592.121.303.079.778.038 1.084l-.171 1.026c-.052.31-.253 1.212 1.102.661 1.354-.55 7.306-4.302 9.967-7.362 1.944-2.183 2.971-4.526 2.971-6.989zm-18.006 1.493h-1.637c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.637c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597h-1.04v.596h1.04c.329 0 .597.268.597.597v.298c0 .329-.268.597-.597.597zm3.327-.597c0 .329-.268.597-.597.597h-.298c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v3.181zm3.627 0c0 .329-.268.597-.597.597h-.895c-.329 0-.597-.268-.597-.597v-3.181c0-.329.268-.597.597-.597h.298c.329 0 .597.268.597.597v2.286l1.003-2.286c.112-.258.368-.414.654-.414h.345c.441 0 .741.464.55.861l-1.059 2.197 1.157 2.072c.196.353-.06.779-.47.779h-.386zm3.567-.597c0 .329-.268.597-.596.597h-1.638c-.328 0-.596-.268-.596-.597v-3.181c0-.329.268-.597.596-.597h1.638c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597h-1.041v.596h1.041c.329 0 .596.268.596.597v.298c0 .329-.268.597-.596.597z"/></svg>
+    </a>
+    <!-- Telephone -->
+    <a href="tel:04-26872899" class="floating-btn btn-tel" data-label="電話諮詢 (04-26872899)">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+    <!-- Google Maps -->
+    <a href="https://maps.google.com/?q=台中市大甲區武陵里興安路321巷102號" target="_blank" class="floating-btn btn-map" data-label="廠區地圖導航">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </a>
+    <!-- Back to Top -->
+    <button class="floating-btn btn-totop" id="btnToTop" data-label="回到頂端" aria-label="回到頂端">
+      <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // Back to top behavior
+    const btnToTop = document.getElementById('btnToTop');
+    if (btnToTop) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btnToTop.classList.add('show');
+        } else {
+          btnToTop.classList.remove('show');
+        }
+      });
+      btnToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+
+</body>
+</html>
