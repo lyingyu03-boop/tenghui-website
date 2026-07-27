@@ -59,6 +59,60 @@
       .grc-workflow-grid, .renov-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <!-- Google & AI Search Engine Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Contractor",
+    "name": "騰煇企業有限公司",
+    "alternateName": "TENG SELENDOR ENTERPRISE CO., LTD.",
+    "image": "https://lyingyu03-boop.github.io/tenghui-website/img/logo-icon.png",
+    "@id": "https://lyingyu03-boop.github.io/tenghui-website/#contractor",
+    "url": "https://lyingyu03-boop.github.io/tenghui-website/",
+    "telephone": "+886-4-26872899",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "大甲區甲東路 527 號",
+      "addressLocality": "台中市",
+      "postalCode": "437",
+      "addressCountry": "TW"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 24.34842,
+      "longitude": 120.63821
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:30"
+    },
+    "sameAs": [
+      "https://www.facebook.com/tenghui1991/reels/",
+      "https://www.instagram.com/tenghui1991/",
+      "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Taiwan"
+    },
+    "description": "全台推薦的 GRC 施工廠商與外牆特殊造型工程專家。擁有近40年營造施工經驗，提供連工帶料的 GRC 造型預鑄板、BIM 3D 建模與放樣、以及 PPG 申紐麗漆外牆高耐候噴塗塗料系統的整體工程服務。服務範圍涵蓋全台灣各縣市。",
+    "knowsAbout": [
+      "GRC 造型工程",
+      "外牆拉皮",
+      "外牆翻新工程",
+      "PPG 外牆高耐候噴塗",
+      "BIM 3D 建模放樣"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -195,7 +249,7 @@
           <!-- 3D 渲染視窗 -->
           <div style="position: relative; width: 100%; max-width: 860px; height: 450px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #121214; border: 1px solid rgba(58,58,63,0.15);" id="canvas3dContainer">
             <!-- 僅供參考標語 -->
-            <div style="position: absolute; top: 12px; left: 12px; background: rgba(18,18,20,0.65); color: rgba(255,255,255,0.7); font-size: 0.72rem; padding: 4px 10px; border-radius: 4px; pointer-events: none; z-index: 20; letter-spacing: 0.5px;">
+            <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(18,18,20,0.65); color: rgba(255,255,255,0.7); font-size: 0.72rem; padding: 4px 10px; border-radius: 4px; pointer-events: none; z-index: 20; letter-spacing: 0.5px;">
               ※ 3D 互動模型為示意效果，僅供設計與施工參考
             </div>
             
@@ -208,10 +262,11 @@
             
             <!-- 3D 檔案拖曳與上傳控制列 -->
             <div id="dropZone3d" style="position: absolute; top: 12px; left: 12px; right: 12px; border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(18,18,20,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #a1a1aa; font-size: 0.75rem; z-index: 20; transition: all 0.2s;">
-              <span style="font-weight: 600;">拖入您的 3D 檔案 (.gltf, .glb, .obj, .stl) 即時本機放樣檢視</span>
+              <span style="font-weight: 600;">📐 設計師專區：拖入您的 3D 模型 (.obj, .stl) 即時本機放樣預覽，或將 CAD 圖檔傳給我們進行估價</span>
               <div style="display: flex; gap: 8px; align-items: center;">
                 <input type="file" id="fileInput3d" accept=".gltf,.glb,.obj,.stl" style="display: none;">
                 <button onclick="document.getElementById('fileInput3d').click()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">選取檔案</button>
+                <a href="contact.html" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s; display: inline-block;">上傳估價</a>
                 <button id="btnRecenter3d" onclick="recenter3dView()" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #ffffff; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設視角</button>
                 <button id="btnReset3d" onclick="reset3dModel()" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; font-weight: 700; transition: all 0.2s;">重設模型</button>
               </div>
