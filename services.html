@@ -236,7 +236,7 @@
 
           <!-- 投影片大圖視窗 (全寬限高，無多餘長冗字) -->
           <div style="position: relative; width: 100%; max-width: 860px; height: 380px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #f4f4f5; border: 1px solid rgba(58,58,63,0.08);">
-            <img decoding="async" loading="lazy" src="img/grc-workflow/設計圖手繪.png" id="grcSlideImg" alt="工程步驟圖" style="width: 100%; height: 100%; object-fit: contain; background: #ffffff; transition: opacity 0.3s ease; padding: 10px;">
+            <img decoding="async" loading="lazy" src="img/grc-workflow/設計圖手繪.png" id="grcSlideImg" alt="工程步驟圖" style="width: 100%; height: 100%; object-fit: contain; background: #ffffff; transition: opacity 0.15s ease; padding: 10px;">
             
             <span id="grcSlideBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(58, 58, 63, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.78rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.5px;">
               STEP 01 / 06 ｜ 概念手繪
@@ -261,13 +261,13 @@
           const grcSimpleSlides = [
             { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/設計圖手繪.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 0 },
             { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/Rhino.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 1 },
-            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "cover", pos: "center 60%", scale: 1.25, stepIdx: 2 },
-            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "cover", pos: "center 40%", scale: 1.3, stepIdx: 3 },
+            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 2 },
+            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 3 },
             { badge: "STEP 05 / 06 ｜ 現場吊掛安裝", img: "img/grc-workflow/grc-site-hoisting.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 4 },
             { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "cover", pos: "center center", scale: 1, stepIdx: 5 }
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 }
           ];
 
           let curGrcIdx = 0;
@@ -304,6 +304,19 @@
           }
 
           function goGrcSlide(stepIdx) {
+            // 若目前已經在該步驟的投影片上，且該步驟有多張子圖，點擊同一個頁籤可循環播放
+            if (grcSimpleSlides[curGrcIdx].stepIdx === stepIdx) {
+              const indices = [];
+              grcSimpleSlides.forEach((s, idx) => {
+                if (s.stepIdx === stepIdx) indices.push(idx);
+              });
+              if (indices.length > 1) {
+                const currentPos = indices.indexOf(curGrcIdx);
+                const nextPos = (currentPos + 1) % indices.length;
+                renderGrcSlide(indices[nextPos]);
+                return;
+              }
+            }
             let targetIdx = grcSimpleSlides.findIndex(s => s.stepIdx === stepIdx);
             if (targetIdx !== -1) renderGrcSlide(targetIdx);
           }
