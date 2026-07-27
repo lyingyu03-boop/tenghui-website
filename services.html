@@ -167,7 +167,7 @@
       </div>
 
       <!-- 1. GRC 造型工程 -->
-      <section id="grc" class="service-card-rwd">
+      <section id="grc" class="service-card-rwd reveal-on-scroll">
         <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">01. GRC 特殊造型工程 (從設計圖到實體落地)</h2>
         <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
           依據立面造型與幾何需求，靈活整合高精度木作工藝模具與 3D 數位開模技術。提供從 3D 電腦放樣、預鑄開模、工廠養護到現場吊掛組裝的一條龍服務。適合歐式古典花紋、高難度非標幾何曲面與公共藝術裝置。
@@ -215,7 +215,7 @@
         </div>
         
         <!-- GRC 生產製造實錄影片 (GRC製成250722) -->
-        <div class="service-subcard-rwd">
+        <div class="service-subcard-rwd reveal-on-scroll">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">GRC製程實錄</h3>
             <span style="font-size: 0.78rem; background: #3a3a3f; color: #ffffff; padding: 4px 10px; border-radius: 4px; font-weight: 700;">FACTORY RECORDING</span>
@@ -226,7 +226,7 @@
         </div>
 
                 <!-- ================= GRC Web3D 互動模型拆解器 ================= -->
-        <div class="service-subcard-rwd">
+        <div class="service-subcard-rwd reveal-on-scroll">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
               <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800; margin-bottom: 4px;">GRC Web3D 構件互動拆解器</h3>
@@ -283,7 +283,7 @@
         </div>
 
         <!-- 💥 專案工程 6 步圖面輪播展示：台中雅園新潮 (無多餘長文字，防止法務爭議) -->
-        <div class="service-subcard-rwd">
+        <div class="service-subcard-rwd reveal-on-scroll">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
             <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">台中雅園新潮</h3>
             <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="link-text" style="font-size: 0.85rem;">觀看雅園新潮 IG 短片 &rarr;</a>
@@ -377,7 +377,7 @@
           }
         </script>
       <!-- 2. 建築外牆高耐候塗料系統 (PPG 申紐麗漆) -->
-      <section id="ppg" class="service-card-rwd">
+      <section id="ppg" class="service-card-rwd reveal-on-scroll">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
           <div>
             <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 6px; border-left: 4px solid #3a3a3f; padding-left: 12px;">02. 建築外牆高耐候塗料系統 (PPG)</h2>
@@ -420,14 +420,14 @@
       </section>
 
       <!-- 3. 外牆拉皮整合翻新 (互動式前後對比展示 - 滑桿完整保留) -->
-      <section id="renovation" class="service-card-rwd">
+      <section id="renovation" class="service-card-rwd reveal-on-scroll">
         <h2 style="font-size: 1.5rem; font-weight: 800; color: #3a3a3f; margin-bottom: 12px; border-left: 4px solid #3a3a3f; padding-left: 12px;">03. 外牆拉皮整合翻新工程</h2>
         <p style="font-size: 0.95rem; color: #475569; margin-bottom: 24px; line-height: 1.7;">
           針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
         </p>
 
         <!-- 互動對比展示視窗 (保留前後滑桿拉桿) -->
-        <div class="service-subcard-rwd">
+        <div class="service-subcard-rwd reveal-on-scroll">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
             <h3 style="font-size: 1.15rem; color: #3a3a3f; font-weight: 800;">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h3>
           </div>
@@ -1499,6 +1499,17 @@ window.toggleAutoRotate = function() {
 
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(initWeb3D, 500);
+      
+      // Scroll Reveal Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     });
   </script>
 

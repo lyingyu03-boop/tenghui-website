@@ -172,7 +172,7 @@
   </section>
 
   <!-- ================= 最新消息與公告 News ================= -->
-  <section class="news-section">
+  <section class="news-section reveal-on-scroll">
     <div class="container">
       <div class="section-header" style="text-align: center; margin-bottom: 45px;">
         <span class="section-tag">LATEST NEWS</span>
@@ -205,7 +205,7 @@
   </section>
 
   <!-- ================= 品牌三核心 Philosophy (Digital x Engineering x Material) ================= -->
-  <section class="philosophy-section">
+  <section class="philosophy-section reveal-on-scroll">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">BRAND PHILOSOPHY</span>
@@ -230,7 +230,7 @@
   </section>
 
   <!-- ================= 工程流程 Teaser (精簡版，完整流程請見 process.html) ================= -->
-  <section class="workflow-section">
+  <section class="workflow-section reveal-on-scroll">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">ENGINEERING PROCESS</span>
@@ -263,7 +263,7 @@
   </section>
 
   <!-- ================= 實績案例展示 Projects ================= -->
-  <section class="projects-section">
+  <section class="projects-section reveal-on-scroll">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">REAL PROJECTS</span>
@@ -289,7 +289,7 @@
   </section>
 
   <!-- ================= 常見問題 FAQ ================= -->
-  <section class="faq-section">
+  <section class="faq-section reveal-on-scroll">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">FAQ</span>
@@ -311,7 +311,7 @@
   </section>
 
   <!-- ================= 表單 Contact ================= -->
-  <section style="padding: 80px 0; background: #ffffff;">
+  <section style="padding: 80px 0; background: #ffffff;" class="reveal-on-scroll">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">CONTACT US</span>
@@ -573,6 +573,21 @@
     }
   </script>
 
+
+  <!-- Scroll Reveal Intersection Observer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
 
