@@ -1716,12 +1716,20 @@ img {
    ========================================================================== */
 .reveal-on-scroll {
   opacity: 0;
-  transform: perspective(1000px) rotateX(8deg) translateY(45px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(25px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 .reveal-on-scroll.revealed {
   opacity: 1;
-  transform: perspective(1000px) rotateX(0deg) translateY(0px);
+  transform: translateY(0px);
 }
+
+/* 交錯延遲動畫 (Staggered Animation Delays) */
+.stagger-reveal > .reveal-on-scroll:nth-child(1) { transition-delay: 0ms; }
+.stagger-reveal > .reveal-on-scroll:nth-child(2) { transition-delay: 100ms; }
+.stagger-reveal > .reveal-on-scroll:nth-child(3) { transition-delay: 200ms; }
+.stagger-reveal > .reveal-on-scroll:nth-child(4) { transition-delay: 300ms; }
+.stagger-reveal > .reveal-on-scroll:nth-child(5) { transition-delay: 400ms; }
+.stagger-reveal > .reveal-on-scroll:nth-child(6) { transition-delay: 500ms; }
