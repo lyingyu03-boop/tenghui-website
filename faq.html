@@ -275,9 +275,20 @@
   </script>
 
   <!-- Cookie 隱私告示條 -->
+    <!-- Cookie 隱私告示條 -->
   <div class="cookie-banner" id="cookieBanner">
-    <div>🍪 本網站使用 Cookie 與統計技術以優化您的瀏覽體驗。繼續瀏覽即代表您同意我們的隱私政策。</div>
-    <button class="cookie-banner-btn" id="btnAcceptCookie">同意並繼續</button>
+    <div style="display: flex; align-items: flex-start; gap: 10px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px; color: #60a5fa; flex-shrink: 0; margin-top: 2px;">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <div>
+        本網站使用 Cookie 與統計技術以優化您的瀏覽體驗。詳情請參閱我們的 <a href="privacy.html" target="_blank" style="color: #60a5fa; text-decoration: underline;">隱私權政策與 Cookie 條款</a>。
+      </div>
+    </div>
+    <div class="cookie-btn-group" style="display: flex; gap: 8px; justify-content: flex-end; width: 100%; margin-top: 4px;">
+      <button class="cookie-banner-btn btn-necessary" id="btnAcceptNecessary">僅必要 Cookie</button>
+      <button class="cookie-banner-btn btn-all" id="btnAcceptAll">全部同意</button>
+    </div>
   </div>
 
   <!-- 全站 GA4 事件追蹤、Cookie 宣告與頁尾總瀏覽人次計數器 -->
@@ -285,13 +296,19 @@
     (function() {
       // 1. Cookie 告示條邏輯
       const cookieBanner = document.getElementById('cookieBanner');
-      const btnAccept = document.getElementById('btnAcceptCookie');
-      if (cookieBanner && btnAccept) {
+      const btnAll = document.getElementById('btnAcceptAll');
+      const btnNecessary = document.getElementById('btnAcceptNecessary');
+
+      if (cookieBanner && btnAll && btnNecessary) {
         if (!localStorage.getItem('th_cookie_accepted')) {
-          setTimeout(() => cookieBanner.classList.add('show'), 1000);
+          setTimeout(() => cookieBanner.classList.add('show'), 800);
         }
-        btnAccept.addEventListener('click', () => {
-          localStorage.setItem('th_cookie_accepted', 'true');
+        btnAll.addEventListener('click', () => {
+          localStorage.setItem('th_cookie_accepted', 'all');
+          cookieBanner.classList.remove('show');
+        });
+        btnNecessary.addEventListener('click', () => {
+          localStorage.setItem('th_cookie_accepted', 'necessary');
           cookieBanner.classList.remove('show');
         });
       }
