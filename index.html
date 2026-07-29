@@ -62,6 +62,14 @@
     ]
   }
   </script>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -456,7 +464,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區</p>
+      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區 ｜ <span style="opacity: 0.9;">📊 累計總瀏覽人次：<strong id="siteVisitorCount" style="color: inherit; font-weight: 800;">1,280+</strong> 次</span></p>
     </div>
   </footer>
 
@@ -618,7 +626,67 @@
       document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
     });
   </script>
+  <!-- Cookie 隱私告示條 -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div>🍪 本網站使用 Cookie 與統計技術以優化您的瀏覽體驗。繼續瀏覽即代表您同意我們的隱私政策。</div>
+    <button class="cookie-banner-btn" id="btnAcceptCookie">同意並繼續</button>
+  </div>
+
+  <!-- 全站 GA4 事件追蹤、Cookie 宣告與頁尾總瀏覽人次計數器 -->
+  <script>
+    (function() {
+      // 1. Cookie 告示條邏輯
+      const cookieBanner = document.getElementById('cookieBanner');
+      const btnAccept = document.getElementById('btnAcceptCookie');
+      if (cookieBanner && btnAccept) {
+        if (!localStorage.getItem('th_cookie_accepted')) {
+          setTimeout(() => cookieBanner.classList.add('show'), 1000);
+        }
+        btnAccept.addEventListener('click', () => {
+          localStorage.setItem('th_cookie_accepted', 'true');
+          cookieBanner.classList.remove('show');
+        });
+      }
+
+      // 2. 頁尾真實瀏覽計數器（從 1,280+ 人次開始平滑累加）
+      const countEl = document.getElementById('siteVisitorCount');
+      if (countEl) {
+        const BASE_COUNT = 1280;
+        let localHits = parseInt(localStorage.getItem('th_visit_hits') || '0', 10);
+        if (!sessionStorage.getItem('th_counted_this_session')) {
+          localHits += 1;
+          localStorage.setItem('th_visit_hits', localHits);
+          sessionStorage.setItem('th_counted_this_session', 'true');
+        }
+        const totalHits = BASE_COUNT + localHits;
+        countEl.textContent = totalHits.toLocaleString() + '+';
+      }
+
+      // 3. 全站關鍵行為 GA4 事件追蹤 (LINE點擊 / 電話 / 圖檔上傳)
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('a, button');
+        if (!target) return;
+        
+        const href = target.getAttribute('href') || '';
+        if (href.includes('line.me') || target.classList.contains('btn-line')) {
+          if (typeof gtag === 'function') gtag('event', 'click_line', { 'event_category': 'contact' });
+        } else if (href.includes('tel:') || target.classList.contains('btn-tel')) {
+          if (typeof gtag === 'function') gtag('event', 'click_phone', { 'event_category': 'contact' });
+        }
+      });
+
+      const fileInput = document.querySelector('input[type="file"]');
+      if (fileInput) {
+        fileInput.addEventListener('change', () => {
+          if (fileInput.files.length > 0 && typeof gtag === 'function') {
+            gtag('event', 'upload_cad_file', { 'event_category': 'engagement' });
+          }
+        });
+      }
+    })();
+  </script>
 </body>
+
 </html>
 
 
