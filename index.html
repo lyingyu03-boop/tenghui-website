@@ -121,7 +121,8 @@
   <!-- ================= 第一區塊：3 大精選服務案例 Hero Carousel ================= -->
   <section class="hero-slider-section" id="heroSlider">
     <!-- Slide 1: GRC 造型工程 -->
-    <div class="hero-slide active" style="background-image: url('img/projects/humei-dijing.jpg');">
+    <div class="hero-slide active" data-bg="img/projects/humei-dijing.jpg">
+      <div class="hero-bg-inner" style="background-image: url('img/projects/humei-dijing.jpg');"></div>
       <div class="hero-slide-overlay"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="hero-slide-content">
@@ -134,7 +135,8 @@
     </div>
 
     <!-- Slide 2: PPG 建築塗料 (高雄仁武-台塑仁武廠 AI 研發中心) -->
-    <div class="hero-slide" style="background-image: url('img/projects/ppg-renwu.jpg');">
+    <div class="hero-slide" data-bg="img/projects/ppg-renwu.jpg">
+      <div class="hero-bg-inner" style="background-image: url('img/projects/ppg-renwu.jpg');"></div>
       <div class="hero-slide-overlay"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="hero-slide-content">
@@ -147,7 +149,8 @@
     </div>
 
     <!-- Slide 3: PPG塗料統包與舊牆整合 (雲林斗六-小磨坊斗六廠) -->
-    <div class="hero-slide" style="background-image: url('img/projects/ppg-xiaomofang.jpg'); background-position: center center;">
+    <div class="hero-slide" data-bg="img/projects/ppg-xiaomofang.jpg">
+      <div class="hero-bg-inner" style="background-image: url('img/projects/ppg-xiaomofang.jpg'); background-position: center center;"></div>
       <div class="hero-slide-overlay"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="hero-slide-content">
@@ -457,12 +460,13 @@
     </div>
   </footer>
 
-  <!-- Hero Carousel JS -->
+  <!-- Hero Carousel JS + 視差滾動 + 奢華淡入動畫 -->
   <script>
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.dot-item');
     const prevBtn = document.getElementById('sliderPrev');
     const nextBtn = document.getElementById('sliderNext');
+    const heroSection = document.getElementById('heroSlider');
     let currentIndex = 0;
     let slideInterval;
 
@@ -510,6 +514,32 @@
     }
 
     slideInterval = setInterval(nextSlide, 5000);
+
+    // ─── 視差滾動 (Parallax Scroll Effect) ───────────────────────────────────
+    // 只在非觸控裝置（桌機/筆電）上啟用，手機效能考量略過
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchDevice = window.matchMedia('(hover: none)').matches;
+
+    if (!prefersReducedMotion && !isTouchDevice) {
+      const bgLayers = document.querySelectorAll('.hero-bg-inner');
+
+      function updateParallax() {
+        const scrollY = window.scrollY;
+        const heroH = heroSection.offsetHeight;
+
+        // 只在 hero 可見時計算（效能優化）
+        if (scrollY < heroH + 100) {
+          // 滾動 40% 的位移比率，非常柔和
+          const shift = scrollY * 0.35;
+          bgLayers.forEach(layer => {
+            layer.style.transform = `translateY(${shift}px)`;
+          });
+        }
+      }
+
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
+    }
   </script>
 
   <!-- Mobile Menu Toggle -->
