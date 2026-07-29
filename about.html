@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -71,17 +71,17 @@
     <div class="container">
 
       <!-- 四大數據實力 (Key Enterprise Metrics) -->
-      <div class="stats-grid">
+      <div class="stats-grid" id="statsGrid">
         <div>
-          <span style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">40+</span>
+          <span class="stat-counter" data-target="40" data-suffix="+" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">0</span>
           <p style="font-size: 0.88rem; color: #55555e; font-weight: 700; margin-top: 4px;">年經驗工藝傳承</p>
         </div>
         <div>
-          <span style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">200+</span>
+          <span class="stat-counter" data-target="200" data-suffix="+" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">0</span>
           <p style="font-size: 0.88rem; color: #55555e; font-weight: 700; margin-top: 4px;">全台大型完工實績</p>
         </div>
         <div>
-          <span style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">100%</span>
+          <span class="stat-counter" data-target="100" data-suffix="%" style="font-size: 2.2rem; font-weight: 900; color: #3a3a3f; font-family: 'Outfit', sans-serif;">0</span>
           <p style="font-size: 0.88rem; color: #55555e; font-weight: 700; margin-top: 4px;">連工帶料專案承包</p>
         </div>
         <div>
@@ -257,6 +257,61 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
+  </script>
+
+  <!-- 數字跳動計數動畫 (Counter Animation) -->
+  <script>
+    (function() {
+      const counters = document.querySelectorAll('.stat-counter');
+      if (!counters.length) return;
+
+      // 緩動函數：ease-out cubic（快速起跑，優雅收尾）
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function animateCounter(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800; // ms
+        const startTime = performance.now();
+
+        function tick(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easedProgress = easeOutCubic(progress);
+          const current = Math.round(easedProgress * target);
+
+          el.textContent = current + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = target + suffix; // 確保最終值精確
+          }
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      // 當 stats grid 進入視窗時才觸發，且只觸發一次
+      const statsGrid = document.getElementById('statsGrid');
+      if (!statsGrid) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            observer.unobserve(entry.target);
+            // 每個數字稍微錯開啟動（更有層次感）
+            counters.forEach((counter, i) => {
+              setTimeout(() => animateCounter(counter), i * 120);
+            });
+          }
+        });
+      }, { threshold: 0.4 });
+
+      observer.observe(statsGrid);
+    })();
   </script>
 
 </body>
