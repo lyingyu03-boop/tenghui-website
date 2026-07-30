@@ -3,633 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>騰煇專屬現場管理與 SOP 系統</title>
-  <!-- Google Fonts: 質感現代與繁體中文支援 -->
+  <title>騰煇工務與叫料進度系統</title>
+  
+  <link rel="apple-touch-icon" href="app-icon.jpg">
+  <link rel="icon" type="image/jpeg" href="app-icon.jpg">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- PWA & 手機「加入主畫面」專屬圖示與設定 -->
-  <link rel="apple-touch-icon" sizes="180x180" href="app-icon.jpg">
-  <link rel="icon" type="image/jpeg" sizes="192x192" href="app-icon.jpg">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="騰煇工務">
-  <!-- 引入專屬 CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/site-app.css">
 </head>
-<body class="dark-theme">
+<body class="muji-theme">
 
-  <!-- ================= 網頁安全訪問密碼鎖 (Password Gate Overlay) ================= -->
-  <div id="passwordGateOverlay" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: #0f172a; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;">
-    <div style="background-color: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; width: 100%; max-width: 380px; padding: 32px 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); text-align: center;">
-      <div style="font-size: 40px; margin-bottom: 16px;">🔒</div>
-      <h2 style="color: #f8fafc; font-size: 20px; font-weight: 700; margin-bottom: 8px;">騰煇工務流程系統</h2>
-      <p style="color: #94a3b8; font-size: 13px; margin-bottom: 24px;">這是公司內部測試系統，請輸入存取密碼</p>
-      
-      <form id="passwordGateForm" onsubmit="validateGatePassword(event)">
-        <div style="margin-bottom: 20px; text-align: left;">
-          <input type="password" id="gatePasswordInput" placeholder="請輸入訪問密碼" required style="width: 100%; padding: 14px 16px; font-size: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.03); color: #f8fafc; outline: none; box-sizing: border-box;">
-          <div id="gateErrorMsg" style="color: #ef4444; font-size: 12px; margin-top: 8px; display: none;">❌ 密碼錯誤，請重新輸入！</div>
-        </div>
-        <button type="submit" style="width: 100%; padding: 14px; font-size: 15px; font-weight: 700; border-radius: 8px; border: none; background-color: #3b82f6; color: #ffffff; cursor: pointer; transition: background-color 0.2s;">登入系統</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    (function() {
-      const authKey = 'tenghui_auth_validated';
-      if (localStorage.getItem(authKey) === 'true') {
-        const overlay = document.getElementById('passwordGateOverlay');
-        if (overlay) {
-          overlay.style.display = 'none';
-        } else {
-          // 如果 DOM 還沒加載完，等加載完再隱藏
-          document.addEventListener('DOMContentLoaded', () => {
-            const ov = document.getElementById('passwordGateOverlay');
-            if (ov) ov.style.display = 'none';
-          });
-        }
-      }
-    })();
-
-    window.validateGatePassword = function(event) {
-      event.preventDefault();
-      const passwordInput = document.getElementById('gatePasswordInput').value;
-      const errorMsg = document.getElementById('gateErrorMsg');
-      const correctHash = 'tenghui888'; // 預設密碼：tenghui888
-      
-      if (passwordInput === correctHash) {
-        localStorage.setItem('tenghui_auth_validated', 'true');
-        const overlay = document.getElementById('passwordGateOverlay');
-        if (overlay) overlay.style.display = 'none';
-      } else {
-        errorMsg.style.display = 'block';
-        document.getElementById('gatePasswordInput').value = '';
-      }
-    };
-  </script>
-
-  <!-- ================= 頂部狀態列 App Header ================= -->
+  <!-- Header 頂部導覽 -->
   <header class="app-header">
     <div class="header-brand">
-      <div class="brand-logo-glow"></div>
-      <img src="https://raw.githubusercontent.com/waamao/GCGL/main/favicon1.png" alt="Logo" class="header-logo">
-      <div class="brand-text">
-        <h1>騰煇工務流程系統</h1>
-        <span class="system-tag">TengHui Facade System</span>
-      </div>
+      <span class="brand-title">騰煇企業</span>
+      <span class="brand-divider">/</span>
+      <span class="brand-sub">工務紀錄 • 叫料 • 階段式進度系統</span>
     </div>
-    <div class="header-actions">
-      <!-- 工地強光模式切換 (Daylight Contrast Mode) -->
-      <button id="themeToggleBtn" class="action-btn" title="切換強光模式">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <span class="btn-text">工地強光模式</span>
-      </button>
+    <div class="header-status">
+      <button id="themeToggleBtn" class="theme-toggle-btn">強光模式</button>
     </div>
   </header>
 
-  <!-- ================= 主內容容器 Main Container ================= -->
+  <!-- 3 大精實功能頁籤 -->
+  <div class="role-switcher-bar">
+    <div class="role-segmented-control">
+      <button class="tab-btn active" data-tab="tab-record" onclick="switchMainTab('tab-record')">施工紀錄</button>
+      <button class="tab-btn" data-tab="tab-materials" onclick="switchMainTab('tab-materials')">材料叫料</button>
+      <button class="tab-btn" data-tab="tab-progress" onclick="switchMainTab('tab-progress')">階段進度追蹤</button>
+    </div>
+  </div>
+
+  <!-- 主內容容器 -->
   <main class="app-main">
-    
-    <!-- 1. 月曆日誌分頁 (Tab: Calendar & Daily Log) -->
-    <section id="tab-calendar" class="tab-content active">
-      <div class="section-card glassmorphism">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">📅 施工日誌月曆</h2>
-            <span class="card-subtitle">記錄每日出工、天氣、物料與薪資</span>
-          </div>
-        </div>
-        
-        <!-- 月曆元件 -->
-        <div class="calendar-container">
-          <div class="calendar-header">
-            <button id="prevMonthBtn" class="cal-nav-btn">&lt;</button>
-            <span id="currentMonthYear" class="month-title">2026 年 7 月</span>
-            <button id="nextMonthBtn" class="cal-nav-btn">&gt;</button>
-          </div>
-          <div class="calendar-weekdays">
-            <div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
-          </div>
-          <div id="calendarDays" class="calendar-grid">
-            <!-- JS 動態生成日期 -->
-          </div>
-        </div>
 
-        <div class="calendar-legend">
-          <span class="legend-item"><span class="dot dot-log"></span>日誌</span>
-          <span class="legend-item"><span class="dot dot-material"></span>叫料物流</span>
-          <span class="legend-item"><span class="dot dot-note"></span>備忘/瑕疵</span>
+    <!-- ================= 1. 施工紀錄 (Daily Logs & Voice/Photo Records) ================= -->
+    <section id="tab-record" class="main-tab-content active">
+      <div class="view-header">
+        <h2 class="view-title">施工與現場紀錄</h2>
+        <p class="view-desc">記錄每日現場狀況、大樣圖丈量與相片，支援 LINE 語音文字整理</p>
+      </div>
+
+      <!-- 語音對話整理 -->
+      <div class="section-card margin-bottom">
+        <div class="card-header">
+          <h3 class="card-title">語音快速紀錄</h3>
+          <button class="action-btn-sm" onclick="triggerVoiceInputSim()">語音輸入紀錄 (0:15)</button>
+        </div>
+        <div id="voiceSimBox" class="sim-box hidden">
+          <div class="msg-sub">口述語音整理結果：</div>
+          <div class="msg-body">「今日品風華3F大樣圖丈量，發現窗台落差5cm，已拍照備查，已與老闆電話確認處置。」</div>
         </div>
       </div>
 
-      <!-- 全局日誌搜尋 (Search Section) -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <h2 class="card-title">🔍 全局日誌關鍵字搜尋</h2>
-        </div>
-        <div class="search-bar-row">
-          <input type="text" id="logSearchInput" placeholder="輸入關鍵字搜尋（例如: 品風華、漏料、疊貨...）" class="search-input">
-          <button id="clearSearchBtn" class="btn-secondary">清除</button>
-        </div>
-        <div id="searchResultsContainer" class="search-results-list hidden">
-          <!-- 搜尋結果動態展示 -->
-        </div>
-      </div>
-
-      <!-- 當日日誌顯示卡片 -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <h2 class="card-title" id="selectedDateTitle">2026-07-27 日誌記錄</h2>
-          <div class="btn-row">
-            <button id="editLogBtn" class="btn-primary">編輯日誌</button>
-            <button id="exportCsvBtn" class="btn-secondary">📥 匯出 CSV</button>
-          </div>
-        </div>
-        
-        <div id="logDisplayView" class="log-display-view">
-          <p class="no-data-msg">今天尚未建立施工日誌。點選「編輯日誌」來新增。</p>
-        </div>
-
-        <!-- 編輯日誌 Form (隱藏) -->
-        <form id="logEditForm" class="log-edit-form hidden">
-          <div class="form-group-row">
-            <div class="form-group">
-              <label for="logWeather">今日天氣</label>
-              <select id="logWeather">
-                <option value="晴天">☀️ 晴天</option>
-                <option value="多雲">☁️ 多雲</option>
-                <option value="陰天">🌥️ 陰天</option>
-                <option value="雨天">🌧️ 雨天</option>
-                <option value="雷雨">⛈️ 雷雨</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="logWorkers">今日出工數 (人)</label>
-              <input type="number" id="logWorkers" min="0" placeholder="例如: 5">
-            </div>
-            <div class="form-group">
-              <label for="logWageRate">點工日薪 (NT$/天) <span style="color: var(--accent-neon); font-size: 11px; display: block; margin-top: 2px;">⚠️ 模擬數據（待確認工分與日薪分級）</span></label>
-              <input type="number" id="logWageRate" min="0" value="3000" placeholder="3000">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="logLocation">施作樓層 / 區域</label>
-            <input type="text" id="logLocation" placeholder="例如: 3F 外牆, GRC 裝配區">
-          </div>
-
-          <div class="form-group">
-            <label for="logContent">今日施工進度內容</label>
-            <textarea id="logContent" rows="3" placeholder="今日進度、出貨點收狀況、高空作業..."></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="logNotes">備忘錄 / 現場異常 / 訴訟開庭提醒</label>
-            <textarea id="logNotes" rows="2" placeholder="是否有扣款風險、土地稽核進度、法院開庭提醒..."></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" id="cancelLogBtn" class="btn-text">取消</button>
-            <button type="submit" class="btn-primary glow-effect">儲存日誌</button>
-          </div>
-        </form>
+      <!-- 日誌清單 -->
+      <div class="logs-feed-container" id="logsContainer">
+        <!-- JS 動態生成簡潔日誌 -->
       </div>
     </section>
 
-    <!-- 2. 工程進度分頁 (Tab: Progress & Gantt) -->
-    <section id="tab-progress" class="tab-content">
-      <div class="section-card glassmorphism">
+    <!-- ================= 2. 材料叫料系統 (Material Orders & Dispatch) ================= -->
+    <section id="tab-materials" class="main-tab-content">
+      <div class="view-header">
+        <h2 class="view-title">材料叫料與管控</h2>
+        <p class="view-desc">選擇案場與材料品項，快捷點選數量，一鍵複製發送至 LINE 叫料群</p>
+      </div>
+
+      <!-- 快捷叫料單 -->
+      <div class="section-card margin-bottom">
         <div class="card-header">
-          <div>
-            <h2 class="card-title">📊 騰煇案場進度</h2>
-            <span class="card-subtitle">按比例調整各工項，並串聯甘特圖</span>
-          </div>
-          <button id="addProjectBtn" class="btn-primary">+ 新增工項</button>
+          <h3 class="card-title">新增材料叫料單</h3>
         </div>
 
-        <div id="projectListContainer" class="project-list-container">
-          <!-- JS 動態生成進度項目 -->
+        <div class="form-row">
+          <label class="form-label">選擇案場</label>
+          <select id="materialProjectSelect" class="form-select">
+            <option value="品風華">品風華</option>
+            <option value="台東山河苑">台東山河苑</option>
+            <option value="安平一號">安平一號</option>
+          </select>
+        </div>
+
+        <div class="material-quick-grid" id="materialQuickGrid">
+          <!-- JS 動態生成材料快捷 +/- 按鈕卡片 -->
+        </div>
+
+        <div class="form-actions-row">
+          <button class="action-btn primary-btn" onclick="openLineShareModal()">一鍵發送 LINE 叫料群</button>
+          <button class="action-btn" onclick="syncGoogleSheetsPrompt()">同步至 Google Sheet</button>
         </div>
       </div>
 
-      <!-- 甘特圖 -->
-      <div class="section-card glassmorphism margin-top">
+      <!-- 歷史叫料紀錄 -->
+      <div class="section-card">
         <div class="card-header">
-          <h2 class="card-title">📅 騰煇 GRC/PPG 工程甘特圖</h2>
+          <h3 class="card-title">近期叫料紀錄</h3>
         </div>
-        <div class="gantt-scroll-container">
-          <div id="ganttChartContainer" class="gantt-chart-container">
-            <!-- JS 動態繪製甘特圖 -->
+        <div id="materialHistoryList" class="history-list">
+          <div class="history-item">
+            <div>
+              <div class="item-title">品風華 3F 外牆</div>
+              <div class="item-sub">減壓閥 x1, 蝶閥 x2, PPG底漆 x5（已送達）</div>
+            </div>
+            <span class="badge">已完成</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. 材料叫料與 LINE 分享分頁 (Tab: Materials) -->
-    <section id="tab-materials" class="tab-content">
-      <div class="section-card glassmorphism">
+    <!-- ================= 3. 階段式工程進度追蹤 (Stage-by-Stage Progress Stepper) ================= -->
+    <section id="tab-progress" class="main-tab-content">
+      <div class="view-header">
+        <h2 class="view-title">案場階段式進度追蹤</h2>
+        <p class="view-desc">針對各樓層與工項，以五大標準階段即時追蹤施工進度 (%)</p>
+      </div>
+
+      <!-- 案場選擇與進度列表 -->
+      <div class="section-card">
         <div class="card-header">
-          <div>
-            <h2 class="card-title">📦 材料叫料與回頭車物流</h2>
-            <span class="card-subtitle">管理水泥、GRC、PPG 塗料物流與司機資料</span>
-          </div>
-          <button id="addMaterialBtn" class="btn-primary">+ 叫料記錄</button>
+          <h3 class="card-title">品風華 — 樓層區域階段進度</h3>
+          <button class="action-btn-sm" onclick="addNewProgressTask()">+ 新增進度區域</button>
         </div>
 
-        <div class="table-responsive">
-          <table class="app-table">
-            <thead>
-              <tr>
-                <th>材料名稱</th>
-                <th>數量</th>
-                <th>運送狀態</th>
-                <th>司機 / 聯絡電話</th>
-                <th>到貨日</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody id="materialsTableBody">
-              <!-- JS 動態生成 -->
-            </tbody>
-          </table>
+        <div id="progressTaskList" class="progress-task-list">
+          <!-- JS 動態生成 5 階段進度 Task 卡片 -->
         </div>
-      </div>
-
-      <!-- 一鍵 LINE 格式化生成器 -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">💬 一鍵 LINE 格式化文字生成</h2>
-            <span class="card-subtitle">將今日日誌、出工、薪資、叫料與司機自動排版</span>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <textarea id="lineFormatPreview" class="line-preview-box" readonly rows="8"></textarea>
-        </div>
-        
-        <div class="form-actions">
-          <button id="copyLineTextBtn" class="btn-primary w-100 glow-effect">📋 複製今日日誌（直接到 LINE 貼上）</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. 照片記錄與畫布標記分頁 (Tab: Photo Markup) -->
-    <section id="tab-photos" class="tab-content">
-      <div class="section-card glassmorphism">
-        <div class="card-header">
-          <div>
-            <h2 class="card-title">📸 現場瑕疵紅圈標記與品質履歷</h2>
-            <span class="card-subtitle">點擊下方模擬照片，可用畫筆在上面標記瑕疵處，並匯出存檔</span>
-          </div>
-        </div>
-
-        <div class="photo-controls">
-          <div class="file-upload-wrapper">
-            <button class="btn-secondary">📁 上傳手機照片</button>
-            <input type="file" id="photoUploadInput" accept="image/*">
-          </div>
-          <span class="or-text">或使用騰煇實務情境圖：</span>
-          <div class="preset-photos-row">
-            <button class="btn-preset-photo" data-img="img/ppg/龐亞漆2.avif">🎨 龐亞漆面施工照</button>
-            <button class="btn-preset-photo" data-img="img/ppg/彈性佩能漆.jpg">🧱 佩能漆面防裂照</button>
-            <button class="btn-preset-photo" data-img="img/ppg/臻石漆1.avif">🚨 臻石漆漏料異常照</button>
-          </div>
-        </div>
-
-        <!-- Canvas 編輯工作區 -->
-        <div class="canvas-workspace hidden" id="canvasWorkspace">
-          <div class="canvas-toolbar">
-            <!-- 標記工具選擇 -->
-            <div class="tool-group">
-              <label>標記工具：</label>
-              <div class="mode-picker-row">
-                <button class="mode-btn active" id="toolPenBtn">✏️ 畫筆</button>
-                <button class="mode-btn" id="toolEraserBtn">🧽 橡皮擦</button>
-                <button class="mode-btn" id="toolTextBtn">🔤 文字</button>
-                <button class="mode-btn" id="toolMosaicBtn">🟩 馬賽克</button>
-              </div>
-            </div>
-
-            <!-- 顏色與粗細 -->
-            <div class="tool-group">
-              <label>顏色：</label>
-              <div class="color-picker-row">
-                <button class="color-btn active" style="background: #ff3b30;" data-color="#ff3b30"></button>
-                <button class="color-btn" style="background: #34c759;" data-color="#34c759"></button>
-                <button class="color-btn" style="background: #007aff;" data-color="#007aff"></button>
-                <button class="color-btn" style="background: #ffcc00;" data-color="#ffcc00"></button>
-                <button class="color-btn" style="background: #ffffff;" data-color="#ffffff"></button>
-              </div>
-            </div>
-
-            <div class="tool-group">
-              <label for="brushSizeRange">粗細：</label>
-              <input type="range" id="brushSizeRange" min="2" max="25" value="6">
-            </div>
-
-            <!-- 復原 / 重做 / 重設 -->
-            <div class="tool-group btn-group-right">
-              <button id="undoCanvasBtn" class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" disabled>↩️ 復原</button>
-              <button id="redoCanvasBtn" class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" disabled>↪️ 重做</button>
-              <button id="clearCanvasBtn" class="btn-danger-text" style="padding: 6px 12px; font-size: 12px;">🧹 重設</button>
-            </div>
-          </div>
-
-          <!-- 可拖移文字控制列 (僅在文字模式顯示) -->
-          <div id="textControlBar" class="text-control-bar hidden" style="background: rgba(15,23,42,0.95); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--primary); margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-            <input type="text" id="interactiveTextInput" placeholder="輸入標記文字..." style="flex: 1; min-width: 130px; padding: 6px 10px; font-size: 14px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-primary);">
-            <div style="display: flex; gap: 4px;">
-              <button id="textFontSizeMinus" class="btn-secondary" style="padding: 4px 8px; font-size: 12px;">A-</button>
-              <button id="textFontSizePlus" class="btn-secondary" style="padding: 4px 8px; font-size: 12px;">A+</button>
-              <button id="textRotateBtn" class="btn-secondary" style="padding: 4px 8px; font-size: 12px;">🔄 旋轉</button>
-            </div>
-            <button id="stampTextBtn" class="btn-primary" style="padding: 6px 12px; font-size: 12px;">✅ 蓋印存入照片</button>
-          </div>
-
-          <div class="canvas-container" style="position: relative;">
-            <canvas id="markupCanvas"></canvas>
-          </div>
-
-          <div class="canvas-actions" style="display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
-            <button id="saveMarkupBtn" class="btn-primary glow-effect" style="flex: 1;">💾 存入本機標記清單</button>
-            <button id="downloadCanvasBtn" class="btn-secondary" style="flex: 1; background: rgba(59, 130, 246, 0.15); border-color: var(--primary);">📥 下載標記相片</button>
-          </div>
-        </div>
-
-        <!-- 已儲存的標記照片 -->
-        <div class="saved-markup-section margin-top">
-          <h3>📌 已儲存現場標記清單</h3>
-          <div id="savedMarkupsContainer" class="saved-markups-grid">
-            <p class="no-data-msg">目前沒有已存的標記照片。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. 騰煇專屬工具箱分頁 (Tab: TengHui Tools) -->
-    <section id="tab-tenghui" class="tab-content">
-      
-      <!-- PPG 塗料用量計算機 -->
-      <div class="section-card glassmorphism">
-        <div class="card-header">
-          <h2 class="card-title">🎨 PPG 外牆塗料用量與色卡計算機</h2>
-        </div>
-        <div class="calculator-grid">
-          <div class="form-group">
-            <label for="calcArea">施作面積 (坪)</label>
-            <input type="number" id="calcArea" value="100" placeholder="輸入坪數">
-          </div>
-          <div class="form-group">
-            <label for="paintType">PPG 申紐麗塗料品項</label>
-            <select id="paintType">
-              <option value="panya">龐亞漆 (Panya Coating)</option>
-              <option value="paintex">彈性佩能漆 (PainTex Coating)</option>
-              <option value="realstone">臻石漆 (Real Stone Coating)</option>
-              <option value="granite">絢岩臻彩漆 (Granite Coating)</option>
-              <option value="concrete">後製清水模塗料</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="calc-results-card">
-          <h4>📊 預估用料量：</h4>
-          <ul class="calc-results-list">
-            <li>底漆 (Primer)：<strong id="resPrimer" class="calc-highlight">0</strong> 桶</li>
-            <li>中塗漆 (Midcoat/特殊底材)：<strong id="resMid" class="calc-highlight">0</strong> 桶</li>
-            <li>面漆 (Topcoat)：<strong id="resTop" class="calc-highlight">0</strong> 桶</li>
-          </ul>
-          <span class="calc-note" style="color: var(--accent-neon); font-weight: 600;">⚠️ 模擬塗佈率（待確認是否需加入水泥粉刷面 vs GRC 板材面之不同損耗率）。底漆 10坪/桶，中塗 8坪/桶，面漆 6坪/桶。</span>
-        </div>
-
-      </div>
-
-      <!-- 大型吊車租賃調度 -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <h2 class="card-title">🏗️ 吊裝工程與吊車租賃計算</h2>
-        </div>
-        <div class="calculator-grid">
-          <div class="form-group">
-            <label for="craneType">選擇起重吊車噸數</label>
-            <select id="craneType">
-              <option value="25" data-cost="12000">25 噸級小吊車 ($12,000/天)</option>
-              <option value="45" data-cost="22000">45 噸級中吊車 ($22,000/天)</option>
-              <option value="80" data-cost="45000">80 噸級重型吊車 ($45,000/天)</option>
-              <option value="120" data-cost="80000">120 噸級超重型吊車 ($80,000/天)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="craneDays">租借天數 (天)</label>
-            <input type="number" id="craneDays" value="1" min="1">
-          </div>
-        </div>
-        <div class="calc-results-card text-center">
-          <h4>💵 預估起重吊車租賃總費用：</h4>
-          <div id="craneTotalCost" class="cost-badge">$0 元 (未稅)</div>
-          <span class="calc-note" style="color: var(--accent-neon); font-weight: 600; display: block; margin-top: 8px;">⚠️ 模擬天數租金行情（待與公司配合之吊車行核對合約報價）。25噸 1.2萬/天、45噸 2.2萬/天、80噸 4.5萬/天、120噸 8萬/天。</span>
-        </div>
-      </div>
-
-      <!-- 扣件拉拔力學試驗 -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <h2 class="card-title">🔩 GRC 骨架扣件現場拉拔試驗紀錄</h2>
-        </div>
-        <div class="calculator-grid">
-          <div class="form-group">
-            <label for="pullDesign">設計安全拉力要求 (kg)</label>
-            <input type="number" id="pullDesign" value="800">
-          </div>
-          <div class="form-group">
-            <label for="pullActual">現場儀器實測拉力 (kg)</label>
-            <input type="number" id="pullActual" value="850">
-          </div>
-        </div>
-        <div class="calc-results-card text-center">
-          <h4>⚖️ 安全強度判定結果：</h4>
-          <div id="pullSafetyStatus" class="safety-badge safe">安全通過 (PASS)</div>
-          <span class="calc-note" style="color: var(--accent-neon); font-weight: 600; display: block; margin-top: 8px;">⚠️ 模擬試驗判定（設計要求抗拉值需依各專案結構計算書進行核對）。</span>
-        </div>
-      </div>
-
-      <!-- 預鑄構件掃描驗收模擬器 (QR Scanner Simulator) -->
-      <div class="section-card glassmorphism margin-top">
-        <div class="card-header">
-          <h2 class="card-title">🏷️ GRC 預鑄構件 QR Code 點收模擬</h2>
-          <span class="card-subtitle">模擬現場貨車抵達時，對 GRC 片體編號點收點交</span>
-        </div>
-        <div class="scanner-sim-box">
-          <div class="scan-target">
-            <div class="scan-aimer"></div>
-            <div class="scan-laser"></div>
-            <div id="scanFeedbackText" class="scan-feedback">等待掃描構件...</div>
-          </div>
-          <div class="scan-controls">
-            <button type="button" class="btn-primary" onclick="simulateQrScan('Panel-U04-L')">📷 模擬點收 U04 構件</button>
-            <button type="button" class="btn-primary" onclick="simulateQrScan('Panel-U27-R')">📷 模擬點收 U27 構件</button>
-            <button type="button" class="btn-secondary" onclick="simulateQrScan('Damaged-Panel')">⚠️ 模擬掃描瑕疵品</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. 互動式 SOP 檢查與流程編輯分頁 (Tab: SOP Checklist & Editor) -->
-    <section id="tab-sops" class="tab-content">
-      <div class="section-card glassmorphism">
-        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-          <div>
-            <h2 class="card-title">📋 騰煇標準工作流程 SOP 管理系統</h2>
-            <span class="card-subtitle">可自由新增整份 SOP 流程、編輯標題與細目，並自動存檔</span>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-primary" style="padding: 6px 12px; font-size: 13px;" onclick="createNewSopWorkflow()">➕ 新增全新 SOP 流程</button>
-            <button class="btn-secondary" style="padding: 6px 10px; font-size: 12px;" onclick="resetDefaultSopWorkflows()">🔄 重設預設</button>
-          </div>
-        </div>
-
-        <div class="sop-tabs-header" id="dynamicSopTabsHeader">
-          <!-- JS 動態生成 SOP 頁籤 -->
-        </div>
-
-        <div id="dynamicSopPanelsContainer">
-          <!-- JS 動態生成 SOP 內容面板 -->
-        </div>
-      </div>
-    </section>
-
       </div>
     </section>
 
   </main>
 
-  <!-- ================= 底部導覽列 Tab Bar ================= -->
-  <nav class="app-tab-bar">
-    <button class="tab-btn active" data-tab="tab-calendar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span>日誌月曆</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-progress">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      <span>工程進度</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-materials">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-      <span>材料物流</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-photos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-      <span>照片標記</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-tenghui">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-      <span>騰煇工具</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-sops">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      <span>SOP流程</span>
-    </button>
-  </nav>
-
-  <!-- ================= 互動對話框 Modals ================= -->
-  <!-- 新增工項 Modal -->
-  <div id="projectModal" class="modal-overlay">
+  <!-- 彈窗 Modals -->
+  <div id="lineShareModal" class="modal-overlay">
     <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="projectModalTitle">新增工程項目</h3>
-        <button id="closeProjectModalBtn" class="close-btn">&times;</button>
-      </div>
-      <form id="projectForm">
-        <div class="form-group">
-          <label for="projName">工程/案場名稱</label>
-          <input type="text" id="projName" required placeholder="例如: 品風華, 台東山河苑">
-        </div>
-        <div class="form-group">
-          <label for="projSection">主要工項 / 系統</label>
-          <input type="text" id="projSection" required placeholder="例如: GRC特殊造型, PPG防護噴塗">
-        </div>
-        <div class="form-group-row">
-          <div class="form-group">
-            <label for="projStart">開始日期</label>
-            <input type="date" id="projStart" required>
-          </div>
-          <div class="form-group">
-            <label for="projEnd">預計結束</label>
-            <input type="date" id="projEnd" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="projProgress">目前進度 (%)</label>
-          <input type="number" id="projProgress" min="0" max="100" value="0">
-        </div>
-        <div class="form-actions">
-          <button type="button" id="cancelProjectModalBtn" class="btn-text">取消</button>
-          <button type="submit" class="btn-primary glow-effect">確定儲存</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- 新增材料 Modal -->
-  <div id="materialModal" class="modal-overlay">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>新增叫料/物流記錄</h3>
-        <button id="closeMaterialModalBtn" class="close-btn">&times;</button>
-      </div>
-      <form id="materialForm">
-        <div class="form-group">
-          <label for="matName">材料名稱</label>
-          <input type="text" id="matName" required placeholder="例如: PPG防護底漆, GRC構件U25">
-        </div>
-        <div class="form-group-row">
-          <div class="form-group">
-            <label for="matQty">數量</label>
-            <input type="number" id="matQty" required min="1" placeholder="例如: 15">
-          </div>
-          <div class="form-group">
-            <label for="matUnit">單位</label>
-            <input type="text" id="matUnit" required placeholder="例如: 桶, 片, 噸">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="matDriver">司機姓名 & 電話 <span style="color: var(--accent-neon); font-size: 11px;">⚠️ 待定（待確認是否預設其它常態司機與專案資料）</span></label>
-          <input type="text" id="matDriver" placeholder="例如: 盧信憲 0982-113983">
-        </div>
-        <div class="form-group">
-          <label for="matStatus">運送狀態 <span style="color: var(--accent-neon); font-size: 11px;">⚠️ 待定（待確認即時物流狀態更新API）</span></label>
-          <select id="matStatus">
-            <option value="備料中">備料中</option>
-            <option value="運輸中">運輸中</option>
-            <option value="已送達">已送達</option>
-            <option value="異常退回">異常退回</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="matDate">預計到貨日期</label>
-          <input type="date" id="matDate">
-        </div>
-        <div class="form-actions">
-          <button type="button" id="cancelMaterialModalBtn" class="btn-text">取消</button>
-          <button type="submit" class="btn-primary glow-effect">儲存記錄</button>
-        </div>
-      </form>
-    </div>
-  <!-- 照片全螢幕大圖放大檢視 Modal (Lightbox) -->
-  <div id="photoLightboxModal" class="modal-overlay" style="display: none; background: rgba(0,0,0,0.92); z-index: 10000; justify-content: center; align-items: center; padding: 15px;">
-    <div class="lightbox-content" style="position: relative; max-width: 95vw; max-height: 92vh; display: flex; flex-direction: column; align-items: center;">
-      <button id="closeLightboxBtn" style="position: absolute; top: -15px; right: -15px; background: #ff3b30; color: white; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 20px; font-weight: bold; cursor: pointer; z-index: 10001;">&times;</button>
-      <img id="lightboxImg" src="" style="max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: 8px; border: 2px solid var(--border-color);" alt="大圖檢視">
-      <div style="margin-top: 15px; display: flex; gap: 10px; width: 100%; justify-content: center; flex-wrap: wrap;">
-        <a id="lightboxDownloadLink" href="" download="騰煇現場標記大圖.jpg" class="btn-primary" style="text-decoration: none; text-align: center; padding: 10px 20px; flex: 1; max-width: 250px;">📥 下載這張標記大圖</a>
-        <button id="closeLightboxBottomBtn" class="btn-secondary" style="padding: 10px 20px;">關閉</button>
+      <h3 class="modal-title">傳送 LINE 叫料內容</h3>
+      <textarea id="lineShareTextarea" rows="4" class="modal-textarea"></textarea>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeLineShareModal()">取消</button>
+        <button class="action-btn primary-btn" onclick="copyAndOpenLine()">複製並開啟 LINE</button>
       </div>
     </div>
   </div>
 
-  <!-- 引入主邏輯 JS -->
   <script src="src/site-app.js"></script>
 </body>
 </html>

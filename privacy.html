@@ -136,7 +136,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區 ｜ <span style="opacity: 0.9;">📊 累計總瀏覽人次：<strong id="siteVisitorCount" style="color: inherit; font-weight: 800;">1,280+</strong> 次</span></p>
+      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區 ｜ <span style="opacity: 0.95;">累計造訪人次：<strong id="siteVisitorCount" style="color: inherit; font-weight: 800;">1,250</strong> 次</span></p>
     </div>
   </footer>
 
@@ -194,18 +194,24 @@
         });
       }
 
-      // 2. 頁尾真實瀏覽計數器（從 1,280+ 人次開始平滑累加）
+      // 2. 雲端實時跨裝置總造訪計數器 (Real-time Cloud CounterAPI)
       const countEl = document.getElementById('siteVisitorCount');
       if (countEl) {
-        const BASE_COUNT = 1280;
-        let localHits = parseInt(localStorage.getItem('th_visit_hits') || '0', 10);
-        if (!sessionStorage.getItem('th_counted_this_session')) {
-          localHits += 1;
-          localStorage.setItem('th_visit_hits', localHits);
-          sessionStorage.setItem('th_counted_this_session', 'true');
-        }
-        const totalHits = BASE_COUNT + localHits;
-        countEl.textContent = totalHits.toLocaleString() + '+';
+        const BASE_COUNT = 1250;
+        fetch('https://api.counterapi.dev/v1/tenghui-website/visits/up')
+          .then(res => res.json())
+          .then(data => {
+            if (data && typeof data.count === 'number') {
+              const liveTotal = BASE_COUNT + data.count;
+              countEl.textContent = liveTotal.toLocaleString();
+            }
+          })
+          .catch(err => {
+            // 備用快取計數
+            let localHits = parseInt(localStorage.getItem('th_visit_hits') || '0', 10) + 1;
+            localStorage.setItem('th_visit_hits', localHits);
+            countEl.textContent = (BASE_COUNT + localHits).toLocaleString();
+          });
       }
 
       // 3. 全站關鍵行為 GA4 事件追蹤 (LINE點擊 / 電話 / 圖檔上傳)
