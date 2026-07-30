@@ -386,20 +386,34 @@
         });
       }
 
-      // 2. 雲端實時跨裝置總造訪計數器 (Real-time Cloud CounterAPI)
+      // 2. 雲端實時跨裝置總造訪計數器 (平滑滾動過渡)
       const countEl = document.getElementById('siteVisitorCount');
       if (countEl) {
         const BASE_COUNT = 1250;
+        
+        function smoothTick(el, start, end, duration) {
+          if (start === end) { el.textContent = end.toLocaleString(); return; }
+          const startTime = performance.now();
+          function update(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.round(start + (end - start) * progress);
+            el.textContent = current.toLocaleString();
+            if (progress < 1) requestAnimationFrame(update);
+          }
+          requestAnimationFrame(update);
+        }
+
         fetch('https://api.counterapi.dev/v1/tenghui-website/visits/up')
           .then(res => res.json())
           .then(data => {
             if (data && typeof data.count === 'number') {
-              const liveTotal = BASE_COUNT + data.count;
-              countEl.textContent = liveTotal.toLocaleString();
+              const targetHits = BASE_COUNT + data.count;
+              const currentHits = parseInt(countEl.textContent.replace(/,/g, ''), 10) || BASE_COUNT;
+              smoothTick(countEl, currentHits, targetHits, 500);
             }
           })
           .catch(err => {
-            // 備用快取計數
             let localHits = parseInt(localStorage.getItem('th_visit_hits') || '0', 10) + 1;
             localStorage.setItem('th_visit_hits', localHits);
             countEl.textContent = (BASE_COUNT + localHits).toLocaleString();
