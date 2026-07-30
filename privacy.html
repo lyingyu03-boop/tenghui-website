@@ -136,7 +136,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區 ｜ <span style="opacity: 0.95;">累計造訪人次：<strong id="siteVisitorCount" style="color: inherit; font-weight: 800;">1,250</strong> 次</span></p>
+      <p>&copy; 2026 騰煇企業有限公司 TENG SELENDOR ENTERPRISE CO., LTD. All Rights Reserved. ｜ 服務地區：台灣全區 ｜ <span style="opacity: 0.95;">累計造訪人次：<strong id="siteVisitorCount" style="color: inherit; font-weight: 800; opacity: 0; transition: opacity 0.4s ease; display: inline-block; min-width: 45px; text-align: center;">---</strong> 次</span></p>
     </div>
   </footer>
 
@@ -194,37 +194,26 @@
         });
       }
 
-      // 2. 雲端實時跨裝置總造訪計數器 (平滑滾動過渡)
+      // 2. 雲端實時無痕淡入計數器 (隱藏 1250 基底破綻)
       const countEl = document.getElementById('siteVisitorCount');
       if (countEl) {
         const BASE_COUNT = 1250;
-        
-        function smoothTick(el, start, end, duration) {
-          if (start === end) { el.textContent = end.toLocaleString(); return; }
-          const startTime = performance.now();
-          function update(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = Math.round(start + (end - start) * progress);
-            el.textContent = current.toLocaleString();
-            if (progress < 1) requestAnimationFrame(update);
-          }
-          requestAnimationFrame(update);
-        }
-
         fetch('https://api.counterapi.dev/v1/tenghui-website/visits/up')
           .then(res => res.json())
           .then(data => {
             if (data && typeof data.count === 'number') {
-              const targetHits = BASE_COUNT + data.count;
-              const currentHits = parseInt(countEl.textContent.replace(/,/g, ''), 10) || BASE_COUNT;
-              smoothTick(countEl, currentHits, targetHits, 500);
+              countEl.textContent = (BASE_COUNT + data.count).toLocaleString();
+            } else {
+              countEl.textContent = BASE_COUNT.toLocaleString();
             }
           })
           .catch(err => {
             let localHits = parseInt(localStorage.getItem('th_visit_hits') || '0', 10) + 1;
             localStorage.setItem('th_visit_hits', localHits);
             countEl.textContent = (BASE_COUNT + localHits).toLocaleString();
+          })
+          .finally(() => {
+            countEl.style.opacity = '1';
           });
       }
 

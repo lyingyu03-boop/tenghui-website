@@ -83,27 +83,18 @@
         <div class="form-row">
           <label class="form-label">選擇案場</label>
           <select id="materialProjectSelect" class="form-select">
-            <option value="品風華 GRC工程">品風華 GRC工程</option>
-            <option value="台東山河苑 GRC工程">台東山河苑 GRC工程</option>
-            <option value="安平一號 GRC工程">安平一號 GRC工程</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label class="form-label">選擇發送 LINE 群組</label>
-          <select id="lineGroupSelect" class="form-select">
-            <option value="台中騰煇群">台中騰煇群</option>
-            <option value="台中高雄騰煇群">台中高雄騰煇群</option>
-            <option value="數位企劃群">數位企劃群</option>
+            <option value="品風華">品風華</option>
+            <option value="台東山河苑">台東山河苑</option>
+            <option value="安平一號">安平一號</option>
           </select>
         </div>
 
         <div class="material-quick-grid" id="materialQuickGrid">
-          <!-- JS 動態生成 GRC 專屬材料快捷 +/- 按鈕卡片 -->
+          <!-- JS 動態生成材料快捷 +/- 按鈕卡片 -->
         </div>
 
         <div class="form-actions-row">
-          <button class="action-btn primary-btn" onclick="openLineShareModal()">一鍵發送至選擇的 LINE 群</button>
+          <button class="action-btn primary-btn" onclick="openLineShareModal()">一鍵發送 LINE 叫料群</button>
           <button class="action-btn" onclick="syncGoogleSheetsPrompt()">同步至 Google Sheet</button>
         </div>
       </div>
