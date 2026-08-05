@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台灣正音短影音旁白產生器 (高清免Key版) | 騰煇企業 TENG SELENDOR</title>
-  <meta name="description" content="免Key、免註冊！專為短影音旁白打造的台灣正音語音產生器（雲哲男主播、曉臻女主播）。">
+  <title>台灣正音短影音旁白產生器 (三聲線高清版) | 騰煇企業 TENG SELENDOR</title>
+  <meta name="description" content="免Key、免註冊！專為短影音旁白打造的台灣正音語音產生器（雲哲男主播、曉臻女主播、曉雨女聲）。">
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
   <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
   <link rel="stylesheet" href="css/style.css">
@@ -29,8 +29,8 @@
     }
 
     .tts-header {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(16, 185, 129, 0.4);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(16, 185, 129, 0.5);
       border-radius: 20px;
       padding: 35px;
       margin-bottom: 30px;
@@ -145,7 +145,7 @@
     .voice-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 20px;
     }
 
@@ -168,12 +168,12 @@
 
     .voice-option.active {
       border-color: #10b981;
-      background: rgba(16, 185, 129, 0.15);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+      background: rgba(16, 185, 129, 0.18);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
     }
 
     .voice-name {
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.05rem;
       color: #ffffff;
     }
@@ -242,7 +242,7 @@
     }
 
     .player-box {
-      background: rgba(16, 185, 129, 0.1);
+      background: rgba(16, 185, 129, 0.12);
       border: 2px solid #10b981;
       border-radius: 16px;
       padding: 22px;
@@ -315,7 +315,7 @@
         <a href="services.html">服務項目</a>
         <a href="process.html">工程流程</a>
         <a href="projects.html">案例分享</a>
-        <a href="tts.html" class="active" style="color: #34d399; font-weight: 700;">🎙️ 短影音旁白 (高清免Key版)</a>
+        <a href="tts.html" class="active" style="color: #34d399; font-weight: 700;">🎙️ 短影音旁白 (高清三聲線)</a>
         <a href="contact.html" class="btn-contact">聯絡我們</a>
       </nav>
     </div>
@@ -325,11 +325,11 @@
     <!-- Header -->
     <div class="tts-header">
       <div class="badge-free">
-        <i class="fa-solid fa-circle-check"></i> 100% 免註冊 • 免信用卡 • 免 Key 直連模式
+        <i class="fa-solid fa-circle-check"></i> 100% 免註冊 • 三大台灣神經網路獨立聲線
       </div>
       <h1 class="tts-title">台灣正音短影音旁白產生器</h1>
       <p class="tts-desc">
-        不用再註冊任何微軟帳號了！本頁面已內建高清「雲哲男主播」與「曉臻女主播」正宗台灣語音引擎。直接輸入文字，一鍵生成並匯出 MP3 音訊檔！
+        點選下方「雲哲 (台灣男主播)」、「曉臻 (台灣女主播)」或「曉雨 (親切女聲)」，即可一鍵生成高品質 MP3 檔並儲存到電腦/手機！
       </p>
     </div>
 
@@ -342,7 +342,7 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">快速載入短影音腳本範例：</label>
+          <label class="form-label">快速載入腳本範例：</label>
           <div class="preset-btns">
             <button class="preset-btn" onclick="loadPreset(1)">🎬 騰煇品牌形象片</button>
             <button class="preset-btn" onclick="loadPreset(2)">🏢 GRC 特殊造型解說</button>
@@ -359,32 +359,35 @@
       <!-- Right: Voice Persona & Controls -->
       <div class="card">
         <div class="card-title">
-          <span><i class="fa-solid fa-sliders"></i> 2. 選擇台灣正音主播與語速</span>
+          <span><i class="fa-solid fa-sliders"></i> 2. 選擇台灣正音主播音色</span>
         </div>
 
         <div class="form-group">
-          <label class="form-label">選擇主播音色：</label>
+          <label class="form-label">請點選要使用的獨立聲線模型：</label>
           <div class="voice-grid">
-            <div class="voice-option active" id="v-yunjhe" onclick="selectVoice('zh-TW-YunJheNeural', '雲哲男主播')">
+            <!-- Male Voice Option -->
+            <div class="voice-option active" id="v-yunjhe" onclick="selectVoice('Microsoft Server Speech Text to Speech Voice (zh-TW, YunJheNeural)', '雲哲 (台灣沉穩男主播)', 'zh-TW-YunJheNeural')">
               <div>
-                <div class="voice-name">👨 雲哲 (zh-TW-YunJheNeural)</div>
-                <div class="voice-desc">台灣男主播 • 廣播紀錄片沉穩音色（字正腔圓、廣播磁性男聲）</div>
+                <div class="voice-name">👨 雲哲 (台灣沉穩男主播)</div>
+                <div class="voice-desc">廣播級深沉男聲 • 字正腔圓（適合企業紀錄片、工程解說、品牌短影音）</div>
               </div>
-              <span class="voice-tag">男聲首選</span>
+              <span class="voice-tag">廣播男聲</span>
             </div>
 
-            <div class="voice-option" id="v-hsiaochen" onclick="selectVoice('zh-TW-HsiaoChenNeural', '曉臻女主播')">
+            <!-- Female Voice Option 1 -->
+            <div class="voice-option" id="v-hsiaochen" onclick="selectVoice('Microsoft Server Speech Text to Speech Voice (zh-TW, HsiaoChenNeural)', '曉臻 (台灣知性女主播)', 'zh-TW-HsiaoChenNeural')">
               <div>
-                <div class="voice-name">👩 曉臻 (zh-TW-HsiaoChenNeural)</div>
-                <div class="voice-desc">台灣女主播 • 知性端莊音色（優雅流暢）</div>
+                <div class="voice-name">👩 曉臻 (台灣知性女主播)</div>
+                <div class="voice-desc">知性端莊女主播 • 優雅流暢（適合企業導覽與建案開箱）</div>
               </div>
-              <span class="voice-tag">女聲首選</span>
+              <span class="voice-tag">端莊女聲</span>
             </div>
 
-            <div class="voice-option" id="v-hsiaoyu" onclick="selectVoice('zh-TW-HsiaoYuNeural', '曉雨女聲')">
+            <!-- Female Voice Option 2 -->
+            <div class="voice-option" id="v-hsiaoyu" onclick="selectVoice('Microsoft Server Speech Text to Speech Voice (zh-TW, HsiaoYuNeural)', '曉雨 (台灣親切女聲)', 'zh-TW-HsiaoYuNeural')">
               <div>
-                <div class="voice-name">👩 曉雨 (zh-TW-HsiaoYuNeural)</div>
-                <div class="voice-desc">台灣女聲 • 親切甜美音色（適合社群行銷短片）</div>
+                <div class="voice-name">👩 曉雨 (台灣親切女聲)</div>
+                <div class="voice-desc">親切自然甜美 • 輕快活潑（適合社群行銷短片、開箱影片）</div>
               </div>
               <span class="voice-tag">親切女聲</span>
             </div>
@@ -419,13 +422,13 @@
 
         <!-- Generate Button -->
         <button id="btnGenerate" class="btn-generate" onclick="generateVoiceover()">
-          <i class="fa-solid fa-bolt"></i> 立即生成台灣正音旁白 (一鍵下載 MP3)
+          <i class="fa-solid fa-bolt"></i> 立即生成旁白檔 (音質下載)
         </button>
 
         <!-- Player Result -->
         <div id="playerBox" class="player-box" style="display: none;">
-          <div style="font-weight: 800; font-size: 1.1rem; color: #34d399; margin-bottom: 12px;" id="statusText">
-            <i class="fa-solid fa-circle-check"></i> <span id="voiceTitle">雲哲男主播</span> 高清 MP3 生成成功！
+          <div style="font-weight: 800; font-size: 1.15rem; color: #34d399; margin-bottom: 12px;" id="statusText">
+            <i class="fa-solid fa-circle-check"></i> <span id="voiceTitle">雲哲 (台灣沉穩男主播)</span> 高清 MP3 生成完成！
           </div>
           <audio id="audioPlayer" controls style="width: 100%; margin-top: 5px;"></audio>
           <br>
@@ -438,8 +441,9 @@
   </div>
 
   <script>
-    let currentVoice = 'zh-TW-YunJheNeural';
-    let currentVoiceLabel = '雲哲男主播';
+    let currentVoiceFull = 'Microsoft Server Speech Text to Speech Voice (zh-TW, YunJheNeural)';
+    let currentVoiceShort = 'zh-TW-YunJheNeural';
+    let currentVoiceLabel = '雲哲 (台灣沉穩男主播)';
 
     const PRESETS = {
       1: `每一個想法，都始於一個靈感。\nAI 可以快速生成各種造型。\n真正的挑戰，是把它變成現實。\n從 3D 建模、3D 列印、數位加工到開模生產。\n將特殊造型，精準實現。\n騰煇，讓想像成真。`,
@@ -455,13 +459,14 @@
       document.getElementById('scriptText').value = PRESETS[id] || '';
     }
 
-    function selectVoice(voiceId, label) {
-      currentVoice = voiceId;
+    function selectVoice(fullVoice, label, shortVoice) {
+      currentVoiceFull = fullVoice;
+      currentVoiceShort = shortVoice;
       currentVoiceLabel = label;
       document.querySelectorAll('.voice-option').forEach(el => el.classList.remove('active'));
-      if (voiceId === 'zh-TW-YunJheNeural') document.getElementById('v-yunjhe').classList.add('active');
-      if (voiceId === 'zh-TW-HsiaoChenNeural') document.getElementById('v-hsiaochen').classList.add('active');
-      if (voiceId === 'zh-TW-HsiaoYuNeural') document.getElementById('v-hsiaoyu').classList.add('active');
+      if (shortVoice === 'zh-TW-YunJheNeural') document.getElementById('v-yunjhe').classList.add('active');
+      if (shortVoice === 'zh-TW-HsiaoChenNeural') document.getElementById('v-hsiaochen').classList.add('active');
+      if (shortVoice === 'zh-TW-HsiaoYuNeural') document.getElementById('v-hsiaoyu').classList.add('active');
     }
 
     function updateVal(id, val) {
@@ -494,7 +499,7 @@
 
       const btn = document.getElementById('btnGenerate');
       btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在合成雲哲/曉臻正音音訊...';
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> 正在生成【${currentVoiceLabel}】高質感 MP3...`;
 
       try {
         const token = await getSecMsGecToken();
@@ -511,8 +516,9 @@
         const ratePctNum = Math.round((speed - 1) * 100);
         const rateStr = ratePctNum >= 0 ? `+${ratePctNum}%` : `${ratePctNum}%`;
 
+        // Send full voice short name for precise male vs female voice resolution
         const ssml = `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-TW'>
-          <voice name='${currentVoice}'>
+          <voice name='${currentVoiceShort}'>
             <prosody rate='${rateStr}' pitch='${pitch}'>
               ${ssmlBody}
             </prosody>
@@ -539,7 +545,7 @@
             }
           } else if (event.data instanceof ArrayBuffer) {
             const view = new DataView(event.data);
-            const headerLength = view.getUint16(0);
+            const headerLength = view.getUint16(0, false); // Read uint16 Big-Endian correctly
             if (event.data.byteLength > headerLength + 2) {
               const audioData = event.data.slice(headerLength + 2);
               audioChunks.push(audioData);
@@ -549,8 +555,8 @@
 
         socket.onerror = (err) => {
           btn.disabled = false;
-          btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成台灣正音旁白 (一鍵下載 MP3)';
-          alert('網路連線失敗，請檢查網路連線後再試一次！');
+          btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成旁白檔 (音質下載)';
+          alert('連線逾時，請再點一次生成！');
         };
 
         socket.onclose = () => {
@@ -561,7 +567,7 @@
 
         function finishAudio(chunks) {
           btn.disabled = false;
-          btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成台灣正音旁白 (一鍵下載 MP3)';
+          btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成旁白檔 (音質下載)';
 
           const blob = new Blob(chunks, { type: 'audio/mp3' });
           const url = URL.createObjectURL(blob);
@@ -571,7 +577,7 @@
 
           const downloadBtn = document.getElementById('btnDownload');
           downloadBtn.href = url;
-          downloadBtn.download = `tenghui_${currentVoice}_${Date.now()}.mp3`;
+          downloadBtn.download = `tenghui_${currentVoiceShort}_${Date.now()}.mp3`;
 
           document.getElementById('voiceTitle').innerText = currentVoiceLabel;
           document.getElementById('playerBox').style.display = 'block';
@@ -580,7 +586,7 @@
 
       } catch (err) {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成台灣正音旁白 (一鍵下載 MP3)';
+        btn.innerHTML = '<i class="fa-solid fa-bolt"></i> 立即生成旁白檔 (音質下載)';
         alert('發生錯誤：' + err.message);
       }
     }
