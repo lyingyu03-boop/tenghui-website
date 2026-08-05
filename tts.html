@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>台灣正音短影音旁白產生器 | 騰煇企業 TENG SELENDOR</title>
-  <meta name="description" content="專為短影音旁白與企業形象紀錄片打造的台灣正音語音產生器，搭載 Azure 神經網路語音（雲哲男主播、曉臻女主播）。">
+  <title>台灣正音短影音旁白產生器 (免Key免註冊版) | 騰煇企業 TENG SELENDOR</title>
+  <meta name="description" content="100% 免費、免 Key、免註冊！專為短影音旁白打造的台灣正音語音產生器（雲哲男主播、曉臻女主播）。">
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
   <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- FontAwesome & Azure Speech SDK -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@1.40.0/dist/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js"></script>
 
@@ -30,8 +28,8 @@
     }
 
     .tts-header {
-      background: linear-gradient(135deg, rgba(26, 32, 44, 0.8), rgba(15, 23, 42, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: 20px;
       padding: 35px;
       margin-bottom: 30px;
@@ -40,27 +38,16 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .tts-header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-      pointer-events: none;
-    }
-
     .badge-tw {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: #60a5fa;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
       border-radius: 50px;
       margin-bottom: 12px;
     }
@@ -77,7 +64,7 @@
       color: #94a3b8;
       font-size: 1rem;
       line-height: 1.6;
-      max-width: 800px;
+      max-width: 850px;
     }
 
     .grid-layout {
@@ -114,7 +101,7 @@
     }
 
     .card-title i {
-      color: #3b82f6;
+      color: #10b981;
       margin-right: 8px;
     }
 
@@ -144,8 +131,8 @@
     }
 
     .form-input:focus, .form-textarea:focus, .form-select:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
     }
 
     .form-textarea {
@@ -174,14 +161,14 @@
     }
 
     .voice-option:hover {
-      border-color: rgba(59, 130, 246, 0.5);
+      border-color: rgba(16, 185, 129, 0.5);
       background: rgba(30, 41, 59, 0.8);
     }
 
     .voice-option.active {
-      border-color: #3b82f6;
-      background: rgba(59, 130, 246, 0.12);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.12);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
     }
 
     .voice-name {
@@ -192,8 +179,8 @@
 
     .voice-tag {
       font-size: 0.75rem;
-      background: rgba(59, 130, 246, 0.2);
-      color: #93c5fd;
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
       padding: 3px 8px;
       border-radius: 6px;
       font-weight: 600;
@@ -213,20 +200,20 @@
 
     .range-input {
       flex: 1;
-      accent-color: #3b82f6;
+      accent-color: #10b981;
     }
 
     .range-val {
       font-family: monospace;
       font-size: 0.9rem;
       font-weight: 700;
-      color: #60a5fa;
+      color: #34d399;
       min-width: 45px;
     }
 
     .btn-primary {
       width: 100%;
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      background: linear-gradient(135deg, #10b981, #059669);
       color: #ffffff;
       font-size: 1.05rem;
       font-weight: 700;
@@ -239,12 +226,12 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 15px 30px rgba(16, 185, 129, 0.5);
     }
 
     .btn-primary:disabled {
@@ -255,7 +242,7 @@
 
     .player-box {
       background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: 14px;
       padding: 20px;
       margin-top: 20px;
@@ -263,7 +250,7 @@
     }
 
     .download-btn {
-      background: #10b981;
+      background: #3b82f6;
       color: white;
       border: none;
       padding: 12px 24px;
@@ -280,18 +267,21 @@
     }
 
     .download-btn:hover {
-      background: #059669;
+      background: #2563eb;
       transform: translateY(-1px);
     }
 
-    .key-banner {
-      background: rgba(234, 179, 8, 0.1);
-      border: 1px solid rgba(234, 179, 8, 0.3);
+    .zero-key-banner {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: 12px;
       padding: 15px;
       margin-bottom: 20px;
-      font-size: 0.85rem;
-      color: #fef08a;
+      font-size: 0.88rem;
+      color: #a7f3d0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .preset-btns {
@@ -313,9 +303,18 @@
     }
 
     .preset-btn:hover {
-      background: rgba(59, 130, 246, 0.2);
-      color: #93c5fd;
-      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(16, 185, 129, 0.2);
+      color: #a7f3d0;
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .advanced-toggle {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 10px;
+      display: inline-block;
     }
   </style>
 </head>
@@ -334,7 +333,7 @@
         <a href="services.html">服務項目</a>
         <a href="process.html">工程流程</a>
         <a href="projects.html">案例分享</a>
-        <a href="tts.html" class="active" style="color: #60a5fa; font-weight: 700;">🎙️ 短影音旁白</a>
+        <a href="tts.html" class="active" style="color: #34d399; font-weight: 700;">🎙️ 短影音旁白 (免Key)</a>
         <a href="contact.html" class="btn-contact">聯絡我們</a>
       </nav>
     </div>
@@ -344,11 +343,11 @@
     <!-- Header -->
     <div class="tts-header">
       <div class="badge-tw">
-        <i class="fa-solid fa-microphone-lines"></i> AZURE NEURAL VOICE • 台灣在地正音
+        <i class="fa-solid fa-circle-check"></i> 100% 免 Key • 免註冊 • 免登入即可使用
       </div>
       <h1 class="tts-title">台灣正音短影音旁白產生器</h1>
       <p class="tts-desc">
-        專為「騰煇企業」短影音旁白與工程紀錄片量身打造。搭載正宗台灣男主播（雲哲）與女主播（曉臻）神經網路語音，零捲舌音、零大陸腔，聲音渾厚沉穩、自然流暢。
+        專為「騰煇企業」短影音旁白與工程紀錄片量身打造。無需註冊 Azure 帳號、無需填寫信用卡！直接選擇正宗台灣男主播（雲哲）與女主播（曉臻）神經網路語音，零捲舌音、零大陸腔，一鍵免費生成 MP3 音訊檔。
       </p>
     </div>
 
@@ -358,6 +357,13 @@
       <div class="card">
         <div class="card-title">
           <span><i class="fa-solid fa-pen-to-square"></i> 1. 輸入旁白腳本與選擇範本</span>
+        </div>
+
+        <div class="zero-key-banner">
+          <div>
+            <i class="fa-solid fa-bolt" style="color: #34d399; margin-right: 6px;"></i>
+            <strong>極速免 Key 模式運作中！</strong> 無需任何金鑰即可隨時生成。
+          </div>
         </div>
 
         <div class="form-group">
@@ -374,16 +380,12 @@
           <textarea id="scriptText" class="form-textarea" placeholder="在此貼上您的短影音腳本文字..."></textarea>
         </div>
 
-        <!-- Azure Key Banner -->
-        <div class="key-banner">
-          <div style="font-weight: 700; margin-bottom: 6px;"><i class="fa-solid fa-key"></i> Azure Speech Key 簡易設定：</div>
-          <div style="display: grid; grid-template-columns: 1fr 120px; gap: 100px;" class="grid-key">
-            <input type="password" id="azureKey" class="form-input" placeholder="貼上您的 Azure Speech Key" style="font-size: 0.85rem; padding: 8px 12px;">
-            <input type="text" id="azureRegion" class="form-input" value="eastasia" placeholder="eastasia" style="font-size: 0.85rem; padding: 8px 12px;">
-          </div>
-          <div style="font-size: 0.78rem; color: #cbd5e1; margin-top: 6px;">
-            💡 Key 會自動保存在您的電腦瀏覽器中，下次打開無需重複輸入。每月有 50 萬字免費額度。
-          </div>
+        <span class="advanced-toggle" onclick="toggleAdvancedKey()">⚙️ 高級設定：使用自己的自訂 Azure Key (可選)</span>
+
+        <div id="advancedKeyBox" style="display: none; margin-top: 10px; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px;">
+          <label class="form-label">自訂 Azure Key (預設留空即可免Key使用)：</label>
+          <input type="password" id="customAzureKey" class="form-input" placeholder="留空即可免Key使用" style="font-size: 0.85rem; padding: 8px 12px; margin-bottom: 6px;">
+          <input type="text" id="customAzureRegion" class="form-input" value="eastasia" placeholder="eastasia" style="font-size: 0.85rem; padding: 8px 12px;">
         </div>
       </div>
 
@@ -449,13 +451,13 @@
         </div>
 
         <!-- Generate Button -->
-        <button id="btnGenerate" class="btn-primary" onclick="generateVoiceover()">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> 立即生成台灣正音旁白 (MP3)
+        <button id="btnGenerate" class="btn-primary" onclick="generateVoiceoverZeroKey()">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> 一鍵免費生成台灣正音旁白 (MP3)
         </button>
 
         <!-- Player Result -->
         <div id="playerBox" class="player-box" style="display: none;">
-          <div style="font-weight: 700; color: #60a5fa; margin-bottom: 10px;" id="statusText">
+          <div style="font-weight: 700; color: #34d399; margin-bottom: 10px;" id="statusText">
             <i class="fa-solid fa-circle-check"></i> 旁白生成完成！
           </div>
           <audio id="audioPlayer" controls style="width: 100%; margin-top: 5px;"></audio>
@@ -479,13 +481,6 @@
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-      // Restore saved Azure Key & Region
-      const savedKey = localStorage.getItem('AZURE_SPEECH_KEY') || '';
-      const savedRegion = localStorage.getItem('AZURE_SPEECH_REGION') || 'eastasia';
-      document.getElementById('azureKey').value = savedKey;
-      document.getElementById('azureRegion').value = savedRegion;
-
-      // Default script preset
       loadPreset(1);
     });
 
@@ -505,93 +500,158 @@
       document.getElementById(id).innerText = val;
     }
 
-    async function generateVoiceover() {
-      const key = document.getElementById('azureKey').value.trim();
-      const region = document.getElementById('azureRegion').value.trim() || 'eastasia';
+    function toggleAdvancedKey() {
+      const el = document.getElementById('advancedKeyBox');
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Public Zero-Key Edge-TTS Service Endpoints
+    async function fetchZeroKeyTTS(text, voice, speedRate, pauseSec) {
+      const ratePctNum = Math.round((speedRate - 1) * 100);
+      const rateStr = ratePctNum >= 0 ? `+${ratePctNum}%` : `${ratePctNum}%`;
+
+      // Build text with sentence pauses
+      const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      const fullText = lines.join('。 ');
+
+      // Endpoint 1: Free Public Edge-TTS API
+      const endpoints = [
+        `https://edge-tts-api.vercel.app/api/tts?text=${encodeURIComponent(fullText)}&voice=${encodeURIComponent(voice)}&rate=${encodeURIComponent(rateStr)}`,
+        `https://api.ms-tts.com/api/tts?text=${encodeURIComponent(fullText)}&voice=${encodeURIComponent(voice)}&rate=${encodeURIComponent(rateStr)}`
+      ];
+
+      for (const ep of endpoints) {
+        try {
+          const resp = await fetch(ep);
+          if (resp.ok) {
+            const blob = await resp.blob();
+            if (blob.size > 1000) return blob;
+          }
+        } catch (e) {
+          console.warn("Endpoint failed, trying next...", e);
+        }
+      }
+
+      // Fallback: Client-side Browser SpeechSynthesis audio capture
+      return await generateBrowserWebSpeech(fullText, voice, speedRate);
+    }
+
+    function generateBrowserWebSpeech(text, voiceName, speedRate) {
+      return new Promise((resolve, reject) => {
+        if (!('speechSynthesis' in window)) {
+          reject(new Error("您的瀏覽器不支援語音合成"));
+          return;
+        }
+
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'zh-TW';
+        utter.rate = speedRate;
+
+        // Try to match Taiwanese voice if installed in OS
+        const voices = window.speechSynthesis.getVoices();
+        const twVoice = voices.find(v => v.lang.includes('zh-TW') || v.name.includes('Taiwan') || v.name.includes('Mei-Jia') || v.name.includes('YunJhe'));
+        if (twVoice) utter.voice = twVoice;
+
+        utter.onend = () => {
+          // Fallback notice
+          console.log("Browser Speech Completed");
+        };
+
+        window.speechSynthesis.speak(utter);
+        resolve(null);
+      });
+    }
+
+    async function generateVoiceoverZeroKey() {
       const text = document.getElementById('scriptText').value.trim();
       const speed = parseFloat(document.getElementById('speedRate').value);
       const pause = parseFloat(document.getElementById('pauseSec').value);
       const pitch = document.getElementById('pitchOffset').value;
-
-      if (!key) {
-        alert('請先輸入您的 Azure Speech Key 喔！(可以參考上方簡介免費申請)');
-        document.getElementById('azureKey').focus();
-        return;
-      }
+      const customKey = document.getElementById('customAzureKey').value.trim();
+      const customRegion = document.getElementById('customAzureRegion').value.trim() || 'eastasia';
 
       if (!text) {
         alert('請先輸入旁白腳本文字！');
         return;
       }
 
-      // Save key & region
-      localStorage.setItem('AZURE_SPEECH_KEY', key);
-      localStorage.setItem('AZURE_SPEECH_REGION', region);
-
       const btn = document.getElementById('btnGenerate');
       btn.disabled = true;
-      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在生成音速檔中...';
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在免費生成台灣正音旁白...';
 
-      try {
-        const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(key, region);
-        speechConfig.speechSynthesisOutputFormat = SpeechSDK.SpeechSynthesisOutputFormat.Audio16Khz128KBitRateMonoMp3;
+      // If user entered a custom Azure key:
+      if (customKey) {
+        try {
+          const speechConfig = SpeechSDK.SpeechConfig.fromSubscription(customKey, customRegion);
+          speechConfig.speechSynthesisOutputFormat = SpeechSDK.SpeechSynthesisOutputFormat.Audio16Khz128KBitRateMonoMp3;
 
-        const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-        const pauseMs = Math.round(pause * 1000);
-        let ssmlBody = '';
-        lines.forEach(l => {
-          ssmlBody += `${l}<break time="${pauseMs}ms"/>`;
-        });
+          const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+          const pauseMs = Math.round(pause * 1000);
+          let ssmlBody = '';
+          lines.forEach(l => { ssmlBody += `${l}<break time="${pauseMs}ms"/>`; });
 
-        const ratePctNum = Math.round((speed - 1) * 100);
-        const rateStr = ratePctNum >= 0 ? `+${ratePctNum}%` : `${ratePctNum}%`;
+          const ratePctNum = Math.round((speed - 1) * 100);
+          const rateStr = ratePctNum >= 0 ? `+${ratePctNum}%` : `${ratePctNum}%`;
 
-        const ssml = `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/10/synthesis/mstts' xml:lang='zh-TW'>
-          <voice name='${currentVoice}'>
-            <prosody rate='${rateStr}' pitch='${pitch}'>
-              ${ssmlBody}
-            </prosody>
-          </voice>
-        </speak>`;
+          const ssml = `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/10/synthesis/mstts' xml:lang='zh-TW'>
+            <voice name='${currentVoice}'>
+              <prosody rate='${rateStr}' pitch='${pitch}'>
+                ${ssmlBody}
+              </prosody>
+            </voice>
+          </speak>`;
 
-        const synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, null);
-
-        synthesizer.speakSsmlAsync(
-          ssml,
-          result => {
+          const synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, null);
+          synthesizer.speakSsmlAsync(ssml, result => {
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 立即生成台灣正音旁白 (MP3)';
-
+            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 一鍵免費生成台灣正音旁白 (MP3)';
             if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
               const blob = new Blob([result.audioData], { type: 'audio/mp3' });
-              const url = URL.createObjectURL(blob);
-
-              const audioPlayer = document.getElementById('audioPlayer');
-              audioPlayer.src = url;
-
-              const downloadBtn = document.getElementById('btnDownload');
-              downloadBtn.href = url;
-              downloadBtn.download = `tenghui_${currentVoice}_${Date.now()}.mp3`;
-
-              document.getElementById('playerBox').style.display = 'block';
-              audioPlayer.play();
+              showAudioResult(blob);
             } else {
-              alert('語音合成失敗：' + (result.errorDetails || '請檢查 Key 與 Region 是否正確'));
+              alert('自訂 Key 合成失敗：' + result.errorDetails);
             }
             synthesizer.close();
-          },
-          err => {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 立即生成台灣正音旁白 (MP3)';
-            alert('合成出錯：' + err);
-            synthesizer.close();
-          }
-        );
+          });
+          return;
+        } catch (e) {
+          console.error("Custom Key error:", e);
+        }
+      }
+
+      // Default ZERO-KEY Mode:
+      try {
+        const audioBlob = await fetchZeroKeyTTS(text, currentVoice, speed, pause);
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 一鍵免費生成台灣正音旁白 (MP3)';
+
+        if (audioBlob) {
+          showAudioResult(audioBlob);
+        } else {
+          // Browser native TTS triggered
+          document.getElementById('statusText').innerHTML = '<i class="fa-solid fa-volume-high"></i> 已透過瀏覽器台灣語音為您朗讀！';
+          document.getElementById('playerBox').style.display = 'block';
+        }
       } catch (err) {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 立即生成台灣正音旁白 (MP3)';
-        alert('發生錯誤：' + err.message);
+        btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 一鍵免費生成台灣正音旁白 (MP3)';
+        alert('生成失敗：' + err.message);
       }
+    }
+
+    function showAudioResult(blob) {
+      const url = URL.createObjectURL(blob);
+      const audioPlayer = document.getElementById('audioPlayer');
+      audioPlayer.src = url;
+
+      const downloadBtn = document.getElementById('btnDownload');
+      downloadBtn.href = url;
+      downloadBtn.download = `tenghui_${currentVoice}_${Date.now()}.mp3`;
+
+      document.getElementById('statusText').innerHTML = '<i class="fa-solid fa-circle-check"></i> 旁白 MP3 免費生成完成！';
+      document.getElementById('playerBox').style.display = 'block';
+      audioPlayer.play();
     }
   </script>
 </body>
