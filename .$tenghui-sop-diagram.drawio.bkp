@@ -1,0 +1,95 @@
+<mxfile host="Electron" modified="2026-08-06T09:35:00.000Z" agent="Mozilla/5.0" version="21.6.8" type="device">
+  <diagram id="TengHui-SOP" name="騰煇全景SOP流程圖">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 標題 -->
+        <mxCell id="title" value="騰煇企業 • GRC/塗料工程 SOP 管理與跨部門分流流程圖 (週會簡報用)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#333338;" vertex="1" parent="1">
+          <mxGeometry x="250" y="20" width="670" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 1. 訊息輸入 -->
+        <mxCell id="node1" value="LINE 群組 / 現場傳送文件&#xa;(合約 / 出貨單 / 報價單 / 名片 / 語音)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4e0d7;strokeColor=#333338;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="80" width="270" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 2. AI 辨識 -->
+        <mxCell id="node2" value="煇零機 (AI 智慧大腦)&#xa;進行內容分析與五大分類" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#333338;strokeColor=#333338;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="170" width="270" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 3. 五大分流節點 -->
+        <mxCell id="node3a" value="1. 正式合約書&#xa;(金額、20/70/10請款點)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d8d4cb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="node3b" value="2. 出貨單 / 簽收單&#xa;(品項、數量、案場)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d8d4cb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="280" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="node3c" value="3. 廠商報價 / 單據&#xa;(品名、單價、廠商)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d8d4cb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="node3d" value="4. 工班 / 廠商名片&#xa;(工務找工班，行政名片留檔)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d8d4cb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="640" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="node3e" value="5. 現場語音 / 丈量&#xa;(尺寸標高落差 cm)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d8d4cb;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="820" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 4. 第一階段：預覽確認 -->
+        <mxCell id="node4" value="第一階段：匯報分析報告 (預覽分流與摘要金額)&#xa;LINE 提示：請確認無誤？[回覆『確認』寫入 / 『取消』作廢]" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fef3d6;strokeColor=#8f6200;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="370" width="450" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 5. 第二階段：正式寫入 -->
+        <mxCell id="node5" value="第二階段：正式寫入雲端資料庫 &amp; Google Sheet《行政工作紀錄.xlsx》" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4a6853;strokeColor=#4a6853;fontColor=#ffffff;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="500" width="450" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 6. 四大部門分流 -->
+        <mxCell id="dept1" value="📋 行政組 (俞臻/宇萍)&#xa;名片留檔 (01.工班名片) / 出廠證明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce8e6;strokeColor=#a51d24;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="600" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dept2" value="💰 財務組 (會計/舒俞姐)&#xa;請款點建立 / 採購單對帳" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3d6;strokeColor=#8f6200;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="600" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dept3" value="🦺 工務組 (樂咖/哲哥/小斌)&#xa;評估尋找配合工班 / 5大工序派工" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2ebd8;strokeColor=#4a6853;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="570" y="600" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dept4" value="🤝 業務組 (舒俞姐/美云經理)&#xa;責任案場劃分與業主對接" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0ecf8;strokeColor=#1e5288;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="780" y="600" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 連接線 -->
+        <mxCell id="edge1" edge="1" source="node1" target="node2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2a" edge="1" source="node2" target="node3a" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2b" edge="1" source="node2" target="node3b" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2c" edge="1" source="node2" target="node3c" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2d" edge="1" source="node2" target="node3d" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge2e" edge="1" source="node2" target="node3e" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="edge3a" edge="1" source="node3a" target="node4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge3b" edge="1" source="node3b" target="node4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge3c" edge="1" source="node3c" target="node4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge3d" edge="1" source="node3d" target="node4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge3e" edge="1" source="node3e" target="node4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="edge4" edge="1" source="node4" target="node5" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="edge5a" edge="1" source="node5" target="dept1" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge5b" edge="1" source="node5" target="dept2" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge5c" edge="1" source="node5" target="dept3" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="edge5d" edge="1" source="node5" target="dept4" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

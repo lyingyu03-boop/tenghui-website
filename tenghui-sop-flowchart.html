@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>騰煇企業 • 週會即時紀錄與全景 SOP 流程圖 (LINE 群組管理版)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Mermaid.js for Interactive Flowcharts -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #cbd5e1;
+      --brand-dark: #0f172a;
+      --text-primary: #334155;
+      --accent-blue: #0284c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .toolbar-sticky {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      background: var(--brand-dark);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 14px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .toolbar-title {
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-group { display: flex; gap: 10px; }
+
+    .tool-btn {
+      background: #ffffff;
+      color: var(--brand-dark);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tool-btn.primary {
+      background: #0284c7;
+      color: #ffffff;
+    }
+
+    /* 煇零機定位與白話宣告卡片 */
+    .ai-positioning-card {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+    }
+
+    .ai-pos-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .ai-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #38bdf8;
+    }
+
+    .ai-pos-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .ai-pos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ai-pos-item {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .ai-item-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .ai-item-content {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 16px;
+      border-left: 5px solid var(--brand-dark);
+      padding-left: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mermaid-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      overflow-x: auto;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .note-textarea {
+      width: 100%;
+      min-height: 80px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--brand-dark);
+      resize: vertical;
+      margin-top: 8px;
+    }
+
+    .sop-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .sop-table th {
+      background: var(--brand-dark);
+      color: #ffffff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .sop-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    .dept-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .dept-site { background: #e0f2fe; color: #0369a1; }
+    .dept-admin { background: #fce8e6; color: #a51d24; }
+    .dept-finance { background: #fef3d6; color: #8f6200; }
+    .dept-sales { background: #f0fdf4; color: #15803d; }
+
+    .q-item-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Sticky Toolbar -->
+    <div class="toolbar-sticky">
+      <div class="toolbar-title">
+        <span>騰煇企業 • 星期五週會即時會議紀錄工作台（含 LINE 7大群組管理版）</span>
+      </div>
+      <div class="btn-group">
+        <button class="tool-btn primary" onclick="saveMeetingNotes()">💾 儲存會議紀錄</button>
+        <button class="tool-btn" onclick="exportNotesToText()">📥 導出紀錄給 AI 修改</button>
+        <button class="tool-btn" onclick="openDrawIoEditor()">✏️ 開啟 draw.io 編輯流程圖</button>
+        <button class="tool-btn" onclick="window.print()">🖨️ 匯出 PDF / 列印</button>
+      </div>
+    </div>
+
+    <!-- 🤖 煇零機 (AI 助手) 是幹嘛的？一分鐘白話宣告卡片 -->
+    <div class="ai-positioning-card">
+      <div class="ai-pos-header">
+        <img src="app-icon.jpg" alt="煇零機" class="ai-avatar">
+        <div>
+          <div class="ai-pos-title">🤖 各位同仁，我是 AI 助手【煇零機】！我是來幫大家省時間的！</div>
+          <div style="font-size: 13px; color: #94a3b8; margin-top: 2px;">24 小時在 LINE 群組隨時待命 • 不搶大家工作 • 絕不代做財務撥款決策</div>
+        </div>
+      </div>
+
+      <div class="ai-pos-grid">
+        <!-- 1. 我的定位 (Who I Am) -->
+        <div class="ai-pos-item">
+          <div class="ai-item-label">📌 我的定位 (WHO I AM)</div>
+          <div class="ai-item-content">
+            我是公司的 <strong>24 小時數位實習生</strong>。<br>
+            不逼大家學新軟體，大家只要像平時一樣在 LINE 傳文字、照片或合約，我自動幫忙打字整理！
+          </div>
+        </div>
+
+        <!-- 2. 我解決什麼？ (WHAT I SOLVE) -->
+        <div class="ai-pos-item">
+          <div class="ai-item-label">🛠️ 我解決什麼？ (WHAT I SOLVE)</div>
+          <div class="ai-item-content">
+            • <strong>工務</strong>：現場實測尺寸對照 CAD 圖，落差 5cm 自動發警示！<br>
+            • <strong>業務</strong>：合約傳 LINE 自動拆解叫料與請款條件！<br>
+            • <strong>行政/廠務</strong>：叫料 1 秒發 LINE，100% 自動寫入 Excel 台帳！
+          </div>
+        </div>
+
+        <!-- 3. 誰在掌控？ (WHO IS IN CONTROL) -->
+        <div class="ai-pos-item">
+          <div class="ai-item-label">🔐 誰在掌控？ (WHO IS IN CONTROL)</div>
+          <div class="ai-item-content">
+            • <strong>財務金流</strong>：100% 由 <strong>俞臻姐</strong> 人工仔細核對、發票對帳與撥款，AI 絕不越界！<br>
+            • <strong>施工與派車</strong>：由 <strong>宇萍、樂咖經理、小斌、樂弟</strong> 掌控！
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📱 NEW SECTION: LINE 機器人群組與好友狀態管理 -->
+    <div class="section-card">
+      <div class="section-title">📱 煇零機 LINE 群組與好友連線管理板塊 (7 大核心群組)</div>
+      
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px;">
+        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 6px;">
+          <div style="font-size: 11px; font-weight: 700; color: #64748b;">🟢 Webhook 狀態</div>
+          <div style="font-size: 16px; font-weight: 700; color: #16a34a;">實時連線中 (0.4s)</div>
+        </div>
+        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 6px;">
+          <div style="font-size: 11px; font-weight: 700; color: #64748b;">👥 LINE 好友總數</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--brand-dark);">28 位好友</div>
+        </div>
+        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 6px;">
+          <div style="font-size: 11px; font-weight: 700; color: #64748b;">💬 已加入 LINE 群組</div>
+          <div style="font-size: 16px; font-weight: 700; color: var(--accent-blue);">7 個大心臟群組</div>
+        </div>
+        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 6px;">
+          <div style="font-size: 11px; font-weight: 700; color: #64748b;">📊 Excel 台帳同步率</div>
+          <div style="font-size: 16px; font-weight: 700; color: #d97706;">100% 自動寫入</div>
+        </div>
+      </div>
+
+      <table class="sop-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">LINE 群組名稱</th>
+            <th style="width: 20%;">參與同仁與成員</th>
+            <th style="width: 35%;">煇零機 AI 在該群組的角色</th>
+            <th style="width: 20%;">連線狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>【騰煇 GRC / 數位企劃 6人群】</strong></td>
+            <td>洪先生(老闆)、舒俞姐、美云經理、嘉宏、設計部</td>
+            <td>大樣圖尺寸偏差 5cm 自動推播預警、新合約條款拆解</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【騰煇台中 9人群】</strong></td>
+            <td>樂咖經理、樂弟廠長、小斌、宇萍、俞臻姐、嘉宏</td>
+            <td>常備材料叫料單自動發送、寫入 Excel 庫存台帳</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【瑞築品風華 工程進度群】</strong></td>
+            <td>藍天窗口、美云經理、小斌、司機阿維</td>
+            <td>回頭車 17T 派車對接、PPG 塗裝進度點收紀錄</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【中塑馬稠後 8/14 趕工群】</strong></td>
+            <td>中塑窗口、舒俞姐、小斌、東和吊車</td>
+            <td>⚠️ 8/14 完工倒數趕工進度追蹤 (每日扣款 0.5%)</td>
+            <td><span class="dept-badge dept-admin">⚠️ 趕工監控中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【瓏山林山河飯店 對接群】</strong></td>
+            <td>國園窗口、舒俞姐、樂咖經理、梁金龍司機</td>
+            <td>回頭車運費與 GRC 塗料簽收單解析</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【御豐三重花園綻 工程群】</strong></td>
+            <td>御豐營造、舒俞姐、樂咖經理、俞臻姐</td>
+            <td>3F GRC 吊裝進度 60% 與第二期估驗請款提醒</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+          <tr>
+            <td><strong>【新竹縣戶政大樓 工程群】</strong></td>
+            <td>國園窗口、美云經理、樂咖經理、宇萍</td>
+            <td>1F 大樣放樣點收與備查資料提送追蹤</td>
+            <td><span class="dept-badge dept-site">🟢 運行中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 第一部分：流程圖與 draw.io 連動編輯 -->
+    <div class="section-card">
+      <div class="section-title">
+        <span>1. 騰煇 GRC/塗料工程 全景 SOP 流程圖 (自然分流)</span>
+        <button class="tool-btn" onclick="toggleMermaidEditor()">編輯流程圖 Mermaid 語法</button>
+      </div>
+      
+      <div class="mermaid-box" id="mermaidBox">
+        <pre class="mermaid" id="mermaidDiagram">
+graph TD
+    %% 節點宣告
+    A["LINE 群組 / 現場傳送文件<br>(合約/出貨單/報價單/名片/文字訊息)"] --> B["煇零機 (AI 大腦)<br>進行內容分析與分類"]
+
+    %% 分流判斷
+    B --> C{識別文件類別}
+
+    C -->|1. 正式合約書| D1["合約條款解析<br>(金額、付款節點 20%/70%/10%)"]
+    C -->|2. 出貨單/簽收單| D2["出貨簽收解析<br>(品項、數量、送貨案場)"]
+    C -->|3. 廠商報價/單據| D3["單據金額解析<br>(品名、單價、廠商名稱)"]
+    C -->|4. 工班/廠商名片| D4["名片資訊提取<br>(工務找工班、宇萍名片留檔)"]
+    C -->|5. 現場文字/尺寸溝通| D5["現場對話提煉<br>(標高 vs 實測落差，緊急直接電話聯絡)"]
+
+    %% 第一階段預覽與確認
+    D1 --> E["第一階段：匯報分析報告<br>(回覆 LINE 建議分流與摘要)"]
+    D2 --> E
+    D3 --> E
+    D4 --> E
+    D5 --> E
+
+    E --> F{"同仁核對結果"}
+    F -->|回覆『取消』| G["作廢作業<br>(不污染資料庫)"]
+    F -->|回覆『確認』| H["第二階段：正式歸檔寫入<br>(雲端資料庫 & Google Sheet)"]
+
+    %% 各角色自然分流
+    H --> I1["📋 行政與派車物流 (宇萍)<br>名片歸檔 (`NAS 01.工班名片`) / 出廠證明 / 回頭車派車"]
+    H --> I2["💰 財務與會計 (俞臻姐)<br>發票對帳 / 銀行匯款 / 採購單與估驗核銷 (100% 人工對帳)"]
+    H --> I3["🦺 工務與現場 (樂咖經理 / 小斌 / 樂弟)<br>樂咖經理(放樣吊裝) / 小斌(現場點收與趕工) / 樂弟(廠務總管)"]
+    H --> I4["🤝 業務窗口 (洪先生 / 舒俞姐 / 美云經理 / 嘉宏)<br>舒俞姐 / 美云經理 / 嘉宏 責任案場分流"]
+
+    %% 後端駕駛艙同步
+    H --> J["🌐 騰煇 Web 駕駛艙<br>(頂部 Banner & 卡片實時更新)"]
+    J --> K["🖨️ A4 PDF 獨立單據導出<br>(印出含三方簽核欄之請款報告)"]
+
+    %% 樣式設定
+    classDef inputStyle fill:#e2e8f0,stroke:#0f172a,stroke-width:1px;
+    classDef aiStyle fill:#0f172a,color:#ffffff,stroke-width:1px;
+    classDef confirmStyle fill:#fef3d6,stroke:#8f6200,stroke-width:1px;
+    classDef deptStyle fill:#e0f2fe,stroke:#0369a1,stroke-width:1px;
+
+    class A inputStyle;
+    class B,C aiStyle;
+    class E,F confirmStyle;
+    class I1,I2,I3,I4,J,K deptStyle;
+        </pre>
+      </div>
+
+      <div id="mermaidEditorBox" style="display: none;">
+        <label style="font-size: 12px; font-weight: 700; color: var(--brand-dark);">即時編輯流程圖語法 (Mermaid Code)：</label>
+        <textarea id="mermaidCodeInput" class="note-textarea" style="height: 180px; font-family: monospace;"></textarea>
+        <button class="tool-btn primary" style="margin-top: 8px;" onclick="renderCustomMermaid()">重新渲染流程圖</button>
+      </div>
+      
+      <div>
+        <label style="font-size: 13px; font-weight: 700; color: var(--brand-dark);">✏️ 流程圖討論與修改記號備忘：</label>
+        <textarea id="note-flowchart" class="note-textarea" placeholder="點擊打字記錄：會計由俞臻姐專責人工對帳，工務現場由樂咖經理、小斌與樂弟分別負責..."></textarea>
+      </div>
+    </div>
+
+    <!-- 第二部分：五大單據精準分流 SOP 表與即時筆記 -->
+    <div class="section-card">
+      <div class="section-title">2. 五大工程文件/圖片 精準分流 SOP 對照與打字筆記</div>
+      <table class="sop-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">文件 / 圖片類別</th>
+            <th style="width: 25%;">煇零機 AI 自動分析重點</th>
+            <th style="width: 25%;">建議派工分流與權責個人</th>
+            <th style="width: 28%;">會議討論即時紀錄打字框</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. 正式合約書</strong></td>
+            <td>業主公司、案場名稱、合約總額、付款條件 (20%/70%/10%)</td>
+            <td>
+              <span class="dept-badge dept-sales">業務 (舒俞姐/美云經理/嘉宏)</span> 責任區分<br>
+              <span class="dept-badge dept-finance">會計 (俞臻姐)</span> 人工對帳請款<br>
+              <span class="dept-badge dept-admin">行政 (宇萍)</span> 出廠證明/歸檔
+            </td>
+            <td>
+              <textarea id="note-table-1" class="note-textarea" placeholder="點擊打字記錄：舒俞姐、美云經理與嘉宏的責任合約劃分點..."></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>2. 出貨單 / 簽收單</strong></td>
+            <td>送貨案場、材料品項、司機/起重工時、簽收人</td>
+            <td>
+              <span class="dept-badge dept-site">工務 (樂咖經理/小斌)</span> 現場點收<br>
+              <span class="dept-badge dept-admin">行政/物流 (宇萍)</span> 派車與台帳
+            </td>
+            <td>
+              <textarea id="note-table-2" class="note-textarea" placeholder="點擊打字記錄：樂咖經理與小斌現場點收後的照片拍照傳 LINE 方式..."></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>3. 廠商報價 / 請款單據</strong></td>
+            <td>單價、品名規格、總金額、收款帳號、廠商名稱</td>
+            <td>
+              <span class="dept-badge dept-finance">會計 (俞臻姐)</span> 100% 人工匯款對帳<br>
+              <span class="dept-badge dept-admin">行政 (宇萍)</span> 存檔備查
+            </td>
+            <td>
+              <textarea id="note-table-3" class="note-textarea" placeholder="點擊打字記錄：俞臻姐核銷的時間與發票對帳流程..."></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>4. 工班 / 協力廠商名片</strong></td>
+            <td>公司名稱、聯絡人、電話、服務項目 (外牆塗料/防水/鋼骨)</td>
+            <td>
+              <span class="dept-badge dept-site">工務 (樂咖經理/小斌/樂弟)</span> 尋找評估工班<br>
+              <span class="dept-badge dept-admin">行政 (宇萍)</span> 名片建檔 (`NAS 01.工班名片`)
+            </td>
+            <td>
+              <textarea id="note-table-4" class="note-textarea" placeholder="點擊打字記錄：工務找工班、行政宇萍將名片存 NAS 的分工鏈..."></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>5. 現場文字 / 測量訊息</strong></td>
+            <td>標高尺寸 vs 現場實測偏差、異常照片標記 (極急事直接電話)</td>
+            <td>
+              <span class="dept-badge dept-site">工務 (樂咖經理/小斌)</span> 現場落差處置<br>
+              <span class="dept-badge dept-sales">洪先生(老闆)/業務</span> 大樣偏差知會
+            </td>
+            <td>
+              <textarea id="note-table-5" class="note-textarea" placeholder="點擊打字記錄：同仁用語音轉文字發送文字訊息，緊急事項直接打電話..."></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 第三部分：四大角色【極簡三連問】真實流程自由分享框 -->
+    <div class="section-card">
+      <div class="section-title">3. 四大角色（業務窗口/宇萍/俞臻姐/工務與廠務）【極簡三連問】真實工作流程分享框</div>
+      <p style="font-size: 13px; color: #64748b; margin-bottom: 14px;">請同仁口述或自由填寫『上游誰給我的 ➔ 我處理什麼 ➔ 下游一定要交給誰』：</p>
+      
+      <!-- 1. 業務組 -->
+      <div class="q-item-box">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">🤝 1. 業務窗口（洪先生 / 舒俞姐 / 美云經理 / 嘉宏）</div>
+        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">填寫重點：簽約或報價後，資料第一個交給誰？希望 AI 幫忙追蹤什麼？</div>
+        <textarea id="note-q-1" class="note-textarea" style="height: 100px;" placeholder="1. 上游來源：&#10;2. 核心處理：&#10;3. 下游交給："></textarea>
+      </div>
+
+      <!-- 2. 行政物流 -->
+      <div class="q-item-box">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">📋 2. 行政與派車物流（宇萍）</div>
+        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">填寫重點：收到派車/名片/回頭車訊息後，要存哪裡？要通知誰叫料或開車？</div>
+        <textarea id="note-q-2" class="note-textarea" style="height: 100px;" placeholder="1. 上游來源：&#10;2. 核心處理：&#10;3. 下游交給："></textarea>
+      </div>
+
+      <!-- 3. 財務會計 -->
+      <div class="q-item-box">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">💰 3. 財務與會計（俞臻姐）</div>
+        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">填寫重點：請款開發票的依據看誰的資料？廠商採購單怎麼核對匯款？</div>
+        <textarea id="note-q-3" class="note-textarea" style="height: 100px;" placeholder="1. 上游來源：&#10;2. 核心處理：&#10;3. 下游交給："></textarea>
+      </div>
+
+      <!-- 4. 工務現場 -->
+      <div class="q-item-box">
+        <div style="font-weight: 700; font-size: 14px; margin-bottom: 6px;">🦺 4. 工務與現場（樂咖經理 / 小斌 / 樂弟）</div>
+        <div style="font-size: 13px; color: #64748b; margin-bottom: 8px;">填寫重點：樂咖經理與小斌在現場點收材料、尋找工班、尺寸落差時傳給誰？</div>
+        <textarea id="note-q-4" class="note-textarea" style="height: 100px;" placeholder="1. 上游來源：&#10;2. 核心處理：&#10;3. 下游交給："></textarea>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: { curve: 'basis' }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const textareas = document.querySelectorAll('.note-textarea');
+      textareas.forEach(ta => {
+        const saved = localStorage.getItem(`th_meeting_${ta.id}`);
+        if (saved) ta.value = saved;
+        
+        ta.addEventListener('input', () => {
+          localStorage.setItem(`th_meeting_${ta.id}`, ta.value);
+        });
+      });
+    });
+
+    function saveMeetingNotes() {
+      const textareas = document.querySelectorAll('.note-textarea');
+      textareas.forEach(ta => {
+        localStorage.setItem(`th_meeting_${ta.id}`, ta.value);
+      });
+      alert('已成功將會議紀錄儲存於本機瀏覽器中！');
+    }
+
+    function exportNotesToText() {
+      let output = `=========================================\n`;
+      output += `騰煇企業 • 星期五週會現場紀錄實錄\n`;
+      output += `日期：${new Date().toLocaleDateString()}\n`;
+      output += `=========================================\n\n`;
+
+      const ids = [
+        { id: 'note-flowchart', name: '1. 流程圖修改筆記' },
+        { id: 'note-table-1', name: '2.1 正式合約書討論筆記' },
+        { id: 'note-table-2', name: '2.2 出貨單簽收討論筆記' },
+        { id: 'note-table-3', name: '2.3 廠商報價討論筆記' },
+        { id: 'note-table-4', name: '2.4 工班與名片歸檔討論筆記' },
+        { id: 'note-table-5', name: '2.5 現場文字與緊急電話聯繫筆記' },
+        { id: 'note-q-1', name: '3.1 業務窗口(含嘉宏)極簡三連問筆記' },
+        { id: 'note-q-2', name: '3.2 行政與物流(宇萍)極簡三連問筆記' },
+        { id: 'note-q-3', name: '3.3 財務會計(俞臻姐)極簡三連問筆記' },
+        { id: 'note-q-4', name: '3.4 工務與現場(樂咖/小斌/樂弟)極簡三連問筆記' }
+      ];
+
+      ids.forEach(item => {
+        const el = document.getElementById(item.id);
+        const val = el ? el.value.trim() : '';
+        output += `【${item.name}】\n${val || '(無紀錄)'}\n\n-----------------------------------------\n`;
+      });
+
+      const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `騰煇週會紀錄_${new Date().toISOString().slice(0,10)}.txt`;
+      a.click();
+    }
+
+    function toggleMermaidEditor() {
+      const box = document.getElementById('mermaidEditorBox');
+      const input = document.getElementById('mermaidCodeInput');
+      const diag = document.getElementById('mermaidDiagram');
+      
+      if (box.style.display === 'none') {
+        box.style.display = 'block';
+        input.value = diag.innerText.trim();
+      } else {
+        box.style.display = 'none';
+      }
+    }
+
+    function renderCustomMermaid() {
+      const code = document.getElementById('mermaidCodeInput').value;
+      const mermaidBox = document.getElementById('mermaidBox');
+      mermaidBox.innerHTML = `<pre class="mermaid">${code}</pre>`;
+      mermaid.init(undefined, mermaidBox.querySelector('.mermaid'));
+      alert('已重新繪製流程圖！');
+    }
+
+    function openDrawIoEditor() {
+      window.open('https://app.diagrams.net/', '_blank');
+    }
+  </script>
+</body>
+</html>

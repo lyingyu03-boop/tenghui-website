@@ -1,0 +1,342 @@
+/* ==========================================================================
+   騰煇企業有限公司 — 煇零機 (高對比分頁式極簡工程駕駛艙) CSS
+   TengHui High-Contrast Tabbed Modular Cockpit CSS
+   ========================================================================== */
+
+:root {
+  --th-bg-main: #f8fafc;
+  --th-bg-card: #ffffff;
+  --th-bg-card-sub: #f1f5f9;
+  --th-border-color: #cbd5e1;
+  --th-border-light: #e2e8f0;
+  
+  --th-text-dark: #0f172a;       /* 100% 清晰深碳黑 */
+  --th-text-body: #334155;       /* 內文深灰 */
+  --th-text-muted: #64748b;      /* 次要文字 */
+  
+  --th-primary-blue: #0284c7;    /* 質感藍 */
+  --th-emerald-green: #059669;  /* 成功綠 */
+  --th-amber-warning: #d97706;   /* 預警黃 */
+  --th-crimson-red: #dc2626;     /* 警示紅 */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+  background-color: var(--th-bg-main);
+  color: var(--th-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 頂部 Header Bar */
+.app-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--th-border-color);
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--th-text-dark);
+}
+
+.brand-divider { color: var(--th-border-color); }
+
+.brand-sub {
+  font-size: 13px;
+  color: var(--th-text-muted);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--th-emerald-green);
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-indicator .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--th-emerald-green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* 主分頁導覽 Tab Bar */
+.main-nav-tabs {
+  background: #ffffff;
+  border-bottom: 1px solid var(--th-border-color);
+  padding: 0 28px;
+  display: flex;
+  gap: 8px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--th-text-muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-btn:hover {
+  color: var(--th-text-dark);
+  background: var(--th-bg-card-sub);
+}
+
+.tab-btn.active {
+  color: var(--th-primary-blue);
+  border-bottom-color: var(--th-primary-blue);
+  font-weight: 700;
+}
+
+/* 內容主要區域 */
+.app-container {
+  max-width: 1380px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* 篩選與工具列 */
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 14px 20px;
+  border: 1px solid var(--th-border-light);
+  border-radius: 8px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-btn {
+  background: var(--th-bg-card-sub);
+  border: 1px solid var(--th-border-color);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--th-text-body);
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--th-text-dark);
+  color: #ffffff;
+  border-color: var(--th-text-dark);
+}
+
+/* 案場卡片 Grid (高對比純白) */
+.project-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid var(--th-border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: var(--th-primary-blue);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.project-card.alert-border {
+  border-left: 5px solid var(--th-crimson-red);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--th-text-dark);
+}
+
+.card-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--th-bg-card-sub);
+  color: var(--th-primary-blue);
+}
+
+.card-info-row {
+  font-size: 13px;
+  color: var(--th-text-body);
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-alert-box {
+  margin-top: 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--th-crimson-red);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-status-box {
+  margin-top: 12px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 部門派工卡片 */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.dept-card {
+  background: #ffffff;
+  border: 1px solid var(--th-border-color);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.dept-header {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--th-text-dark);
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--th-border-light);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--th-text-body);
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--th-border-light);
+}
+
+.task-item:last-child { border-bottom: none; }
+
+/* 按鈕樣式 */
+.btn-action {
+  background: var(--th-text-dark);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-action:hover { opacity: 0.9; }
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--th-text-dark);
+  border: 1px solid var(--th-border-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Modal 彈窗 */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 550px;
+}
+
+/* A4 列印樣式 (@media print) */
+@media print {
+  .app-header, .main-nav-tabs, .filter-bar { display: none !important; }
+  .tab-pane { display: block !important; }
+  body { background: #ffffff !important; }
+  .project-card, .dept-card { border: 1px solid #000000 !important; box-shadow: none !important; }
+}
