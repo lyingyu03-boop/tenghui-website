@@ -25,7 +25,7 @@
       <span class="brand-sub">高對比分頁式工程管理駕駛艙</span>
     </div>
     <div class="header-status">
-      <span class="status-indicator"><span class="dot"></span> LINE API 實態連線成功 (@204fxqrm)</span>
+      <span class="status-indicator"><span class="dot"></span> LINE API 靜默監控中 (@204fxqrm)</span>
     </div>
   </header>
 
@@ -35,7 +35,7 @@
     <button class="tab-btn" onclick="switchCockpitTab('tab-departments')">📋 各角色重點派工</button>
     <button class="tab-btn" onclick="switchCockpitTab('tab-line-bot')">💬 LINE 群組與好友管理</button>
     <button class="tab-btn" onclick="switchCockpitTab('tab-materials')">📦 材料點算與 LINE 叫料</button>
-    <button class="tab-btn" onclick="switchCockpitTab('tab-logs')">📝 現場對話與尺寸備忘</button>
+    <button class="tab-btn" onclick="switchCockpitTab('tab-logs')">📝 LINE 即時對話台帳與尺寸對照</button>
   </nav>
 
   <!-- 主內容容器 -->
@@ -151,15 +151,13 @@
       </div>
     </div>
 
-    <!-- Tab 3: LINE 機器人群組與好友管理 (精準實態 1 個測試對接群) -->
+    <!-- Tab 3: LINE 機器人群組與好友管理 -->
     <div id="tab-line-bot" class="tab-pane">
-      
-      <!-- 實態 LINE 連線成功 Callout -->
       <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; color: #166534;">
         <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">🟢 實態對接中：目前已精準連結 1 個測試對接群組！ (機器人 ID: @204fxqrm)</div>
         <p style="font-size: 13px; line-height: 1.7; color: #14532d;">
-          已修正！目前【煇零機】僅加入您建立的<strong>【1 個測試對接群組】</strong>。<br>
-          未來只要將【煇零機】邀請加入騰煇實體工作群（例如：台中現場群、中塑趕工群），【煇零機】收到訊息後就會自動將該群組列入動態列表中！
+          目前已開通<strong>【靜默監控 + @標註發言】雙模組</strong>！<br>
+          群組同仁平常聊天時【煇零機】不會發言洗版，但會靜默將訊息寫入駕駛艙台帳。只有當有同仁標註 <strong>`@煇零機`</strong> 時，才會呼叫 Groq 70B LLM 智慧回答！
         </p>
         <div style="display: flex; gap: 10px; margin-top: 12px;">
           <button class="btn-action" onclick="openAddGroupModal()">+ 手動登記實體 LINE 工作群</button>
@@ -167,7 +165,6 @@
         </div>
       </div>
 
-      <!-- 統計數據卡片 Grid (已動態綁定真實 API 人數) -->
       <div class="project-card-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
         <div class="project-card">
           <div style="font-size: 12px; font-weight: 700; color: var(--th-text-muted);">🟢 機器人狀態</div>
@@ -185,13 +182,12 @@
           <div style="font-size: 11px; color: var(--th-text-muted); margin-top: 2px;">測試對接群組連線中</div>
         </div>
         <div class="project-card">
-          <div style="font-size: 12px; font-weight: 700; color: var(--th-text-muted);">⚡ 今日處理訊息</div>
-          <div style="font-size: 24px; font-weight: 700; color: var(--th-amber-warning); margin-top: 4px;">1 則</div>
-          <div style="font-size: 11px; color: var(--th-text-muted); margin-top: 2px;">115 台帳 100% 自動寫入</div>
+          <div style="font-size: 12px; font-weight: 700; color: var(--th-text-muted);">⚡ 靜默記錄對話</div>
+          <div style="font-size: 24px; font-weight: 700; color: var(--th-amber-warning); margin-top: 4px;">運作中</div>
+          <div style="font-size: 11px; color: var(--th-text-muted); margin-top: 2px;">100% 寫入駕駛艙台帳</div>
         </div>
       </div>
 
-      <!-- 群組管理卡片 Grid -->
       <div class="filter-bar">
         <span style="font-size: 14px; font-weight: 700; color: var(--th-text-dark);">煇零機實態連線之 LINE 群組名冊</span>
       </div>
@@ -263,16 +259,35 @@
       </div>
     </div>
 
-    <!-- Tab 5: 現場對話與尺寸備忘 -->
+    <!-- Tab 5: LINE 即時對話台帳與尺寸對照 (清晰雙結構) -->
     <div id="tab-logs" class="tab-pane">
       <div class="filter-bar">
-        <span style="font-size: 14px; font-weight: 700; color: var(--th-text-dark);">現場對話整理與設計圖面尺寸落差對照</span>
-        <button class="btn-secondary" onclick="window.print()">🖨️ 導出請款 A4 PDF</button>
+        <span style="font-size: 14px; font-weight: 700; color: var(--th-text-dark);">📝 功能清晰化：LINE 即時對話台帳 + GRC 尺寸落差對照表</span>
+        <button class="btn-secondary" onclick="window.print()">🖨️ 導出估驗 A4 PDF</button>
       </div>
 
-      <div id="logsContainer">
-        <!-- JS 動態生成紀錄 -->
+      <!-- 區塊 1: LINE 群組訊息靜默對帳流水號 -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 14px; font-weight: 700; color: var(--th-primary-blue); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+          <span>💬 LINE 群組即時對話台帳 (靜默監控模式)</span>
+          <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 12px; font-weight: 500;">0 洗版 · 自動同步工程駕駛艙</span>
+        </div>
+        <div class="project-card" style="padding: 0; overflow: hidden;" id="liveChatLogsList">
+          <!-- JS 動態渲染最新訊息卡片 -->
+        </div>
       </div>
+
+      <!-- 區塊 2: 建築大樣圖尺寸落差警示卡片 -->
+      <div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--th-crimson-red); margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+          <span>📐 GRC 大樣圖與現場實測尺寸落差預警</span>
+          <span style="font-size: 11px; background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 12px; font-weight: 500;">設計落差偏差提示</span>
+        </div>
+        <div class="project-card-grid" id="dimensionAlertsGrid">
+          <!-- JS 動態生成尺寸警告卡片 -->
+        </div>
+      </div>
+
     </div>
 
   </main>

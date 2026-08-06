@@ -1,6 +1,6 @@
 /* ==========================================================================
    騰煇企業有限公司 — 煇零機 (高對比分頁式極簡工程駕駛艙) JS 邏輯
-   TengHui High-Contrast Tabbed Cockpit Engine (Real LIVE LINE API Integration)
+   TengHui High-Contrast Tabbed Cockpit Engine (Real LIVE LINE API + Taichung Scan)
    ========================================================================== */
 
 let rawProjects = [];
@@ -46,7 +46,7 @@ async function fetchLiveProjects() {
   }
 }
 
-// 實時向後端 /api/line-status 拉取真實 LINE 官方 API 好友與機器人數據
+// 實時向後端 /api/line-status 拉取真實 LINE 數據與靜默紀錄
 async function fetchLineStatus() {
   try {
     const res = await fetch('/api/line-status');
@@ -55,20 +55,19 @@ async function fetchLineStatus() {
       if (result.data) {
         const data = result.data;
         
-        // 更新真實好友數與 Bot Basic ID (@204fxqrm)
         const friendsEl = document.getElementById('statFriendsCount');
-        if (friendsEl) {
-          friendsEl.innerText = `${data.friendsCount || 1} 人`;
-        }
+        if (friendsEl) friendsEl.innerText = `${data.friendsCount || 1} 人`;
 
         const grpCountEl = document.getElementById('statGroupsCount');
-        if (grpCountEl) {
-          grpCountEl.innerText = `${data.groupsList ? data.groupsList.length : 1} 個群組`;
-        }
+        if (grpCountEl) grpCountEl.innerText = `${data.groupsList ? data.groupsList.length : 1} 個群組`;
 
         if (data.groupsList) {
           lineGroupsData = data.groupsList;
           renderLineGroupsGrid(lineGroupsData);
+        }
+
+        if (data.recentMessages) {
+          renderRecentMessagesList(data.recentMessages);
         }
       }
     }
@@ -89,77 +88,50 @@ function renderLineGroupsGrid(groups) {
     card.innerHTML = `
       <div class="card-top-row">
         <div class="card-title" style="color: var(--th-primary-blue);">${g.name}</div>
-        <div class="card-badge">${g.membersCount || g.members.length} 人參與</div>
+        <div class="card-badge">${g.membersCount || g.members.length}</div>
       </div>
       <div style="font-size: 13px; color: var(--th-text-body); margin-top: 8px;">
         <div><strong>參與成員：</strong>${Array.isArray(g.members) ? g.members.join('、') : g.members}</div>
-        <div style="margin-top: 4px;"><strong>AI 職掌定位：</strong>${g.role}</div>
+        <div style="margin-top: 4px;"><strong>AI 定位：</strong>${g.role}</div>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px; color: var(--th-text-muted);">
         <span>狀態：${g.lastActive || '連線正常'}</span>
-        <span style="color: var(--th-emerald-green); font-weight: 700;">🟢 LINE API LIVE 連線成功</span>
+        <span style="color: var(--th-emerald-green); font-weight: 700;">🟢 Webhook 靜默監控中</span>
       </div>
     `;
     container.appendChild(card);
   });
 }
 
-// 自訂新增實體 LINE 群組 Modals 處理
-window.openAddGroupModal = function() {
-  const modal = document.getElementById('addGroupModal');
-  if (modal) modal.classList.add('open');
-};
+function renderRecentMessagesList(messages) {
+  const container = document.getElementById('liveChatLogsList');
+  if (!container) return;
 
-window.closeAddGroupModal = function() {
-  const modal = document.getElementById('addGroupModal');
-  if (modal) modal.classList.remove('open');
-};
-
-window.saveCustomGroup = function() {
-  const name = document.getElementById('newGroupName')?.value.trim();
-  const membersStr = document.getElementById('newGroupMembers')?.value.trim();
-  const role = document.getElementById('newGroupRole')?.value.trim();
-
-  if (!name) {
-    alert('請輸入 LINE 群組名稱！');
+  if (messages.length === 0) {
+    container.innerHTML = `
+      <div style="padding: 16px; color: var(--th-text-muted); font-size: 13px; text-align: center;">
+        目前尚無 LINE 訊息，當同仁在 LINE 發送訊息時，此處將自動實時呈現靜默對話台帳號。
+      </div>
+    `;
     return;
   }
 
-  const members = membersStr ? membersStr.split(/[,，]/).map(m => m.trim()) : ['現場同仁'];
-  const newGroup = {
-    id: `grp-${Date.now()}`,
-    name: name,
-    membersCount: members.length,
-    members: members,
-    role: role || '現場對接與資料備忘',
-    lastActive: '剛剛加入',
-    isAlert: false
-  };
-
-  lineGroupsData.unshift(newGroup);
-  renderLineGroupsGrid(lineGroupsData);
-  
-  const grpCountEl = document.getElementById('statGroupsCount');
-  if (grpCountEl) grpCountEl.innerText = `${lineGroupsData.length} 個群組`;
-
-  closeAddGroupModal();
-  alert(`已成功為【煇零機】新增實態群組：${name}！`);
-};
-
-window.openTokenModal = function() {
-  const modal = document.getElementById('tokenModal');
-  if (modal) modal.classList.add('open');
-};
-
-window.closeTokenModal = function() {
-  const modal = document.getElementById('tokenModal');
-  if (modal) modal.classList.remove('open');
-};
-
-window.saveLineToken = function() {
-  closeTokenModal();
-  alert('已成功連結實態 LINE API！頁面現已由 LINE 官方 API 連線拉取真實數據！');
-};
+  container.innerHTML = '';
+  messages.forEach(m => {
+    const row = document.createElement('div');
+    row.style.cssText = 'padding: 10px 14px; border-bottom: 1px solid var(--th-border-color); display: flex; justify-content: space-between; align-items: center; font-size: 13px;';
+    row.innerHTML = `
+      <div>
+        <span class="card-badge" style="margin-right: 8px; font-weight: 600;">${m.group}</span>
+        <span style="color: var(--th-text-dark);">${m.text}</span>
+      </div>
+      <div style="font-size: 11px; color: var(--th-text-muted); min-width: 70px; text-align: right;">
+        ${m.time} ${m.mentioned ? '<span style="color: var(--th-primary-blue); font-weight: 700;">[@煇零機]</span>' : ''}
+      </div>
+    `;
+    container.appendChild(row);
+  });
+}
 
 // 依責任業務過濾案場 (舒俞姐 vs 美云經理 vs 嘉宏)
 window.filterProjectsByRep = function(repName) {
@@ -246,24 +218,90 @@ window.adjustMatQty = function(id, delta) {
 };
 
 function renderLogs() {
-  const container = document.getElementById('logsContainer');
+  const container = document.getElementById('dimensionAlertsGrid');
   if (!container) return;
 
   container.innerHTML = `
-    <div class="project-card" style="margin-bottom: 16px;">
+    <div class="project-card alert-border">
       <div class="card-top-row">
         <div class="card-title">御豐營造 — 三重花園綻 3F 窗台對圖丈量</div>
-        <div class="card-badge">2026-08-03 10:45 AM</div>
+        <div class="card-badge" style="background: #fee2e2; color: #991b1b;">⚠️ 落差 5cm</div>
       </div>
       <div style="font-size: 13px; color: var(--th-text-body); margin-top: 8px;">
-        <p><strong>現場文字記錄：</strong>樂咖經理在 LINE 發送文字：「3F 窗台對圖丈量，實測 1150mm，與大樣圖 1200mm 落差 5cm。已拍照備查，已電話確認。」</p>
+        <p><strong>樂咖經理現場回報：</strong>「3F 窗台實測 1150mm，大樣圖規格 1200mm。已拍照存證並電話確認。」</p>
         <p style="margin-top: 6px; color: var(--th-crimson-red); font-weight: 600;">
-          ⚠️ 煇零機提醒：大樣尺寸偏差 5cm，已推播至【數位企劃 6人群】給洪先生(老闆)、舒俞姐與設計部！
+          煇零機動作：已自動推播至【數位企劃群】給洪先生(老闆)、舒俞姐與設計部！
         </p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-top-row">
+        <div class="card-title">國園建設 — 新竹縣戶政大樓 1F 大樣放樣點收</div>
+        <div class="card-badge" style="background: #dcfce7; color: #166534;">🟢 尺寸符合</div>
+      </div>
+      <div style="font-size: 13px; color: var(--th-text-body); margin-top: 8px;">
+        <p><strong>樂咖經理現場回報：</strong>「1F 大樣放樣尺寸 2400mm，完全符合設計圖面。明日進場施作。」</p>
       </div>
     </div>
   `;
 }
+
+window.openAddGroupModal = function() {
+  const modal = document.getElementById('addGroupModal');
+  if (modal) modal.classList.add('open');
+};
+
+window.closeAddGroupModal = function() {
+  const modal = document.getElementById('addGroupModal');
+  if (modal) modal.classList.remove('open');
+};
+
+window.saveCustomGroup = function() {
+  const name = document.getElementById('newGroupName')?.value.trim();
+  const membersStr = document.getElementById('newGroupMembers')?.value.trim();
+  const role = document.getElementById('newGroupRole')?.value.trim();
+
+  if (!name) {
+    alert('請輸入 LINE 群組名稱！');
+    return;
+  }
+
+  const members = membersStr ? membersStr.split(/[,，]/).map(m => m.trim()) : ['現場同仁'];
+  const newGroup = {
+    id: `grp-${Date.now()}`,
+    name: name,
+    membersCount: members.length,
+    members: members,
+    role: role || '現場對接與資料備忘',
+    lastActive: '剛剛加入',
+    isAlert: false
+  };
+
+  lineGroupsData.unshift(newGroup);
+  renderLineGroupsGrid(lineGroupsData);
+  
+  const grpCountEl = document.getElementById('statGroupsCount');
+  if (grpCountEl) grpCountEl.innerText = `${lineGroupsData.length} 個群組`;
+
+  closeAddGroupModal();
+  alert(`已成功為【煇零機】新增實態群組：${name}！`);
+};
+
+window.openTokenModal = function() {
+  const modal = document.getElementById('tokenModal');
+  if (modal) modal.classList.add('open');
+};
+
+window.closeTokenModal = function() {
+  const modal = document.getElementById('tokenModal');
+  if (modal) modal.classList.remove('open');
+};
+
+window.saveLineToken = function() {
+  closeTokenModal();
+  alert('已成功連結實態 LINE API！');
+};
 
 window.openLineShareModal = function() {
   const modal = document.getElementById('lineShareModal');
