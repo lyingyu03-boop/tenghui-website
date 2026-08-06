@@ -1,132 +1,103 @@
-// 騰煇企業 — 全案場與合約共用雙向資料庫 API (/api/projects)
-// Synchronized Live Shared Database Extracted from 115年度《行政工作紀錄.xlsx》
-// 業務團隊正式加入：嘉宏 (顏嘉宏)
+// 騰煇企業有限公司 — 115 全案場動態 API (/api/projects)
+// 包含洪先生(老闆)、舒俞姐、美云經理、嘉宏、樂咖經理、小斌、樂弟責任案場
 
-let sharedProjects = [
+const liveProjectsData = [
   {
-    id: 'proj-115-1',
-    name: '御豐營造 — 三重花園綻 3F GRC飾板',
-    client: '御豐營造',
-    salesRep: '舒俞姐',
-    siteManager: '樂咖經理',
-    accounting: '俞臻姐',
-    totalAmount: '$5,800,000',
-    paidAmount: '$3,480,000 (60%)',
-    status: '工務達 60% (已自動觸發第二期估驗請款)',
-    stage: 'GRC 飾板吊裝中',
+    id: "p115-01",
+    name: "好澄/國園 — 台北流行音樂中心外牆工程",
+    client: "好澄/國園工程",
+    salesRep: "洪先生(老闆)",
+    siteManager: "樂咖經理",
+    accounting: "俞臻姐",
+    totalAmount: "$45,800,000",
+    paidAmount: "$38,000,000",
+    stage: "公設地標完工檢收中",
+    status: "🟢 台北地標工程完工",
+    isAlert: false
+  },
+  {
+    id: "p115-02",
+    name: "中塑工程 — 台塑貨運北區營運中心塗料",
+    client: "中塑工程/台塑",
+    salesRep: "洪先生(老闆)",
+    siteManager: "小斌",
+    accounting: "俞臻姐",
+    totalAmount: "$28,500,000",
+    paidAmount: "$22,000,000",
+    stage: "北區營運中心噴塗中",
+    status: "🟢 議價合約執行中",
+    isAlert: false
+  },
+  {
+    id: "p115-03",
+    name: "久樘開發 — 久樘建設總部外牆塗料工程",
+    client: "久樘開發",
+    salesRep: "洪先生(老闆)",
+    siteManager: "樂弟",
+    accounting: "俞臻姐",
+    totalAmount: "$16,200,000",
+    paidAmount: "$12,800,000",
+    stage: "總部外牆塗裝驗收",
+    status: "🟢 建商總部完工估驗",
+    isAlert: false
+  },
+  {
+    id: "p115-04",
+    name: "御豐營造 — 三重花園綻 GRC 裝飾工程",
+    client: "御豐營造",
+    salesRep: "舒俞姐",
+    siteManager: "樂咖經理",
+    accounting: "俞臻姐",
+    totalAmount: "$8,500,000",
+    paidAmount: "$5,100,000",
+    stage: "3F 吊裝進度 60%",
+    status: "⚠️ 3F 窗台尺寸落差 5cm 警示",
     isAlert: true
   },
   {
-    id: 'proj-115-2',
-    name: 'T115-0302 國園工程 — 瓏山林山河飯店',
-    client: '國園工程',
-    salesRep: '舒俞姐',
-    siteManager: '樂咖經理',
-    accounting: '俞臻姐',
-    totalAmount: '$2,850,000',
-    paidAmount: '$1,710,000 (60%)',
-    status: '回頭車兩台運送中，7/21完成卸貨',
-    stage: '塗料噴塗與簽收點收',
-    isAlert: false
-  },
-  {
-    id: 'proj-115-3',
-    name: 'T115-0505 / 0202 瑞築建設 — 品風華外牆',
-    client: '瑞築建設 / 藍天',
-    salesRep: '美云經理',
-    siteManager: '小斌',
-    accounting: '俞臻姐',
-    totalAmount: '$1,275,895',
-    paidAmount: '$1,084,510 (85%)',
-    status: '出貨三台車 17噸，亞伯丁 MGN-143*20 桶已送達',
-    stage: '滴水條與 PPG 塗裝完成 85%',
-    isAlert: false
-  },
-  {
-    id: 'proj-115-4',
-    name: 'T115-0301 采暘建設 — 台東山河苑 GRC/UHPC',
-    client: '采暘建設 / 國園',
-    salesRep: '美云經理',
-    siteManager: '樂弟',
-    accounting: '俞臻姐',
-    totalAmount: '$3,400,000',
-    paidAmount: '$2,380,000 (70%)',
-    status: '回頭車運費 $15,000、堆高機 $3,150 俞臻姐匯款完成',
-    stage: 'UHPC 飾板卸貨完成',
-    isAlert: false
-  },
-  {
-    id: 'proj-115-5',
-    name: 'T113-1003 中塑 — 馬稠後趕工工程',
-    client: '中塑',
-    salesRep: '舒俞姐',
-    siteManager: '小斌',
-    accounting: '俞臻姐',
-    totalAmount: '$4,100,000',
-    paidAmount: '$3,280,000 (80%)',
-    status: '⚠️ 8/14 前必須完工（逾期每日扣款 0.5%）',
-    stage: '東和/東聯吊車配合趕工',
+    id: "p115-05",
+    name: "中塑工程 — 嘉義馬稠後外牆塗料趕工案",
+    client: "中塑工程",
+    salesRep: "舒俞姐",
+    siteManager: "小斌",
+    accounting: "俞臻姐",
+    totalAmount: "$12,800,000",
+    paidAmount: "$7,200,000",
+    stage: "外牆噴塗趕工中",
+    status: "⚠️ 8/14 前完工 (每日扣款 0.5%)",
     isAlert: true
   },
   {
-    id: 'proj-115-6',
-    name: 'T115-0405 亨御國際 — 統一敦富商場包板',
-    client: '亨御國際 / 帝硯',
-    salesRep: '嘉宏',
-    siteManager: '小斌',
-    accounting: '俞臻姐',
-    totalAmount: '$1,950,000',
-    paidAmount: '$975,000 (50%)',
-    status: '帝硯陳小姐核對數量，合約追加嘉宏對帳確認中',
-    stage: '包板噴塗進行中',
+    id: "p115-06",
+    name: "國園建設 — 新竹縣戶政大樓 GRC 造型工程",
+    client: "國園建設",
+    salesRep: "美云經理",
+    siteManager: "樂咖經理",
+    accounting: "俞臻姐",
+    totalAmount: "$15,600,000",
+    paidAmount: "$9,300,000",
+    stage: "1F 大樣放樣點收",
+    status: "🟢 1F 放樣完成",
     isAlert: false
   },
   {
-    id: 'proj-115-7',
-    name: 'T115-0604/0605 國園 — 新竹縣戶政大樓',
-    client: '國園工程',
-    salesRep: '美云經理',
-    siteManager: '樂咖經理',
-    accounting: '俞臻姐',
-    totalAmount: '$6,200,000',
-    paidAmount: '$1,240,000 (20%)',
-    status: '合約與備查資料提送，1F大樣放樣',
-    stage: '大樣放樣階段',
+    id: "p115-07",
+    name: "統一敦富商場 — 包板與包柱造型工程",
+    client: "帝硯建設/陳小姐",
+    salesRep: "嘉宏",
+    siteManager: "小斌",
+    accounting: "俞臻姐",
+    totalAmount: "$6,800,000",
+    paidAmount: "$4,200,000",
+    stage: "對帳核對數量與合約追加",
+    status: "🟢 嘉宏對帳估驗中",
     isAlert: false
   }
 ];
 
 export default function handler(req, res) {
   if (req.method === 'GET') {
-    return res.status(200).json({ status: 'success', data: sharedProjects });
+    return res.status(200).json({ status: 'success', data: liveProjectsData });
   }
-
-  if (req.method !== 'POST') {
-    const newProj = req.body;
-    if (newProj && newProj.name) {
-      const existing = sharedProjects.find(p => p.name.includes(newProj.name) || newProj.name.includes(p.name));
-      if (!existing) {
-        sharedProjects.unshift({
-          id: `proj-${Date.now()}`,
-          name: newProj.name,
-          client: newProj.client || '國園/營造',
-          salesRep: newProj.salesRep || '嘉宏',
-          siteManager: newProj.siteManager || '樂咖經理',
-          accounting: '俞臻姐',
-          totalAmount: newProj.totalAmount || '待報價核定',
-          paidAmount: newProj.paidAmount || '$0 (0%)',
-          status: newProj.status || 'NEW 煇零機合約解析自動建立',
-          stage: newProj.stage || '1F 大樣放樣中',
-          isAlert: true
-        });
-      }
-    }
-    return res.status(200).json({ status: 'success', data: sharedProjects });
-  }
-
   return res.status(405).send('Method Not Allowed');
-}
-
-export function getSharedProjects() {
-  return sharedProjects;
 }

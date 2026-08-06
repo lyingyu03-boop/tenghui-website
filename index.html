@@ -45,8 +45,9 @@
     <div id="tab-projects" class="tab-pane active">
       <div class="filter-bar" style="flex-direction: column; align-items: flex-start; gap: 10px;">
         <div class="filter-group">
-          <span style="font-size: 13px; font-weight: 700; color: var(--th-text-dark);">🤝 業務窗口：</span>
-          <button class="filter-btn active filter-sales" onclick="filterProjectsByRep('all')">全部業務案場 (7)</button>
+          <span style="font-size: 13px; font-weight: 700; color: var(--th-text-dark);">🤝 經營與業務：</span>
+          <button class="filter-btn active filter-sales" onclick="filterProjectsByRep('all')">全部經營與業務案場 (7)</button>
+          <button class="filter-btn filter-sales" onclick="filterProjectsByRep('洪先生(老闆)')">洪先生(老闆)</button>
           <button class="filter-btn filter-sales" onclick="filterProjectsByRep('舒俞姐')">舒俞姐</button>
           <button class="filter-btn filter-sales" onclick="filterProjectsByRep('美云經理')">美云經理</button>
           <button class="filter-btn filter-sales" onclick="filterProjectsByRep('嘉宏')">嘉宏</button>
@@ -76,7 +77,11 @@
         <!-- 業務團隊 -->
         <div class="dept-card">
           <div class="dept-header">
-            <span>🤝 業務團隊 (洪先生 / 舒俞姐 / 美云經理 / 嘉宏)</span>
+            <span>🤝 經營與業務團隊 (洪先生 / 舒俞姐 / 美云經理 / 嘉宏)</span>
+          </div>
+          <div class="task-item">
+            <input type="checkbox" checked disabled>
+            <span>洪先生負責：台北流行音樂中心、台塑貨運營運中心與久樘建設總部大案對接</span>
           </div>
           <div class="task-item">
             <input type="checkbox" checked disabled>
