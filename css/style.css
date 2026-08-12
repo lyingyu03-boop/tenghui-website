@@ -1843,3 +1843,225 @@ img {
 .cookie-banner-btn.btn-necessary:hover {
   background: rgba(255, 255, 255, 0.22);
 }
+
+/* ==========================================================================
+   工程專欄部落格樣式 (B2B Engineering Insights Blog System)
+   ========================================================================== */
+.blog-cat-btn {
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.blog-cat-btn:hover, .blog-cat-btn.active {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #1e293b;
+}
+
+.blog-hero-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  margin-bottom: 40px;
+}
+.blog-hero-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.blog-hero-title {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.blog-hero-excerpt {
+  font-size: 1.02rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.blog-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+.blog-read-btn {
+  margin-left: auto;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.blog-read-btn:hover {
+  background: #334155;
+}
+
+/* 展開文章內頁 */
+.article-full-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+.article-full-body.open {
+  max-height: 3500px;
+  opacity: 1;
+  margin-top: 30px;
+}
+.article-divider {
+  height: 2px;
+  background: #e2e8f0;
+  margin-bottom: 30px;
+}
+.article-h3 {
+  font-size: 1.3rem;
+  color: #0f172a;
+  font-weight: 900;
+  margin: 32px 0 14px 0;
+  border-left: 4px solid #2563eb;
+  padding-left: 14px;
+}
+.article-h4 {
+  font-size: 1.08rem;
+  color: #1e293b;
+  font-weight: 800;
+  margin: 22px 0 10px 0;
+}
+.article-p {
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+/* 互動按鈕與 B2B 對話卡片 */
+.article-action-box {
+  margin-top: 40px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+}
+.article-share-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.share-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #475569;
+}
+.share-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-share-line { background: #06c755; color: #ffffff; }
+.btn-share-fb { background: #1877f2; color: #ffffff; }
+.btn-share-copy { background: #e2e8f0; color: #1e293b; }
+.like-btn {
+  margin-left: auto;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.like-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
+
+.b2b-inquiry-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 24px 28px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 觀點卡片列表 (Grid) */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.blog-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+.blog-card-cat {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.blog-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+.blog-card-excerpt {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
