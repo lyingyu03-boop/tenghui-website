@@ -149,6 +149,104 @@
             <li><strong>現場無縫吊掛</strong>：構件運抵現場後，依據 3D 放樣座標精準快速完成吊掛組裝，達成零現場割斬切割。</li>
             <li><strong>面層水性塗層防護</strong>：搭配 PPG 專案防護塗料系統，實現極致白潔質感與超強耐候防潑水效益。</li>
           </ul>
+
+
+          <!-- 💥 台中雅園新潮 GRC 工程 6 大步驟互動輪播展示區塊 -->
+          <div class="service-subcard-rwd reveal-quiet" style="background: #ffffff; border: 1px solid rgba(15, 23, 42, 0.08); border-radius: 16px; padding: 24px; margin: 32px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <h3 style="font-size: 1.15rem; color: #0f172a; font-weight: 800; margin: 0;">台中雅園新潮 ｜ 6 大工程實務步驟紀錄</h3>
+              <a href="https://www.instagram.com/tenghui1991/" target="_blank" style="font-size: 0.85rem; color: #2563eb; font-weight: 700; text-decoration: none;">觀看雅園新潮 IG 短片 &rarr;</a>
+            </div>
+
+            <!-- 投影片大圖視窗 -->
+            <div style="position: relative; width: 100%; max-width: 860px; height: 420px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #f8fafc; border: 1px solid rgba(15,23,42,0.08);">
+              <img decoding="async" loading="lazy" src="img/grc-workflow/設計圖手繪.png" id="artGrcSlideImg" alt="台中雅園新潮工程步驟圖" style="width: 100%; height: 100%; object-fit: contain; background: #ffffff; transition: opacity 0.2s ease; padding: 12px;">
+              
+              <span id="artGrcSlideBadge" style="position: absolute; top: 14px; left: 14px; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.8rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; letter-spacing: 0.5px;">
+                STEP 01 / 06 ｜ 概念手繪
+              </span>
+
+              <button onclick="prevArtGrcSlide()" style="position: absolute; top: 50%; left: 14px; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.95); border: 1px solid rgba(15,23,42,0.12); color: #0f172a; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; z-index: 10;" aria-label="上一張">&lsaquo;</button>
+              <button onclick="nextArtGrcSlide()" style="position: absolute; top: 50%; right: 14px; transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.95); border: 1px solid rgba(15,23,42,0.12); color: #0f172a; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; z-index: 10;" aria-label="下一張">&rsaquo;</button>
+            </div>
+
+            <!-- 01 ~ 06 簡潔頁籤導覽 -->
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 18px; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px;" id="artGrcSlideDots">
+              <button class="grc-tab-btn active" onclick="goArtGrcSlide(0)"><span>01</span> 概念手繪</button>
+              <button class="grc-tab-btn" onclick="goArtGrcSlide(1)"><span>02</span> 3D BIM 建模</button>
+              <button class="grc-tab-btn" onclick="goArtGrcSlide(2)"><span>03</span> 3D列印</button>
+              <button class="grc-tab-btn" onclick="goArtGrcSlide(3)"><span>04</span> 造型製作</button>
+              <button class="grc-tab-btn" onclick="goArtGrcSlide(4)"><span>05</span> 現場吊掛</button>
+              <button class="grc-tab-btn" onclick="goArtGrcSlide(5)"><span>06</span> 完工落地</button>
+            </div>
+          </div>
+
+          <script>
+            const artGrcSlides = [
+              { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/設計圖手繪.png", fit: "contain", stepIdx: 0 },
+              { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/Rhino.png", fit: "contain", stepIdx: 1 },
+              { badge: "STEP 03 / 06 ｜ 3D 列印開發", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "contain", stepIdx: 2 },
+              { badge: "STEP 04 / 06 ｜ 造型開模製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "contain", stepIdx: 3 },
+              { badge: "STEP 05 / 06 ｜ 現場施工吊掛", img: "img/grc-workflow/grc-site-hoisting.jpg", fit: "contain", stepIdx: 4 },
+              { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", stepIdx: 5 },
+              { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "contain", stepIdx: 5 },
+              { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "contain", stepIdx: 5 },
+              { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "contain", stepIdx: 5 }
+            ];
+
+            let curArtGrcIdx = 0;
+            function renderArtGrcSlide(idx) {
+              const data = artGrcSlides[idx];
+              const img = document.getElementById('artGrcSlideImg');
+              const badge = document.getElementById('artGrcSlideBadge');
+              const dots = document.querySelectorAll('#artGrcSlideDots .grc-tab-btn');
+
+              if (img && badge) {
+                img.style.opacity = '0.2';
+                setTimeout(() => {
+                  img.src = data.img;
+                  img.style.objectFit = data.fit;
+                  badge.innerText = data.badge;
+                  img.style.opacity = '1';
+                }, 150);
+              }
+
+              if (dots.length) {
+                dots.forEach((d, i) => {
+                  d.classList.toggle('active', i === data.stepIdx);
+                });
+              }
+              curArtGrcIdx = idx;
+            }
+
+            function nextArtGrcSlide() {
+              let n = (curArtGrcIdx + 1) % artGrcSlides.length;
+              renderArtGrcSlide(n);
+            }
+
+            function prevArtGrcSlide() {
+              let n = (curArtGrcIdx - 1 + artGrcSlides.length) % artGrcSlides.length;
+              renderArtGrcSlide(n);
+            }
+
+            function goArtGrcSlide(stepIdx) {
+              if (artGrcSlides[curArtGrcIdx].stepIdx === stepIdx) {
+                const indices = [];
+                artGrcSlides.forEach((s, idx) => {
+                  if (s.stepIdx === stepIdx) indices.push(idx);
+                });
+                if (indices.length > 1) {
+                  const currentPos = indices.indexOf(curArtGrcIdx);
+                  const nextPos = (currentPos + 1) % indices.length;
+                  renderArtGrcSlide(indices[nextPos]);
+                  return;
+                }
+              }
+              const firstTarget = artGrcSlides.findIndex(s => s.stepIdx === stepIdx);
+              if (firstTarget !== -1) renderArtGrcSlide(firstTarget);
+            }
+          </script>
+
         </div>
 
         <!-- 湖美帝景全幅大圖 -->
