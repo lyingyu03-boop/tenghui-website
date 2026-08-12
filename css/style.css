@@ -2184,3 +2184,103 @@ img {
 .nav-right-wrap {
   gap: 14px;
 }
+
+/* ==========================================================================
+   MOT TIMES 雜誌級沉浸式排版 + RWD 手機響應式極致優化
+   ========================================================================== */
+.article-editorial-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 標題採用 MOT TIMES 高級襯線體 */
+.article-editorial-wrap h1,
+.article-editorial-wrap h2,
+.article-editorial-wrap h3 {
+  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  letter-spacing: -0.2px;
+}
+
+.article-hero-title {
+  font-family: 'Noto Serif TC', serif !important;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.38;
+}
+
+/* 內文採用高清無襯線黑體，舒適字距與行高 */
+.article-body-content p {
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 1.05rem;
+  line-height: 2.0;
+  color: #334155;
+  margin-bottom: 26px;
+  letter-spacing: 0.2px;
+}
+
+.article-quote-block {
+  border-left: 4px solid #0f172a;
+  padding: 24px 30px;
+  margin: 40px 0;
+  background: #f8fafc;
+  border-radius: 0 12px 12px 0;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.12rem;
+  color: #0f172a;
+  line-height: 1.85;
+}
+
+/* RWD 手機版極致排版與適性調整 */
+@media (max-width: 768px) {
+  .article-editorial-wrap {
+    padding: 0 16px !important;
+  }
+  
+  .article-hero-title {
+    font-size: 1.55rem !important;
+    line-height: 1.45 !important;
+  }
+  
+  .article-hero-img-box img {
+    height: 260px !important;
+  }
+  
+  .article-body-content p {
+    font-size: 0.98rem !important;
+    line-height: 1.85 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .article-quote-block {
+    padding: 16px 20px !important;
+    font-size: 0.98rem !important;
+    margin: 28px 0 !important;
+  }
+
+  .service-subcard-rwd {
+    padding: 16px !important;
+    margin: 24px 0 !important;
+  }
+
+  /* 雅園 6 步互動視窗手機版高度 */
+  #artGrcSlideImg {
+    padding: 6px !important;
+  }
+  div[style*="max-width: 860px; height: 420px;"] {
+    height: 260px !important;
+  }
+
+  /* 手機版頁籤按鈕滑動 */
+  .grc-tab-btn {
+    font-size: 0.76rem !important;
+    padding: 6px 12px !important;
+  }
+
+  .b2b-inquiry-banner {
+    padding: 18px 20px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
