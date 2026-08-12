@@ -54,21 +54,27 @@
       z-index: 2;
     }
   </style>
-  <!-- Google & AI Search Engine Structured Data -->
+  <!-- Google & AI (ChatGPT/Gemini/Perplexity) Structured Data (Schema.org JSON-LD) -->
+  <!-- Google & AI (ChatGPT/Gemini/Perplexity) Structured Data (Schema.org JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Contractor",
+    "@type": ["Contractor", "Corporation"],
     "name": "騰煇企業有限公司",
-    "alternateName": "TENG SELENDOR ENTERPRISE CO., LTD.",
+    "alternateName": ["TENG SELENDOR ENTERPRISE CO., LTD.", "騰煇外牆工程", "台安藝品工業社"],
     "image": "https://lyingyu03-boop.github.io/tenghui-website/img/logo-icon.png",
-    "@id": "https://lyingyu03-boop.github.io/tenghui-website/#contractor",
-    "url": "https://lyingyu03-boop.github.io/tenghui-website/",
+    "@id": "https://lyingyu03-boop.github.io/tenghui-website/#corporation",
+    "url": "https://tenghui.com.tw/",
     "telephone": "+886-4-26872899",
+    "faxNumber": "+886-4-26864726",
+    "email": "w862726@gmail.com",
+    "foundingDate": "1991",
+    "description": "騰煇企業深耕台灣外牆工程四十餘年，專營 GRC 玻璃纖維強化水泥造型預鑄、3D BIM 電腦放樣與 PPG 建築高耐候防護塗料整合工程。",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "大甲區甲東路 527 號",
-      "addressLocality": "台中市",
+      "streetAddress": "甲東路 527 號",
+      "addressLocality": "大甲區",
+      "addressRegion": "台中市",
       "postalCode": "437",
       "addressCountry": "TW"
     },
@@ -77,35 +83,54 @@
       "latitude": 24.34842,
       "longitude": 120.63821
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "17:30"
-    },
     "sameAs": [
-      "https://www.facebook.com/tenghui1991/reels/",
+      "https://www.facebook.com/tenghui1991/",
       "https://www.instagram.com/tenghui1991/",
-      "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts"
+      "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts",
+      "https://page.line.me/097xlrpf",
+      "https://share.google/k6Qlmdx9cRj4JzicH"
+    ],
+    "knowsAbout": [
+      "GRC 玻璃纖維強化水泥造型預鑄工程 (Glassfiber Reinforced Concrete)",
+      "PPG 建築高耐候氟碳漆與佩能漆塗料系統 (PPG Architectural Coatings)",
+      "3D BIM 建築電腦建模放樣與開模技術",
+      "外牆翻新拉皮與老舊立面美學整合工程",
+      "雙曲面與特殊幾何建築飾材吊掛施工"
     ],
     "areaServed": {
       "@type": "Country",
       "name": "Taiwan"
     },
-    "description": "全台推薦的 GRC 施工廠商與外牆特殊造型工程專家。擁有近40年營造施工經驗，提供連工帶料的 GRC 造型預鑄板、BIM 3D 建模與放樣、以及 PPG 申紐麗漆外牆高耐候噴塗塗料系統的整體工程服務。服務範圍涵蓋全台灣各縣市。",
-    "knowsAbout": [
-      "GRC 造型工程",
-      "外牆拉皮",
-      "外牆翻新工程",
-      "PPG 外牆高耐候噴塗",
-      "BIM 3D 建模放樣"
-    ]
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "外牆工程與造型飾材服務項目",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "GRC 特殊造型預鑄工程",
+            "description": "古典歐式線條、自然幾何曲面與大型預鑄飾材開模生產與現場吊掛"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "PPG 建築高耐候防護塗料系統",
+            "description": "奈米級後製清水模塗料、高耐候佩能漆與抗 UV 氟碳漆專業噴塗"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "外牆翻新與拉皮整合工程",
+            "description": "老舊大樓與廠房立面美學重塑、輕量化 GRC 飾材掛件與結構防滲處理"
+          }
+        }
+      ]
+    }
   }
   </script>
   <!-- Google Analytics (GA4) -->
