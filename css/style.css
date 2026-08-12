@@ -2072,7 +2072,7 @@ img {
 .article-editorial-wrap {
   max-width: 920px;
   margin: 0 auto;
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* 緩緩靜靜地出現的淡入效果 (Quiet Reveal) */
