@@ -2065,3 +2065,105 @@ img {
   font-size: 0.82rem;
   color: #94a3b8;
 }
+
+/* ==========================================================================
+   MOT TIMES 明日誌 + 聖揚機構 雜誌級工程誌樣式 (Quiet Luxury Editorial)
+   ========================================================================== */
+.article-editorial-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+}
+
+/* 緩緩靜靜地出現的淡入效果 (Quiet Reveal) */
+.reveal-quiet {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-quiet.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.article-hero-img-box {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 28px 0 36px 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+.article-hero-img-box img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.article-hero-img-box:hover img {
+  transform: scale(1.02);
+}
+.article-photo-caption {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: right;
+}
+
+.article-quote-block {
+  position: relative;
+  border-left: 3px solid #0f172a;
+  padding: 24px 32px;
+  margin: 40px 0;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 0 12px 12px 0;
+  font-size: 1.12rem;
+  color: #1e293b;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.article-photo-full {
+  width: 100%;
+  border-radius: 12px;
+  margin: 36px 0 10px 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  object-fit: cover;
+  display: block;
+}
+
+.article-toc-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+.article-toc-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+.article-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.article-toc-list a {
+  font-size: 0.9rem;
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.article-toc-list a:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}
