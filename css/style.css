@@ -2169,21 +2169,7 @@ img {
 }
 
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* Reduced from 16px to give breathing space */
-  list-style: none;
-}
 
-.nav-link {
-  font-size: 0.86rem; /* Slightly refined for breathing room */
-  padding: 4px 2px;
-}
-
-.nav-right-wrap {
-  gap: 14px;
-}
 
 /* ==========================================================================
    MOT TIMES 雜誌級沉浸式排版 + RWD 手機響應式極致優化
@@ -2283,4 +2269,31 @@ img {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
+}
+
+
+/* Desktop Header Refinements */
+@media (min-width: 961px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+  }
+  .nav-link {
+    font-size: 0.86rem;
+    padding: 4px 2px;
+  }
+  .nav-right-wrap {
+    gap: 14px;
+  }
+}
+
+.brand-logo-wrap {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.brand-text-block {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
