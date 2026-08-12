@@ -127,13 +127,13 @@ img {
 .nav-right-wrap {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   list-style: none;
 }
 
@@ -795,7 +795,7 @@ img {
 .workflow-steps-wrap {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 
 .wf-step-card {
@@ -1149,7 +1149,7 @@ img {
   .ba-slider-container { height: 240px; }
 
   /* GRC 互動展示 — 固定px欄改自適應 */
-  .grc-step-viewer { grid-template-columns: 1fr; gap: 16px; }
+  .grc-step-viewer { grid-template-columns: 1fr; gap: 12px; }
   .grc-viewer-img-wrap { height: 200px; }
 
   /* Grid 系列 */
@@ -1241,7 +1241,7 @@ img {
   /* Grid layout */
   .philosophy-grid,
   .workflow-steps-wrap,
-  .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+  .grid-2 { grid-template-columns: 1fr; gap: 14px; }
 
   /* Video theater 縮高 */
   .vt-img-wrap { height: 220px; }
@@ -1321,7 +1321,7 @@ img {
 
   /* Footer */
   .footer-brand h4 { font-size: 1rem; }
-  .footer-links { gap: 20px; }
+  .footer-links { gap: 14px; }
 
   /* ESG certs 如果是 grid 也要換行 */
   [style*="grid-template-columns: repeat(2"] {
@@ -1398,7 +1398,7 @@ img {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .news-item {
@@ -1629,7 +1629,7 @@ img {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 14px;
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(58,58,63,0.08);
   border-radius: 16px;
@@ -1642,7 +1642,7 @@ img {
 .grid-3-to-1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 14px;
 }
 
 /* 服務項目大卡片 class */
@@ -1668,14 +1668,14 @@ img {
 @media (max-width: 900px) {
   .grid-3-to-1 {
     grid-template-columns: 1fr !important;
-    gap: 16px;
+    gap: 12px;
   }
 }
 
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px;
+    gap: 12px;
     padding: 20px 16px;
   }
   .service-card-rwd {
@@ -1899,7 +1899,7 @@ img {
 .blog-meta-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
   font-size: 0.85rem;
   color: #64748b;
   flex-wrap: wrap;
@@ -2012,7 +2012,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -2166,4 +2166,21 @@ img {
 .article-toc-list a:hover {
   text-decoration: underline;
   color: #1d4ed8;
+}
+
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Reduced from 16px to give breathing space */
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.86rem; /* Slightly refined for breathing room */
+  padding: 4px 2px;
+}
+
+.nav-right-wrap {
+  gap: 14px;
 }
