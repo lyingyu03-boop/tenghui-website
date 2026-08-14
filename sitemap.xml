@@ -61,6 +61,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://tenghui.com.tw/article-stone.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://tenghui.com.tw/privacy.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
