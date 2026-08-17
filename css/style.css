@@ -2297,3 +2297,28 @@ img {
   flex-shrink: 0;
   white-space: nowrap;
 }
+
+
+/* ==========================================================================
+   全站圖片防盜與禁止右鍵下載防護 (GLOBAL IMAGE PROTECTION)
+   ========================================================================== */
+img {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important; /* 阻止手機長按圖片跳出儲存選單 */
+}
+
+/* 允許按鈕與互動式 Canvas 正常點擊，但禁止一般圖片長按與右鍵 */
+img:not(.interactive-element) {
+  pointer-events: none;
+}
+.brand-logo-img, .brand-logo-wrap, button, a {
+  pointer-events: auto !important;
+}
