@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【內部設計精進測試】騰煇企業 ｜ 經典工程紅、Dropdown下拉選單與 iPad/手機 RWD 全面優化 ｜ TENG SELENDOR</title>
+  <title>【內部無邊框藝廊美學測試】騰煇企業 ｜ 黑白灰極簡 ✖️ 無框大圖 ✖️ 滾動跟隨視差 ｜ TENG SELENDOR</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   
   <style>
     /* -------------------------------------------------------------------
-       和光同塵 (Meld Design) 級建築美學 - 騰煇工程紅與 RWD 懸浮導覽極致版
+       無邊框藝廊展覽級美學 (BORDERLESS ARCHITECTURE GALLERY STYLE)
        ------------------------------------------------------------------- */
     :root {
-      --th-red: #b91c1c; /* 騰煇經典工程紅 */
-      --th-red-dark: #991b1b;
+      --th-black: #09090b;
+      --th-slate: #71717a;
+      --th-red: #c51c1d;
     }
 
     body {
@@ -26,61 +27,61 @@
       color: #18181b;
       letter-spacing: 0.2px;
       margin: 0;
+      overflow-x: hidden;
     }
 
-    /* 頂級斜線小章節標頭 / SECTION HEADER / */
-    .meld-section-tag {
+    /* 頂級斜線章節標語 / SECTION HEADER / */
+    .borderless-tag {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: #71717a;
-      letter-spacing: 2.5px;
+      color: var(--th-slate);
+      letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 12px;
       display: block;
     }
 
-    .meld-section-title {
+    .borderless-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.65rem;
+      font-size: 1.7rem;
       font-weight: 900;
-      color: #09090b;
-      line-height: 1.45;
+      color: var(--th-black);
+      line-height: 1.42;
       margin-bottom: 20px;
     }
 
-    /* 懸浮右側極簡聯絡選單 (含 YT, 電腦/iPad/手機 RWD 防遮擋優化) */
+    /* 懸浮右側極簡聯絡選單 (滾動跟隨與高質感高透視) */
     .meld-right-dock {
       position: fixed;
-      right: 18px;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       gap: 10px;
       z-index: 999;
-      transition: all 0.3s ease;
     }
     .meld-dock-btn {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #3f3f46;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none;
     }
     .meld-dock-btn:hover {
-      background: #09090b;
+      background: var(--th-black);
       color: #ffffff;
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: scale(1.12);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.18);
     }
     .meld-dock-btn svg {
       width: 18px;
@@ -88,16 +89,16 @@
       fill: currentColor;
     }
 
-    /* 左下角回頁首按鈕 (^ TOP) */
+    /* 回頁首按鈕 (^ TOP) */
     .meld-top-btn {
       position: fixed;
-      left: 20px;
-      bottom: 20px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
+      left: 24px;
+      bottom: 24px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 30px;
-      padding: 8px 16px;
+      padding: 8px 18px;
       font-family: 'Outfit', sans-serif;
       font-size: 0.75rem;
       font-weight: 700;
@@ -110,11 +111,11 @@
       z-index: 999;
     }
     .meld-top-btn:hover {
-      background: #09090b;
+      background: var(--th-black);
       color: #ffffff;
     }
 
-    /* 頁首英文選單滑鼠懸動翻轉為經典工程紅中文特效 (Meld Design Header Flip Effect) */
+    /* 頁首中英文翻轉選單 (Flip Navigation) */
     .meld-nav-link-flip {
       display: inline-flex;
       flex-direction: column;
@@ -145,7 +146,7 @@
       left: 50%;
       transform: translateX(-50%);
       white-space: nowrap;
-      color: var(--th-red); /* 換成經典工程紅 */
+      color: var(--th-black);
       font-weight: 700;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -156,7 +157,7 @@
       transform: translate(-50%, -100%);
     }
 
-    /* 下拉選單樣式 Dropdown for Service */
+    /* 下拉選單 Dropdown for Service */
     .dropdown-parent {
       position: relative;
     }
@@ -169,7 +170,7 @@
       border-radius: 12px;
       padding: 8px 0;
       min-width: 200px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
       border: 1px solid #e4e4e7;
       opacity: 0;
       visibility: hidden;
@@ -194,73 +195,59 @@
     }
     .dropdown-item-custom:hover {
       background: #f4f4f5;
-      color: var(--th-red);
+      color: var(--th-black);
     }
 
-    /* 卡片設計與懸浮 */
-    .meld-card-item {
-      background: #ffffff;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #e4e4e7;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* 💥 無邊框藝廊展開卡片 (BORDERLESS GALLERY CARDS) */
+    .borderless-card-item {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .meld-card-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
-    }
-    .meld-card-img-wrap {
+    .borderless-img-box {
+      width: 100%;
       overflow: hidden;
+      border-radius: 6px;
       position: relative;
     }
-    .meld-card-img-wrap img {
+    .borderless-img-box img {
       width: 100%;
-      height: 240px;
+      height: 320px;
       object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      display: block;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
     }
-    .meld-card-item:hover .meld-card-img-wrap img {
-      transform: scale(1.04);
+    .borderless-card-item:hover .borderless-img-box img {
+      transform: scale(1.03);
+    }
+    .borderless-card-body {
+      padding: 20px 0 0 0;
     }
 
-    /* -------------------------------------------------------------------
-       RWD 手機 (Phone) & 平板 (iPad) 極致美學適性優化
-       ------------------------------------------------------------------- */
-    @media (max-width: 1024px) {
-      .meld-right-dock {
-        right: 12px;
-        gap: 8px;
-      }
-      .meld-dock-btn {
-        width: 36px;
-        height: 36px;
-      }
-      .meld-dock-btn svg {
-        width: 16px;
-        height: 16px;
-      }
+    /* 滾動跟隨視差懸浮效果 (Scroll Parallax & Smooth Reveal) */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 768px) {
       .meld-right-dock {
-        position: fixed;
-        right: 12px;
-        bottom: 75px;
+        right: 10px;
+        bottom: 70px;
         top: auto;
         transform: none;
-        flex-direction: column;
-        gap: 8px;
       }
-      .meld-section-title {
-        font-size: 1.4rem !important;
-        line-height: 1.4 !important;
-      }
-      .meld-top-btn {
-        left: 14px;
-        bottom: 14px;
-        padding: 6px 12px;
-        font-size: 0.7rem;
+      .borderless-img-box img {
+        height: 220px !important;
       }
     }
   </style>
@@ -268,12 +255,12 @@
 <body>
 
   <!-- 內部草稿提醒 Banner -->
-  <div style="background: #09090b; color: #f4f4f5; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【內部設計試作修訂版】經典工程紅懸動 ｜ SERVICE 下拉三大項 ｜ iPad/手機 RWD 易讀優化
+  <div style="background: #09090b; color: #ffffff; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
+    ✨ 【內部無邊框藝廊美學試作】移除卡片外框 ✖️ 無界大圖展開 ✖️ 滑動跟隨視差動態
     <a href="index.html" style="color: #60a5fa; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
-  <!-- 頁首 Header (英文選單懸浮滑動翻轉經典工程紅中文特效 + SERVICE 下拉選單) -->
+  <!-- 頁首 Header -->
   <header class="site-header" style="background: #ffffff; border-bottom: 1px solid #f4f4f5;">
     <div class="container header-inner">
       <a href="../index.html" class="brand-logo-wrap">
@@ -300,7 +287,7 @@
               </a>
             </li>
 
-            <!-- SERVICE 下拉三項選單 (Dropdown) -->
+            <!-- SERVICE 下拉三項選單 -->
             <li class="dropdown-parent">
               <a href="../services.html" class="meld-nav-link-flip">
                 <span class="text-en">SERVICE ▾</span>
@@ -339,13 +326,11 @@
             </li>
           </ul>
         </nav>
-
-        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- 懸浮右側極簡聯絡 Dock (含 YT、FB、IG、LINE、電話、地點 - iPad/手機防遮擋) -->
+  <!-- 右側懸浮滾動跟隨 Dock (含 YT、FB、IG、LINE、電話、據點) -->
   <div class="meld-right-dock">
     <a href="https://maps.google.com/?q=騰煇企業" target="_blank" class="meld-dock-btn" title="據點導航"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></a>
     <a href="tel:0426872899" class="meld-dock-btn" title="電話諮詢"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
@@ -355,71 +340,71 @@
     <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="meld-dock-btn" title="YouTube 短影音"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
   </div>
 
-  <!-- 左下角按鈕 (^ TOP) -->
   <button class="meld-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">^ TOP</button>
 
-  <!-- 標題與內文修訂 Hero 區塊 -->
-  <section style="padding: 70px 0 50px 0; background: #ffffff; border-bottom: 1px solid #f4f4f5;">
-    <div class="container" style="max-width: 1040px;">
-      <span class="meld-section-tag">/ ABOUT TENG SELENDOR /</span>
-      <h1 class="meld-section-title">
+  <!-- Hero 區塊 (無邊框大氣開場) -->
+  <section style="padding: 80px 0 60px 0; background: #ffffff;" class="scroll-reveal">
+    <div class="container" style="max-width: 1080px;">
+      <span class="borderless-tag">/ ABOUT TENG SELENDOR /</span>
+      <h1 class="borderless-title" style="font-size: 2.1rem; max-width: 860px;">
         四十餘年外牆工程整合專家：<br>
         從 GRC 特殊造型、3D 電腦建模放樣到 PPG 高耐候塗料工法
       </h1>
-      <p style="font-size: 1.02rem; color: #52525b; max-width: 760px; line-height: 1.85; margin-bottom: 28px;">
+      <p style="font-size: 1.05rem; color: #52525b; max-width: 780px; line-height: 1.85; margin-bottom: 32px;">
         騰煇企業深耕台灣建築工程，結合傳統預鑄工藝與現代數位建模放樣技術，為建築師、營造團隊與業主提供兼具結構安全與立面美學的整體工程解方。
       </p>
 
-      <a href="../projects.html" style="background: #09090b; color: #ffffff; padding: 12px 28px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; display: inline-block;">
+      <a href="../projects.html" style="background: #09090b; color: #ffffff; padding: 14px 32px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600; text-decoration: none; display: inline-block;">
         工程實績 / PROJECTS &rarr;
       </a>
     </div>
   </section>
 
-  <!-- 服務卡片網格 (修正素材：正宗 GRC 造型、正宗 PPG 台塑仁武、正宗外牆拉皮台南) -->
-  <section style="padding: 60px 0; background: #ffffff;">
-    <div class="container" style="max-width: 1100px;">
+  <!-- 無邊框卡片展示區塊 (/ SERVICE /) -->
+  <section style="padding: 60px 0 100px 0; background: #ffffff;">
+    <div class="container" style="max-width: 1140px;">
       
-      <div style="margin-bottom: 36px;">
-        <span class="meld-section-tag">/ SERVICE /</span>
-        <h2 class="meld-section-title">騰煇連工帶料整合服務</h2>
+      <div style="margin-bottom: 48px;" class="scroll-reveal">
+        <span class="borderless-tag">/ SERVICE /</span>
+        <h2 class="borderless-title">騰煇連工帶料整合服務</h2>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
+      <!-- 💥 完全無框畫框 (Borderless) 自然展開藝廊網格 -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
         
-        <!-- 服務 1: GRC 特殊造型 (台中雅園新潮) -->
-        <div class="meld-card-item">
-          <div class="meld-card-img-wrap">
+        <!-- 無框卡片 1: GRC 特殊造型 -->
+        <div class="borderless-card-item scroll-reveal">
+          <div class="borderless-img-box">
             <img decoding="async" loading="lazy" src="../img/projects/grc-yayuan.jpg" alt="GRC 特殊造型預鑄工程">
           </div>
-          <div style="padding: 24px;">
-            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1px;">01 / GRC FORMING</span>
-            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">GRC 特殊造型預鑄工程</h3>
-            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">古典歐式雕花、自然雙曲面與 3D 電腦放樣，將建築師手繪草圖無縫轉化為實體水泥飾材。</p>
+          <div class="borderless-card-body">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1.5px;">01 / GRC FORMING</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">GRC 特殊造型預鑄工程</h3>
+            <p style="font-size: 0.92rem; color: #52525b; line-height: 1.75; margin: 0;">古典歐式雕花、自然雙曲面與 3D 電腦放樣，將建築師手繪草圖無縫轉化為實體水泥飾材。</p>
           </div>
         </div>
 
-        <!-- 服務 2: PPG 建築塗料 (台塑仁武 AI 研發中心 PPG 氟碳漆) -->
-        <div class="meld-card-item">
-          <div class="meld-card-img-wrap">
+        <!-- 無框卡片 2: PPG 建築塗料 -->
+        <div class="borderless-card-item scroll-reveal">
+          <div class="borderless-img-box">
             <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="PPG 建築高耐候防護塗料工程">
           </div>
-          <div style="padding: 24px;">
-            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1px;">02 / PPG COATINGS</span>
-            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">PPG 建築高耐候防護塗料</h3>
-            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">嚴選龐亞漆、彈性佩能漆、臻石漆、絢岩臻彩漆與雅飾彈性 500，提供抗 UV 耐酸雨防護 (實績：台塑仁武)。</p>
+          <div class="borderless-card-body">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1.5px;">02 / PPG COATINGS</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">PPG 建築高耐候防護塗料</h3>
+            <p style="font-size: 0.92rem; color: #52525b; line-height: 1.75; margin: 0;">嚴選龐亞漆、彈性佩能漆、臻石漆、絢岩臻彩漆與雅飾彈性 500，提供抗 UV 耐酸雨防護 (實績：台塑仁武)。</p>
           </div>
         </div>
 
-        <!-- 服務 3: 外牆翻新拉皮 (台南外牆拉皮整合工程) -->
-        <div class="meld-card-item">
-          <div class="meld-card-img-wrap">
+        <!-- 無框卡片 3: 外牆翻新拉皮 -->
+        <div class="borderless-card-item scroll-reveal">
+          <div class="borderless-img-box">
             <img decoding="async" loading="lazy" src="../img/projects/tainan-renovation.jpg" alt="外牆翻新拉皮工程">
           </div>
-          <div style="padding: 24px;">
-            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1px;">03 / RENOVATION</span>
-            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">外牆翻新與美學重塑</h3>
-            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">老舊大樓與廠房立面美學拉皮，搭配輕量化 GRC 飾材掛件與結構防滲處理 (實績：台南外牆拉皮)。</p>
+          <div class="borderless-card-body">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: #a1a1aa; letter-spacing: 1.5px;">03 / RENOVATION</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">外牆翻新與美學重塑</h3>
+            <p style="font-size: 0.92rem; color: #52525b; line-height: 1.75; margin: 0;">老舊大樓與廠房立面美學拉皮，搭配輕量化 GRC 飾材掛件與結構防滲處理 (實績：台南外牆拉皮)。</p>
           </div>
         </div>
 
@@ -428,9 +413,10 @@
     </div>
   </section>
 
+  <!-- 滾動跟隨視差懸浮效果 JS (Scroll Parallax Observer) -->
   <script>
     (function() {
-      // 圖片防盜保護
+      // 圖片防盜
       document.addEventListener('contextmenu', function(e) {
         if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
       });
@@ -438,14 +424,17 @@
         if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
       });
 
-      const mobileToggle = document.getElementById('mobileToggle');
-      const navMenu = document.getElementById('navMenu');
-      if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-          const isOpen = navMenu.classList.toggle('is-open');
-          mobileToggle.textContent = isOpen ? '✕' : '☰';
+      // 滑動跟隨視差與淡入動畫 Observer
+      const reveals = document.querySelectorAll('.scroll-reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
         });
-      }
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => observer.observe(el));
     })();
   </script>
 </body>
