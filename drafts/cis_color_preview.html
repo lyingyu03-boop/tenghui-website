@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【內部 CIS 色彩調和測試】騰煇企業 ｜ 旗艦紅 ✖️ 深海藍 ✖️ 建築銀灰 ｜ TENG SELENDOR</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    /* -------------------------------------------------------------------
+       騰煇官方 CIS 品牌色彩視覺平衡調和系統 (CIS COLOR HARMONY SYSTEM)
+       ------------------------------------------------------------------- */
+    :root {
+      --cis-red: #c51c1d;        /* CIS Logo 鮮紅 (Teng Red) */
+      --cis-navy: #0a3175;       /* CIS Logo 海藍 (Splendor Navy) */
+      --cis-gray: #8e8c8d;       /* CIS Logo 建築銀灰 (Architectural Silver) */
+      --cis-dark: #09090b;       /* 墨黑 */
+      --cis-bg-light: #fafafa;   /* 淺灰白色調 */
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background-color: var(--cis-bg-light);
+      color: #18181b;
+      letter-spacing: 0.2px;
+      margin: 0;
+    }
+
+    /* 頂級斜線小章節標頭 (使用 CIS 海藍調和) */
+    .cis-section-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--cis-navy);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .cis-section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--cis-dark);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    /* 懸浮右側極簡聯絡選單 (CIS 色彩點綴) */
+    .cis-right-dock {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+    .cis-dock-btn {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(142, 140, 141, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cis-navy);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+    .cis-dock-btn:hover {
+      background: var(--cis-red);
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(197, 28, 29, 0.3);
+      border-color: var(--cis-red);
+    }
+    .cis-dock-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* 左下角按鈕 */
+    .cis-top-btn {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 30px;
+      padding: 8px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cis-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    .cis-top-btn:hover {
+      background: var(--cis-navy);
+      color: #ffffff;
+    }
+
+    /* 頁首英文選單滑鼠懸動翻轉 (CIS 旗艦紅懸動特效) */
+    .cis-nav-link-flip {
+      display: inline-flex;
+      flex-direction: column;
+      position: relative;
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #27272a;
+      text-decoration: none;
+      padding: 4px 12px;
+      overflow: hidden;
+      height: 26px;
+      line-height: 26px;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 72px;
+      text-align: center;
+    }
+    .cis-nav-link-flip .text-en {
+      display: block;
+      white-space: nowrap;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cis-nav-link-flip .text-zh {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      color: var(--cis-red); /* CIS 旗艦紅 */
+      font-weight: 700;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cis-nav-link-flip:hover .text-en {
+      transform: translateY(-100%);
+    }
+    .cis-nav-link-flip:hover .text-zh {
+      transform: translate(-50%, -100%);
+    }
+
+    /* 下拉選單 Dropdown */
+    .dropdown-parent {
+      position: relative;
+    }
+    .dropdown-menu-custom {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 8px 0;
+      min-width: 200px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      border: 1px solid #e4e4e7;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      list-style: none;
+      margin: 0;
+      z-index: 1000;
+    }
+    .dropdown-parent:hover .dropdown-menu-custom {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-item-custom {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #27272a;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dropdown-item-custom:hover {
+      background: #fef2f2;
+      color: var(--cis-red);
+    }
+
+    /* CIS 色彩調和卡片 */
+    .cis-card-item {
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e4e4e7;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cis-card-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--cis-navy);
+      box-shadow: 0 16px 35px rgba(10, 49, 117, 0.12);
+    }
+    .cis-card-img-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .cis-card-img-wrap img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cis-card-item:hover .cis-card-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    /* CTA 按鈕採用 CIS 旗艦紅漸層 */
+    .cis-btn-primary {
+      background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(197, 28, 29, 0.25);
+      transition: all 0.3s ease;
+    }
+    .cis-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(197, 28, 29, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 內部草稿提醒 Banner -->
+  <div style="background: var(--cis-navy); color: #ffffff; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
+    🎨 【內部 CIS 色彩調和測試】提取官方 CIS 標誌：旗艦紅 (#c51c1d) ✖️ 鋼鐵海藍 (#0a3175) ✖️ 建築銀灰 (#8e8c8d)
+    <a href="index.html" style="color: #93c5fd; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
+  </div>
+
+  <!-- CIS 色票調色盤示範 (Color Swatch Demonstration) -->
+  <div style="background: #ffffff; border-bottom: 1px solid #e4e4e7; padding: 18px 0;">
+    <div class="container" style="max-width: 1040px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <span style="font-size: 0.88rem; font-weight: 700; color: #3f3f46;">官方 CIS 色彩解構與調和：</span>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 20px; height: 20px; background: #c51c1d; border-radius: 4px; display: inline-block;"></span>
+          <span style="font-size: 0.82rem; font-family: 'Outfit'; font-weight: 700; color: #18181b;">CIS 旗艦紅 #c51c1d</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 20px; height: 20px; background: #0a3175; border-radius: 4px; display: inline-block;"></span>
+          <span style="font-size: 0.82rem; font-family: 'Outfit'; font-weight: 700; color: #18181b;">CIS 海藍 #0a3175</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 20px; height: 20px; background: #8e8c8d; border-radius: 4px; display: inline-block;"></span>
+          <span style="font-size: 0.82rem; font-family: 'Outfit'; font-weight: 700; color: #18181b;">建築銀灰 #8e8c8d</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 頁首 Header -->
+  <header class="site-header" style="background: #ffffff; border-bottom: 2px solid #0a3175;">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="../img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 700; color: #09090b;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="color: var(--cis-navy); font-weight: 600;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 8px; list-style: none; margin: 0; padding: 0;">
+            <li>
+              <a href="../index.html" class="cis-nav-link-flip">
+                <span class="text-en">HOME</span>
+                <span class="text-zh">首頁</span>
+              </a>
+            </li>
+            <li>
+              <a href="../about.html" class="cis-nav-link-flip">
+                <span class="text-en">ABOUT</span>
+                <span class="text-zh">關於騰煇</span>
+              </a>
+            </li>
+
+            <!-- SERVICE 下拉三項選單 -->
+            <li class="dropdown-parent">
+              <a href="../services.html" class="cis-nav-link-flip">
+                <span class="text-en">SERVICE ▾</span>
+                <span class="text-zh">服務項目 ▾</span>
+              </a>
+              <ul class="dropdown-menu-custom">
+                <li><a href="../services.html#grc" class="dropdown-item-custom">GRC 特殊造型工程</a></li>
+                <li><a href="../services.html#ppg" class="dropdown-item-custom">建築外牆防護塗料</a></li>
+                <li><a href="../services.html#renovation" class="dropdown-item-custom">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../process.html" class="cis-nav-link-flip">
+                <span class="text-en">PROCESS</span>
+                <span class="text-zh">工程流程</span>
+              </a>
+            </li>
+            <li>
+              <a href="../projects.html" class="cis-nav-link-flip">
+                <span class="text-en">PROJECTS</span>
+                <span class="text-zh">案例分享</span>
+              </a>
+            </li>
+            <li>
+              <a href="../articles.html" class="cis-nav-link-flip">
+                <span class="text-en">BLOG</span>
+                <span class="text-zh">工程專欄</span>
+              </a>
+            </li>
+            <li>
+              <a href="../contact.html" class="cis-nav-link-flip">
+                <span class="text-en">CONTACT</span>
+                <span class="text-zh">聯絡我們</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- 懸浮右側極簡聯絡 Dock -->
+  <div class="cis-right-dock">
+    <a href="https://maps.google.com/?q=騰煇企業" target="_blank" class="cis-dock-btn" title="據點導航"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></a>
+    <a href="tel:0426872899" class="cis-dock-btn" title="電話諮詢"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+    <a href="https://page.line.me/097xlrpf" target="_blank" class="cis-dock-btn" title="LINE 官方" style="color: #22c55e;"><svg viewBox="0 0 24 24"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.122.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.906 2.572-3.844 2.572-6.002z"/></svg></a>
+    <a href="https://www.facebook.com/tenghui1991/" target="_blank" class="cis-dock-btn" title="FB 粉絲專頁"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="cis-dock-btn" title="IG 專頁"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="cis-dock-btn" title="YouTube 短影音"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </div>
+
+  <button class="cis-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">^ TOP</button>
+
+  <!-- Hero 區塊 (CIS 色彩點綴) -->
+  <section style="padding: 70px 0 50px 0; background: #ffffff; border-bottom: 1px solid #f4f4f5;">
+    <div class="container" style="max-width: 1040px;">
+      <span class="cis-section-tag">/ ABOUT TENG SELENDOR /</span>
+      <h1 class="cis-section-title">
+        四十餘年外牆工程整合專家：<br>
+        從 GRC 特殊造型、3D 電腦建模放樣到 PPG 高耐候塗料工法
+      </h1>
+      <p style="font-size: 1.02rem; color: #52525b; max-width: 760px; line-height: 1.85; margin-bottom: 28px;">
+        騰煇企業深耕台灣建築工程，結合傳統預鑄工藝與現代數位建模放樣技術，為建築師、營造團隊與業主提供兼具結構安全與立面美學的整體工程解方。
+      </p>
+
+      <a href="../projects.html" class="cis-btn-primary">
+        工程實績 / PROJECTS &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- 服務卡片網格 -->
+  <section style="padding: 60px 0; background: #ffffff;">
+    <div class="container" style="max-width: 1100px;">
+      
+      <div style="margin-bottom: 36px;">
+        <span class="cis-section-tag">/ SERVICE /</span>
+        <h2 class="cis-section-title">騰煇連工帶料整合服務</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
+        
+        <!-- 服務 1 -->
+        <div class="cis-card-item">
+          <div class="cis-card-img-wrap">
+            <img decoding="async" loading="lazy" src="../img/projects/grc-yayuan.jpg" alt="GRC 特殊造型預鑄工程">
+          </div>
+          <div style="padding: 24px;">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--cis-navy); letter-spacing: 1px;">01 / GRC FORMING</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">GRC 特殊造型預鑄工程</h3>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">古典歐式雕花、自然雙曲面與 3D 電腦放樣，將建築師手繪草圖無縫轉化為實體水泥飾材。</p>
+          </div>
+        </div>
+
+        <!-- 服務 2 -->
+        <div class="cis-card-item">
+          <div class="cis-card-img-wrap">
+            <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="PPG 建築高耐候防護塗料工程">
+          </div>
+          <div style="padding: 24px;">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--cis-navy); letter-spacing: 1px;">02 / PPG COATINGS</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">PPG 建築高耐候防護塗料</h3>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">嚴選龐亞漆、彈性佩能漆、臻石漆、絢岩臻彩漆與雅飾彈性 500，提供抗 UV 耐酸雨防護 (實績：台塑仁武)。</p>
+          </div>
+        </div>
+
+        <!-- 服務 3 -->
+        <div class="cis-card-item">
+          <div class="cis-card-img-wrap">
+            <img decoding="async" loading="lazy" src="../img/projects/tainan-renovation.jpg" alt="外牆翻新拉皮工程">
+          </div>
+          <div style="padding: 24px;">
+            <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--cis-navy); letter-spacing: 1px;">03 / RENOVATION</span>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #09090b; margin: 8px 0 10px 0;">外牆翻新與美學重塑</h3>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.7; margin: 0;">老舊大樓與廠房立面美學拉皮，搭配輕量化 GRC 飾材掛件與結構防滲處理 (實績：台南外牆拉皮)。</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
