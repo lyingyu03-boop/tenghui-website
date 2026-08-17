@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【服務項目大氣重構】騰煇企業 ｜ 柔和礦物黑白灰 ✖️ 25:75 巨幕氣派佈局 ｜ TENG SELENDOR</title>
+  <title>【服務項目大氣與互動結合版】騰煇企業 ｜ 25:75 巨幕 ✖️ Web3D ✖️ PPG 5大塗料 ✖️ 拉皮 Before/After ｜ TENG SELENDOR</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
   <style>
     /* -------------------------------------------------------------------
-       柔和建築礦物色系與輕淡灰頁首翻轉 (SOFT ARCHITECTURAL MINERAL PALETTE)
+       25:75 巨幕大氣 ✖️ Web3D / PPG / Before-After 互動結合系統
        ------------------------------------------------------------------- */
     :root {
-      --soft-dark: #1c1c1e;     /* 柔和石墨深灰 (非死黑) */
+      --soft-dark: #1c1c1e;     /* 柔和石墨深灰 */
       --soft-body: #3a3a3c;     /* 內文深灰 */
       --soft-slate: #71717a;    /* 淺版岩灰 */
-      --soft-light-slate: #8e8e93; /* 更淺的中文翻轉灰 */
-      --soft-bg: #fcfcfc;       /* 柔和暖白底色 (非死白) */
+      --soft-light-slate: #8e8e93; /* 輕淡翻轉灰 */
+      --soft-bg: #fcfcfc;       /* 柔和暖白底 */
       --soft-card-bg: #f7f7f8;  /* 柔和暖灰區塊 */
     }
 
@@ -28,12 +29,10 @@
       font-family: 'Noto Sans TC', -apple-system, sans-serif;
       background-color: var(--soft-bg);
       color: var(--soft-body);
-      letter-spacing: 0.2px;
       margin: 0;
       overflow-x: hidden;
     }
 
-    /* 25:75 頁首網格對齊 */
     .meld-header-grid {
       display: flex;
       width: 100%;
@@ -54,7 +53,7 @@
       justify-content: flex-end;
     }
 
-    /* 頁首中英文翻轉選單 (中文換成更淺一些的灰) */
+    /* 頁首翻轉選單 */
     .meld-nav-link-flip {
       display: inline-flex;
       flex-direction: column;
@@ -85,32 +84,20 @@
       left: 50%;
       transform: translateX(-50%);
       white-space: nowrap;
-      color: var(--soft-light-slate); /* 更淺一些的高級灰 */
+      color: var(--soft-light-slate);
       font-weight: 700;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .meld-nav-link-flip:hover .text-en {
-      transform: translateY(-100%);
-    }
-    .meld-nav-link-flip:hover .text-zh {
-      transform: translate(-50%, -100%);
-    }
+    .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
+    .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
 
-    /* 服務項目大氣 Hero */
-    .services-hero {
-      padding: 70px 0 50px 60px;
-      background: var(--soft-bg);
-      border-bottom: 1px solid #e5e5ea;
-    }
-
-    /* 💥 三大服務 25:75 寬幅展覽區塊 */
+    /* 25:75 大氣展覽單項 */
     .service-row-section {
       display: flex;
       width: 100%;
       border-bottom: 1px solid #e5e5ea;
-      min-height: 500px;
+      min-height: 560px;
     }
-    
     .service-left-col {
       width: 28%;
       padding: 55px 40px 55px 60px;
@@ -119,46 +106,96 @@
       justify-content: center;
       background: var(--soft-card-bg);
     }
-
     .service-right-col {
       width: 72%;
       position: relative;
       overflow: hidden;
-      min-height: 500px;
+      min-height: 560px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
     }
-    .service-right-col img {
+
+    /* Web3D 3D模型視窗 */
+    #web3dContainer {
+      width: 100%;
+      height: 380px;
+      background: #09090b;
+      position: relative;
+    }
+
+    /* Before / After 互動滑塊 */
+    .ba-slider-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      overflow: hidden;
+      user-select: none;
+    }
+    .ba-img-before, .ba-img-after {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .service-row-section:hover .service-right-col img {
-      transform: scale(1.03);
+    .ba-img-after-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
     }
-
-    /* 特色條目列表 */
-    .service-feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 18px 0 26px 0;
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      z-index: 3;
+      cursor: ew-resize;
+      transform: translateX(-50%);
     }
-    .service-feature-list li {
-      font-size: 0.93rem;
-      color: var(--soft-body);
-      line-height: 1.8;
-      margin-bottom: 8px;
+    .ba-handle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 50%;
+      color: #1c1c1e;
       display: flex;
       align-items: center;
-      gap: 10px;
-    }
-    .service-feature-list li::before {
-      content: "—";
-      color: var(--soft-dark);
-      font-weight: 700;
+      justify-content: center;
+      font-weight: 900;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    /* 懸浮 Dock */
+    /* PPG 5 大塗料選單頁籤 */
+    .ppg-badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .ppg-badge {
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #1c1c1e;
+    }
+
     .meld-right-dock {
       position: fixed;
       right: 18px;
@@ -184,28 +221,12 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none;
     }
-    .meld-dock-btn:hover {
-      background: var(--soft-dark);
-      color: #ffffff;
-      transform: scale(1.12);
-    }
-    .meld-dock-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
+    .meld-dock-btn:hover { background: var(--soft-dark); color: #ffffff; transform: scale(1.12); }
+    .meld-dock-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
     @media (max-width: 900px) {
-      .meld-header-grid, .service-row-section {
-        flex-direction: column;
-      }
-      .meld-header-left-col, .meld-header-right-col, .service-left-col, .service-right-col {
-        width: 100%;
-        padding: 24px 20px;
-      }
-      .service-right-col {
-        min-height: 320px;
-      }
+      .meld-header-grid, .service-row-section { flex-direction: column; }
+      .meld-header-left-col, .meld-header-right-col, .service-left-col, .service-right-col { width: 100%; padding: 24px 20px; }
     }
   </style>
 </head>
@@ -213,7 +234,7 @@
 
   <!-- 內部草稿提醒 Banner -->
   <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【服務項目柔和美學版】非死黑死白 ✖️ 25:75 巨幕氣派佈局 ✖️ 中文翻轉改為更淺高雅灰
+    ✨ 【大氣 ✖️ 互動體驗結合版】無須取捨！保留 Web3D 模型 ✖️ PPG 5大塗料 ✖️ 拉皮 Before/After 拖曳對比
     <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
@@ -244,102 +265,105 @@
     </div>
   </header>
 
-  <!-- 服務項目 Page Header -->
-  <section class="services-hero">
+  <!-- Page Header -->
+  <section style="padding: 60px 0 40px 60px; background: var(--soft-bg); border-bottom: 1px solid #e5e5ea;">
     <div style="max-width: 860px;">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; display: block;">/ OUR CORE SERVICES /</span>
       <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.1rem; font-weight: 900; color: var(--soft-dark); line-height: 1.38; margin-bottom: 16px;">
         騰煇四十餘年連工帶料<br>外牆造型與防護工程整合服務
       </h1>
       <p style="font-size: 1.02rem; color: var(--soft-body); line-height: 1.8; margin: 0;">
-        從大膽前衛的 3D 立面建模到嚴苛氣候的高耐候防護，我們以專業技術為建築賦予獨特靈魂與安全守護。
+        融合大氣建築展示與數位互動體驗，讓建築師與業主輕鬆預覽 GRC 3D 放樣模型與拉皮對比效果。
       </p>
     </div>
   </section>
 
-  <!-- 💥 服務項目 01: GRC 特殊造型預鑄工程 -->
+  <!-- 💥 01: GRC 特殊造型 (融合 Web3D 3D 模型互動與完工巨幕) -->
   <section class="service-row-section" id="grc">
     <div class="service-left-col">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">01 / GRC FORMING</span>
       <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">GRC 特殊造型預鑄工程</h2>
       <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
-        運用玻璃纖維強化水泥 (GRC)，將建築師手繪草圖精準轉化為輕量、高抗壓、耐候性強的實體飾材。
+        結合 3D BIM 數位放樣與開模技術。右側配備 **Web3D 3D模型實時旋轉展示**，讓您360度視角檢視立面細節。
       </p>
 
-      <ul class="service-feature-list">
-        <li>3D BIM 電腦放樣與開模技術</li>
-        <li>歐式古典雕花與自然雙曲面</li>
-        <li>重量僅傳統混凝土的五分之一</li>
-        <li>鋼構輕量化安全掛件工法</li>
-      </ul>
-
-      <a href="../projects.html" style="background: var(--soft-dark); color: #ffffff; padding: 12px 24px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.84rem; font-weight: 600; text-decoration: none; width: fit-content;">
-        檢視 GRC 案例 &rarr;
-      </a>
+      <div style="margin: 16px 0;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--soft-slate); display: block; margin-bottom: 6px;">💡 互動展示切換：</span>
+        <button onclick="showGrcMode('web3d')" style="background: var(--soft-dark); color: #fff; border: none; padding: 6px 14px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; margin-right: 6px;">3D 立面旋轉</button>
+        <button onclick="showGrcMode('photo')" style="background: #e5e5ea; color: #1c1c1e; border: none; padding: 6px 14px; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">實績巨幕照</button>
+      </div>
     </div>
 
-    <div class="service-right-col">
-      <img decoding="async" loading="lazy" src="../img/projects/grc-yayuan.jpg" alt="GRC 特殊造型工程 實績照">
-      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.8); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem;">
-        台中雅園新潮 ｜ 巨型雙曲面 GRC 拱門工程
+    <div class="service-right-col" id="grcRightContainer">
+      <!-- Web3D Container -->
+      <div id="web3dContainer"></div>
+      <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.7); color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem;">
+        🎮 可用滑鼠 360 度旋轉拖曳 3D GRC 飾材模型
       </div>
     </div>
   </section>
 
-  <!-- 💥 服務項目 02: PPG 建築高耐候防護塗料工程 -->
+  <!-- 💥 02: PPG 建築塗料 (融合 5 大專案塗料卡片與質感) -->
   <section class="service-row-section" id="ppg">
     <div class="service-left-col">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">02 / PPG COATINGS</span>
       <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">PPG 建築高耐候防護塗料</h2>
-      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
-        嚴選美國 140 年塗料大廠 PPG 5 大專案塗料，為外牆提供抗 UV、抗酸雨與防自潔性能。
+      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 8px;">
+        騰煇精選美國 140 年塗料大廠 PPG 5 大專案產品：
       </p>
 
-      <ul class="service-feature-list">
-        <li>龐亞漆 / 彈性佩能漆</li>
-        <li>臻石漆 / 絢岩臻彩漆</li>
-        <li>雅飾彈性 500 高抗裂系統</li>
-        <li>透氣防水與長效耐候防護</li>
-      </ul>
+      <!-- 5 大產品標籤 -->
+      <div class="ppg-badge-grid">
+        <span class="ppg-badge">龐亞漆</span>
+        <span class="ppg-badge">彈性佩能漆</span>
+        <span class="ppg-badge">臻石漆</span>
+        <span class="ppg-badge">絢岩臻彩漆</span>
+        <span class="ppg-badge">雅飾彈性 500</span>
+      </div>
 
-      <a href="../projects.html" style="background: var(--soft-dark); color: #ffffff; padding: 12px 24px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.84rem; font-weight: 600; text-decoration: none; width: fit-content;">
-        檢視塗料案例 &rarr;
-      </a>
+      <p style="font-size: 0.88rem; color: var(--soft-slate); line-height: 1.7;">
+        兼具耐候抗 UV、防酸雨與防裂紋滲水性能，維護建築長效立面質感。
+      </p>
     </div>
 
     <div class="service-right-col">
-      <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="PPG 建築高耐候防護塗料 實績照">
+      <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="PPG 塗料實績照">
       <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.8); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem;">
         台塑仁武 AI 研發中心 ｜ PPG 高耐候氟碳漆塗裝
       </div>
     </div>
   </section>
 
-  <!-- 💥 服務項目 03: 外牆翻新與美學重塑 -->
+  <!-- 💥 03: 外牆翻新拉皮 (融合 Before / After 左右拖曳互動) -->
   <section class="service-row-section" id="renovation">
     <div class="service-left-col">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">03 / RENOVATION</span>
       <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">外牆翻新與美學重塑</h2>
-      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
-        針對老舊大樓、商辦與廠房立面，進行結構安全診斷、滲漏防護與美學拉皮重塑。
+      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 16px;">
+        右側配備 **Before / After 左右拖曳互動對比**：拖曳中央軸線，直覺檢視拉皮施工前後的震撼差異！
       </p>
 
-      <ul class="service-feature-list">
-        <li>結構壁體防滲與裂縫修補</li>
-        <li>輕量化 GRC 飾件替換更新</li>
-        <li>高機能外牆拉皮施工工法</li>
-        <li>提升建物價值與立面安全</li>
-      </ul>
-
-      <a href="../projects.html" style="background: var(--soft-dark); color: #ffffff; padding: 12px 24px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.84rem; font-weight: 600; text-decoration: none; width: fit-content;">
-        檢視翻新案例 &rarr;
-      </a>
+      <div style="font-size: 0.85rem; color: var(--soft-slate); line-height: 1.7;">
+        👈 往左拖曳：檢視施工後完工效果<br>
+        👉 往右拖曳：檢視施工前老舊立面
+      </div>
     </div>
 
     <div class="service-right-col">
-      <img decoding="async" loading="lazy" src="../img/projects/tainan-renovation.jpg" alt="外牆翻新拉皮 實績照">
-      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.8); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem;">
-        台南外牆拉皮工程 ｜ 舊樓立面美學拉皮與防滲重塑
+      <!-- 💥 Before / After 拖曳互動 Slider -->
+      <div class="ba-slider-wrap" id="baSliderWrap">
+        <!-- 施工後 (After) 圖片 -->
+        <img src="../img/projects/tainan-renovation.jpg" alt="拉皮完工後" class="ba-img-before">
+        
+        <!-- 施工前 (Before) 圖片剪裁層 -->
+        <div class="ba-img-after-wrap" id="baAfterWrap">
+          <img src="../img/projects/hero-renovation.jpg" alt="拉皮施工前" class="ba-img-after" style="width: 100vw;">
+        </div>
+
+        <!-- 拖曳中軸拉把 Handle -->
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-handle-btn">↔</div>
+        </div>
       </div>
     </div>
   </section>
@@ -355,6 +379,101 @@
   </div>
 
   <script>
+    // 💥 Web3D Three.js 3D 模型渲染初始化
+    (function initWeb3D() {
+      const container = document.getElementById('web3dContainer');
+      if (!container) return;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x09090b);
+
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+      camera.position.set(0, 2, 5);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+
+      const light1 = new THREE.DirectionalLight(0xffffff, 1.2);
+      light1.position.set(5, 10, 7);
+      scene.add(light1);
+
+      const light2 = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(light2);
+
+      // GRC 幾何模型展示
+      const geometry = new THREE.TorusKnotGeometry(1, 0.3, 128, 32);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0x8e8c8d,
+        roughness: 0.4,
+        metalness: 0.2
+      });
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        mesh.rotation.y += 0.008;
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    // GRC 模式切換 (3D vs 照片)
+    function showGrcMode(mode) {
+      const rightCol = document.getElementById('grcRightContainer');
+      if (mode === 'web3d') {
+        rightCol.innerHTML = `
+          <div id="web3dContainer"></div>
+          <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(0,0,0,0.7); color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem;">
+            🎮 可用滑鼠 360 度旋轉拖曳 3D GRC 飾材模型
+          </div>`;
+        initWeb3D();
+      } else {
+        rightCol.innerHTML = `
+          <img src="../img/projects/grc-yayuan.jpg" style="width:100%; height:100%; object-fit:cover;">
+          <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.8); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem;">
+            台中雅園新潮 ｜ 巨型雙曲面 GRC 拱門工程
+          </div>`;
+      }
+    }
+
+    // 💥 Before / After 互動拖曳 Slider 控制
+    (function initBASlider() {
+      const wrap = document.getElementById('baSliderWrap');
+      const afterWrap = document.getElementById('baAfterWrap');
+      const handle = document.getElementById('baHandle');
+      if (!wrap || !afterWrap || !handle) return;
+
+      let isDragging = false;
+
+      function updateSlider(x) {
+        const rect = wrap.getBoundingClientRect();
+        let posX = x - rect.left;
+        if (posX < 0) posX = 0;
+        if (posX > rect.width) posX = rect.width;
+        const percentage = (posX / rect.width) * 100;
+
+        afterWrap.style.width = percentage + '%';
+        handle.style.left = percentage + '%';
+      }
+
+      handle.addEventListener('mousedown', () => isDragging = true);
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+
+      // Touch 事件
+      handle.addEventListener('touchstart', () => isDragging = true);
+      window.addEventListener('touchend', () => isDragging = false);
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.touches[0].clientX);
+      });
+    })();
+
     // 圖片防盜保護
     document.addEventListener('contextmenu', function(e) {
       if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
