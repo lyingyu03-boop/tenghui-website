@@ -110,27 +110,35 @@
 
     /* 頁首英文選單滑鼠懸動翻轉為中文特效 (Meld Design Header Flip Effect) */
     .meld-nav-link-flip {
-      display: inline-block;
+      display: inline-flex;
+      flex-direction: column;
       position: relative;
       font-family: 'Outfit', 'Noto Sans TC', sans-serif;
       font-size: 0.86rem;
       font-weight: 700;
       color: #27272a;
       text-decoration: none;
-      padding: 4px 8px;
+      padding: 4px 12px;
       overflow: hidden;
-      height: 24px;
-      line-height: 24px;
+      height: 26px;
+      line-height: 26px;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 72px;
+      text-align: center;
     }
     .meld-nav-link-flip .text-en {
       display: block;
+      white-space: nowrap;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .meld-nav-link-flip .text-zh {
       display: block;
       position: absolute;
       top: 100%;
-      left: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
       color: #2563eb;
       font-weight: 700;
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -139,7 +147,7 @@
       transform: translateY(-100%);
     }
     .meld-nav-link-flip:hover .text-zh {
-      transform: translateY(-100%);
+      transform: translate(-50%, -100%);
     }
 
     /* 卡片設計與懸浮 */
