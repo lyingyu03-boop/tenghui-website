@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【內部草稿】案例分享 ｜ 正宗 5頁籤 Before/After 互動對比與工程實績 ｜ 騰煇企業</title>
+  <title>【內部草稿】案例分享 ｜ 正宗平滑蒙版 5頁籤拖曳對比 ｜ 騰煇企業</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
       max-width: 1080px; margin: 0 auto; padding: 60px 24px 100px 24px;
     }
 
-    /* 💥 正宗原版 5 頁籤 Before/After 互動組件 */
+    /* 💥 正宗原版平滑蒙版 5 頁籤組件 */
     .ba-section-box {
       background: #ffffff;
       border-radius: 20px;
@@ -67,7 +67,7 @@
       margin: 0 0 24px 0;
     }
 
-    /* 滑塊主 Viewport */
+    /* 💥 平滑蒙版 Viewport 核心 */
     .ba-viewport-shell {
       position: relative;
       width: 100%;
@@ -80,15 +80,22 @@
       background: #18181b;
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
+
+    /* 靜止放置的完工後照片 (AFTER) */
     .ba-img-after-full {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;
     }
+
+    /* 💥 關鍵蒙版視窗：只改變 width, 內部的 BEFORE 照片絕對不動！ */
     .ba-overlay-before-wrap {
       position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 3px solid #ffffff; box-shadow: 3px 0 15px rgba(0,0,0,0.35);
     }
+    
+    /* 💥 靜止放置的施工前照片 (BEFORE)：寬高必須 100% 鎖死等於 Shell Viewport 寬高，拖曳時絕不放大縮放！ */
     .ba-overlay-before-wrap img {
-      position: absolute; top: 0; left: 0; height: 100%; object-fit: cover;
+      position: absolute; top: 0; left: 0; height: 100%; object-fit: cover; display: block;
     }
+
     .ba-handle-divider {
       position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: #ffffff; z-index: 4; transform: translateX(-50%); pointer-events: none;
     }
@@ -107,7 +114,7 @@
       position: absolute; bottom: 16px; right: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
     }
 
-    /* 💥 5 頁籤選擇器 (5-Tab Selector Pills) */
+    /* 5 頁籤 Pill Selector */
     .ba-tabs-bar {
       display: flex;
       justify-content: center;
@@ -150,7 +157,7 @@
 
   <!-- Banner -->
   <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【案例頁 100% 正宗還原版】正宗 5 頁籤拖曳對比組件 ✕ 成功工商已移除 ✕ 完美高雅流暢對比
+    ✨ 【正宗平滑蒙版對比版】修正照片縮放放大問題 ✕ 精準蒙版揭露 ✕ 掃描素材庫正宗 5 大實績照
     <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
@@ -189,10 +196,10 @@
       騰煇外牆拉皮與舊牆翻新工程實績
     </h1>
     <p style="font-size: 0.96rem; color: var(--soft-slate); margin: 0;">
-      針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷到 GRC 造型線條與 PPG 彈性塗料專案施作。
+      針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
     </p>
 
-    <!-- 💥 正宗 5 頁籤對比組件 -->
+    <!-- 💥 正宗平滑蒙版 5 頁籤組件 -->
     <div class="ba-section-box">
       <h2 class="ba-section-title">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h2>
       <p class="ba-section-desc">下方點選 5 組精選實績頁籤，即可切換比對案例圖說。</p>
@@ -202,16 +209,16 @@
         <span class="ba-tag-before">BEFORE 施工前</span>
         <span class="ba-tag-after">AFTER 施工後</span>
 
-        <img src="../img/projects/renovation-tainan-after.jpg" alt="拉皮施工後" class="ba-img-after-full" id="mainAfterImg">
+        <img src="../img/projects/case01-tainan-after.jpg" alt="拉皮施工後" class="ba-img-after-full" id="mainAfterImg">
         <div class="ba-overlay-before-wrap" id="mainOverlay">
-          <img src="../img/projects/renovation-tainan-before.jpg" alt="拉皮施工前" id="mainBeforeImg">
+          <img src="../img/projects/case01-tainan-before.jpg" alt="拉皮施工前" id="mainBeforeImg">
         </div>
         <div class="ba-handle-divider" id="mainHandleLine">
           <div class="ba-handle-circle">‹ ›</div>
         </div>
       </div>
 
-      <!-- 5 頁籤 Selector Bar (成功工商已移除) -->
+      <!-- 5 頁籤 Selector Pills -->
       <div class="ba-tabs-bar">
         <button class="ba-tab-pill active" onclick="switchCase(0)">01 台南民宅透天</button>
         <button class="ba-tab-pill" onclick="switchCase(1)">02 桃園薑母島軍營</button>
@@ -224,50 +231,54 @@
   </main>
 
   <script>
-    // 正宗 5 案例資料集 (成功工商已移除)
+    // 💥 掃描 02_工程案例素材 提取之正宗 5 大案例照片集
     const casesData = [
       {
         title: "CASE 01 ｜ 台南北區民宅透天拉皮",
-        before: "../img/projects/renovation-tainan-before.jpg",
-        after: "../img/projects/renovation-tainan-after.jpg"
+        before: "../img/projects/case01-tainan-before.jpg",
+        after: "../img/projects/case01-tainan-after.jpg"
       },
       {
         title: "CASE 02 ｜ 桃園大溪薑母島軍營整建",
-        before: "../img/projects/renov-tainan.jpg",
-        after: "../img/projects/renov-jiangmudao.jpg"
+        before: "../img/projects/case02-jiangmudao-before.jpg",
+        after: "../img/projects/case02-jiangmudao-after.jpg"
       },
       {
         title: "CASE 03 ｜ 桃園亞東石化觀音二廠 (主立面)",
-        before: "../img/projects/ppg-yadong.jpg",
-        after: "../img/projects/renov-yadong2.jpg"
+        before: "../img/projects/case03-yadong-main-before.jpg",
+        after: "../img/projects/case03-yadong-main-after.jpg"
       },
       {
         title: "CASE 04 ｜ 桃園亞東石化觀音二廠 (側立面)",
-        before: "../img/projects/ppg-toufen.jpg",
-        after: "../img/projects/ppg-fuma.jpg"
+        before: "../img/projects/case04-yadong-side-before.jpg",
+        after: "../img/projects/case04-yadong-side-after.jpg"
       },
       {
         title: "CASE 05 ｜ 高雄仁武 AI 研發中心 (PPG 塗裝)",
-        before: "../img/projects/ppg-renwu.jpg",
-        after: "../img/projects/ppg-formosa.jpg"
+        before: "../img/projects/case05-renwu-before.jpg",
+        after: "../img/projects/case05-renwu-after.jpg"
       }
     ];
 
     let currentCaseIdx = 0;
 
-    // 滑塊拖曳邏輯
+    // 💥 平滑蒙版 (Smooth Masking) JS 核心：將 BEFORE 照片寬度 100% 鎖死等於 Shell Viewport 寬度！
+    function syncMaskImageWidth() {
+      const shell = document.getElementById('mainBaShell');
+      const beforeImg = document.getElementById('mainBeforeImg');
+      if (shell && beforeImg) {
+        beforeImg.style.width = shell.clientWidth + 'px';
+      }
+    }
+
     (function initMainBASlider() {
       const shell = document.getElementById('mainBaShell');
       const overlay = document.getElementById('mainOverlay');
       const handleLine = document.getElementById('mainHandleLine');
-      const beforeImg = document.getElementById('mainBeforeImg');
-      if (!shell || !overlay || !handleLine || !beforeImg) return;
+      if (!shell || !overlay || !handleLine) return;
 
-      function syncBeforeImgWidth() {
-        beforeImg.style.width = shell.clientWidth + 'px';
-      }
-      syncBeforeImgWidth();
-      window.addEventListener('resize', syncBeforeImgWidth);
+      syncMaskImageWidth();
+      window.addEventListener('resize', syncMaskImageWidth);
 
       let isDragging = false;
       function updatePos(clientX) {
@@ -277,6 +288,7 @@
         if (x > rect.width) x = rect.width;
         const pct = (x / rect.width) * 100;
 
+        // 💥 只改變遮罩窗口寬度，照片絕對不變形、不縮放！
         overlay.style.width = pct + '%';
         handleLine.style.left = pct + '%';
       }
@@ -286,7 +298,7 @@
       window.addEventListener('pointerup', () => isDragging = false);
     })();
 
-    // 💥 切換 5 頁籤
+    // 💥 切換 5 頁籤案例照片
     function switchCase(idx) {
       currentCaseIdx = idx;
       const data = casesData[idx];
@@ -294,20 +306,21 @@
       const titleTag = document.getElementById('caseTitleTag');
       const beforeImg = document.getElementById('mainBeforeImg');
       const afterImg = document.getElementById('mainAfterImg');
-      const shell = document.getElementById('mainBaShell');
 
       if (titleTag) titleTag.textContent = data.title;
       if (beforeImg) beforeImg.src = data.before;
       if (afterImg) afterImg.src = data.after;
-      if (beforeImg && shell) beforeImg.style.width = shell.clientWidth + 'px';
+      
+      syncMaskImageWidth();
 
-      // 藍/黑 Pills 狀態切換
       const pills = document.querySelectorAll('.ba-tab-pill');
       pills.forEach((p, i) => {
         if (i === idx) p.classList.add('active');
         else p.classList.remove('active');
       });
     }
+
+    window.addEventListener('load', syncMaskImageWidth);
 
     document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
     document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
