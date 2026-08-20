@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【內部草稿】案例分享 ｜ 外牆拉皮正宗拖曳對比與精選實績 ｜ 騰煇企業</title>
+  <title>【內部草稿】案例分享 ｜ 5大精選實績與高級沉浸式動態卡片 ｜ 騰煇企業</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,9 +17,18 @@
       --soft-body: #3a3a3c;
       --soft-slate: #71717a;
       --soft-bg: #fcfcfc;
+      --soft-card: #ffffff;
+      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
     }
-    body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--soft-bg); color: var(--soft-body); margin: 0; line-height: 1.8; }
-    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--soft-bg);
+      color: var(--soft-body);
+      margin: 0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
     .meld-header-grid { display: flex; width: 100%; background: var(--soft-bg); border-bottom: 1px solid #e5e5ea; }
     .meld-header-left-col { width: 28%; padding: 22px 40px 22px 60px; display: flex; align-items: center; }
     .meld-header-right-col { width: 72%; padding: 22px 40px 22px 0; display: flex; align-items: center; justify-content: flex-end; }
@@ -27,32 +36,89 @@
     .meld-nav-link-flip {
       display: inline-flex; flex-direction: column; position: relative; font-family: 'Outfit', 'Noto Sans TC', sans-serif; font-size: 0.86rem; font-weight: 700; color: #3a3a3c; text-decoration: none; padding: 4px 12px; overflow: hidden; height: 26px; line-height: 26px; align-items: center; justify-content: flex-start; min-width: 72px; text-align: center;
     }
-    .meld-nav-link-flip .text-en { display: block; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    .meld-nav-link-flip .text-zh { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: #8e8e93; font-weight: 700; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .meld-nav-link-flip .text-en { display: block; white-space: nowrap; transition: transform 0.3s var(--ease-luxury); }
+    .meld-nav-link-flip .text-zh { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: #8e8e93; font-weight: 700; transition: transform 0.3s var(--ease-luxury); }
     .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
     .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
 
-    /* 💥 完美的 Before / After 拖曳容器 (解決溢出裁切問題) */
-    .interactive-renov-section {
-      background: #ffffff; padding: 40px; border-radius: 16px; border: 1px solid #e5e5ea; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-bottom: 60px;
+    /* 💎 5 大高級沉浸式動態卡片網格 */
+    .projects-container {
+      max-width: 1240px; margin: 0 auto; padding: 60px 24px 100px 24px;
     }
-    .ba-container {
-      position: relative; width: 100%; height: 580px; overflow: hidden; border-radius: 12px; user-select: none; touch-action: none; cursor: ew-resize;
+    .projects-grid-5 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 36px; margin-top: 40px;
     }
-    .ba-layer-after {
+
+    /* 高級卡片容器與極致平滑懸浮特效 */
+    .luxury-project-card {
+      background: var(--soft-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e5e5ea;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: transform 0.5s var(--ease-luxury), box-shadow 0.5s var(--ease-luxury), border-color 0.5s var(--ease-luxury);
+      position: relative;
+    }
+    .luxury-project-card:hover {
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+      border-color: #d1d1d6;
+    }
+
+    /* 💥 精密滑塊比對容器 */
+    .card-ba-wrap {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      background: #f4f4f5;
+      user-select: none;
+      touch-action: none;
+      cursor: ew-resize;
+    }
+    .card-ba-img-after {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: filter 0.5s var(--ease-luxury);
     }
-    .ba-overlay-before {
+    .card-ba-overlay-before {
       position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 3px solid #ffffff; box-shadow: 3px 0 12px rgba(0,0,0,0.3);
     }
-    .ba-overlay-before img {
+    .card-ba-overlay-before img {
       position: absolute; top: 0; left: 0; height: 100%; object-fit: cover;
     }
-    .ba-line {
+    .card-ba-handle-line {
       position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: #ffffff; z-index: 3; transform: translateX(-50%); pointer-events: none;
     }
-    .ba-badge {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: rgba(28,28,30,0.9); backdrop-filter: blur(8px); border: 2px solid #ffffff; border-radius: 50%; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem;
+    .card-ba-badge {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: rgba(28,28,30,0.9); backdrop-filter: blur(8px); border: 2px solid #ffffff; border-radius: 50%; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .card-info-content {
+      padding: 26px 28px;
+    }
+    .card-tag-badge {
+      font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 800; color: var(--soft-slate); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block;
+    }
+    .card-project-title {
+      font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: var(--soft-dark); margin: 0 0 10px 0; line-height: 1.4;
+    }
+    .card-project-desc {
+      font-size: 0.9rem; color: var(--soft-body); line-height: 1.7; margin-bottom: 16px;
+    }
+
+    .meld-right-dock {
+      position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 999;
+    }
+    .meld-dock-btn {
+      width: 42px; height: 42px; background: rgba(252, 252, 252, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #3f3f46; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s var(--ease-luxury); text-decoration: none;
+    }
+    .meld-dock-btn:hover { background: var(--soft-dark); color: #ffffff; transform: scale(1.12); }
+    .meld-dock-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .meld-header-grid { flex-direction: column; }
+      .meld-header-left-col, .meld-header-right-col { width: 100%; padding: 20px; }
+      .projects-grid-5 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -60,7 +126,7 @@
 
   <!-- Banner -->
   <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【案例分享大氣升級版】外牆拉皮正宗 Before/After 拖曳對比專區 ✕ 精選工程實績網格
+    ✨ 【案例頁大氣升級版】全數還原 5 大精選案例卡片 ✕ 高級奢華平滑動態 ✕ Before/After 拖曳無死角
     <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
@@ -91,41 +157,123 @@
     </div>
   </header>
 
-  <main style="max-width: 1200px; margin: 0 auto; padding: 60px 24px;">
+  <!-- Page Content -->
+  <main class="projects-container">
     
-    <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; uppercase;">/ FEATURED PORTFOLIO /</span>
-    <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: var(--soft-dark); margin: 12px 0 30px 0;">
-      騰煇四十餘年工程實績與互動展示
+    <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; uppercase;">/ FEATURED 5 PORTFOLIO /</span>
+    <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.3rem; font-weight: 900; color: var(--soft-dark); margin: 12px 0 16px 0;">
+      騰煇四十餘年 5 大精選工程實績與互動展示
     </h1>
+    <p style="font-size: 0.98rem; color: var(--soft-slate); margin-bottom: 40px; max-width: 820px;">
+      結合 GRC 特殊造型、PPG 建築塗料與外牆拉皮工程。滑鼠按住各卡片中央白色拉把即可左右滑動，平滑感受施工前後的震撼轉變。
+    </p>
 
-    <!-- 💥 精選外牆拉皮拖曳對比區 -->
-    <div class="interactive-renov-section">
-      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 900; color: var(--soft-dark); margin: 0 0 10px 0;">
-        ↔️ 精選拉皮互動對比：台南北區透天厝拉皮案
-      </h2>
-      <p style="font-size: 0.92rem; color: var(--soft-slate); margin-bottom: 20px;">
-        按住中央白色拉把左右拖曳，直覺感受施工前老舊牆面與 GRC/多彩漆拉皮完工後的震撼對比。
-      </p>
+    <!-- 💥 5 大高級沉浸式卡片網格 -->
+    <div class="projects-grid-5">
 
-      <div class="ba-container" id="baWrap">
-        <img src="../img/projects/renovation-tainan-after.jpg" alt="台南透天拉皮完工後" class="ba-layer-after">
-        <div class="ba-overlay-before" id="baOverlay">
-          <img src="../img/projects/renovation-tainan-before.jpg" alt="台南透天拉皮施工前" id="baBeforeImg">
+      <!-- 案例 01: 台南北區透天厝拉皮案 -->
+      <article class="luxury-project-card">
+        <div class="card-ba-wrap" id="baWrap1">
+          <img src="../img/projects/renovation-tainan-after.jpg" alt="台南透天拉皮完工後" class="card-ba-img-after">
+          <div class="card-ba-overlay-before" id="baOverlay1">
+            <img src="../img/projects/renovation-tainan-before.jpg" alt="台南透天拉皮施工前" id="baBeforeImg1">
+          </div>
+          <div class="card-ba-handle-line" id="baLine1">
+            <div class="card-ba-badge">↔</div>
+          </div>
         </div>
-        <div class="ba-line" id="baLine">
-          <div class="ba-badge">↔</div>
+        <div class="card-info-content">
+          <span class="card-tag-badge">01 / 台南北區 ‧ 民宅透天拉皮</span>
+          <h2 class="card-project-title">台南北區 - 民宅透天拉皮案</h2>
+          <p class="card-project-desc">結合 GRC 精緻雕花飾材與 PPG 高耐候多彩漆防護，重塑老舊透天厝尊榮立面。</p>
+          <a href="https://www.facebook.com/tenghui1991/" target="_blank" style="font-family:'Outfit'; font-size:0.82rem; font-weight:700; color:var(--soft-dark); text-decoration:none;">造訪 FB 官方專頁瞭解更多 &rarr;</a>
         </div>
-      </div>
+      </article>
+
+      <!-- 案例 02: 桃園大溪薑母島軍營 -->
+      <article class="luxury-project-card">
+        <div class="card-ba-wrap" id="baWrap2">
+          <img src="../img/projects/renov-jiangmudao.jpg" alt="薑母島軍營拉皮後" class="card-ba-img-after">
+          <div class="card-ba-overlay-before" id="baOverlay2">
+            <img src="../img/projects/renov-tainan.jpg" alt="薑母島軍營拉皮前" id="baBeforeImg2">
+          </div>
+          <div class="card-ba-handle-line" id="baLine2">
+            <div class="card-ba-badge">↔</div>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <span class="card-tag-badge">02 / 桃園大溪 ‧ 營建整建</span>
+          <h2 class="card-project-title">桃園大溪 - 薑母島軍營整建案</h2>
+          <p class="card-project-desc">Texxo 外牆防護系統與耐候塗裝，高濕度湖畔環境抗霉防水極致耐候。</p>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" style="font-family:'Outfit'; font-size:0.82rem; font-weight:700; color:var(--soft-dark); text-decoration:none;">造訪 IG 官方帳號瞭解更多 &rarr;</a>
+        </div>
+      </article>
+
+      <!-- 案例 03: 桃園龜山成功工商 -->
+      <article class="luxury-project-card">
+        <div class="card-ba-wrap" id="baWrap3">
+          <img src="../img/projects/renov-chenggong.jpg" alt="成功工商拉皮完工後" class="card-ba-img-after">
+          <div class="card-ba-overlay-before" id="baOverlay3">
+            <img src="../img/projects/chenggong-school.jpg" alt="成功工商拉皮施工前" id="baBeforeImg3">
+          </div>
+          <div class="card-ba-handle-line" id="baLine3">
+            <div class="card-ba-badge">↔</div>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <span class="card-tag-badge">03 / 桃園龜山 ‧ 校園外牆拉皮</span>
+          <h2 class="card-project-title">桃園龜山 - 成功工商拉皮案</h2>
+          <p class="card-project-desc">Texxo 外牆系統拉皮工程，提升校園大樓建築立面美感與長效抗雨防滲性能。</p>
+          <a href="https://www.facebook.com/tenghui1991/" target="_blank" style="font-family:'Outfit'; font-size:0.82rem; font-weight:700; color:var(--soft-dark); text-decoration:none;">造訪 FB 官方專頁瞭解更多 &rarr;</a>
+        </div>
+      </article>
+
+      <!-- 案例 04: 桃園觀音亞東石化二廠 -->
+      <article class="luxury-project-card">
+        <div class="card-ba-wrap" id="baWrap4">
+          <img src="../img/projects/renov-yadong2.jpg" alt="亞東石化拉皮後" class="card-ba-img-after">
+          <div class="card-ba-overlay-before" id="baOverlay4">
+            <img src="../img/projects/ppg-yadong.jpg" alt="亞東石化拉皮前" id="baBeforeImg4">
+          </div>
+          <div class="card-ba-handle-line" id="baLine4">
+            <div class="card-ba-badge">↔</div>
+          </div>
+        </div>
+        <div class="card-info-content">
+          <span class="card-tag-badge">04 / 桃園觀音 ‧ 工業廠房防護</span>
+          <h2 class="card-project-title">桃園觀音 - 亞東石化觀音二廠</h2>
+          <p class="card-project-desc">Stoccos 高防護外牆系統，專為強鹽霧沿海工業區設計之耐酸鹼抗腐蝕塗裝。</p>
+          <a href="https://www.facebook.com/tenghui1991/" target="_blank" style="font-family:'Outfit'; font-size:0.82rem; font-weight:700; color:var(--soft-dark); text-decoration:none;">造訪 FB 官方專頁瞭解更多 &rarr;</a>
+        </div>
+      </article>
+
+      <!-- 案例 05: 台中雅園新潮拱門工程 -->
+      <article class="luxury-project-card">
+        <div class="card-ba-wrap" style="cursor: pointer;" onclick="window.location.href='services-redesign.html#grc'">
+          <img src="../img/projects/grc-yayuan.jpg" alt="台中雅園新潮 GRC 雙曲面拱門" class="card-ba-img-after">
+          <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 6px 14px; border-radius: 4px; font-size: 0.8rem;">
+            🏛️ 雙曲面 GRC 預鑄工法
+          </div>
+        </div>
+        <div class="card-info-content">
+          <span class="card-tag-badge">05 / 台中市 ‧ 巨型雙曲面 GRC</span>
+          <h2 class="card-project-title">台中雅園新潮 - 巨型 GRC 拱門工程</h2>
+          <p class="card-project-desc">3D BIM 數位放樣與開模技術，1:1 實踐複雜雙曲面歐式拱門，展現極致工藝。</p>
+          <a href="services-redesign.html#grc" style="font-family:'Outfit'; font-size:0.82rem; font-weight:700; color:var(--soft-dark); text-decoration:none;">檢視 GRC 規格與技術細節 &rarr;</a>
+        </div>
+      </article>
+
     </div>
 
   </main>
 
   <script>
-    (function initBASlider() {
-      const wrap = document.getElementById('baWrap');
-      const overlay = document.getElementById('baOverlay');
-      const line = document.getElementById('baLine');
-      const beforeImg = document.getElementById('baBeforeImg');
+    // 💥 初始化 4 組拖曳對比滑塊 (平滑觸控與自動同步寬度)
+    function setupCardBASlider(wrapId, overlayId, lineId, beforeImgId) {
+      const wrap = document.getElementById(wrapId);
+      const overlay = document.getElementById(overlayId);
+      const line = document.getElementById(lineId);
+      const beforeImg = document.getElementById(beforeImgId);
       if (!wrap || !overlay || !line || !beforeImg) return;
 
       function syncImgWidth() {
@@ -149,7 +297,17 @@
       wrap.addEventListener('pointerdown', (e) => { isDragging = true; updatePos(e.clientX); });
       window.addEventListener('pointermove', (e) => { if (!isDragging) return; updatePos(e.clientX); });
       window.addEventListener('pointerup', () => isDragging = false);
-    })();
+    }
+
+    window.addEventListener('load', () => {
+      setupCardBASlider('baWrap1', 'baOverlay1', 'baLine1', 'baBeforeImg1');
+      setupCardBASlider('baWrap2', 'baOverlay2', 'baLine2', 'baBeforeImg2');
+      setupCardBASlider('baWrap3', 'baOverlay3', 'baLine3', 'baBeforeImg3');
+      setupCardBASlider('baWrap4', 'baOverlay4', 'baLine4', 'baBeforeImg4');
+    });
+
+    document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
+    document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
   </script>
 </body>
 </html>
