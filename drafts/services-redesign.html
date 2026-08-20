@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【服務項目大氣與互動結合版】騰煇企業 ｜ 25:75 巨幕 ✖️ Web3D ✖️ PPG 5大塗料 ✖️ 拉皮 Before/After ｜ TENG SELENDOR</title>
+  <title>【內部草稿】服務項目 ｜ GRC 玻璃纖維強化水泥 ‧ PPG 建築塗料 ‧ 外牆拉皮 ｜ 騰煇企業</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
   <style>
     :root {
@@ -77,107 +76,40 @@
       display: flex;
       width: 100%;
       border-bottom: 1px solid #e5e5ea;
-      min-height: 520px;
+      min-height: 540px;
     }
     .service-left-col {
-      width: 28%;
-      padding: 55px 40px 55px 60px;
+      width: 32%;
+      padding: 60px 40px 60px 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       background: var(--soft-card-bg);
     }
     .service-right-col {
-      width: 72%;
+      width: 68%;
       position: relative;
       overflow: hidden;
-      min-height: 520px;
+      min-height: 540px;
       background: #ffffff;
       display: flex;
       flex-direction: column;
     }
 
-    /* Web3D 3D模型視窗 */
-    #web3dContainer {
-      width: 100%;
-      height: 520px;
-      background: #09090b;
-      position: relative;
+    .grc-spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
     }
-    #web3dContainer canvas {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-    }
-
-    /* 💥 完美的 Before / After 左右拖曳 Slider CSS */
-    .ba-slider-wrap {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      min-height: 520px;
-      overflow: hidden;
-      user-select: none;
-      touch-action: none;
-      cursor: ew-resize;
-    }
-    .ba-img-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .ba-after-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 2;
-      border-right: 3px solid #ffffff;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-    }
-    .ba-after-overlay img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      object-fit: cover;
-    }
-    .ba-handle-line {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 4px;
-      height: 100%;
+    .grc-spec-item {
       background: #ffffff;
-      z-index: 3;
-      transform: translateX(-50%);
-      pointer-events: none;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: 1px solid #e5e5ea;
+      font-size: 0.85rem;
     }
-    .ba-handle-badge {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 44px;
-      height: 44px;
-      background: rgba(28, 28, 30, 0.9);
-      backdrop-filter: blur(8px);
-      border: 2px solid #ffffff;
-      border-radius: 50%;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
+    .grc-spec-item strong { display: block; color: var(--soft-dark); margin-bottom: 2px; }
 
     .ppg-badge-grid {
       display: flex;
@@ -226,15 +158,15 @@
     @media (max-width: 900px) {
       .meld-header-grid, .service-row-section { flex-direction: column; }
       .meld-header-left-col, .meld-header-right-col, .service-left-col, .service-right-col { width: 100%; padding: 24px 20px; }
-      .service-right-col, #web3dContainer, .ba-slider-wrap { min-height: 360px !important; height: 360px !important; }
+      .service-right-col { min-height: 360px !important; height: 360px !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 內部草稿提醒 Banner -->
+  <!-- Banner -->
   <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【內部沙盒安全測試】正式官網 (services.html) 100% 保持現狀未改動 ｜ 此處為 Web3D 3D模型 ✖️ 正宗拉皮前後互動校正測試
+    ✨ 【服務項目大氣重構版】GRC 詳細工法圖解 ✕ PPG 140年塗料巨頭 ✕ 全螢幕 4D-BIM 與互動移至專屬頁面
     <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
@@ -256,8 +188,8 @@
           <li><a href="../index.html" class="meld-nav-link-flip"><span class="text-en">HOME</span><span class="text-zh">首頁</span></a></li>
           <li><a href="../about.html" class="meld-nav-link-flip"><span class="text-en">ABOUT</span><span class="text-zh">關於騰煇</span></a></li>
           <li><a href="services-redesign.html" class="meld-nav-link-flip" style="color: var(--soft-dark); font-weight: 800;"><span class="text-en">SERVICE ▾</span><span class="text-zh">服務項目 ▾</span></a></li>
-          <li><a href="../process.html" class="meld-nav-link-flip"><span class="text-en">PROCESS</span><span class="text-zh">工程流程</span></a></li>
-          <li><a href="../projects.html" class="meld-nav-link-flip"><span class="text-en">PROJECTS</span><span class="text-zh">案例分享</span></a></li>
+          <li><a href="process-redesign.html" class="meld-nav-link-flip"><span class="text-en">PROCESS</span><span class="text-zh">工程流程</span></a></li>
+          <li><a href="projects-redesign.html" class="meld-nav-link-flip"><span class="text-en">PROJECTS</span><span class="text-zh">案例分享</span></a></li>
           <li><a href="../articles.html" class="meld-nav-link-flip"><span class="text-en">BLOG</span><span class="text-zh">工程專欄</span></a></li>
           <li><a href="../contact.html" class="meld-nav-link-flip"><span class="text-en">CONTACT</span><span class="text-zh">聯絡我們</span></a></li>
         </ul>
@@ -273,111 +205,115 @@
         騰煇四十餘年連工帶料<br>外牆造型與防護工程整合服務
       </h1>
       <p style="font-size: 1.02rem; color: var(--soft-body); line-height: 1.8; margin: 0;">
-        融合大氣建築展示與數位互動體驗，讓建築師與業主輕鬆預覽 GRC 3D 放樣模型與拉皮對比效果。
+        具備「造型能力 ✕ PPG 塗料 ✕ 3D-BIM 數位化」，為建築師與營造團隊精準實現特殊造型、預先排除圖面施工誤差。
       </p>
     </div>
   </section>
 
-  <!-- 💥 01: GRC 特殊造型 (校正 Web3D 3D模型實時旋轉展示) -->
+  <!-- 01: GRC 特殊造型詳細解析區 -->
   <section class="service-row-section" id="grc">
     <div class="service-left-col">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">01 / GRC FORMING</span>
-      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">GRC 特殊造型預鑄工程</h2>
+      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">GRC 特殊造型與雙曲面預鑄工程</h2>
       <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
-        結合 3D BIM 數位放樣與開模技術。右側直接植入 **「2604 劍湖山 4D-BIM 輕量化 Web3D 展示平台」**，您可直接操作 3D 幾何拆解與 4D 施工時序。
+        GRC (玻璃纖維強化水泥) 兼具水泥的耐久性與高分子抗拉強度。騰煇具備四十餘年開模預鑄技術，能將建築師大膽的 3D 雙曲面與歐式雕花 1:1 實踐。
       </p>
 
-      <div style="margin: 16px 0;">
-        <span style="font-size: 0.8rem; font-weight: 700; color: var(--soft-slate); display: block; margin-bottom: 8px;">💡 畫面模式切換：</span>
-        <button id="btnWeb3d" onclick="showGrcMode('web3d')" style="background: var(--soft-dark); color: #fff; border: none; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem; cursor: pointer; margin-right: 6px; font-weight: 700;">🎮 3D模型旋轉</button>
-        <button id="btnPhoto" onclick="showGrcMode('photo')" style="background: #e5e5ea; color: #1c1c1e; border: none; padding: 8px 16px; border-radius: 4px; font-size: 0.82rem; cursor: pointer; font-weight: 700;">📷 雅園新潮實績照</button>
-      </div>
-    </div>
-
-    <div class="service-right-col" id="grcRightContainer">
-      <!-- 💥 直植入正宗 2604 劍湖山 4D-BIM 輕量化 Web3D 雲端展示平台 -->
-      <iframe id="iframe4DBIM" src="https://3designaigc.github.io/2604Janfusun.github.io/" style="width: 100%; height: 540px; border: none; display: block;" allowfullscreen title="2604 劍湖山 4D-BIM 輕量化展示平台"></iframe>
-    </div>
-  </section>
-
-  <!-- 💥 02: PPG 建築塗料 -->
-  <section class="service-row-section" id="ppg">
-    <div class="service-left-col">
-      <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">02 / PPG COATINGS</span>
-      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">PPG 美國 140 年建築高耐候塗料</h2>
-      
-      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
-        騰煇企業嚴選全球前 2 大塗料巨頭 **美國 PPG Industries (1883 年創立)** 旗艦建築塗料系統，為建物立面提供跨時代的極限防護：
-      </p>
-
-      <ul class="service-feature-list" style="margin: 10px 0 16px 0;">
-        <li><strong>20 年抗 UV 與酸雨極限</strong>：氟碳/高分子樹脂技術，防黃化粉化</li>
-        <li><strong>親水性自潔防塵分子</strong>：雨水自然沖刷表面髒污，歷久彌新</li>
-        <li><strong>300% 超高彈性橋接裂紋</strong>：有效抵禦地震微裂，杜絕外牆滲水</li>
-        <li><strong>巴黎盧浮宮與東京晴空塔指定</strong>：國際地標級品質保證</li>
-      </ul>
-
-      <!-- 騰煇精選 5 大專案漆款 -->
-      <span style="font-size: 0.8rem; font-weight: 700; color: var(--soft-slate); display: block; margin-bottom: 6px;">🏛️ 騰煇精選 5 大 PPG 專案漆系統：</span>
-      <div class="ppg-badge-grid">
-        <span class="ppg-badge">龐亞漆 (Pan-Asia)</span>
-        <span class="ppg-badge">彈性佩能漆</span>
-        <span class="ppg-badge">臻石漆</span>
-        <span class="ppg-badge">絢岩臻彩漆</span>
-        <span class="ppg-badge">雅飾彈性 500</span>
+      <div class="grc-spec-grid">
+        <div class="grc-spec-item">
+          <strong>⚖️ 自重僅傳統石材 1/5</strong>
+          大幅降低建築結構與鋼構負擔，提升抗震性能。
+        </div>
+        <div class="grc-spec-item">
+          <strong>🌊 可塑性無限度</strong>
+          支援雙曲面、複雜幾何、仿石紋理與立體雕花。
+        </div>
+        <div class="grc-spec-item">
+          <strong>🔥 耐燃一級規範</strong>
+          高密度無毒水泥基材，符合嚴苛的公共工程防火標準。
+        </div>
+        <div class="grc-spec-item">
+          <strong>🌱 低碳減碳 32%</strong>
+          取得 ISO 14064-1 盤查與 GRC 產品碳足跡國際認證。
+        </div>
       </div>
 
       <div style="margin-top: 14px;">
-        <a href="../projects.html" style="background: var(--soft-dark); color: #ffffff; padding: 10px 20px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-block;">
-          檢視 PPG 實績案例 &rarr;
+        <a href="process-redesign.html" style="background: var(--soft-dark); color: #ffffff; padding: 10px 20px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-block;">
+          檢視 4D-BIM 數位流程 &rarr;
         </a>
       </div>
     </div>
 
     <div class="service-right-col">
-      <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="台塑仁武 PPG 塗料實績照" style="width:100%; height:100%; object-fit:cover;">
-      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem;">
+      <img decoding="async" loading="lazy" src="../img/projects/grc-yayuan.jpg" alt="台中雅園新潮 GRC 雙曲面拱門" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 10px 18px; border-radius: 6px; font-size: 0.84rem;">
+        台中雅園新潮 ｜ 巨型雙曲面 GRC 預鑄拱門工程
+      </div>
+    </div>
+  </section>
+
+  <!-- 02: PPG 建築塗料 -->
+  <section class="service-row-section" id="ppg">
+    <div class="service-left-col">
+      <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">02 / PPG COATINGS</span>
+      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">PPG 美國 140 年建築高耐候塗料</h2>
+      <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 12px;">
+        嚴選全球前 2 大塗料巨頭 **美國 PPG Industries (1883 年創立)** 旗艦建築防護系統，為巴黎盧浮宮與東京晴空塔指定塗料品牌。
+      </p>
+
+      <ul style="margin: 0 0 16px 0; padding-left: 20px; font-size: 0.86rem; line-height: 1.8; color: var(--soft-body);">
+        <li><strong>20 年抗 UV 與酸雨極限</strong>：氟碳/高分子樹脂技術，防黃化粉化。</li>
+        <li><strong>親水性自潔防塵分子</strong>：雨水沖刷自然帶走塵埃雨痕。</li>
+        <li><strong>300% 超高彈性橋接裂紋</strong>：有效抵禦地震微裂，杜絕外牆滲水。</li>
+      </ul>
+
+      <div class="ppg-badge-grid">
+        <span class="ppg-badge">龐亞漆</span>
+        <span class="ppg-badge">彈性佩能漆</span>
+        <span class="ppg-badge">臻石漆</span>
+        <span class="ppg-badge">絢岩臻彩漆</span>
+        <span class="ppg-badge">雅飾彈性 500</span>
+      </div>
+    </div>
+
+    <div class="service-right-col">
+      <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="台塑仁武 PPG 塗料實績照" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 10px 18px; border-radius: 6px; font-size: 0.84rem;">
         台塑仁武 AI 研發中心 ｜ PPG 高耐候氟碳漆塗裝
       </div>
     </div>
   </section>
 
-  <!-- 💥 03: 外牆翻新拉皮 (校正台南透天案正宗 Before / After 拖曳互動) -->
+  <!-- 03: 外牆翻新拉皮 -->
   <section class="service-row-section" id="renovation">
     <div class="service-left-col">
       <span style="font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 2px;">03 / RENOVATION</span>
-      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.55rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">外牆翻新與美學重塑</h2>
+      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 900; color: var(--soft-dark); margin: 8px 0 12px 0;">外牆翻新與美學重塑</h2>
       <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 16px;">
-        右側展示 **台南北區透天厝拉皮案正宗 Before / After 互動對比**：拖曳中央白色拉把即可比對施工前後！
+        提供整合「結構診斷 ➔ GRC 輕量掛件 ➔ PPG 耐候塗裝」的一條龍外牆整建工程。
       </p>
 
-      <div style="background: #ffffff; padding: 12px 16px; border-radius: 8px; border: 1px solid #e5e5ea; font-size: 0.85rem; color: var(--soft-slate); line-height: 1.7;">
-        👉 <strong>滑鼠按住拉把左右拖曳：</strong><br>
-        • 左側：施工完工後 (GRC.多彩漆拉皮)<br>
-        • 右側：施工前老舊斑駁外牆
+      <div style="background: #ffffff; padding: 14px 18px; border-radius: 8px; border: 1px solid #e5e5ea; font-size: 0.85rem; color: var(--soft-slate); line-height: 1.7;">
+        💡 欲體驗正宗外牆拉皮 Before/After 左右拖曳動態對比，請前往案例分享頁面。
+      </div>
+
+      <div style="margin-top: 18px;">
+        <a href="projects-redesign.html" style="background: var(--soft-dark); color: #ffffff; padding: 10px 20px; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-block;">
+          前往案例頁體驗拖曳對比 &rarr;
+        </a>
       </div>
     </div>
 
     <div class="service-right-col">
-      <!-- 💥 校正後正宗台南透天 Before / After 拖曳 Slider -->
-      <div class="ba-slider-wrap" id="baSliderWrap">
-        <!-- 施工後 (After) 圖片 -->
-        <img src="../img/projects/renovation-tainan-after.jpg" alt="台南透天拉皮完工後" class="ba-img-layer" id="baAfterImg">
-        
-        <!-- 施工前 (Before) 圖片覆蓋層 -->
-        <div class="ba-after-overlay" id="baOverlay">
-          <img src="../img/projects/renovation-tainan-before.jpg" alt="台南透天拉皮施工前" id="baBeforeImg">
-        </div>
-
-        <!-- 拖曳拉把 Line & Badge -->
-        <div class="ba-handle-line" id="baHandleLine">
-          <div class="ba-handle-badge">↔</div>
-        </div>
+      <img decoding="async" loading="lazy" src="../img/projects/renovation-tainan-after.jpg" alt="台南透天拉皮完工照" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 10px 18px; border-radius: 6px; font-size: 0.84rem;">
+        台南北區透天厝拉皮案 ｜ GRC 飾材與多彩漆防護工程
       </div>
     </div>
   </section>
 
-  <!-- 懸浮右側 Dock -->
+  <!-- 懸浮 Dock -->
   <div class="meld-right-dock">
     <a href="https://maps.google.com/?q=騰煇企業" target="_blank" class="meld-dock-btn" title="據點導航"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></a>
     <a href="tel:0426872899" class="meld-dock-btn" title="電話諮詢"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
@@ -388,151 +324,6 @@
   </div>
 
   <script>
-    // 💥 1. Web3D Three.js 3D 模型強化初始化
-    let scene, camera, renderer, mesh, animId;
-    function initWeb3D() {
-      const container = document.getElementById('web3dContainer');
-      if (!container) return;
-
-      container.innerHTML = '';
-      const w = container.clientWidth || 800;
-      const h = container.clientHeight || 520;
-
-      scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x09090b);
-
-      camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
-      camera.position.set(0, 2, 5.5);
-
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(w, h);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
-
-      const light1 = new THREE.DirectionalLight(0xffffff, 1.3);
-      light1.position.set(5, 10, 7);
-      scene.add(light1);
-
-      const light2 = new THREE.AmbientLight(0xffffff, 0.6);
-      scene.add(light2);
-
-      // GRC 雙曲面幾何展示
-      const geometry = new THREE.TorusKnotGeometry(1.1, 0.35, 128, 32);
-      const material = new THREE.MeshStandardMaterial({
-        color: 0x8e8c8d,
-        roughness: 0.35,
-        metalness: 0.25
-      });
-      mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
-
-      // 滑鼠拖曳 360 度旋轉
-      let isMouseDown = false, prevMouseX = 0, prevMouseY = 0;
-      renderer.domElement.addEventListener('pointerdown', (e) => {
-        isMouseDown = true;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
-      });
-      window.addEventListener('pointerup', () => isMouseDown = false);
-      window.addEventListener('pointermove', (e) => {
-        if (!isMouseDown || !mesh) return;
-        const deltaX = e.clientX - prevMouseX;
-        const deltaY = e.clientY - prevMouseY;
-        mesh.rotation.y += deltaX * 0.01;
-        mesh.rotation.x += deltaY * 0.01;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
-      });
-
-      function animate() {
-        animId = requestAnimationFrame(animate);
-        if (!isMouseDown && mesh) {
-          mesh.rotation.y += 0.006;
-        }
-        renderer.render(scene, camera);
-      }
-      animate();
-    }
-
-    // GRC 模式切換
-    function showGrcMode(mode) {
-      const rightCol = document.getElementById('grcRightContainer');
-      const btnWeb3d = document.getElementById('btnWeb3d');
-      const btnPhoto = document.getElementById('btnPhoto');
-
-      if (mode === 'web3d') {
-        btnWeb3d.style.background = 'var(--soft-dark)';
-        btnWeb3d.style.color = '#ffffff';
-        btnPhoto.style.background = '#e5e5ea';
-        btnPhoto.style.color = '#1c1c1e';
-
-        rightCol.innerHTML = `
-          <div id="web3dContainer"></div>
-          <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 0.82rem; z-index: 10;">
-            🎮 滑鼠/手指按住 3D 畫面即可 360 度旋轉檢視 GRC 飾材模型
-          </div>`;
-        setTimeout(initWeb3D, 50);
-      } else {
-        btnPhoto.style.background = 'var(--soft-dark)';
-        btnPhoto.style.color = '#ffffff';
-        btnWeb3d.style.background = '#e5e5ea';
-        btnWeb3d.style.color = '#1c1c1e';
-
-        if (animId) cancelAnimationFrame(animId);
-        rightCol.innerHTML = `
-          <img src="../img/projects/grc-yayuan.jpg" style="width:100%; height:100%; object-fit:cover; display:block;">
-          <div style="position: absolute; bottom: 20px; left: 20px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem;">
-            台中雅園新潮 ｜ 巨型雙曲面 GRC 拱門工程
-          </div>`;
-      }
-    }
-
-    // 💥 2. 校正 Before / After 拖曳滑塊機制
-    (function initBASlider() {
-      const wrap = document.getElementById('baSliderWrap');
-      const overlay = document.getElementById('baOverlay');
-      const handleLine = document.getElementById('baHandleLine');
-      const beforeImg = document.getElementById('baBeforeImg');
-      if (!wrap || !overlay || !handleLine || !beforeImg) return;
-
-      function syncBeforeImgWidth() {
-        beforeImg.style.width = wrap.clientWidth + 'px';
-      }
-      syncBeforeImgWidth();
-      window.addEventListener('resize', syncBeforeImgWidth);
-
-      let isDragging = false;
-
-      function updateSliderPos(clientX) {
-        const rect = wrap.getBoundingClientRect();
-        let x = clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        const pct = (x / rect.width) * 100;
-
-        overlay.style.width = pct + '%';
-        handleLine.style.left = pct + '%';
-      }
-
-      wrap.addEventListener('pointerdown', (e) => {
-        isDragging = true;
-        updateSliderPos(e.clientX);
-      });
-
-      window.addEventListener('pointermove', (e) => {
-        if (!isDragging) return;
-        updateSliderPos(e.clientX);
-      });
-
-      window.addEventListener('pointerup', () => isDragging = false);
-    })();
-
-    // 頁面載入後自動啟動 Web3D
-    window.addEventListener('load', () => {
-      setTimeout(initWeb3D, 100);
-    });
-
-    // 防盜保護
     document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
     document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
   </script>

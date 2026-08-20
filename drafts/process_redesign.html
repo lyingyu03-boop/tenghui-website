@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【內部草稿】工程流程 ｜ Web3D 4D-BIM 數位整合平台 ｜ 騰煇企業</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    :root {
+      --soft-dark: #1c1c1e;
+      --soft-body: #3a3a3c;
+      --soft-slate: #71717a;
+      --soft-bg: #fcfcfc;
+    }
+    body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--soft-bg); color: var(--soft-body); margin: 0; line-height: 1.8; }
+    
+    .meld-header-grid { display: flex; width: 100%; background: var(--soft-bg); border-bottom: 1px solid #e5e5ea; }
+    .meld-header-left-col { width: 28%; padding: 22px 40px 22px 60px; display: flex; align-items: center; }
+    .meld-header-right-col { width: 72%; padding: 22px 40px 22px 0; display: flex; align-items: center; justify-content: flex-end; }
+
+    .meld-nav-link-flip {
+      display: inline-flex; flex-direction: column; position: relative; font-family: 'Outfit', 'Noto Sans TC', sans-serif; font-size: 0.86rem; font-weight: 700; color: #3a3a3c; text-decoration: none; padding: 4px 12px; overflow: hidden; height: 26px; line-height: 26px; align-items: center; justify-content: flex-start; min-width: 72px; text-align: center;
+    }
+    .meld-nav-link-flip .text-en { display: block; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .meld-nav-link-flip .text-zh { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: #8e8e93; font-weight: 700; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
+    .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
+
+    .value-card-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 32px 0 50px 0;
+    }
+    .value-card {
+      background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e5e5ea; box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .value-card h3 { font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: var(--soft-dark); margin: 0 0 10px 0; }
+
+    .full-bim-viewer-container {
+      width: 100%; height: 750px; border-radius: 14px; overflow: hidden; border: 2px solid var(--soft-dark); box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner -->
+  <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
+    ✨ 【工程流程專屬頁】全螢幕滿版 2604 劍湖山 4D-BIM 數位平台 ✕ 2大核心價值（精準實現造型 ✕ 預先發現施工誤差）
+    <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
+  </div>
+
+  <!-- Header -->
+  <header class="meld-header-grid">
+    <div class="meld-header-left-col">
+      <a href="../index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="../img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 700; color: var(--soft-dark);">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="color: var(--soft-slate);">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="meld-header-right-col">
+      <nav>
+        <ul class="nav-menu" id="navMenu" style="display: flex; gap: 8px; list-style: none; margin: 0; padding: 0;">
+          <li><a href="../index.html" class="meld-nav-link-flip"><span class="text-en">HOME</span><span class="text-zh">首頁</span></a></li>
+          <li><a href="../about.html" class="meld-nav-link-flip"><span class="text-en">ABOUT</span><span class="text-zh">關於騰煇</span></a></li>
+          <li><a href="services-redesign.html" class="meld-nav-link-flip"><span class="text-en">SERVICE ▾</span><span class="text-zh">服務項目 ▾</span></a></li>
+          <li><a href="process-redesign.html" class="meld-nav-link-flip" style="color: var(--soft-dark); font-weight: 800;"><span class="text-en">PROCESS</span><span class="text-zh">工程流程</span></a></li>
+          <li><a href="projects-redesign.html" class="meld-nav-link-flip"><span class="text-en">PROJECTS</span><span class="text-zh">案例分享</span></a></li>
+          <li><a href="../articles.html" class="meld-nav-link-flip"><span class="text-en">BLOG</span><span class="text-zh">工程專欄</span></a></li>
+          <li><a href="../contact.html" class="meld-nav-link-flip"><span class="text-en">CONTACT</span><span class="text-zh">聯絡我們</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main style="max-width: 1200px; margin: 0 auto; padding: 60px 24px;">
+    
+    <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; uppercase;">/ DIGITAL ENGINEERING WORKFLOW /</span>
+    <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.3rem; font-weight: 900; color: var(--soft-dark); margin: 12px 0 20px 0;">
+      騰煇數位整合工程流程：<br>為何選擇騰煇？我們與傳統 GRC 廠商的決定性差異
+    </h1>
+
+    <!-- 2大核心價值 -->
+    <div class="value-card-grid">
+      <div class="value-card">
+        <h3>🎯 核心價值 01：精準實現特殊造型</h3>
+        <p style="font-size: 0.95rem; margin: 0;">
+          建築師手繪的雙曲面、幾何紋理與複雜造型，騰煇透過 3D-BIM 電腦建模與多軸模具開發，將概念草圖 100% 1:1 實踐於實體 GRC 預鑄構件中。
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>🔍 核心價值 02：預先發現圖面問題，避免後續施工誤差</h3>
+        <p style="font-size: 0.95rem; margin: 0;">
+          在尚未洗模生產前，提前於 3D/4D 數位模型進行「干涉碰撞檢查」。預先找出預埋鐵件與結構樑柱的尺寸公差問題，杜絕現場吊掛時裝不起來的天價重工成本。
+        </p>
+      </div>
+    </div>
+
+    <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 900; color: var(--soft-dark); margin-bottom: 12px;">
+      🖥️ 實務展示：2604 劍湖山 4D-BIM 輕量化雲端工程平台 (全螢幕完整版面)
+    </h2>
+    <p style="font-size: 0.95rem; color: var(--soft-slate); margin-bottom: 20px;">
+      現場人員只需透過手機或平板瀏覽器即可操作，隨時檢視 3D 幾何拆解、組裝細節與 4D 施工時序：
+    </p>
+
+    <!-- 💥 全螢幕滿版 4D-BIM Viewport -->
+    <div class="full-bim-viewer-container">
+      <iframe src="https://3designaigc.github.io/2604Janfusun.github.io/" style="width: 100%; height: 100%; border: none;" allowfullscreen title="2604 劍湖山 4D-BIM 輕量化展示平台"></iframe>
+    </div>
+
+  </main>
+
+</body>
+</html>
