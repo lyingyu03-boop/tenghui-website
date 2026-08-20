@@ -85,7 +85,7 @@
    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1;
   }
 
-  /* 頂層施工前照片 (BEFORE) - 採用 CSS Clip-Path, 畫面 100% 靜止 0% 放大！ */
+  /* 頂層施工前照片 (BEFORE) - 採用 CSS Clip-Path, 畫面 100% 靜止 0% 放大。 */
   .ba-img-before-clip {
    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 2;
    clip-path: inset(0 50% 0 0); /* 初始剪裁右側 50% */
@@ -258,7 +258,7 @@
 
   let currentCaseIdx = 0;
 
-  // 原生 Clip-Path 平滑蒙版算法：0% 圖片寬度改變，0% 圖片放大，100% 原汁原味極致順暢！
+  // 原生 Clip-Path 平滑蒙版算法：0% 圖片寬度改變，0% 圖片放大，100% 原汁原味極致順暢。
   (function initPristineClipPathSlider() {
    const shell = document.getElementById('mainBaShell');
    const beforeImg = document.getElementById('mainBeforeImg');
@@ -275,7 +275,7 @@
     const pct = (x / rect.width) * 100;
     const insetRight = 100 - pct;
 
-    // 關鍵：使用 clip-path 只剪裁邊界，圖片本身 100% 絕對不動、絕對不上縮放！
+    // 關鍵：使用 clip-path 只剪裁邊界，圖片本身 100% 絕對不動、絕對不上縮放。
     beforeImg.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
     handleLine.style.left = `${pct}%`;
    }
