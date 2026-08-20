@@ -2322,3 +2322,80 @@ img:not(.interactive-element) {
 .brand-logo-img, .brand-logo-wrap, button, a {
   pointer-events: auto !important;
 }
+
+
+/* ==========================================================================
+   手機全社群與聯絡固定底欄 (Mobile All-Social & Contact Floating Dock)
+   ========================================================================== */
+.meld-right-dock {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+.meld-dock-btn {
+  width: 42px;
+  height: 42px;
+  background: rgba(252, 252, 252, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3f3f46;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  pointer-events: auto !important;
+}
+.meld-dock-btn:hover {
+  background: #1c1c1e;
+  color: #ffffff;
+  transform: scale(1.12);
+}
+.meld-dock-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* 📱 關鍵：手機版 (<= 768px) 底部全社群固定膠囊 Bar */
+@media (max-width: 768px) {
+  .meld-right-dock {
+    right: auto !important;
+    top: auto !important;
+    bottom: 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    width: calc(100% - 28px) !important;
+    max-width: 440px !important;
+    background: rgba(28, 28, 30, 0.94) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 35px !important;
+    padding: 8px 14px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    gap: 0 !important;
+  }
+  .meld-dock-btn {
+    width: 38px !important;
+    height: 38px !important;
+    background: transparent !important;
+    border: none !important;
+    color: #e4e4e7 !important;
+    box-shadow: none !important;
+  }
+  .meld-dock-btn:active {
+    transform: scale(0.9) !important;
+  }
+}
