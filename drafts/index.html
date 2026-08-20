@@ -3,108 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>騰煇企業 ｜ 內部專欄文章審核與校對中心</title>
+  <title>騰煇企業 ｜ 全站美學重構內部審核中心 ｜ TENG SELENDOR</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    :root {
+      --th-dark: #1c1c1e;
+      --th-body: #3a3a3c;
+      --th-slate: #71717a;
+      --th-bg: #fcfcfc;
+      --th-card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      background-color: var(--th-bg);
+      color: var(--th-body);
+      margin: 0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    .draft-header {
+      background: var(--th-dark);
+      color: #ffffff;
+      padding: 40px 0;
+      border-bottom: 1px solid #2c2c2e;
+    }
+    .draft-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .draft-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin: 0 0 10px 0;
+      color: #ffffff;
+    }
+    .draft-subtitle {
+      font-size: 0.98rem;
+      color: #a1a1aa;
+      margin: 0;
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin: 50px 0 80px 0;
+    }
+
+    .hub-card {
+      background: var(--th-card-bg);
+      border-radius: 14px;
+      padding: 28px;
+      border: 1px solid #e5e5ea;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hub-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-color: #d1d1d6;
+    }
+
+    .card-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--th-slate);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .card-heading {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--th-dark);
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--th-body);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .card-btn {
+      background: var(--th-dark);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+    .card-btn:hover {
+      background: #3a3a3c;
+    }
+  </style>
 </head>
+<body>
 
-<body style="background: #f8fafc; padding: 40px 0;">
-  <div class="container" style="max-width: 900px;">
+  <!-- Header -->
+  <header class="draft-header">
+    <div class="draft-container">
+      <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: #a1a1aa; letter-spacing: 3px; uppercase;">INTERNAL AUDIT CENTER</span>
+      <h1 class="draft-title">騰煇企業 ｜ 全站美學改版內部審核中心</h1>
+      <p class="draft-subtitle">
+        公開正式官網 100% 保持穩定現狀未改動。此處為內部沙盒測試區，集中展示全站 6 大核心頁面之重構樣貌與互動模組。
+      </p>
+    </div>
+  </header>
+
+  <!-- Hub Grid -->
+  <main class="draft-container">
     
-    <div style="background: #0f172a; color: #ffffff; padding: 32px; border-radius: 16px; margin-bottom: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-      <span style="font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase;">INTERNAL EDITORIAL REVIEW HUB</span>
-      <h1 style="font-family: 'Noto Serif TC', serif; font-size: 1.85rem; font-weight: 900; margin: 10px 0 6px 0;">騰煇企業 ｜ 內部審核草稿中心</h1>
-      <p style="font-size: 0.92rem; color: #cbd5e1; margin: 0; line-height: 1.6;">本頁面為內部專用未公開文章測試與審核管道。所有文章在此核對技術細節無誤後，方可正式上架至官網。</p>
-    </div>
+    <div class="hub-grid">
 
-                    <div style="display: flex; flex-direction: column; gap: 20px;">
-
-      <!-- 流程頁全螢幕 4D-BIM 重構草稿 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #09090b; box-shadow: 0 8px 25px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 01: 首頁改版 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #1c1c1e; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">🏗️ 工程流程頁草稿 (PROCESS REDESIGN)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #1c1c1e; margin: 0 0 6px 0;">全螢幕滿版 4D-BIM 數位平台 ✕ 2大核心價值</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">專注呈現「精準實現造型」與「預先發現圖面施工誤差」，給予 4D-BIM 滿版寬廣舞台。</p>
+          <span class="card-label">PAGE 01 / HOME REDESIGN</span>
+          <h2 class="card-heading">首頁：25:75 巨幕相片輪播與幾何切割</h2>
+          <p class="card-desc">
+            導入 25:75 不對稱建築藝廊切割、Header 網格連動對齊、右側懸浮 Contact Dock、以及翻轉高雅灰選單。
+          </p>
         </div>
-        <a href="process-redesign.html" style="background: #1c1c1e; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽流程頁草稿 &rarr;</a>
+        <a href="redesign-preview.html" class="card-btn">預覽首頁改版 &rarr;</a>
       </div>
 
-      <!-- 案例頁互動拖曳重構草稿 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #09090b; box-shadow: 0 8px 25px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 02: 服務項目改版 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #1c1c1e; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">🖼️ 案例分享頁草稿 (PROJECTS REDESIGN)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #1c1c1e; margin: 0 0 6px 0;">外牆拉皮正宗 Before/After 拖曳對比專區</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">將拉皮拖曳對比完整展示於案例頁，解決壓縮問題，大幅提昇互動吸引力。</p>
+          <span class="card-label">PAGE 02 / SERVICES REDESIGN</span>
+          <h2 class="card-heading">服務項目：大氣 GRC 工法與 PPG 140年漆王</h2>
+          <p class="card-desc">
+            拆解 3 大展覽大區塊。詳細列出 GRC 自重 1/5 與耐燃一級等 4 大圖卡，以及 PPG 20年抗 UV 自潔防塵防滲強悍性能。
+          </p>
         </div>
-        <a href="projects-redesign.html" style="background: #1c1c1e; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽案例頁草稿 &rarr;</a>
+        <a href="services-redesign.html" class="card-btn">預覽服務項目改版 &rarr;</a>
       </div>
 
-      <!-- 專刊 04 草稿：騰煇四重精準工法與 2604 劍湖山 Web3D 4D-BIM 平台 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #09090b; box-shadow: 0 8px 25px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 03: 工程流程改版 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #1c1c1e; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">📝 專刊 04 草稿 (DRAFT REVIEW)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #1c1c1e; margin: 0 0 6px 0;">【內部審核草稿 04】差0.5公分就是重工災難！騰煇「四重精準」與 2604 劍湖山 Web3D 4D-BIM 平台</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">深入剖析尺寸/結構/視覺/溝通四重精準，以及 2604 劍湖山 Web3D 4D-BIM 輕量化雲端平台。</p>
+          <span class="card-label">PAGE 03 / PROCESS REDESIGN</span>
+          <h2 class="card-heading">工程流程：全螢幕 4D-BIM 雲端數位平台</h2>
+          <p class="card-desc">
+            給予 2604 劍湖山 4D-BIM 平台 750px 滿版視窗。專注呈現「精準實現造型」與「預先發現圖面施工誤差」2 大核心價值。
+          </p>
         </div>
-        <a href="draft-precision.html" style="background: #1c1c1e; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽草稿 04 &rarr;</a>
+        <a href="process-redesign.html" class="card-btn">預覽工程流程改版 &rarr;</a>
       </div>
 
-      <!-- 服務項目大氣重構測試 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #09090b; box-shadow: 0 8px 25px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 04: 案例分享改版 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #09090b; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">🏛️ 服務頁面全新重構 (SERVICES REDESIGN)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #09090b; margin: 0 0 6px 0;">【內部服務頁測試】三大服務項目 25:75 巨幕氣派重構頁</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">告別過往擁擠的卡片框盒，以單項 25:75 巨幕大圖與清爽的「— 條目列表」展開說明。</p>
+          <span class="card-label">PAGE 04 / PROJECTS REDESIGN</span>
+          <h2 class="card-heading">案例分享：正宗 5 頁籤平滑蒙版拖曳對比</h2>
+          <p class="card-desc">
+            100% 還原舊版順暢拉桿。採用 GPU 加速 CSS clip-path 裁切，0% 圖片放大失真，收錄正宗 5 大實績照片對。
+          </p>
         </div>
-        <a href="services-redesign.html" style="background: #09090b; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽服務頁重構 &rarr;</a>
+        <a href="projects-redesign.html" class="card-btn">預覽案例分享改版 &rarr;</a>
       </div>
 
-      <!-- 官方 CIS 標誌色彩調和測試 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #0a3175; box-shadow: 0 8px 25px rgba(10,49,117,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 05: 專刊草稿 04 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #0a3175; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">🎨 官方 CIS 色彩調和測試 (CIS HARMONY)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; margin: 0 0 6px 0;">【內部色彩測試】官方 CIS 標誌 (旗艦紅 ✖️ 深海藍 ✖️ 建築銀灰) 全站調和試作</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">將 Teng Splendor 圖標三原色運用於 Header 下線、選單懸動、斜線標籤與 CTA 按鈕中。</p>
+          <span class="card-label">PAGE 05 / ARTICLE DRAFT 04</span>
+          <h2 class="card-heading">工程專刊：施工公差控制與 4D-BIM 界面整合</h2>
+          <p class="card-desc">
+            客觀工程技術文章。探討 0.5 公分公差對成本之影響、四重精準架構、以及行動裝置 Web3D 雲端現場管理。
+          </p>
         </div>
-        <a href="cis-color-preview.html" style="background: #c51c1d; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽 CIS 調色測試頁 &rarr;</a>
+        <a href="draft-precision.html" class="card-btn">預覽工程專刊草稿 &rarr;</a>
       </div>
 
-      <!-- 特殊改版測試: 和光同塵級建築美學設計 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 2px solid #0f172a; box-shadow: 0 8px 25px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <!-- 06: CIS 色彩調和 -->
+      <div class="hub-card">
         <div>
-          <span style="background: #0f172a; color: #ffffff; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">✨ 網站視覺改版試作 (DESIGN PREVIEW)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; margin: 0 0 6px 0;">【內部設計測試】和光同塵 (Meld Design) 級建築奢華美學試作頁</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">導入極致留白、斜線章節標頭 (/ ABOUT /)、右側懸浮聯絡選單 (Dock) 與圖片懸懸動。</p>
+          <span class="card-label">PAGE 06 / CIS COLOR PREVIEW</span>
+          <h2 class="card-heading">CIS 色彩調和：旗艦紅 ✕ 海藍 ✕ 預鑄銀灰</h2>
+          <p class="card-desc">
+            官方 CIS 色彩（旗艦紅 #c51c1d ✕ 海藍 #0a3175 ✕ 預鑄銀灰 #8e8c8d）調和測試草稿頁。
+          </p>
         </div>
-        <a href="redesign-preview.html" style="background: #2563eb; color: #ffffff; padding: 12px 22px; border-radius: 8px; font-size: 0.92rem; font-weight: 800; text-decoration: none;">預覽改版試作頁 &rarr;</a>
-      </div>
-      
-      <!-- 待審核草稿 1: 外牆防護塗料種類全解析 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span style="background: #fef3c7; color: #d97706; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">待審核草稿 (STATUS: DRAFT)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.18rem; font-weight: 800; color: #0f172a; margin: 0 0 6px 0;">草稿 01：《外牆防護塗料種類全解析：彈性漆、石頭漆、氟碳漆與塗層工法比對》</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">供李小姐與洪先生核對通用塗料規格與特性。</p>
-        </div>
-        <a href="draft-coatings-overview.html" style="background: #0f172a; color: #ffffff; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; font-weight: 700; text-decoration: none;">預覽此篇草稿 &rarr;</a>
-      </div>
-
-      <!-- 待審核草稿 2: PPG 五大專案漆型 -->
-      <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <span style="background: #fef3c7; color: #d97706; font-size: 0.76rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px;">待審核草稿 (STATUS: DRAFT)</span>
-          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.18rem; font-weight: 800; color: #0f172a; margin: 0 0 6px 0;">草稿 02：《美國 PPG 建築防護塗料全解析：龐亞漆、彈性佩能漆、臻石漆、絢岩臻彩漆、雅飾彈性 500》</h3>
-          <p style="font-size: 0.88rem; color: #64748b; margin: 0;">專門針對騰煇 5 大 PPG 官方產品進行深度技術解析。</p>
-        </div>
-        <a href="draft-ppg-coatings.html" style="background: #0f172a; color: #ffffff; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; font-weight: 700; text-decoration: none;">預覽此篇草稿 &rarr;</a>
+        <a href="cis-color-preview.html" class="card-btn">預覽 CIS 色彩調和 &rarr;</a>
       </div>
 
     </div>
 
-  </div>
+  </main>
+
+  <script>
+    document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
+    document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
+  </script>
 </body>
 </html>

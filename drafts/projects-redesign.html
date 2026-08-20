@@ -1,312 +1,312 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【內部草稿】案例分享 ｜ 正宗 Clip-Path 平滑蒙版 5頁籤拖曳對比 ｜ 騰煇企業</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  
-  <style>
-    :root {
-      --soft-dark: #1c1c1e;
-      --soft-body: #3a3a3c;
-      --soft-slate: #71717a;
-      --soft-bg: #fcfcfc;
-      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    body {
-      font-family: 'Noto Sans TC', sans-serif;
-      background-color: var(--soft-bg);
-      color: var(--soft-body);
-      margin: 0;
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>【內部草稿】案例分享 ｜ 正宗 Clip-Path 平滑蒙版 5頁籤拖曳對比 ｜ 騰煇企業</title>
+ <meta name="robots" content="noindex, nofollow">
+ <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/style.css">
+ 
+ <style>
+  :root {
+   --soft-dark: #1c1c1e;
+   --soft-body: #3a3a3c;
+   --soft-slate: #71717a;
+   --soft-bg: #fcfcfc;
+   --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  body {
+   font-family: 'Noto Sans TC', sans-serif;
+   background-color: var(--soft-bg);
+   color: var(--soft-body);
+   margin: 0;
+   line-height: 1.8;
+   overflow-x: hidden;
+  }
 
-    .meld-header-grid { display: flex; width: 100%; background: var(--soft-bg); border-bottom: 1px solid #e5e5ea; }
-    .meld-header-left-col { width: 28%; padding: 22px 40px 22px 60px; display: flex; align-items: center; }
-    .meld-header-right-col { width: 72%; padding: 22px 40px 22px 0; display: flex; align-items: center; justify-content: flex-end; }
+  .meld-header-grid { display: flex; width: 100%; background: var(--soft-bg); border-bottom: 1px solid #e5e5ea; }
+  .meld-header-left-col { width: 28%; padding: 22px 40px 22px 60px; display: flex; align-items: center; }
+  .meld-header-right-col { width: 72%; padding: 22px 40px 22px 0; display: flex; align-items: center; justify-content: flex-end; }
 
-    .meld-nav-link-flip {
-      display: inline-flex; flex-direction: column; position: relative; font-family: 'Outfit', 'Noto Sans TC', sans-serif; font-size: 0.86rem; font-weight: 700; color: #3a3a3c; text-decoration: none; padding: 4px 12px; overflow: hidden; height: 26px; line-height: 26px; align-items: center; justify-content: flex-start; min-width: 72px; text-align: center;
-    }
-    .meld-nav-link-flip .text-en { display: block; white-space: nowrap; transition: transform 0.3s var(--ease-luxury); }
-    .meld-nav-link-flip .text-zh { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: #8e8e93; font-weight: 700; transition: transform 0.3s var(--ease-luxury); }
-    .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
-    .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
+  .meld-nav-link-flip {
+   display: inline-flex; flex-direction: column; position: relative; font-family: 'Outfit', 'Noto Sans TC', sans-serif; font-size: 0.86rem; font-weight: 700; color: #3a3a3c; text-decoration: none; padding: 4px 12px; overflow: hidden; height: 26px; line-height: 26px; align-items: center; justify-content: flex-start; min-width: 72px; text-align: center;
+  }
+  .meld-nav-link-flip .text-en { display: block; white-space: nowrap; transition: transform 0.3s var(--ease-luxury); }
+  .meld-nav-link-flip .text-zh { display: block; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; color: #8e8e93; font-weight: 700; transition: transform 0.3s var(--ease-luxury); }
+  .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
+  .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
 
-    .projects-container {
-      max-width: 1080px; margin: 0 auto; padding: 60px 24px 100px 24px;
-    }
+  .projects-container {
+   max-width: 1080px; margin: 0 auto; padding: 60px 24px 100px 24px;
+  }
 
-    /* 💥 舊版順暢 MP4 原汁原味平滑蒙版組件 (CSS Clip-Path 核心) */
-    .ba-section-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 36px 40px 40px 40px;
-      border: 1px solid #e5e5ea;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.04);
-      margin-top: 30px;
-    }
-    .ba-section-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.45rem;
-      font-weight: 900;
-      color: var(--soft-dark);
-      margin: 0 0 8px 0;
-    }
-    .ba-section-desc {
-      font-size: 0.92rem;
-      color: var(--soft-slate);
-      margin: 0 0 24px 0;
-    }
+  /* 舊版順暢 MP4 原汁原味平滑蒙版組件 (CSS Clip-Path 核心) */
+  .ba-section-box {
+   background: #ffffff;
+   border-radius: 20px;
+   padding: 36px 40px 40px 40px;
+   border: 1px solid #e5e5ea;
+   box-shadow: 0 10px 35px rgba(0,0,0,0.04);
+   margin-top: 30px;
+  }
+  .ba-section-title {
+   font-family: 'Noto Serif TC', serif;
+   font-size: 1.45rem;
+   font-weight: 900;
+   color: var(--soft-dark);
+   margin: 0 0 8px 0;
+  }
+  .ba-section-desc {
+   font-size: 0.92rem;
+   color: var(--soft-slate);
+   margin: 0 0 24px 0;
+  }
 
-    /* 💥 原版順暢滑塊 Shell Viewport */
-    .ba-viewport-shell {
-      position: relative;
-      width: 100%;
-      height: 540px;
-      border-radius: 14px;
-      overflow: hidden;
-      user-select: none;
-      touch-action: none;
-      cursor: ew-resize;
-      background: #18181b;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    }
+  /* 原版順暢滑塊 Shell Viewport */
+  .ba-viewport-shell {
+   position: relative;
+   width: 100%;
+   height: 540px;
+   border-radius: 14px;
+   overflow: hidden;
+   user-select: none;
+   touch-action: none;
+   cursor: ew-resize;
+   background: #18181b;
+   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
 
-    /* 底層完工後照片 (AFTER) - 完全靜止 */
-    .ba-img-after-full {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1;
-    }
+  /* 底層完工後照片 (AFTER) - 完全靜止 */
+  .ba-img-after-full {
+   position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1;
+  }
 
-    /* 💥 頂層施工前照片 (BEFORE) - 採用 CSS Clip-Path, 畫面 100% 靜止 0% 放大！ */
-    .ba-img-before-clip {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 2;
-      clip-path: inset(0 50% 0 0); /* 初始剪裁右側 50% */
-      border-right: 3px solid #ffffff;
-    }
+  /* 頂層施工前照片 (BEFORE) - 採用 CSS Clip-Path, 畫面 100% 靜止 0% 放大！ */
+  .ba-img-before-clip {
+   position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 2;
+   clip-path: inset(0 50% 0 0); /* 初始剪裁右側 50% */
+   border-right: 3px solid #ffffff;
+  }
 
-    /* 白色中軸分割線與圓形拉把 */
-    .ba-handle-divider {
-      position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #ffffff; z-index: 4; transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .ba-handle-circle {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-radius: 50%; color: #1c1c1e; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    }
+  /* 白色中軸分割線與圓形拉把 */
+  .ba-handle-divider {
+   position: absolute; top: 0; left: 50%; width: 3px; height: 100%; background: #ffffff; z-index: 4; transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+  .ba-handle-circle {
+   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-radius: 50%; color: #1c1c1e; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  }
 
-    /* 懸浮 Badges */
-    .ba-tag-case {
-      position: absolute; top: 16px; left: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px;
-    }
-    .ba-tag-before {
-      position: absolute; bottom: 16px; left: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
-    }
-    .ba-tag-after {
-      position: absolute; bottom: 16px; right: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
-    }
+  /* 懸浮 Badges */
+  .ba-tag-case {
+   position: absolute; top: 16px; left: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .ba-tag-before {
+   position: absolute; bottom: 16px; left: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
+  }
+  .ba-tag-after {
+   position: absolute; bottom: 16px; right: 16px; z-index: 5; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #ffffff; padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700;
+  }
 
-    /* 💥 5 頁籤選擇器 (5-Tab Selector Bar) */
-    .ba-tabs-bar {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-    .ba-tab-pill {
-      background: #f4f4f5;
-      color: #3f3f46;
-      border: 1px solid #e4e4e7;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 0.86rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s var(--ease-luxury);
-    }
-    .ba-tab-pill:hover {
-      background: #e4e4e7;
-      color: #18181b;
-    }
-    .ba-tab-pill.active {
-      background: var(--soft-dark);
-      color: #ffffff;
-      border-color: var(--soft-dark);
-      box-shadow: 0 4px 12px rgba(28,28,30,0.2);
-    }
+  /* 5 頁籤選擇器 (5-Tab Selector Bar) */
+  .ba-tabs-bar {
+   display: flex;
+   justify-content: center;
+   gap: 12px;
+   margin-top: 24px;
+   flex-wrap: wrap;
+  }
+  .ba-tab-pill {
+   background: #f4f4f5;
+   color: #3f3f46;
+   border: 1px solid #e4e4e7;
+   padding: 10px 20px;
+   border-radius: 30px;
+   font-size: 0.86rem;
+   font-weight: 700;
+   cursor: pointer;
+   transition: all 0.3s var(--ease-luxury);
+  }
+  .ba-tab-pill:hover {
+   background: #e4e4e7;
+   color: #18181b;
+  }
+  .ba-tab-pill.active {
+   background: var(--soft-dark);
+   color: #ffffff;
+   border-color: var(--soft-dark);
+   box-shadow: 0 4px 12px rgba(28,28,30,0.2);
+  }
 
-    @media (max-width: 768px) {
-      .meld-header-grid { flex-direction: column; }
-      .meld-header-left-col, .meld-header-right-col { width: 100%; padding: 20px; }
-      .ba-viewport-shell { height: 360px; }
-      .ba-section-box { padding: 24px 18px; }
-      .ba-tab-pill { padding: 8px 14px; font-size: 0.8rem; }
-    }
-  </style>
+  @media (max-width: 768px) {
+   .meld-header-grid { flex-direction: column; }
+   .meld-header-left-col, .meld-header-right-col { width: 100%; padding: 20px; }
+   .ba-viewport-shell { height: 360px; }
+   .ba-section-box { padding: 24px 18px; }
+   .ba-tab-pill { padding: 8px 14px; font-size: 0.8rem; }
+  }
+ </style>
 </head>
 <body>
 
-  <!-- Banner -->
-  <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【正宗舊版順暢 MP4 重現版】採用 CSS Clip-Path 原生平滑蒙版 ✕ 0% 圖片放大 ✕ 精準 5 大對應實績
-    <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
+ <!-- Banner -->
+ <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
+   【正宗舊版順暢 MP4 重現版】採用 CSS Clip-Path 原生平滑蒙版 ✕ 0% 圖片放大 ✕ 精準 5 大對應實績
+  <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
+ </div>
+
+ <!-- Header -->
+ <header class="meld-header-grid">
+  <div class="meld-header-left-col">
+   <a href="../index.html" class="brand-logo-wrap">
+    <img decoding="async" loading="lazy" src="../img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+    <div class="brand-text-block">
+     <span class="brand-company-name" style="font-weight: 700; color: var(--soft-dark);">騰煇企業有限公司</span>
+     <span class="brand-company-en" style="color: var(--soft-slate);">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+    </div>
+   </a>
   </div>
 
-  <!-- Header -->
-  <header class="meld-header-grid">
-    <div class="meld-header-left-col">
-      <a href="../index.html" class="brand-logo-wrap">
-        <img decoding="async" loading="lazy" src="../img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
-        <div class="brand-text-block">
-          <span class="brand-company-name" style="font-weight: 700; color: var(--soft-dark);">騰煇企業有限公司</span>
-          <span class="brand-company-en" style="color: var(--soft-slate);">TENG SELENDOR ENTERPRISE CO., LTD.</span>
-        </div>
-      </a>
-    </div>
+  <div class="meld-header-right-col">
+   <nav>
+    <ul class="nav-menu" id="navMenu" style="display: flex; gap: 8px; list-style: none; margin: 0; padding: 0;">
+     <li><a href="../index.html" class="meld-nav-link-flip"><span class="text-en">HOME</span><span class="text-zh">首頁</span></a></li>
+     <li><a href="../about.html" class="meld-nav-link-flip"><span class="text-en">ABOUT</span><span class="text-zh">關於騰煇</span></a></li>
+     <li><a href="services-redesign.html" class="meld-nav-link-flip"><span class="text-en">SERVICE ▾</span><span class="text-zh">服務項目 ▾</span></a></li>
+     <li><a href="process-redesign.html" class="meld-nav-link-flip"><span class="text-en">PROCESS</span><span class="text-zh">工程流程</span></a></li>
+     <li><a href="projects-redesign.html" class="meld-nav-link-flip" style="color: var(--soft-dark); font-weight: 800;"><span class="text-en">PROJECTS</span><span class="text-zh">案例分享</span></a></li>
+     <li><a href="../articles.html" class="meld-nav-link-flip"><span class="text-en">BLOG</span><span class="text-zh">工程專欄</span></a></li>
+     <li><a href="../contact.html" class="meld-nav-link-flip"><span class="text-en">CONTACT</span><span class="text-zh">聯絡我們</span></a></li>
+    </ul>
+   </nav>
+  </div>
+ </header>
 
-    <div class="meld-header-right-col">
-      <nav>
-        <ul class="nav-menu" id="navMenu" style="display: flex; gap: 8px; list-style: none; margin: 0; padding: 0;">
-          <li><a href="../index.html" class="meld-nav-link-flip"><span class="text-en">HOME</span><span class="text-zh">首頁</span></a></li>
-          <li><a href="../about.html" class="meld-nav-link-flip"><span class="text-en">ABOUT</span><span class="text-zh">關於騰煇</span></a></li>
-          <li><a href="services-redesign.html" class="meld-nav-link-flip"><span class="text-en">SERVICE ▾</span><span class="text-zh">服務項目 ▾</span></a></li>
-          <li><a href="process-redesign.html" class="meld-nav-link-flip"><span class="text-en">PROCESS</span><span class="text-zh">工程流程</span></a></li>
-          <li><a href="projects-redesign.html" class="meld-nav-link-flip" style="color: var(--soft-dark); font-weight: 800;"><span class="text-en">PROJECTS</span><span class="text-zh">案例分享</span></a></li>
-          <li><a href="../articles.html" class="meld-nav-link-flip"><span class="text-en">BLOG</span><span class="text-zh">工程專欄</span></a></li>
-          <li><a href="../contact.html" class="meld-nav-link-flip"><span class="text-en">CONTACT</span><span class="text-zh">聯絡我們</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+ <!-- Main Content -->
+ <main class="projects-container">
+  
+  <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; uppercase;">/ FEATURED PORTFOLIO /</span>
+  <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: var(--soft-dark); margin: 12px 0 10px 0;">
+   騰煇外牆拉皮與舊牆翻新工程實績
+  </h1>
+  <p style="font-size: 0.96rem; color: var(--soft-slate); margin: 0;">
+   針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
+  </p>
 
-  <!-- Main Content -->
-  <main class="projects-container">
+  <!-- 正宗舊版順暢 MP4 平滑蒙版組件 -->
+  <div class="ba-section-box">
+   <h2 class="ba-section-title">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h2>
+   <p class="ba-section-desc">下方點選 5 組精選實績頁籤，即可切換比對案例圖說。</p>
+
+   <div class="ba-viewport-shell" id="mainBaShell">
+    <span class="ba-tag-case" id="caseTitleTag">CASE 01 ｜ 台南北區民宅透天拉皮</span>
+    <span class="ba-tag-before">BEFORE 施工前</span>
+    <span class="ba-tag-after">AFTER 施工後</span>
+
+    <img src="../img/projects/case01-after.jpg" alt="拉皮施工後" class="ba-img-after-full" id="mainAfterImg">
+    <img src="../img/projects/case01-before.jpg" alt="拉皮施工前" class="ba-img-before-clip" id="mainBeforeImg">
     
-    <span style="font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--soft-slate); letter-spacing: 3px; uppercase;">/ FEATURED PORTFOLIO /</span>
-    <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: var(--soft-dark); margin: 12px 0 10px 0;">
-      騰煇外牆拉皮與舊牆翻新工程實績
-    </h1>
-    <p style="font-size: 0.96rem; color: var(--soft-slate); margin: 0;">
-      針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供從結構安全診斷、打底修補、防滲處理到 GRC 造型線條與 PPG 彈性塗料專案施作。
-    </p>
-
-    <!-- 💥 正宗舊版順暢 MP4 平滑蒙版組件 -->
-    <div class="ba-section-box">
-      <h2 class="ba-section-title">外牆拉皮前後對比展示 (請左右拖曳中央滑桿)</h2>
-      <p class="ba-section-desc">下方點選 5 組精選實績頁籤，即可切換比對案例圖說。</p>
-
-      <div class="ba-viewport-shell" id="mainBaShell">
-        <span class="ba-tag-case" id="caseTitleTag">CASE 01 ｜ 台南北區民宅透天拉皮</span>
-        <span class="ba-tag-before">BEFORE 施工前</span>
-        <span class="ba-tag-after">AFTER 施工後</span>
-
-        <img src="../img/projects/case01-after.jpg" alt="拉皮施工後" class="ba-img-after-full" id="mainAfterImg">
-        <img src="../img/projects/case01-before.jpg" alt="拉皮施工前" class="ba-img-before-clip" id="mainBeforeImg">
-        
-        <div class="ba-handle-divider" id="mainHandleLine">
-          <div class="ba-handle-circle">‹ ›</div>
-        </div>
-      </div>
-
-      <!-- 5 頁籤 Selector Bar -->
-      <div class="ba-tabs-bar">
-        <button class="ba-tab-pill active" onclick="switchCase(0)">01 台南民宅透天</button>
-        <button class="ba-tab-pill" onclick="switchCase(1)">02 桃園薑母島軍營</button>
-        <button class="ba-tab-pill" onclick="switchCase(2)">03 桃園廠房 (主立面)</button>
-        <button class="ba-tab-pill" onclick="switchCase(3)">04 桃園廠房 (側立面)</button>
-        <button class="ba-tab-pill" onclick="switchCase(4)">05 高雄仁武AI廠</button>
-      </div>
+    <div class="ba-handle-divider" id="mainHandleLine">
+     <div class="ba-handle-circle"> </div>
     </div>
+   </div>
 
-  </main>
+   <!-- 5 頁籤 Selector Bar -->
+   <div class="ba-tabs-bar">
+    <button class="ba-tab-pill active" onclick="switchCase(0)">01 台南民宅透天</button>
+    <button class="ba-tab-pill" onclick="switchCase(1)">02 桃園薑母島軍營</button>
+    <button class="ba-tab-pill" onclick="switchCase(2)">03 桃園廠房 (主立面)</button>
+    <button class="ba-tab-pill" onclick="switchCase(3)">04 桃園廠房 (側立面)</button>
+    <button class="ba-tab-pill" onclick="switchCase(4)">05 高雄仁武AI廠</button>
+   </div>
+  </div>
 
-  <script>
-    // 💥 掃描 02_工程案例素材 匹配 舊的順暢版本.mp4 之正宗 5 案例對
-    const casesData = [
-      {
-        title: "CASE 01 ｜ 台南北區民宅透天拉皮",
-        before: "../img/projects/case01-before.jpg",
-        after: "../img/projects/case01-after.jpg"
-      },
-      {
-        title: "CASE 02 ｜ 桃園大溪薑母島軍營整建",
-        before: "../img/projects/case02-before.jpg",
-        after: "../img/projects/case02-after.jpg"
-      },
-      {
-        title: "CASE 03 ｜ 桃園亞東石化觀音二廠 (主立面)",
-        before: "../img/projects/case03-before.jpg",
-        after: "../img/projects/case03-after.jpg"
-      },
-      {
-        title: "CASE 04 ｜ 桃園亞東石化觀音二廠 (側立面)",
-        before: "../img/projects/case04-before.jpg",
-        after: "../img/projects/case04-after.jpg"
-      },
-      {
-        title: "CASE 05 ｜ 高雄仁武 AI 研發中心 (PPG 塗裝)",
-        before: "../img/projects/case05-before.jpg",
-        after: "../img/projects/case05-after.jpg"
-      }
-    ];
+ </main>
 
-    let currentCaseIdx = 0;
+ <script>
+  // 掃描 02_工程案例素材 匹配 舊的順暢版本.mp4 之正宗 5 案例對
+  const casesData = [
+   {
+    title: "CASE 01 ｜ 台南北區民宅透天拉皮",
+    before: "../img/projects/case01-before.jpg",
+    after: "../img/projects/case01-after.jpg"
+   },
+   {
+    title: "CASE 02 ｜ 桃園大溪薑母島軍營整建",
+    before: "../img/projects/case02-before.jpg",
+    after: "../img/projects/case02-after.jpg"
+   },
+   {
+    title: "CASE 03 ｜ 桃園亞東石化觀音二廠 (主立面)",
+    before: "../img/projects/case03-before.jpg",
+    after: "../img/projects/case03-after.jpg"
+   },
+   {
+    title: "CASE 04 ｜ 桃園亞東石化觀音二廠 (側立面)",
+    before: "../img/projects/case04-before.jpg",
+    after: "../img/projects/case04-after.jpg"
+   },
+   {
+    title: "CASE 05 ｜ 高雄仁武 AI 研發中心 (PPG 塗裝)",
+    before: "../img/projects/case05-before.jpg",
+    after: "../img/projects/case05-after.jpg"
+   }
+  ];
 
-    // 💥 原生 Clip-Path 平滑蒙版算法：0% 圖片寬度改變，0% 圖片放大，100% 原汁原味極致順暢！
-    (function initPristineClipPathSlider() {
-      const shell = document.getElementById('mainBaShell');
-      const beforeImg = document.getElementById('mainBeforeImg');
-      const handleLine = document.getElementById('mainHandleLine');
-      if (!shell || !beforeImg || !handleLine) return;
+  let currentCaseIdx = 0;
 
-      let isDragging = false;
+  // 原生 Clip-Path 平滑蒙版算法：0% 圖片寬度改變，0% 圖片放大，100% 原汁原味極致順暢！
+  (function initPristineClipPathSlider() {
+   const shell = document.getElementById('mainBaShell');
+   const beforeImg = document.getElementById('mainBeforeImg');
+   const handleLine = document.getElementById('mainHandleLine');
+   if (!shell || !beforeImg || !handleLine) return;
 
-      function updateSliderPos(clientX) {
-        const rect = shell.getBoundingClientRect();
-        let x = clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        const pct = (x / rect.width) * 100;
-        const insetRight = 100 - pct;
+   let isDragging = false;
 
-        // 💥 關鍵：使用 clip-path 只剪裁邊界，圖片本身 100% 絕對不動、絕對不上縮放！
-        beforeImg.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
-        handleLine.style.left = `${pct}%`;
-      }
+   function updateSliderPos(clientX) {
+    const rect = shell.getBoundingClientRect();
+    let x = clientX - rect.left;
+    if (x < 0) x = 0;
+    if (x > rect.width) x = rect.width;
+    const pct = (x / rect.width) * 100;
+    const insetRight = 100 - pct;
 
-      shell.addEventListener('pointerdown', (e) => { isDragging = true; updateSliderPos(e.clientX); });
-      window.addEventListener('pointermove', (e) => { if (!isDragging) return; updateSliderPos(e.clientX); });
-      window.addEventListener('pointerup', () => isDragging = false);
-    })();
+    // 關鍵：使用 clip-path 只剪裁邊界，圖片本身 100% 絕對不動、絕對不上縮放！
+    beforeImg.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
+    handleLine.style.left = `${pct}%`;
+   }
 
-    // 💥 切換 5 頁籤案例
-    function switchCase(idx) {
-      currentCaseIdx = idx;
-      const data = casesData[idx];
-      
-      const titleTag = document.getElementById('caseTitleTag');
-      const beforeImg = document.getElementById('mainBeforeImg');
-      const afterImg = document.getElementById('mainAfterImg');
+   shell.addEventListener('pointerdown', (e) => { isDragging = true; updateSliderPos(e.clientX); });
+   window.addEventListener('pointermove', (e) => { if (!isDragging) return; updateSliderPos(e.clientX); });
+   window.addEventListener('pointerup', () => isDragging = false);
+  })();
 
-      if (titleTag) titleTag.textContent = data.title;
-      if (beforeImg) beforeImg.src = data.before;
-      if (afterImg) afterImg.src = data.after;
+  // 切換 5 頁籤案例
+  function switchCase(idx) {
+   currentCaseIdx = idx;
+   const data = casesData[idx];
+   
+   const titleTag = document.getElementById('caseTitleTag');
+   const beforeImg = document.getElementById('mainBeforeImg');
+   const afterImg = document.getElementById('mainAfterImg');
 
-      const pills = document.querySelectorAll('.ba-tab-pill');
-      pills.forEach((p, i) => {
-        if (i === idx) p.classList.add('active');
-        else p.classList.remove('active');
-      });
-    }
+   if (titleTag) titleTag.textContent = data.title;
+   if (beforeImg) beforeImg.src = data.before;
+   if (afterImg) afterImg.src = data.after;
 
-    document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
-    document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
-  </script>
+   const pills = document.querySelectorAll('.ba-tab-pill');
+   pills.forEach((p, i) => {
+    if (i === idx) p.classList.add('active');
+    else p.classList.remove('active');
+   });
+  }
+
+  document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
+  document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') { e.preventDefault(); return false; } });
+ </script>
 </body>
 </html>
