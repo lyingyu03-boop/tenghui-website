@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>【內部草稿】服務項目 ｜ 左右交錯律動與黃金比例展覽排版 ｜ 騰煇企業</title>
+  <title>【內部草稿】服務項目 ｜ 手機極速重點體驗與黃金律動排版 ｜ 騰煇企業</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
       color: var(--soft-body);
       margin: 0;
       overflow-x: hidden;
-      line-height: 1.85;
+      line-height: 1.8;
     }
 
     .meld-header-grid {
@@ -59,42 +59,41 @@
     .meld-nav-link-flip:hover .text-en { transform: translateY(-100%); }
     .meld-nav-link-flip:hover .text-zh { transform: translate(-50%, -100%); }
 
-    /* 💎 頁面主容器：適度寬度，避免畫面無限橫向拉伸 */
+    /* 桌面版黃金比例排版 */
     .services-main-container {
-      max-width: 1200px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 60px 24px 100px 24px;
+      padding: 50px 24px 90px 24px;
     }
 
-    /* 💎 左右交錯黃金比例 (40:60) 展覽區塊 */
     .service-alt-row {
       display: flex;
       align-items: center;
-      gap: 60px;
-      margin-bottom: 90px;
+      gap: 50px;
+      margin-bottom: 80px;
     }
     .service-alt-row.reverse {
       flex-direction: row-reverse;
     }
 
     .service-text-block {
-      flex: 0 0 42%;
-      max-width: 42%;
+      flex: 0 0 44%;
+      max-width: 44%;
     }
     .service-img-block {
-      flex: 0 0 58%;
-      max-width: 58%;
+      flex: 0 0 56%;
+      max-width: 56%;
       position: relative;
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       border: 1px solid #e5e5ea;
       background: #ffffff;
     }
 
     .service-img-block img {
       width: 100%;
-      height: 420px;
+      height: 400px;
       object-fit: cover;
       display: block;
       transition: transform 0.6s var(--ease-luxury);
@@ -105,42 +104,51 @@
 
     .section-num-accent {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: var(--soft-slate);
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: block;
     }
     .section-service-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       font-weight: 900;
       color: var(--soft-dark);
-      margin: 0 0 16px 0;
+      margin: 0 0 14px 0;
       line-height: 1.35;
     }
-    .section-service-desc {
-      font-size: 0.96rem;
-      color: var(--soft-body);
-      line-height: 1.8;
-      margin-bottom: 24px;
+
+    /* 手機極速重點 Badge */
+    .mobile-highlight-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .mobile-hl-tag {
+      background: #1c1c1e;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
     }
 
-    /* 規格點卡片 */
     .spec-grid-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 24px;
+      gap: 12px;
+      margin: 18px 0;
     }
     .spec-card-item {
       background: #ffffff;
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 8px;
       border: 1px solid #e5e5ea;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
     }
     .spec-card-item strong {
       display: block;
@@ -153,12 +161,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 16px 0 24px 0;
+      margin: 14px 0 20px 0;
     }
     .ppg-pill-item {
       background: #ffffff;
       border: 1px solid #d1d1d6;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       font-size: 0.82rem;
       font-weight: 700;
@@ -168,17 +176,13 @@
     .btn-action-dark {
       background: var(--soft-dark);
       color: #ffffff;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 6px;
       font-family: 'Outfit', sans-serif;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 700;
       text-decoration: none;
       display: inline-block;
-      transition: background 0.3s ease;
-    }
-    .btn-action-dark:hover {
-      background: #3a3a3c;
     }
 
     .meld-right-dock {
@@ -190,21 +194,45 @@
     .meld-dock-btn:hover { background: var(--soft-dark); color: #ffffff; transform: scale(1.12); }
     .meld-dock-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
-    @media (max-width: 900px) {
-      .service-alt-row, .service-alt-row.reverse { flex-direction: column; gap: 30px; margin-bottom: 60px; }
-      .service-text-block, .service-img-block { flex: 0 0 100%; max-width: 100%; }
-      .service-img-block img { height: 300px; }
+    /* 📱 關鍵：手機與平板 (RWD Mobile UX) 極致最佳化 */
+    @media (max-width: 768px) {
+      .services-main-container { padding: 30px 16px 60px 16px; }
       .meld-header-grid { flex-direction: column; }
-      .meld-header-left-col, .meld-header-right-col { width: 100%; padding: 20px; }
+      .meld-header-left-col, .meld-header-right-col { width: 100%; padding: 16px; }
+
+      /* 💥 手機版一律「文字在上、照片在下」，順暢易讀不疲勞！ */
+      .service-alt-row, .service-alt-row.reverse {
+        flex-direction: column !important;
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+      .service-text-block {
+        order: 1 !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+      .service-img-block {
+        order: 2 !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+      }
+      /* 手機版照片高度精簡收斂至 230px，不遮擋螢幕 */
+      .service-img-block img {
+        height: 230px !important;
+      }
+
+      .section-service-title { font-size: 1.45rem; margin-bottom: 10px; }
+      .spec-grid-cards { grid-template-columns: 1fr; gap: 8px; }
+      .spec-card-item { padding: 10px 12px; font-size: 0.82rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- Banner -->
-  <div style="background: var(--soft-dark); color: #f2f2f7; padding: 12px 20px; font-size: 0.88rem; font-weight: 600; text-align: center;">
-    ✨ 【左右交錯黃金比例重構版】修復圖片過大與單邊堆疊感 ✕ 42:58 律動閱讀視角 ✕ 一眼看到重點
-    <a href="index.html" style="color: #64d2ff; margin-left: 14px; text-decoration: underline;">返回審核中心 &rarr;</a>
+  <div style="background: var(--soft-dark); color: #f2f2f7; padding: 10px 16px; font-size: 0.84rem; font-weight: 600; text-align: center;">
+    ✨ 【手機閱讀極速最佳化版】手機統一先看文字重點後看照片 ✕ 照片縮至230px精致不遮擋 ✕ 重點標籤一眼掌握
+    <a href="index.html" style="color: #64d2ff; margin-left: 10px; text-decoration: underline;">返回審核中心 &rarr;</a>
   </div>
 
   <!-- Header -->
@@ -237,41 +265,49 @@
   <main class="services-main-container">
     
     <!-- Page Header -->
-    <div style="margin-bottom: 70px; border-bottom: 1px solid #e5e5ea; padding-bottom: 30px;">
+    <div style="margin-bottom: 50px; border-bottom: 1px solid #e5e5ea; padding-bottom: 24px;">
       <span class="section-num-accent">/ OUR CORE SERVICES /</span>
-      <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: var(--soft-dark); line-height: 1.35; margin: 0 0 16px 0;">
+      <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2rem; font-weight: 900; color: var(--soft-dark); line-height: 1.35; margin: 0 0 12px 0;">
         騰煇四十餘年連工帶料<br>外牆造型與防護工程整合服務
       </h1>
-      <p style="font-size: 1.02rem; color: var(--soft-slate); margin: 0; max-width: 780px;">
+      <p style="font-size: 0.96rem; color: var(--soft-slate); margin: 0; max-width: 780px;">
         具備「造型能力 ✕ PPG 塗料 ✕ 3D-BIM 數位化」，為建築師與營造團隊精準實現特殊造型、預先排除圖面施工誤差。
       </p>
     </div>
 
-    <!-- 01: GRC 特殊造型 (文字在左 42%, 照片在右 58%) -->
+    <!-- 01: GRC 特殊造型 -->
     <section class="service-alt-row" id="grc">
       <div class="service-text-block">
         <span class="section-num-accent">01 / GRC FORMING</span>
         <h2 class="section-service-title">GRC 特殊造型與雙曲面預鑄工程</h2>
-        <p class="section-service-desc">
-          GRC (玻璃纖維強化水泥) 兼具水泥的耐久性與高分子抗拉強度。騰煇具備四十餘年開模預鑄技術，能將建築師大膽的 3D 雙曲面與歐式雕花 1:1 實踐。
+        
+        <!-- 手機重點速覽標籤 -->
+        <div class="mobile-highlight-bar">
+          <span class="mobile-hl-tag">自重僅石材 1/5</span>
+          <span class="mobile-hl-tag">耐燃一級規範</span>
+          <span class="mobile-hl-tag">ISO 減碳 32%</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 16px;">
+          GRC (玻璃纖維強化水泥) 兼具水泥耐久性與抗拉強度。騰煇具備四十餘年開模預鑄技術，能將建築師大膽的 3D 雙曲面與歐式雕花 1:1 實踐落地。
         </p>
 
         <div class="spec-grid-cards">
           <div class="spec-card-item">
             <strong>自重僅石材 1/5</strong>
-            降低建築結構與鋼構負擔，提升抗震性能。
+            降低結構負擔，提升抗震性能。
           </div>
           <div class="spec-card-item">
             <strong>曲面可塑性無限</strong>
-            支援雙曲面、複雜幾何與立體雕花。
+            支援雙曲面、幾何與立體雕花。
           </div>
           <div class="spec-card-item">
             <strong>耐燃一級規範</strong>
-            符合嚴苛公共工程防火與結構標準。
+            符合嚴苛公共工程防火標準。
           </div>
           <div class="spec-card-item">
             <strong>ISO 減碳 32% 認證</strong>
-            取得 ISO 14064-1 盤查與產品碳足跡認證。
+            取得溫室氣體與碳足跡認證。
           </div>
         </div>
 
@@ -280,22 +316,29 @@
 
       <div class="service-img-block">
         <img decoding="async" loading="lazy" src="../img/projects/grc-yayuan.jpg" alt="台中雅園新潮 GRC 雙曲面拱門">
-        <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem;">
+        <div style="position: absolute; bottom: 14px; left: 14px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 0.8rem;">
           台中雅園新潮 ｜ 巨型雙曲面 GRC 預鑄拱門工程
         </div>
       </div>
     </section>
 
-    <!-- 02: PPG 建築塗料 (交錯！照片在左 58%, 文字在右 42%) -->
+    <!-- 02: PPG 建築塗料 -->
     <section class="service-alt-row reverse" id="ppg">
       <div class="service-text-block">
         <span class="section-num-accent">02 / PPG COATINGS</span>
         <h2 class="section-service-title">PPG 美國 140 年建築高耐候塗料</h2>
-        <p class="section-service-desc">
+        
+        <div class="mobile-highlight-bar">
+          <span class="mobile-hl-tag">盧浮宮/晴空塔指定</span>
+          <span class="mobile-hl-tag">20年抗 UV</span>
+          <span class="mobile-hl-tag">300%超高彈性</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 14px;">
           嚴選全球前 2 大塗料巨頭 **美國 PPG Industries (1883 年創立)** 旗艦建築防護系統，為巴黎盧浮宮與東京晴空塔指定塗料品牌。
         </p>
 
-        <ul style="margin: 0 0 20px 0; padding-left: 20px; font-size: 0.88rem; line-height: 1.8; color: var(--soft-body);">
+        <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 0.86rem; line-height: 1.75; color: var(--soft-body);">
           <li><strong>20 年抗 UV 與酸雨極限</strong>：氟碳/高分子樹脂技術，防黃化粉化。</li>
           <li><strong>親水性自潔防塵分子</strong>：雨水沖刷自然帶走塵埃雨痕。</li>
           <li><strong>300% 超高彈性橋接裂紋</strong>：有效抵禦地震微裂，杜絕外牆滲水。</li>
@@ -314,22 +357,29 @@
 
       <div class="service-img-block">
         <img decoding="async" loading="lazy" src="../img/projects/ppg-formosa.jpg" alt="台塑仁武 PPG 塗料實績照">
-        <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem;">
+        <div style="position: absolute; bottom: 14px; left: 14px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 0.88rem;">
           台塑仁武 AI 研發中心 ｜ PPG 高耐候氟碳漆塗裝
         </div>
       </div>
     </section>
 
-    <!-- 03: 外牆翻新拉皮 (文字在左 42%, 照片在右 58%) -->
+    <!-- 03: 外牆翻新拉皮 -->
     <section class="service-alt-row" id="renovation">
       <div class="service-text-block">
         <span class="section-num-accent">03 / RENOVATION</span>
         <h2 class="section-service-title">外牆翻新與美學重塑工程</h2>
-        <p class="section-service-desc">
+        
+        <div class="mobile-highlight-bar">
+          <span class="mobile-hl-tag">結構安全診斷</span>
+          <span class="mobile-hl-tag">GRC輕量飾材</span>
+          <span class="mobile-hl-tag">PPG一條龍施工</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--soft-body); line-height: 1.75; margin-bottom: 16px;">
           針對老舊透天與大樓磁磚剝落、壁癌滲水等安全隱憂，提供整合「結構診斷 ➔ GRC 輕量飾材 ➔ PPG 耐候塗裝」的一條龍整建服務。
         </p>
 
-        <div style="background: #ffffff; padding: 16px 20px; border-radius: 8px; border: 1px solid #e5e5ea; font-size: 0.86rem; color: var(--soft-slate); line-height: 1.7; margin-bottom: 24px;">
+        <div style="background: #ffffff; padding: 14px 16px; border-radius: 8px; border: 1px solid #e5e5ea; font-size: 0.84rem; color: var(--soft-slate); line-height: 1.6; margin-bottom: 20px;">
           欲體驗正宗外牆拉皮 Before/After 左右拖曳動態對比，請前往案例分享頁面。
         </div>
 
@@ -338,7 +388,7 @@
 
       <div class="service-img-block">
         <img decoding="async" loading="lazy" src="../img/projects/case01-after.jpg" alt="台南透天拉皮完工照">
-        <div style="position: absolute; bottom: 16px; left: 16px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 0.82rem;">
+        <div style="position: absolute; bottom: 14px; left: 14px; background: rgba(28,28,30,0.85); backdrop-filter: blur(8px); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 0.8rem;">
           台南北區透天厝拉皮案 ｜ GRC 飾材與多彩漆防護工程
         </div>
       </div>
