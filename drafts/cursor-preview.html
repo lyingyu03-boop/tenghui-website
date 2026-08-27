@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>騰煇企業 ｜ 電腦版雙環跟隨滑鼠動態預覽</title>
+  <link rel="stylesheet" href="../css/style.css?v=20260827_cursor2">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    body { background: #fafafa; color: #1c1c1e; padding-bottom: 100px; cursor: default; }
+
+    /* 🎨 滑鼠雙環跟隨動態 (內實心圓點 + 外細線圓環) */
+    @media (hover: hover) and (pointer: fine) {
+      .cursor-dot {
+        position: fixed;
+        top: 0; left: 0;
+        width: 10px; height: 10px;
+        background: #ea580c; /* 預設暖橘色 */
+        border-radius: 50%;
+        pointer-events: none !important;
+        z-index: 999999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.05s ease-out, background 0.3s ease;
+      }
+      .cursor-ring {
+        position: fixed;
+        top: 0; left: 0;
+        width: 44px; height: 44px;
+        background: rgba(234, 88, 12, 0.05);
+        border: 1.5px solid rgba(234, 88, 12, 0.55);
+        border-radius: 50%;
+        pointer-events: none !important;
+        z-index: 999998;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.3s ease, background 0.3s ease,
+                    transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 11px; font-weight: 800; color: #ffffff; letter-spacing: 1px;
+      }
+
+      /* 懸浮在按鈕或卡片上時，外環擴大並轉為深色質感 */
+      .cursor-ring.hover-active {
+        width: 68px; height: 68px;
+        background: rgba(28, 28, 30, 0.88);
+        border-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+      .cursor-ring.click-active {
+        transform: translate(-50%, -50%) scale(0.82);
+      }
+
+      /* 紅色主題 (騰煇品牌紅) */
+      body.theme-red .cursor-dot { background: #d62828; }
+      body.theme-red .cursor-ring { border-color: rgba(214, 40, 40, 0.6); background: rgba(214, 40, 40, 0.05); }
+    }
+
+    .hero-demo {
+      background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+      color: #ffffff;
+      padding: 80px 40px;
+      border-radius: 24px;
+      margin: 40px auto;
+      max-width: 1100px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .demo-card {
+      background: #ffffff;
+      border: 1px solid #e5e5ea;
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .demo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .btn-toggle {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      color: #1e293b;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-toggle:hover {
+      border-color: #ea580c;
+      transform: scale(1.04);
+    }
+    .btn-toggle.active {
+      background: #1e293b; color: #fff; border-color: #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 滑鼠雙環節點 -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"><span id="cursorText"></span></div>
+
+  <div style="max-width: 1100px; margin: 40px auto 0; padding: 0 20px;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #ea580c; letter-spacing: 2px;">CUSTOM DUAL-RING CURSOR ORB DEMO</span>
+        <h1 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: #1c1c1e; margin-top: 6px;">
+          電腦版「經典橘 / 騰煇紅」雙環跟隨滑鼠動態預覽
+        </h1>
+      </div>
+
+      <!-- 配色切換按鈕 -->
+      <div style="display: flex; gap: 12px;">
+        <button class="btn-toggle active" onclick="setTheme('orange')" id="btnOrange">
+          <span style="width: 12px; height: 12px; background: #ea580c; border-radius: 50%;"></span>
+          安朔經典橘
+        </button>
+        <button class="btn-toggle" onclick="setTheme('red')" id="btnRed">
+          <span style="width: 12px; height: 12px; background: #d62828; border-radius: 50%;"></span>
+          騰煇品牌紅
+        </button>
+      </div>
+    </div>
+
+    <p style="font-size: 1.05rem; color: #475569; margin-top: 16px; line-height: 1.6;">
+      請在電腦畫面上移動滑鼠！滑鼠包含 **內實心圓點** + **外細線跟隨圓環**。移入按鈕或卡片時，外環會平滑擴大並加入磁吸與「查看」標籤。手機與平板端自動停用，100% 零干擾！
+    </p>
+  </div>
+
+  <div class="hero-demo">
+    <span style="background: rgba(255,255,255,0.15); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;">TEST AREA 01 ｜ 深色光影區</span>
+    <h2 style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; margin: 16px 0 12px;">將滑鼠移入此區域體驗深色透光</h2>
+    <p style="color: #a1a1aa; max-width: 600px; margin: 0 auto 28px;">雙環跟隨動畫具備物理緩動性，移動時充滿靈動彈性。</p>
+    <a href="../services.html" class="interactive-hover" data-cursor-text="探索" style="display: inline-block; background: #ea580c; color: #ffffff; font-weight: 800; padding: 14px 36px; border-radius: 30px; text-decoration: none; box-shadow: 0 8px 25px rgba(234,88,12,0.4);" id="demoCta">
+      前往服務項目頁 ➔
+    </a>
+  </div>
+
+  <div class="demo-grid">
+    <div class="demo-card interactive-hover" data-cursor-text="檢視">
+      <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 10px;">01 ｜ GRC 特殊造型工程</h3>
+      <p style="color: #64748b; line-height: 1.6;">1:1 開模翻模高精度放樣預鑄落地，挑戰複雜造型外牆。</p>
+    </div>
+
+    <div class="demo-card interactive-hover" data-cursor-text="3D 拆解">
+      <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 10px;">02 ｜ 2604 劍湖山 4D-BIM</h3>
+      <p style="color: #64748b; line-height: 1.6;">預先干涉碰撞檢查，手機 Web3D 雲端互動拆解。</p>
+    </div>
+
+    <div class="demo-card interactive-hover" data-cursor-text="了解">
+      <h3 style="font-size: 1.4rem; font-weight: 900; margin-bottom: 10px;">03 ｜ PPG 建築外牆塗料</h3>
+      <p style="color: #64748b; line-height: 1.6;">臻石漆耐候防護，提供 20 年抗 UV 與自潔強悍性能。</p>
+    </div>
+  </div>
+
+  <script>
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    const text = document.getElementById('cursorText');
+
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      if (dot) {
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
+      }
+    });
+
+    function animateCursor() {
+      // 緩動跟隨插值 Lerp (0.16 比例)
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
+
+      if (ring) {
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+      }
+
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    const interactiveElements = document.querySelectorAll('.interactive-hover, a, button, .demo-card');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.classList.add('hover-active');
+        const customText = el.getAttribute('data-cursor-text') || 'VIEW';
+        text.innerText = customText;
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.classList.remove('hover-active');
+        text.innerText = '';
+      });
+    });
+
+    document.addEventListener('mousedown', () => {
+      ring.classList.add('click-active');
+    });
+    document.addEventListener('mouseup', () => {
+      ring.classList.remove('click-active');
+    });
+
+    function setTheme(theme) {
+      const btnOrange = document.getElementById('btnOrange');
+      const btnRed = document.getElementById('btnRed');
+      const demoCta = document.getElementById('demoCta');
+
+      if (theme === 'red') {
+        document.body.classList.add('theme-red');
+        btnOrange.classList.remove('active');
+        btnRed.classList.add('active');
+        if (demoCta) demoCta.style.background = '#d62828';
+      } else {
+        document.body.classList.remove('theme-red');
+        btnOrange.classList.add('active');
+        btnRed.classList.remove('active');
+        if (demoCta) demoCta.style.background = '#ea580c';
+      }
+    }
+  </script>
+</body>
+</html>
