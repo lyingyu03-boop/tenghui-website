@@ -9,7 +9,7 @@
   <meta name="description" content="騰煇企業沿革自台安藝品工業社，深耕台灣外牆與造型工程四十餘年。擁有專業GRC預鑄廠區、3D BIM放樣技術與頂尖工班團隊。">
     <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
   <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
-  <link rel="stylesheet" href="css/style.css?v=20260827_aura">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
   <script>
@@ -506,48 +506,6 @@
         return false;
       }
     });
-  </script>
-  <!-- 🌌 騰煇專屬：奢華液態光斑滑鼠動態 (Luminous Ambient Aura Cursor) -->
-  <div class="teng-cursor-dot" id="tengCursorDot"></div>
-  <div class="teng-cursor-aura" id="tengCursorAura"><span id="tengCursorText"></span></div>
-  <script>
-    (function() {
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        var dot = document.getElementById('tengCursorDot');
-        var aura = document.getElementById('tengCursorAura');
-        var txt = document.getElementById('tengCursorText');
-        var mX = -100, mY = -100, aX = -100, aY = -100;
-
-        document.addEventListener('mousemove', function(e) {
-          mX = e.clientX; mY = e.clientY;
-          if (dot) { dot.style.left = mX + 'px'; dot.style.top = mY + 'px'; }
-        });
-
-        function anim() {
-          aX += (mX - aX) * 0.16;
-          aY += (mY - aY) * 0.16;
-          if (aura) { aura.style.left = aX + 'px'; aura.style.top = aY + 'px'; }
-          requestAnimationFrame(anim);
-        }
-        anim();
-
-        var interactiveEls = document.querySelectorAll('a, button, .service-card-rwd, .project-card-clean, .interactive-hover');
-        interactiveEls.forEach(function(el) {
-          el.addEventListener('mouseenter', function() {
-            if (aura) aura.classList.add('hover-active');
-            var t = el.getAttribute('data-cursor-text') || 'VIEW';
-            if (txt) txt.innerText = t;
-          });
-          el.addEventListener('mouseleave', function() {
-            if (aura) aura.classList.remove('hover-active');
-            if (txt) txt.innerText = '';
-          });
-        });
-
-        document.addEventListener('mousedown', function() { if (aura) aura.classList.add('click-active'); });
-        document.addEventListener('mouseup', function() { if (aura) aura.classList.remove('click-active'); });
-      }
-    })();
   </script>
 
 </body>
