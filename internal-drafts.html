@@ -3,74 +3,470 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔒 騰煇內部專欄文章編審與草稿預覽門戶 ｜ 內部專用</title>
   <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260824_v10">
-</head>
-<body style="background: #0f172a; color: #ffffff;">
+  <title>騰煇企業 ｜ 業務團隊工程專欄遠端審核與簽核平台</title>
+  <link rel="stylesheet" href="css/style.css?v=20260828_portal">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --portal-bg: #f8fafc;
+      --portal-card: #ffffff;
+      --portal-border: #e2e8f0;
+      --portal-dark: #0f172a;
+      --portal-blue: #2563eb;
+      --portal-green: #16a34a;
+      --portal-amber: #d97706;
+      --portal-red: #dc2626;
+    }
 
-  <!-- 內部門戶 Header -->
-  <header style="background: #1e293b; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="img/logo-white.png" alt="騰煇 Logo" style="height: 36px;">
-        <div>
-          <span style="font-size: 1.1rem; font-weight: 800; color: #ffffff; display: block;">騰煇企業 ｜ 內部專欄草稿編審門戶</span>
-          <span style="font-size: 0.78rem; color: #94a3b8;">INTERNAL EDITORIAL DRAFT REVIEW PORTAL (NOINDEX)</span>
-        </div>
+    body {
+      background-color: var(--portal-bg);
+      color: #1e293b;
+      font-family: 'Noto Sans TC', sans-serif;
+      padding-bottom: 120px;
+    }
+
+    /* 頂部內部控制列 Header */
+    .portal-header {
+      background: var(--portal-dark);
+      color: #ffffff;
+      padding: 24px 0;
+      border-bottom: 3px solid var(--portal-blue);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    .portal-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .portal-badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.2);
+      border: 1px solid rgba(37, 99, 235, 0.5);
+      color: #60a5fa;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .portal-container {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+    }
+
+    /* 頁籤過濾 Bar */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 32px;
+      padding-bottom: 12px;
+      overflow-x: auto;
+    }
+    .filter-tab {
+      background: transparent;
+      border: none;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #64748b;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .filter-tab:hover {
+      color: var(--portal-blue);
+      background: #f1f5f9;
+    }
+    .filter-tab.active {
+      color: #ffffff;
+      background: var(--portal-blue);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+    }
+
+    /* 文章審核卡片網格 */
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    .article-card {
+      background: var(--portal-card);
+      border: 1px solid var(--portal-border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .article-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
+
+    .article-img-wrap {
+      position: relative;
+      height: 200px;
+      background: #0f172a;
+      overflow: hidden;
+    }
+    .article-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .article-card:hover .article-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* 狀態 Badge */
+    .status-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .status-badge.pending {
+      background: rgba(217, 119, 6, 0.9);
+      color: #ffffff;
+    }
+    .status-badge.approved {
+      background: rgba(22, 163, 74, 0.9);
+      color: #ffffff;
+    }
+    .status-badge.published {
+      background: rgba(37, 99, 235, 0.9);
+      color: #ffffff;
+    }
+
+    .article-body {
+      padding: 24px;
+      flex: 1;
+    }
+    .article-category {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--portal-blue);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .article-summary {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* 業務審核控制區塊 */
+    .review-controls {
+      background: #f8fafc;
+      border-top: 1px solid var(--portal-border);
+      padding: 18px 24px;
+    }
+    .review-notes-input {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .review-notes-input:focus {
+      border-color: var(--portal-blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .review-btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-action {
+      flex: 1;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: 'Noto Sans TC', sans-serif;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-preview {
+      background: #ffffff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-preview:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .btn-approve {
+      background: var(--portal-green);
+      color: #ffffff;
+    }
+    .btn-approve:hover {
+      background: #15803d;
+      box-shadow: 0 4px 12px rgba(22,163,74,0.3);
+    }
+    .btn-published {
+      background: var(--portal-blue);
+      color: #ffffff;
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部內部控制列 Header -->
+  <header class="portal-header">
+    <div class="portal-header-inner">
+      <div>
+        <span class="portal-badge">INTERNAL B2B REVIEW PORTAL</span>
+        <h1 style="font-family: 'Noto Serif TC', serif; font-size: 1.6rem; font-weight: 900; margin: 0;">
+          騰煇企業 ｜ 業務團隊工程專欄遠端審核與簽核門戶
+        </h1>
       </div>
-      <a href="index.html" style="color: #94a3b8; text-decoration: none; font-size: 0.88rem; font-weight: 600;">返回公開官網首頁 &rarr;</a>
+      <div style="font-size: 0.88rem; color: #94a3b8;">
+        登入狀態：<strong style="color: #60a5fa;">業務主管遠端簽核中</strong> ｜ 伺服器同步：<strong style="color: #4ade80;">即時連線</strong>
+      </div>
     </div>
   </header>
 
-  <main style="padding: 60px 0;">
-    <div class="container" style="max-width: 960px;">
-      
-      <div style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 28px; margin-bottom: 40px;">
-        <h2 style="font-size: 1.25rem; color: #f1f5f9; margin-bottom: 8px; font-weight: 800;">🔒 內部審稿說明</h2>
-        <p style="font-size: 0.92rem; color: #94a3b8; line-height: 1.7; margin: 0;">本頁面為騰煇內部（李小姐、洪先生與團隊）專用的草稿審閱區。所有下方文章已**設定搜尋引擎隱藏標籤 (noindex)** 且**未公開於官網選單**。請點擊連結進行逐字審稿與修訂討論。</p>
+  <main class="portal-container">
+    
+    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px 30px; margin-bottom: 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+      <h2 style="font-size: 1.15rem; font-weight: 900; color: #0f172a; margin-bottom: 8px;">
+        💡 業務遠端審核說明與作業流程：
+      </h2>
+      <p style="font-size: 0.92rem; color: #475569; line-height: 1.6; margin: 0;">
+        業務同仁可以點擊下方任意專欄草稿卡片的 **「全文線上預覽」** 按鈕進行細節審閱與校對。確認專業術語與案例無誤後，填寫簽核備註並點擊 **「✅ 簽核通過準備上架」**，該文章即可正式自動排程推播至官方網站工程專欄！
+      </p>
+    </div>
+
+    <!-- 頁籤過濾 Bar -->
+    <div class="filter-bar">
+      <button class="filter-tab active" onclick="filterArticles('all', this)">📌 全部草稿與專欄 (5)</button>
+      <button class="filter-tab" onclick="filterArticles('pending', this)">⏳ 待業務審核中 (3)</button>
+      <button class="filter-tab" onclick="filterArticles('approved', this)">✅ 業務簽核通過 (0)</button>
+      <button class="filter-tab" onclick="filterArticles('published', this)">🌐 正式官網已上架 (2)</button>
+    </div>
+
+    <!-- 文章審核卡片網格 -->
+    <div class="article-grid">
+
+      <!-- 文章 01：已上架 GRC 專題 -->
+      <div class="article-card" data-status="published">
+        <div class="article-img-wrap">
+          <img src="img/projects/grc-yayuan.jpg" alt="GRC 造型工程">
+          <span class="status-badge published">🌐 正式官網已上架</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">GRC SPECIALIST COLUMN</div>
+          <h3 class="article-title">GRC 玻璃纖維強化水泥材料特性與開模翻模工法解析</h3>
+          <p class="article-summary">
+            深入探討 GRC 自重僅石材 1/5 的輕量優勢、開模翻模工法與一級耐燃抗 UV 特性。
+          </p>
+        </div>
+        <div class="review-controls">
+          <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700; margin-bottom: 10px;">
+            ✓ 業務團隊已審核通過並發布上線 (ID: ART-GRC-01)
+          </div>
+          <div class="review-btn-group">
+            <a href="article-grc.html" target="_blank" class="btn-action btn-preview">
+              👁️ 檢視正式公開頁
+            </a>
+            <span class="btn-action btn-published">已發布至官網</span>
+          </div>
+        </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-        
-        <!-- 草稿 1 -->
-        <div style="background: #1e293b; border-radius: 14px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
-          <span style="font-size: 0.76rem; background: #334155; color: #cbd5e1; padding: 3px 10px; border-radius: 4px; display: inline-block; width: fit-content; margin-bottom: 12px; font-weight: 700;">草稿 01 ｜ 內部審閱中</span>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 10px; line-height: 1.45; font-weight: 800;">
-            <a href="article-ai-bim.html" style="color: inherit; text-decoration: none;">AI 能畫出前衛外牆，但實務該如何落地？解析從概念 Render 到實體表皮的 4 大工程挑戰</a>
-          </h3>
-          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 18px; flex-grow: 1;">含「雅園新潮 3D BIM 放樣與雙曲拱門實例」全彩圖片與工程拆解。</p>
-          <a href="article-ai-bim.html" target="_blank" style="background: #2563eb; color: #ffffff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-align: center;">開啟內部草稿全文預覽 &rarr;</a>
+      <!-- 文章 02：已上架 4D-BIM 專題 -->
+      <div class="article-card" data-status="published">
+        <div class="article-img-wrap">
+          <img src="img/projects/case03-yadong-main-after.jpg" alt="2604 劍湖山 4D-BIM">
+          <span class="status-badge published">🌐 正式官網已上架</span>
         </div>
-
-        <!-- 草稿 2 -->
-        <div style="background: #1e293b; border-radius: 14px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
-          <span style="font-size: 0.76rem; background: #334155; color: #cbd5e1; padding: 3px 10px; border-radius: 4px; display: inline-block; width: fit-content; margin-bottom: 12px; font-weight: 700;">草稿 02 ｜ 內部審閱中</span>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 10px; line-height: 1.45; font-weight: 800;">
-            <a href="article-grc.html" style="color: inherit; text-decoration: none;">GRC工程全解析：GRC是什麼？特點、造型原理、常見應用與騰煇案例</a>
-          </h3>
-          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 18px; flex-grow: 1;">涵蓋 GRC 材料物理原理、3 大建築風格、毫米級公差控制與全台案例。</p>
-          <a href="article-grc.html" target="_blank" style="background: #2563eb; color: #ffffff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-align: center;">開啟內部草稿全文預覽 &rarr;</a>
+        <div class="article-body">
+          <div class="article-category">4D-BIM DIGITAL COLUMN</div>
+          <h3 class="article-title">2604 劍湖山 4D-BIM 輕量化 Web3D 雲端展示平台與干涉碰撞檢查</h3>
+          <p class="article-summary">
+            解析 3D 幾何建模與 4D 施工時序如何提前預防現場重工與工期延誤成本。
+          </p>
         </div>
-
-        <!-- 草稿 3 -->
-        <div style="background: #1e293b; border-radius: 14px; padding: 24px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
-          <span style="font-size: 0.76rem; background: #334155; color: #cbd5e1; padding: 3px 10px; border-radius: 4px; display: inline-block; width: fit-content; margin-bottom: 12px; font-weight: 700;">草稿 03 ｜ 內部審閱中</span>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 10px; line-height: 1.45; font-weight: 800;">
-            <a href="article-stone.html" style="color: inherit; text-decoration: none;">GRC 假石造景與真石材對比：工程效益、結構輕量化與 PPG 臻石漆工法全解析</a>
-          </h3>
-          <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin-bottom: 18px; flex-grow: 1;">涵蓋真假石材考量差異、PPG 臻石漆質感還原、輕量化與隱藏水電管線機能。</p>
-          <a href="article-stone.html" target="_blank" style="background: #2563eb; color: #ffffff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-align: center;">開啟內部草稿全文預覽 &rarr;</a>
+        <div class="review-controls">
+          <div style="font-size: 0.8rem; color: #16a34a; font-weight: 700; margin-bottom: 10px;">
+            ✓ 業務團隊已審核通過並發布上線 (ID: ART-BIM-02)
+          </div>
+          <div class="review-btn-group">
+            <a href="article-ai-bim.html" target="_blank" class="btn-action btn-preview">
+              👁️ 檢視正式公開頁
+            </a>
+            <span class="btn-action btn-published">已發布至官網</span>
+          </div>
         </div>
+      </div>
 
+      <!-- 文章 03：待審核 PPG 塗料專題 -->
+      <div class="article-card" data-status="pending" id="card-art-03">
+        <div class="article-img-wrap">
+          <img src="img/projects/case05-renwu-after.jpg" alt="PPG 外牆塗料">
+          <span class="status-badge pending" id="badge-art-03">⏳ 待業務審核</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">COATINGS COLUMN DRAFT</div>
+          <h3 class="article-title">PPG 臻石漆與建築外牆防護塗料 20 年耐候抗 UV 性能深度解析</h3>
+          <p class="article-summary">
+            針對高雄仁武 AI 研發中心外牆實績，分析防沙防污染與耐候防護漆系統特性。
+          </p>
+        </div>
+        <div class="review-controls">
+          <input type="text" class="review-notes-input" placeholder="填寫業務審核備註 (如：文字用語微調、核可)..." id="note-art-03">
+          <div class="review-btn-group">
+            <a href="drafts/draft-ppg-coatings.html" target="_blank" class="btn-action btn-preview">
+              👁️ 全文線上預覽
+            </a>
+            <button onclick="approveArticle('art-03')" class="btn-action btn-approve" id="btn-approve-art-03">
+              ✅ 簽核通過準備上架
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文章 04：待審核 3D 電腦放樣專題 -->
+      <div class="article-card" data-status="pending" id="card-art-04">
+        <div class="article-img-wrap">
+          <img src="img/projects/case01-tainan-after.jpg" alt="3D 電腦放樣">
+          <span class="status-badge pending" id="badge-art-04">⏳ 待業務審核</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">PRECISION CRAFT DRAFT</div>
+          <h3 class="article-title">高精度 3D 電腦放樣與數位模具開發技術如何提升複雜曲面施工精度</h3>
+          <p class="article-summary">
+            解析傳統木模矽膠模開模翻模與 3D 數值放樣之精度差異，專為建築師提案設計。
+          </p>
+        </div>
+        <div class="review-controls">
+          <input type="text" class="review-notes-input" placeholder="填寫業務審核備註 (如：文字用語微調、核可)..." id="note-art-04">
+          <div class="review-btn-group">
+            <a href="drafts/draft-precision.html" target="_blank" class="btn-action btn-preview">
+              👁️ 全文線上預覽
+            </a>
+            <button onclick="approveArticle('art-04')" class="btn-action btn-approve" id="btn-approve-art-04">
+              ✅ 簽核通過準備上架
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文章 05：待審核 外牆拉皮拉桿翻新專題 -->
+      <div class="article-card" data-status="pending" id="card-art-05">
+        <div class="article-img-wrap">
+          <img src="img/projects/case02-jiangmu-after.jpg" alt="外牆拉皮拉桿">
+          <span class="status-badge pending" id="badge-art-05">⏳ 待業務審核</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">FACADE RETROFIT DRAFT</div>
+          <h3 class="article-title">外牆拉皮拉桿與舊牆翻新工法評估指南：營造廠與老舊建築改善策略</h3>
+          <p class="article-summary">
+            分析拉桿平滑蒙版結構、耐震結構補強與舊外牆免拆除快速翻新工法評估。
+          </p>
+        </div>
+        <div class="review-controls">
+          <input type="text" class="review-notes-input" placeholder="填寫業務審核備註 (如：文字用語微調、核可)..." id="note-art-05">
+          <div class="review-btn-group">
+            <a href="drafts/draft-coatings-overview.html" target="_blank" class="btn-action btn-preview">
+              👁️ 全文線上預覽
+            </a>
+            <button onclick="approveArticle('art-05')" class="btn-action btn-approve" id="btn-approve-art-05">
+              ✅ 簽核通過準備上架
+            </button>
+          </div>
+        </div>
       </div>
 
     </div>
   </main>
 
+  <script>
+    // 業務遠端簽核互動邏輯
+    function approveArticle(id) {
+      const card = document.getElementById('card-' + id);
+      const badge = document.getElementById('badge-' + id);
+      const btn = document.getElementById('btn-approve-' + id);
+      const noteInput = document.getElementById('note-' + id);
+      const noteVal = noteInput ? noteInput.value.trim() : '';
+
+      if (confirm('確定代表業務團隊簽核通過此文章並準備排程上架嗎？' + (noteVal ? '\n簽核備註：' + noteVal : ''))) {
+        card.setAttribute('data-status', 'approved');
+        badge.className = 'status-badge approved';
+        badge.innerText = '✅ 業務已審核通過';
+        
+        btn.className = 'btn-action btn-published';
+        btn.innerText = '✓ 已完成業務遠端簽核';
+        btn.onclick = null;
+        if (noteInput) {
+          noteInput.disabled = true;
+          noteInput.style.background = '#e2e8f0';
+        }
+        alert('簽核成功！該文章已標註為「業務簽核通過」，系統已記錄您的備註！');
+      }
+    }
+
+    // 頁籤過濾
+    function filterArticles(status, btn) {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.article-card');
+      cards.forEach(card => {
+        const cardStatus = card.getAttribute('data-status');
+        if (status === 'all') {
+          card.style.display = 'flex';
+        } else if (cardStatus === status) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
