@@ -232,14 +232,37 @@
 
     <!-- 頁籤過濾 Bar -->
     <div class="filter-bar">
-      <button class="filter-tab active" onclick="filterArticles('all', this)">全部 (5)</button>
-      <button class="filter-tab" onclick="filterArticles('pending', this)">待審核 (3)</button>
+      <button class="filter-tab active" onclick="filterArticles('all', this)">全部 (6)</button>
+      <button class="filter-tab" onclick="filterArticles('pending', this)">待審核 (4)</button>
       <button class="filter-tab" onclick="filterArticles('approved', this)">已簽核 (0)</button>
       <button class="filter-tab" onclick="filterArticles('published', this)">已上架 (2)</button>
     </div>
 
     <!-- 文章審核卡片網格 -->
     <div class="article-grid">
+
+      <!-- 文章 06 (漏斗 01)：待審核 外牆拉皮評估專題 -->
+      <div class="article-card" data-status="pending" id="card-art-06">
+        <div class="article-img-wrap">
+          <img src="img/projects/case02-jiangmu-after.jpg" alt="老屋外牆拉皮翻新">
+          <span class="status-badge pending" id="badge-art-06">待審核</span>
+        </div>
+        <div class="article-body">
+          <div class="article-category">拉皮專題 ｜ 漏斗 01</div>
+          <h3 class="article-title">外牆拉皮不是重新油漆：翻新前先評估 4 大關鍵</h3>
+          <p class="article-summary">
+            解析老屋外牆拉皮與基面診斷。透氣防滲、磁磚脫落安全與 PPG/GRC 一條龍整合。
+          </p>
+        </div>
+        <div class="review-controls">
+          <input type="text" class="review-notes-input" placeholder="審核備註 (選填)..." id="note-art-06">
+          <div class="review-btn-group">
+            <a href="drafts/article-01-facade-retrofit.html" target="_blank" class="btn-action btn-preview">👁️ 預覽</a>
+            <button onclick="approveArticle('art-06')" class="btn-action btn-approve" id="btn-approve-art-06">✅ 簽核通過</button>
+          </div>
+        </div>
+      </div>
+
 
       <!-- 文章 01：已上架 GRC 專題 -->
       <div class="article-card" data-status="published">
