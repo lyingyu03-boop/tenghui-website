@@ -242,7 +242,40 @@
       transition: all 0.2s ease;
     }
     .modal-close:hover { background: var(--accent-gold); color: #000; }
-  </style>
+  
+    /* Playlist Button Styling (Left Menu) */
+    .playlist-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25 ease;
+      width: 100%;
+    }
+    .playlist-btn:hover {
+      background: rgba(197, 160, 89, 0.15);
+      border-color: var(--accent-gold);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+    .playlist-btn.active {
+      background: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: #0b0f19;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
+    }
+    .playlist-btn .play-icon { font-size: 0.75rem; opacity: 0.8; }
+    .playlist-btn.active .play-icon { color: #0b0f19; opacity: 1; }
+</style>
 </head>
 <body>
 
@@ -258,7 +291,7 @@
 
     <div class="header-actions">
       <button class="btn-action" onclick="toggleTheme()">🎨 主題切換 (深色 ↔ 明亮)</button>
-      <button class="btn-action" onclick="openVideoSelector()">🎬 影音劇院 (9支原廠實景影片)</button>
+      <button class="btn-action" onclick="openVideoSelector()">🎬 影音劇院 (8 支工程實景影片)</button>
     </div>
   </header>
 
@@ -749,34 +782,69 @@
     <button class="nav-btn" onclick="nextSlide()">下一頁 (Right Arrow) ►</button>
   </footer>
 
-  <!-- Video Selector Modal -->
+  <!-- Video Selector Modal (Split Layout: Left Playlist, Right Player) -->
   <div class="modal-overlay" id="videoSelectorModal">
-    <div class="modal-content">
+    <div class="modal-content" style="max-width: 1100px; width: 94%; padding: 28px; background: #0b0f19; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.8); border-radius: 16px;">
       <button class="modal-close" onclick="closeVideoSelector()">✕</button>
-      <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--accent-gold); font-family: 'Noto Serif TC', serif;">🎬 騰煇實景影音劇院 (9 支原廠工程影片庫)</h3>
       
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 50vh; overflow-y: auto; padding-right: 8px;">
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4', '01. Web3D ✕ 4D-BIM 雲端放樣平台展示')">▶ 01. Web3D ✕ 4D-BIM 雲端放樣平台展示</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/05_GRC廠區開模與高空吊裝實景影片.mp4', '02. GRC 廠區開模與高空吊裝實景')">▶ 02. GRC 廠區開模與高空吊裝實景</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4', '03. GRC 現場高空定位與鋼骨吊裝實況')">▶ 03. GRC 現場高空定位與鋼骨吊裝實況</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4', '04. 專利窗台導水板 排水測試實況')">▶ 04. 專利窗台導水板 排水測試實況</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_05_VAHUlUK3zvM.mp4', '05. 專利窗台導水板 鎖固卡扣升級版')">▶ 05. 專利窗台導水板 鎖固卡扣升級版</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_04_VAHUlStSVro.mp4', '06. PPG 塗料 8 年完工耐候實測')">▶ 06. PPG 塗料 8 年完工耐候實測</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_02_media1.mp4', '07. PPG 建築塗料透氣不透水測試')">▶ 07. PPG 建築塗料透氣不透水測試</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_01_media2.mp4', '08. PPG 佩能漆防護與噴塗實驗')">▶ 08. PPG 佩能漆防護與噴塗實驗</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_02_VAHUlvk_EH8.mp4', '09. PPG ✕ 騰煇 建築塗料實績紀錄')">▶ 09. PPG ✕ 騰煇 建築塗料實績紀錄</button>
-      </div>
+      <div style="display: grid; grid-template-columns: 340px 1fr; gap: 24px; align-items: start;">
+        
+        <!-- Left Column: Playlist Menu -->
+        <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 20px;">
+          <div style="font-family: 'Noto Serif TC', serif; font-size: 1.2rem; font-weight: 900; color: #ffffff; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <span style="color: var(--accent-gold);">🎬</span> 騰煇工程實景劇院
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;">點擊左側選單，右側即時切換播放：</div>
 
-      <div style="margin-top: 16px; display: none;" id="playerContainer">
-        <h4 id="videoTitleDisplay" style="color: #fff; margin-bottom: 8px; font-size: 1rem;">播放中...</h4>
-        <video id="theaterPlayer" controls style="width: 100%; border-radius: 8px; max-height: 48vh;">
-          <source src="" type="video/mp4">
-        </video>
+          <div style="display: flex; flex-direction: column; gap: 8px; max-height: 60vh; overflow-y: auto; padding-right: 6px;" id="playlistContainer">
+            <button class="playlist-btn active" onclick="playSelectedVideo('videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4', '1. Web3D ✕ 4D-BIM', this)">
+              <span class="play-icon">▶</span> 1. Web3D ✕ 4D-BIM
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/05_GRC廠區開模與高空吊裝實景影片.mp4', '2. GRC 工廠製程', this)">
+              <span class="play-icon">▶</span> 2. GRC 工廠製程
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4', '3. GRC 施作實記', this)">
+              <span class="play-icon">▶</span> 3. GRC 施作實記
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4', '4. 窗台導水板', this)">
+              <span class="play-icon">▶</span> 4. 窗台導水板
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_05_VAHUlUK3zvM.mp4', '5. 窗台導水板 鎖固卡扣升級版本', this)">
+              <span class="play-icon">▶</span> 5. 窗台導水板 鎖固卡扣升級版本
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_04_VAHUlStSVro.mp4', '6. PPG塗料完工8年案例', this)">
+              <span class="play-icon">▶</span> 6. PPG塗料完工8年案例
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_02_media1.mp4', '7. PPG塗料透氣不透水測試', this)">
+              <span class="play-icon">▶</span> 7. PPG塗料透氣不透水測試
+            </button>
+            <button class="playlist-btn" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_01_media2.mp4', '8. PPG塗料實驗', this)">
+              <span class="play-icon">▶</span> 8. PPG塗料實驗
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Player Display -->
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+            <div style="font-family: 'Noto Serif TC', serif; font-size: 1.15rem; font-weight: 800; color: #ffffff;" id="videoTitleDisplay">
+              1. Web3D ✕ 4D-BIM
+            </div>
+            <span style="font-size: 0.75rem; color: var(--accent-gold); font-family: 'Outfit', sans-serif; letter-spacing: 1px;">HD FULLSCREEN READY</span>
+          </div>
+
+          <div style="position: relative; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 12px 36px rgba(0,0,0,0.7);">
+            <video id="theaterPlayer" controls style="width: 100%; aspect-ratio: 16/9; max-height: 58vh; display: block;">
+              <source src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Image Lightbox Modal -->
+    <!-- Image Lightbox Modal -->
   <div class="modal-overlay" id="imageLightboxModal">
     <div class="modal-content" style="max-width: 900px; text-align: center; padding: 20px;">
       <button class="modal-close" onclick="closeLightbox()">✕</button>
@@ -821,14 +889,30 @@
       player.pause();
       modal.classList.remove('active');
     }
-    function playSelectedVideo(src, titleText) {
-      const container = document.getElementById('playerContainer');
+    function openVideoSelector() {
+      document.getElementById('videoSelectorModal').classList.add('active');
+      const player = document.getElementById('theaterPlayer');
+      if (!player.src || player.src.endsWith('.html')) {
+        player.src = 'videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4';
+      }
+    }
+    function closeVideoSelector() {
+      const modal = document.getElementById('videoSelectorModal');
+      const player = document.getElementById('theaterPlayer');
+      player.pause();
+      modal.classList.remove('active');
+    }
+    function playSelectedVideo(src, titleText, btnElem) {
       const player = document.getElementById('theaterPlayer');
       const title = document.getElementById('videoTitleDisplay');
-      container.style.display = 'block';
       title.innerText = titleText;
       player.src = src;
       player.play();
+      
+      if (btnElem) {
+        document.querySelectorAll('.playlist-btn').forEach(b => b.classList.remove('active'));
+        btnElem.classList.add('active');
+      }
     }
 
     function openLightbox(imgSrc, captionText) {
