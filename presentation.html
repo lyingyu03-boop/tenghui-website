@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>騰煇企業 ｜ 10分鐘 B2B 業務暨帷幕專家開場簡報</title>
+  <meta name="description" content="騰煇企業有限公司 40年外牆工程整合、GRC造型預鑄、PPG塗料與3D BIM數位放樣簡報。">
+  <link rel="icon" href="img/favicon-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-main: #0b0f19;
+      --bg-card: rgba(18, 24, 38, 0.85);
+      --bg-card-border: rgba(255, 255, 255, 0.12);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-highlight: #d97706;
+      --accent-gold: #c5a059;
+      --accent-red: #dc2626;
+      --accent-blue: #2563eb;
+      --nav-bg: rgba(11, 15, 25, 0.9);
+      --shadow-color: rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-highlight: #b45309;
+      --accent-gold: #b45309;
+      --accent-red: #dc2626;
+      --accent-blue: #1d4ed8;
+      --nav-bg: rgba(248, 250, 252, 0.92);
+      --shadow-color: rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Fixed Header Controls */
+    header.fixed-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 68px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bg-card-border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+    }
+
+    .brand-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo-img {
+      height: 38px; width: auto;
+    }
+    .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      letter-spacing: 1px;
+    }
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-action:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    /* Deck Viewport & Slides Container */
+    #deckViewport {
+      position: absolute;
+      top: 68px; bottom: 64px; left: 0; right: 0;
+      perspective: 1000px;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      padding: 40px 60px;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.95) translateZ(-50px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateZ(0);
+    }
+    .slide.prev-slide {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.05) translateZ(50px);
+    }
+
+    /* Slide Grid Layouts */
+    .slide-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      height: 100%;
+    }
+    .slide-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    /* Typography */
+    .badge-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+    }
+    .slide-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* Glass Cards */
+    .card-box {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 30px var(--shadow-color);
+      transition: all 0.3s ease;
+    }
+    .card-box:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Visual Media Boxes */
+    .media-box {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--bg-card-border);
+      box-shadow: 0 12px 36px var(--shadow-color);
+      background: #000;
+    }
+    .media-box img, .media-box video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .media-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* Bottom Control Console */
+    footer.control-console {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 64px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--bg-card-border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+    }
+
+    .nav-btn {
+      background: var(--accent-blue);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+    .slide-counter {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+
+    /* Progress Bar */
+    .progress-bar-wrap {
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      z-index: 101;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-gold);
+      width: 14%;
+      transition: width 0.4s ease;
+    }
+
+    /* Cinema Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(16px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      width: 90%; max-width: 960px;
+      padding: 24px;
+      color: #ffffff;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: none; border: none;
+      color: #ffffff; font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fixed Brand Header -->
+  <header class="fixed-header">
+    <div class="brand-logo-group">
+      <img src="img/tenghui-logo.png" alt="騰煇企業 Logo" class="brand-logo-img">
+      <div>
+        <div class="brand-title">騰煇企業 TENG SELENDOR</div>
+        <div class="brand-subtitle">40年外牆工藝 ✕ 3D BIM 數位轉型 ✕ 系統化工程整合</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn-action" onclick="toggleTheme()">🎨 切換主題：深色 ↔ 明亮</button>
+      <button class="btn-action" onclick="openCinemaModal('../螢幕錄製 2026-08-18 160413.mp4', '3D BIM 雲端展示與放樣錄影')">🎬 影音劇院</button>
+    </div>
+  </header>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Deck Viewport -->
+  <div id="deckViewport">
+
+    <!-- Slide 1: 封面與美學定位 -->
+    <section class="slide active" id="slide-1">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">SINCE 1981 ｜ 40年建築立面專家</span>
+          <h1 class="slide-title">精準，讓設計真正落地。</h1>
+          <p class="slide-subtitle">
+            歡迎兩位帷幕博士專家臨！騰煇企業深耕台灣 40 餘年，從傳統水泥藝品工藝，跨越至 3D BIM 數位放樣與系統化外牆工程整合。
+          </p>
+          <div style="display: flex; gap: 16px; margin-top: 20px;">
+            <div class="card-box" style="flex: 1; padding: 16px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">40+ 年</div>
+              <div class="card-text">極致工藝傳承</div>
+            </div>
+            <div class="card-box" style="flex: 1; padding: 16px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">150+ 案</div>
+              <div class="card-text">實體工程落地</div>
+            </div>
+            <div class="card-box" style="flex: 1; padding: 16px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">ISO 雙認證</div>
+              <div class="card-text">14064 / 14067 低碳</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-box" style="height: 440px;">
+          <img src="img/projects/grc-yayuan.jpg" alt="台中雅園新潮 GRC 雙曲拱門">
+          <div class="media-caption">台中雅園新潮 ｜ GRC 幾何雙曲面立面實體落地案例</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: 40年匠心底蘊與歷史演進 -->
+    <section class="slide" id="slide-2">
+      <span class="badge-tag">HERITAGE & EVOLUTION ｜ 品牌沿革</span>
+      <h2 class="slide-title">40 餘年，只做一件事：讓建築立面經得起歲月考驗</h2>
+      <p class="slide-subtitle">從民國 70 年台安藝品工業社的水泥工藝，演進為今日全台頂尖的外牆工程系統整合者。</p>
+
+      <div class="slide-grid-3">
+        <div class="card-box">
+          <div class="card-title">1981 年 (民國70年)</div>
+          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">台安藝品工業社起家</div>
+          <div class="card-text">深耕水泥製品與雕花工藝，打下厚實的水泥材料彈性、沉載與耐久度底蘊。</div>
+        </div>
+
+        <div class="card-box" style="border-color: var(--accent-gold);">
+          <div class="card-title" style="color: var(--accent-gold);">數位轉型時代</div>
+          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">騰煇企業 ✕ 3D BIM 導入</div>
+          <div class="card-text">導入 3D 空間放樣、CNC 數值控制打樣與 4D-BIM 雲端排錯，實現零重工施工。</div>
+        </div>
+
+        <div class="card-box">
+          <div class="card-title">永續與系統整合</div>
+          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">三大系統 ✕ 低碳 ESG</div>
+          <div class="card-text">整合 GRC 特殊造型、PPG 全球高耐候塗料與專利導水板，提供一站式連工帶料。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: 3D BIM 數位轉型與數位資產 -->
+    <section class="slide" id="slide-3">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">DIGITAL ASSETS ｜ 3D BIM 數位放樣</span>
+          <h2 class="slide-title">Render 設計圖，1:1 精準轉換為可施工構件</h2>
+          <p class="slide-subtitle">我們不做設計，而是作為建築師與帷幕專家最可靠的「3D 數位拆圖與施工落地夥伴」。</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="card-box" style="padding: 16px;">
+              <div class="card-title" style="font-size: 1rem;">1. 幾何曲面構件分割 (Panelization)</div>
+              <div class="card-text">電腦拆圖符合運輸限制與美學分割線，杜絕現場公差。</div>
+            </div>
+            <div class="card-box" style="padding: 16px;">
+              <div class="card-title" style="font-size: 1rem;">2. 鋼構鐵件碰撞檢查 (Clash Detection)</div>
+              <div class="card-text">3D 模型預先干涉排錯，避免現場高空作業重工延誤。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-box" style="height: 420px;">
+          <video autoplay loop muted playsinline>
+            <source src="img/4dbim-demo.mp4" type="video/mp4">
+          </video>
+          <div class="media-caption">3D BIM 建築模型空間剖面與預先干涉排錯錄影</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: 核心系統 01 —— GRC 特殊造型工程 -->
+    <section class="slide" id="slide-4">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">CORE SERVICE 01 ｜ GRC 特殊造型</span>
+          <h2 class="slide-title">GRC 玻璃纖維強化水泥：輕量、強韌、前衛雙曲面</h2>
+          <p class="slide-subtitle">厚度僅 15-25mm，重量只有傳統 RC 的 1/5，專治高難度立體外觀。</p>
+          
+          <div class="slide-grid-2" style="gap: 16px; margin-top: 10px;">
+            <div class="card-box" style="padding: 16px;">
+              <div class="card-title" style="font-size: 0.95rem;">高抗拉與高可塑</div>
+              <div class="card-text">玻璃纖維摻合水泥，完美呈現流線型雙曲面與歐式飾柱。</div>
+            </div>
+            <div class="card-box" style="padding: 16px;">
+              <div class="card-title" style="font-size: 0.95rem;">A1 級不燃與低碳</div>
+              <div class="card-text">水泥材質防火防潮，具備 ISO 碳足跡查證。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-box" style="height: 420px;">
+          <img src="img/projects/humei-dijing.jpg" alt="湖美帝景 GRC 歐式古典造型">
+          <div class="media-caption">台南湖美帝景 ｜ GRC 歐式古典立面預鑄工程</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: 核心系統 02 —— PPG 建築高耐候塗料 -->
+    <section class="slide" id="slide-5">
+      <div class="slide-grid-2">
+        <div class="media-box" style="height: 420px;">
+          <img src="img/projects/case05-renwu-after.jpg" alt="台塑仁武 AI 館 PPG 塗料">
+          <div class="media-caption">高雄台塑仁武 AI 研發中心 ｜ PPG 建築防護塗料連工帶料</div>
+        </div>
+
+        <div>
+          <span class="badge-tag">CORE SERVICE 02 ｜ PPG 全球第一塗料</span>
+          <h2 class="slide-title">PPG 授權經銷 ✕ 騰煇 5 大主力連工帶料</h2>
+          <p class="slide-subtitle">全球 Top 1 塗料技術，結合騰煇 5年＋5年 雙重原廠與施工保固。</p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.95rem; color: var(--accent-gold);">絢岩岩彩漆 (Granite Coating)</div>
+              <div class="card-text">單桶包覆色漿，一次噴塗即呈現媲美頂級花崗岩立體石紋。</div>
+            </div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.95rem;">龐亞漆 (Panya Coating)</div>
+              <div class="card-text">10 奈米級極小分子乳液，高附著力 (1.4MPa)，呈現質感清水模。</div>
+            </div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.95rem;">彈性佩能漆 ✕ 臻石漆 ✕ 雅飾彈性500</div>
+              <div class="card-text">自潔防污、抗 UV、覆蓋微細裂縫，長效保色 20 年。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: 核心系統 03 —— 專利窗台導水板與防水 -->
+    <section class="slide" id="slide-6">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">CORE SERVICE 03 ｜ 專利水痕防護</span>
+          <h2 class="slide-title">專利窗台導水板：根治滲水壁癌與牆面黑水痕</h2>
+          <p class="slide-subtitle">外部導水 ＋ 結構灌注，從源頭切斷雨水沿外牆下流的滲漏路徑。</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="card-box">
+              <div class="card-title">專利鎖固卡扣升級版</div>
+              <div class="card-text">提升高空構件穩定度，完美匹配現代窗框細部收邊。</div>
+            </div>
+            <div class="card-box">
+              <div class="card-title">老屋外牆免打除拉皮工法</div>
+              <div class="card-text">零粉塵、低噪音、工期短，免敲瓷磚直上防護塗料與乾式包板。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-box" style="height: 420px;">
+          <img src="img/projects/case04-tianwei-main-after.jpg" alt="田尾外牆導水與拉皮實績">
+          <div class="media-caption">專利窗台導水板與外牆細部防護實績</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: 跨界整合與熱烈歡迎 -->
+    <section class="slide" id="slide-7">
+      <div style="text-align: center; max-width: 860px; margin: 0 auto;">
+        <span class="badge-tag">EXPERT COLLABORATION ｜ 跨界聯手</span>
+        <h2 class="slide-title" style="font-size: 2.5rem;">攜手帷幕專家，共建頂級建築立面生態系</h2>
+        <p class="slide-subtitle">
+          感謝兩位帷幕博士專家臨！騰煇願作為帷幕與造型工程領域最堅實的落地製造與施工後盾。
+        </p>
+
+        <!-- 3 大推薦口訣包 -->
+        <div class="slide-grid-3" style="text-align: left; margin-bottom: 30px;">
+          <div class="card-box" style="border-color: var(--accent-gold);">
+            <div class="card-title" style="color: var(--accent-gold);">1. 曲面造型專案</div>
+            <div class="card-text">找騰煇做 3D BIM 拆圖放樣 ✕ GRC 輕量化預鑄連工帶料！</div>
+          </div>
+          <div class="card-box" style="border-color: var(--accent-blue);">
+            <div class="card-title" style="color: var(--accent-blue);">2. 建築塗料專案</div>
+            <div class="card-text">找騰煇做 PPG 原廠 5年+5年 雙重保固與高耐候噴塗！</div>
+          </div>
+          <div class="card-box" style="border-color: var(--accent-gold);">
+            <div class="card-title" style="color: var(--accent-gold);">3. 翻新與防護專案</div>
+            <div class="card-text">找騰煇做老屋免打除拉皮 ✕ 專利窗台導水板根治壁癌！</div>
+          </div>
+        </div>
+
+        <div style="font-weight: 800; font-size: 1.3rem; color: var(--accent-gold);">
+          熱烈歡迎兩位帷幕博士專家為我們做精彩分享！
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom Control Console -->
+  <footer class="control-console">
+    <button class="nav-btn" onclick="prevSlide()">◄ 上一頁 (Left Arrow)</button>
+
+    <div class="slide-counter" id="slideCounter">01 / 07</div>
+
+    <button class="nav-btn" onclick="nextSlide()">下一頁 (Right Arrow) ►</button>
+  </footer>
+
+  <!-- Cinema Modal -->
+  <div class="modal-overlay" id="cinemaModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeCinemaModal()">✕</button>
+      <h3 id="cinemaTitle" style="font-size: 1.2rem; margin-bottom: 16px; color: var(--accent-gold);">影音播放器</h3>
+      <video id="cinemaVideo" controls style="width: 100%; border-radius: 8px; max-height: 70vh;">
+        <source src="" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 7;
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((s, idx) => {
+        s.classList.remove('active', 'prev-slide');
+        if (idx + 1 === currentSlide) {
+          s.classList.add('active');
+        } else if (idx + 1 < currentSlide) {
+          s.classList.add('prev-slide');
+        }
+      });
+      document.getElementById('slideCounter').innerText = `0${currentSlide} / 0${totalSlides}`;
+      document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const cur = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+    }
+
+    function openCinemaModal(videoSrc, titleText) {
+      const modal = document.getElementById('cinemaModal');
+      const video = document.getElementById('cinemaVideo');
+      const title = document.getElementById('cinemaTitle');
+      title.innerText = titleText;
+      video.src = videoSrc;
+      modal.classList.add('active');
+      video.play();
+    }
+
+    function closeCinemaModal() {
+      const modal = document.getElementById('cinemaModal');
+      const video = document.getElementById('cinemaVideo');
+      video.pause();
+      modal.classList.remove('active');
+    }
+
+    // Keyboard Arrow navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'Escape') {
+        closeCinemaModal();
+      }
+    });
+  </script>
+</body>
+</html>
