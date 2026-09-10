@@ -297,7 +297,18 @@
       border-bottom: 2px solid var(--text-main);
       padding-left: 10px;
     }
-  </style>
+  
+    /* 9:16 Vertical Video Container (Reels / Short Videos) */
+    .media-box.vertical-video {
+      aspect-ratio: 9 / 16;
+      max-height: 440px;
+      margin: 0 auto;
+    }
+    .media-box.vertical-video video {
+      object-fit: contain !important;
+      background: #000;
+    }
+</style>
 </head>
 <body>
 
@@ -461,7 +472,7 @@
         </div>
 
         <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
+          <video preload="metadata" loop muted playsinline controls controlsList="nodownload" style="object-fit: cover;">
             <source src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
@@ -535,7 +546,7 @@
         </div>
 
         <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
+          <video preload="metadata" loop muted playsinline controls controlsList="nodownload" style="object-fit: cover;">
             <source src="videos/05_GRC廠區開模與高空吊裝實景影片.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
@@ -691,13 +702,13 @@
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
+        <div class="media-box vertical-video">
+          <video preload="metadata" loop muted playsinline controls controlsList="nodownload">
             <source src="videos/04_PPG簡報內嵌影片_01_media2.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
             <div>
-              <span class="tile-tag">PPG EXPERIMENT VIDEO</span>
+              <span class="tile-tag">PPG EXPERIMENT VIDEO (9:16)</span>
               <div>8. PPG塗料實驗（佩能漆高彈性與防水測試）</div>
             </div>
           </div>
@@ -793,13 +804,13 @@
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
+        <div class="media-box vertical-video">
+          <video preload="metadata" loop muted playsinline controls controlsList="nodownload">
             <source src="videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
             <div>
-              <span class="tile-tag">DRIP EDGE VIDEO</span>
+              <span class="tile-tag">DRIP EDGE VIDEO (9:16)</span>
               <div>4. 窗台導水板（排水測試與防護效果）</div>
             </div>
           </div>
@@ -940,8 +951,19 @@
     function updateSlide() {
       document.querySelectorAll('.slide').forEach((s, idx) => {
         s.classList.remove('active');
+        // Pause all background videos to eliminate CPU/GPU lag
+        const videos = s.querySelectorAll('video');
+        videos.forEach(v => {
+          try { v.pause(); } catch(e) {}
+        });
+
         if (idx + 1 === currentSlide) {
           s.classList.add('active');
+          // Smoothly play video on active slide only
+          const activeVideo = s.querySelector('video');
+          if (activeVideo) {
+            activeVideo.play().catch(e => {});
+          }
         }
       });
       document.getElementById('slideCounter').innerText = `${currentSlide < 10 ? '0' + currentSlide : currentSlide} / ${totalSlides}`;
