@@ -258,7 +258,7 @@
 
     <div class="header-actions">
       <button class="btn-action" onclick="toggleTheme()">🎨 主題切換 (深色 ↔ 明亮)</button>
-      <button class="btn-action" onclick="openVideoSelector()">🎬 影音劇院 (10支實景影片)</button>
+      <button class="btn-action" onclick="openVideoSelector()">🎬 影音劇院 (9支原廠實景影片)</button>
     </div>
   </header>
 
@@ -383,12 +383,12 @@
 
         <div class="media-box" style="height: 420px;">
           <video autoplay loop muted playsinline controls controlsList="nodownload">
-            <source src="videos/01_3D_BIM模型Blender剖面展示.mp4" type="video/mp4">
+            <source src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
             <div>
-              <span class="tile-tag">3D BIM DIGITAL MODEL</span>
-              <div>3D BIM 模型剖面與預先干涉排錯實境展示</div>
+              <span class="tile-tag">WEB3D & 4D BIM PLATFORM</span>
+              <div>Web3D ✕ 4D-BIM 雲端放樣平台與時序拆解展示</div>
             </div>
           </div>
         </div>
@@ -629,12 +629,12 @@
             </div>
           </div>
         </div>
-        <div class="media-box" onclick="openLightbox('img/projects/case02-jiangmudao-after.jpg', '高雄將木島 ｜ 日式風格老屋外牆免打除拉皮整修')">
-          <img src="img/projects/case02-jiangmudao-after.jpg" alt="高雄將木島外牆拉皮">
+        <div class="media-box" onclick="openLightbox('img/projects/renov-jiangmudao.jpg', '桃園薑母島 ｜ 日式純白外牆免打除拉皮整修')">
+          <img src="img/projects/renov-jiangmudao.jpg" alt="高雄將木島外牆拉皮">
           <div class="media-caption">
             <div>
-              <span class="tile-tag">KAOHSIUNG ｜ 免打除拉皮</span>
-              <div>高雄將木島拉皮</div>
+              <span class="tile-tag">TAOYUAN ｜ 石門水庫薑母島</span>
+              <div>桃園薑母島拉皮</div>
             </div>
           </div>
         </div>
@@ -695,12 +695,12 @@
     <!-- Slide 12: 老屋外牆免打除拉皮 -->
     <section class="slide" id="slide-12">
       <div class="slide-grid-2">
-        <div class="media-box" style="height: 420px;" onclick="openLightbox('img/projects/case02-jiangmudao-after.jpg', '高雄將木日式風格外牆免打除拉皮整修實績')">
-          <img src="img/projects/case02-jiangmudao-after.jpg" alt="將木島外牆免打除拉皮實績">
+        <div class="media-box" style="height: 420px;" onclick="openLightbox('img/projects/renov-jiangmudao.jpg', '桃園薑母島日式純白外牆免打除拉皮整修實績')">
+          <img src="img/projects/renov-jiangmudao.jpg" alt="將木島外牆免打除拉皮實績">
           <div class="media-caption">
             <div>
               <span class="tile-tag">FACADE RETROFIT</span>
-              <div>高雄將木日式風格外牆免打除拉皮整修實績</div>
+              <div>桃園薑母島日式純白外牆免打除拉皮整修實績</div>
             </div>
             <span style="font-size: 0.75rem; color: var(--accent-gold);">🔍 點擊放大</span>
           </div>
@@ -753,19 +753,18 @@
   <div class="modal-overlay" id="videoSelectorModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeVideoSelector()">✕</button>
-      <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--accent-gold); font-family: 'Noto Serif TC', serif;">🎬 騰煇實景影音劇院 (10 支高清影片庫)</h3>
+      <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--accent-gold); font-family: 'Noto Serif TC', serif;">🎬 騰煇實景影音劇院 (9 支原廠工程影片庫)</h3>
       
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 50vh; overflow-y: auto; padding-right: 8px;">
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/01_3D_BIM模型Blender剖面展示.mp4', '01. 3D BIM 模型 Blender 剖面展示')">▶ 01. 3D BIM 模型 Blender 剖面展示</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4', '02. Web3D 與 4D-BIM 雲端拆解平台錄影')">▶ 02. Web3D 與 4D-BIM 雲端拆解錄影</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/05_GRC廠區開模與高空吊裝實景影片.mp4', '03. GRC 廠區開模與高空吊裝實景影片')">▶ 03. GRC 廠區開模與高空吊裝實景</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_01_media2.mp4', '04. PPG 高耐候塗料實驗與噴塗測試')">▶ 04. PPG 塗料實驗與噴塗測試</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4', '05. GRC 泥塑原型打樣現場紀錄')">▶ 05. GRC 泥塑原型打樣現場紀錄</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_02_VAHUlvk_EH8.mp4', '06. 翻模與高壓水泥噴漿工程紀錄')">▶ 06. 翻模與高壓水泥噴漿工程紀錄</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4', '07. 現場高空定位與鋼骨吊裝實況')">▶ 07. 現場高空定位與鋼骨吊裝實況</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_04_VAHUlStSVro.mp4', '08. 外牆防水施工與細部收邊紀錄')">▶ 08. 外牆防水施工與細部收邊紀錄</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_05_VAHUlUK3zvM.mp4', '09. GRC 噴塗完成質感展現')">▶ 09. GRC 噴塗完成質感展現</button>
-        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_02_media1.mp4', '10. PPG 塗層測試與實景紀錄')">▶ 10. PPG 塗層測試與實景紀錄</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4', '01. Web3D ✕ 4D-BIM 雲端放樣平台展示')">▶ 01. Web3D ✕ 4D-BIM 雲端放樣平台展示</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/05_GRC廠區開模與高空吊裝實景影片.mp4', '02. GRC 廠區開模與高空吊裝實景')">▶ 02. GRC 廠區開模與高空吊裝實景</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4', '03. GRC 現場高空定位與鋼骨吊裝實況')">▶ 03. GRC 現場高空定位與鋼骨吊裝實況</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4', '04. 專利窗台導水板 排水測試實況')">▶ 04. 專利窗台導水板 排水測試實況</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_05_VAHUlUK3zvM.mp4', '05. 專利窗台導水板 鎖固卡扣升級版')">▶ 05. 專利窗台導水板 鎖固卡扣升級版</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_04_VAHUlStSVro.mp4', '06. PPG 塗料 8 年完工耐候實測')">▶ 06. PPG 塗料 8 年完工耐候實測</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_02_media1.mp4', '07. PPG 建築塗料透氣不透水測試')">▶ 07. PPG 建築塗料透氣不透水測試</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/04_PPG簡報內嵌影片_01_media2.mp4', '08. PPG 佩能漆防護與噴塗實驗')">▶ 08. PPG 佩能漆防護與噴塗實驗</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('videos/03_半成品簡報內嵌影片_02_VAHUlvk_EH8.mp4', '09. PPG ✕ 騰煇 建築塗料實績紀錄')">▶ 09. PPG ✕ 騰煇 建築塗料實績紀錄</button>
       </div>
 
       <div style="margin-top: 16px; display: none;" id="playerContainer">
