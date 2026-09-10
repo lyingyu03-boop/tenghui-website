@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="dark">
-<head>
+<html lang="zh-TW" data-theme="light"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>騰煇企業 ｜ B2B 業務暨帷幕簡報</title>
   <meta name="description" content="騰煇企業有限公司 40年外牆工程整合、GRC造型預鑄、PPG塗料、3D BIM數位放樣與專利導水板簡報。">
   <link rel="icon" href="img/favicon-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Outfit:wght@500;700;800&amp;display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -315,14 +314,14 @@
   </header>
 
   <!-- Edit Mode Banner -->
-  <div class="edit-banner" id="editBanner">
-    <span>💡 編輯模式已開啟：點擊畫面上任何文字即可直接修改，懸停圖片可更換圖片檔名。</span>
+  <div class="edit-banner" id="editBanner" style="display: none;">
+    <span class="">💡 編輯模式已開啟：點擊畫面上任何文字即可直接修改，懸停圖片可更換圖片檔名。</span>
     <button class="btn-action" style="background: #ffffff; color: #000; padding: 4px 10px;" onclick="saveAndDownloadPage()">💾 儲存並下載修改後的 HTML</button>
   </div>
 
   <!-- Progress Bar -->
   <div class="progress-bar-wrap">
-    <div class="progress-bar-fill" id="progressFill"></div>
+    <div class="progress-bar-fill" id="progressFill" style="width: 7.69%;"></div>
   </div>
 
   <!-- Deck Viewport -->
@@ -354,13 +353,13 @@
         </div>
 
         <div class="media-box" style="height: 440px;" onclick="handleImageClick(this, 'img/projects/grc-yayuan.jpg', '台中雅園新潮 ｜ GRC 幾何雙曲面立面')">
-          <img src="img/projects/grc-yayuan.jpg" alt="台中雅園新潮 GRC 雙曲拱門">
+          <img src="C:\SYNC\TENG\騰煇_素材\社群短影音.雅園\雅園3D2.jpg" alt="台中雅園新潮 GRC 雙曲拱門">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">GRC ARCHITECTURAL FACADE</span>
-              <div>台中雅園新潮 ｜ GRC 幾何雙曲面立面實體落地</div>
+              <div class="">台中雅園新潮 ｜ GRC 幾何雙曲面立面實體落地</div>
             </div>
-            <span style="font-size: 0.75rem; color: var(--accent-gold);">🔍 點擊放大</span>
+            <span style="font-size: 0.75rem; color: var(--accent-gold);" class="">🔍 點擊放大</span>
           </div>
         </div>
       </div>
@@ -370,13 +369,13 @@
     <section class="slide" id="slide-2">
       <span class="badge-tag">HERITAGE ｜ 品牌沿革</span>
       <h2 class="slide-title">40 餘年只做一件事：從水泥工藝走向系統化建築立面</h2>
-      <p class="slide-subtitle">騰煇前身為民國 70 年創立之台安藝品工業社，累積超過 40 年的水泥材料特性與工程經驗。</p>
+      <p class="slide-subtitle">騰煇前身為民國 72 年創立之台安藝品工業社，累積超過 40 年的水泥材料特性與工程經驗。</p>
 
       <div class="slide-grid-3">
         <div class="card-box">
-          <div class="card-title">1981 年 (民國70年)</div>
+          <div class="card-title">1981 年 (民國72年)</div>
           <div style="font-weight: 800; font-size: 1.0rem; color: var(--text-main); margin-bottom: 6px;">台安藝品工業社起家</div>
-          <div class="card-text">水泥製品與雕花工藝起家，深刻掌握水泥高抗壓性與材料耐久度。</div>
+          <div class="card-text">水泥製品與雕塑工藝起家，深刻掌握水泥高抗壓性與材料耐久度。</div>
         </div>
         <div class="card-box" style="border-color: var(--accent-gold);">
           <div class="card-title" style="color: var(--accent-gold);">數位轉型時代</div>
@@ -419,7 +418,7 @@
       </div>
     </section>
 
-    <!-- Slide 04: 3D BIM 數位放樣 (內嵌 Web3D / 4D BIM 影片) -->
+    <!-- Slide 04: 3D BIM 數位放樣 -->
     <section class="slide" id="slide-4">
       <div class="slide-grid-2">
         <div>
@@ -440,13 +439,13 @@
         </div>
 
         <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
+          <video autoplay="" loop="" muted="" playsinline="" controls="" controlslist="nodownload">
             <source src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4" type="video/mp4">
           </video>
           <div class="media-caption">
-            <div>
-              <span class="tile-tag">WEB3D & 4D BIM PLATFORM</span>
-              <div>1. Web3D ✕ 4D-BIM 雲端放樣平台展示影片</div>
+            <div class="">
+              <span class="tile-tag">WEB3D &amp; 4D BIM PLATFORM</span>
+              <div class="">Web3D ✕ 4D-BIM 雲端放樣平台展示</div>
             </div>
           </div>
         </div>
@@ -488,100 +487,63 @@
       </div>
     </section>
 
-    <!-- Slide 06: GRC 介紹與工廠製程影片 -->
+    <!-- Slide 06: GRC 材料力學與特性 -->
     <section class="slide" id="slide-6">
       <div class="slide-grid-2">
         <div>
-          <span class="badge-tag">CORE SYSTEM 01 ｜ GRC 材料介紹</span>
-          <h2 class="slide-title">GRC 玻璃纖維強化水泥 (Glass Fiber Reinforced Cement)</h2>
-          <p class="slide-subtitle">水泥具有極高抗壓強度但抗張力不足，摻合耐鹼玻璃纖維可完美補其抗張力不足之缺點。</p>
+          <span class="badge-tag">CORE SYSTEM 01 ｜ GRC 特殊造型</span>
+          <h2 class="slide-title">GRC 玻璃纖維強化水泥特性</h2>
+          <p class="slide-subtitle">水泥具高抗壓強度，摻合耐鹼玻璃纖維補足抗張力。</p>
 
           <div class="slide-grid-2" style="gap: 12px; margin-top: 14px;">
             <div class="card-box" style="padding: 14px;">
               <div class="card-title" style="font-size: 0.9rem;">15-25mm 薄型輕量</div>
-              <div class="card-text">重量僅 RC 混凝土的 1/5，大幅減輕建築結構載重。</div>
+              <div class="card-text">重量僅 RC 的 1/5，減輕建築結構載重。</div>
             </div>
             <div class="card-box" style="padding: 14px;">
               <div class="card-title" style="font-size: 0.9rem;">A1 級不燃與防潮</div>
-              <div class="card-text">水泥基材不燃防潮、耐候抗老化，適應台灣多雨氣候。</div>
+              <div class="card-text">不燃材質，防潮抗老化，適應台灣氣候。</div>
             </div>
-          </div>
-
-          <div class="card-box" style="margin-top: 12px; padding: 14px;">
-            <div class="card-title" style="color: var(--accent-gold); font-size: 0.95rem;">為何選擇 GRC 模組？</div>
-            <div class="card-text" style="font-size: 0.84rem;">取代傳統牆面外推造型，大量減少模板與保麗龍廢棄物，大幅縮短整體營建工期。</div>
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
-            <source src="videos/05_GRC廠區開模與高空吊裝實景影片.mp4" type="video/mp4">
-          </video>
-          <div class="media-caption">
-            <div>
-              <span class="tile-tag">GRC FACTORY PROCESS</span>
-              <div>2. GRC 工廠製程實景影片（泥塑、玻纖開模、噴漿翻模）</div>
-            </div>
-          </div>
+        <div class="card-box" style="padding: 22px;">
+          <div class="card-title" style="color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 10px;">GRC 應用優勢</div>
+          <ul style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.9; padding-left: 18px;">
+            <li>取代傳統牆面外推造型，減少廢棄物。</li>
+            <li>預鑄單元模組化工法，現場乾式吊裝，縮短工期。</li>
+            <li>高抗撞擊性能，廣泛應用於立體雕花與格柵。</li>
+            <li>可依照設計圖定制雙曲面與特殊造型構件。</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Slide 07: GRC 綜合施工方法 (1. 乾式施工吊裝 ✕ 2. 現場直塑) -->
+    <!-- Slide 07: GRC 製造與施工影片 -->
     <section class="slide" id="slide-7">
-      <span class="badge-tag">GRC CRAFTS ｜ 綜合施工方法</span>
-      <h2 class="slide-title">GRC 兩大核心施工工法</h2>
-      <p class="slide-subtitle">依據建築設計需求與結構條件，提供乾式預鑄吊裝與現場直塑兩種工法。</p>
-
-      <div class="slide-grid-2" style="gap: 24px; margin-top: 10px;">
-        
-        <!-- 1. 乾式施工吊裝 (內嵌現場吊裝影片) -->
-        <div class="card-box" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="badge-tag" style="color: var(--accent-gold);">METHOD 01</div>
-            <div class="card-title" style="font-size: 1.15rem; color: var(--accent-gold);">1. 乾式施工吊裝 (Dry Erection)</div>
-            <div class="card-text" style="font-size: 0.88rem; margin-bottom: 12px;">
-              工序：骨架焊接定位 ➔ GRC 預鑄構件高空鎖固 ➔ 介面填縫防水 ➔ 面層噴塗完工。<br>
-              特點：模组預鑄生產品質穩定，現場乾式鎖固作業安全性高、營建工期短。
-            </div>
-          </div>
-
-          <div class="media-box" style="height: 230px;">
-            <video autoplay loop muted playsinline controls controlsList="nodownload">
-              <source src="videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4" type="video/mp4">
-            </video>
-            <div class="media-caption">
-              <div>
-                <span class="tile-tag">DRY ERECTION VIDEO</span>
-                <div>3. GRC 施作實記（現場高空定位與鋼骨吊裝實況）</div>
-              </div>
-            </div>
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">GRC CRAFTS ｜ 工廠製造與乾式施工</span>
+          <h2 class="slide-title">從開模到吊裝</h2>
+          <p class="slide-subtitle">採用 GRC 乾式施工法：骨架定位 ➔ 構件鎖固 ➔ 面層噴塗完工。</p>
+          
+          <div class="card-box">
+            <div class="card-title">騰煇 GRC 製造與現場工程</div>
+            <div class="card-text">自營製造廠，提供開模、翻模、噴漿到現場乾式吊裝的品質控管。</div>
           </div>
         </div>
 
-        <!-- 2. 現場直塑 -->
-        <div class="card-box" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="badge-tag" style="color: var(--accent-gold);">METHOD 02</div>
-            <div class="card-title" style="font-size: 1.15rem; color: var(--accent-gold);">2. 現場直塑 (Direct Sculpting)</div>
-            <div class="card-text" style="font-size: 0.88rem; margin-bottom: 12px;">
-              工序：造型鋼筋排架 ➔ 擴張網固定 ➔ 水泥砂漿直塑打底 ➔ 細部手工雕刻與面層保護。<br>
-              特點：無須開模、打破預鑄尺寸限制，具極高自由度，適合特殊異形造型與老屋修復。
-            </div>
-          </div>
-
-          <div class="media-box" style="height: 230px;" onclick="handleImageClick(this, 'img/projects/grc-yayuan.jpg', 'GRC 現場直塑工程實績圖')">
-            <img src="img/projects/grc-yayuan.jpg" alt="GRC 現場直塑工程實績圖">
-            <div class="media-caption">
-              <div>
-                <span class="tile-tag">DIRECT SCULPTING PHOTO</span>
-                <div>GRC 現場直塑異形雕塑與細部立面工藝</div>
-              </div>
-              <span style="font-size: 0.75rem; color: var(--accent-gold);">🔍 點擊放大</span>
+        <div class="media-box" style="height: 400px;">
+          <video autoplay="" loop="" muted="" playsinline="" controls="" controlslist="nodownload">
+            <source src="videos/05_GRC廠區開模與高空吊裝實景影片.mp4" type="video/mp4">
+          </video>
+          <div class="media-caption">
+            <div class="">
+              <span class="tile-tag">GRC ERECTION</span>
+              <div class="">騰煇 GRC 工廠製程</div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -592,95 +554,94 @@
           <span class="badge-tag">GRC SHOWCASE ｜ GRC 特殊造型工程案例</span>
           <h2 class="slide-title" style="font-size: 1.8rem; margin-bottom: 0;">GRC 指標工程實績</h2>
         </div>
-        <span style="font-size: 0.8rem; color: var(--accent-gold);">💡 點擊可放大檢視細節</span>
+        <span style="font-size: 0.8rem; color: var(--accent-gold);" class="">💡 點擊可放大檢視細節</span>
       </div>
 
       <div class="gallery-grid-6">
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/grc-yayuan.jpg', '台中雅園新潮 ｜ GRC 幾何雙曲面拱門')">
           <img src="img/projects/grc-yayuan.jpg" alt="台中雅園新潮">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAICHUNG</span>
-              <div>台中雅園新潮</div>
+              <div class="">台中雅園新潮</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/humei-dijing.jpg', '台南湖美帝景 ｜ GRC 歐式古典立面')">
           <img src="img/projects/humei-dijing.jpg" alt="台南湖美帝景">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAINAN</span>
-              <div>台南湖美帝景</div>
+              <div class="">台南湖美帝景</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/jinshi-yuan.jpg', '嘉義金石龍悅 ｜ GRC 幾何格柵造型')">
-          <img src="img/projects/jinshi-yuan.jpg" alt="嘉義金石龍悅">
+          <img src="C:\SYNC\TENG\騰煇_素材\A業務簡報\extracted_assets\騰煇GRC簡報-2026更新9_image105.jpg" alt="嘉義金石龍悅">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">CHIAYI</span>
-              <div>嘉義金石龍悅</div>
+              <div class="">嘉義金石龍悅</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/grc-dibao.jpg', '台北帝寶案例 ｜ GRC 石雕紋理工藝')">
-          <img src="img/projects/grc-dibao.jpg" alt="台北帝寶案例">
+          <img src="C:\SYNC\TENG\騰煇_素材\A業務簡報\extracted_assets\騰煇GRC簡報-2026更新!_image79.jpg" alt="台北帝寶案例">
           <div class="media-caption">
-            <div>
-              <span class="tile-tag">TAIPEI</span>
-              <div>台北帝寶實績</div>
+            <div class="">
+              <span class="tile-tag">NEW TAIPEI</span>
+              <div class="">新北金石園</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/grc-feili.jpg', '泰山道明會 ｜ GRC 教堂圓拱造型')">
-          <img src="img/projects/grc-feili.jpg" alt="泰山道明會">
+          <img src="C:\SYNC\TENG\騰煇_素材\A業務簡報\extracted_assets\騰煇GRC簡報-2026更新_image74.jpg" alt="泰山道明會">
           <div class="media-caption">
-            <div>
-              <span class="tile-tag">TAIPEI</span>
-              <div>泰山道明會</div>
+            <div class="">
+              <span class="tile-tag">GHIAYI</span>
+              <div class="">梅山天主堂</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/ppg-chenggong.jpg', '大甲騰煇企業總部 ｜ GRC 仿清水模外牆')">
-          <img src="img/projects/ppg-chenggong.jpg" alt="大甲騰煇企業總部">
+          <img src="C:\SYNC\TENG\騰煇_素材\A業務簡報\extracted_assets\騰煇GRC簡報-2026更新)_image86.jpg" alt="大甲騰煇企業總部">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAICHUNG</span>
-              <div>大甲騰煇總部</div>
+              <div class="">大甲騰煇總部</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 09: PPG 塗料特性與 PPG 實驗影片 -->
+    <!-- Slide 09: PPG 全球第一塗料 -->
     <section class="slide" id="slide-9">
       <div class="slide-grid-2">
-        <div>
-          <span class="badge-tag">CORE SYSTEM 02 ｜ PPG 全球塗料</span>
-          <h2 class="slide-title">1883 創立 ✕ PPG 建築塗料技術</h2>
-          <p class="slide-subtitle">原裝進口正式報關、PPG 原料 5 年 ✕ 騰煇施工 5 年雙重保固、連工帶料、高透氣不透水特性。</p>
-
-          <div class="slide-grid-2" style="gap: 12px; margin-top: 14px;">
-            <div class="card-box" style="padding: 14px;">
-              <div class="card-title" style="font-size: 0.9rem; color: var(--accent-gold);">雙重保固機制</div>
-              <div class="card-text">PPG 原廠 5年 ✕ 騰煇施工 5年品質保固。</div>
+        <div class="media-box" style="height: 420px;" onclick="handleImageClick(this, 'img/projects/ppg-cangle.jpg', 'PPG 全球實績：法國羅浮宮、迪士尼、萊佛士酒店')">
+          <img src="C:\SYNC\TENG\騰煇_素材\A業務簡報\extracted_assets\PPG塗料-實績案例2026b_image146.png" alt="PPG 全球實績">
+          <div class="media-caption">
+            <div class="">
+              <span class="tile-tag">PPG GLOBAL PROJECTS</span>
+              <div class="">PPG 全球實績：法國羅浮宮、迪士尼、萊佛士酒店</div>
             </div>
-            <div class="card-box" style="padding: 14px;">
-              <div class="card-title" style="font-size: 0.9rem; color: var(--accent-gold);">連工帶料全包</div>
-              <div class="card-text">基底檢測 ➔ 選材 ➔ 專業高壓噴塗。</div>
-            </div>
+            <span style="font-size: 0.75rem; color: var(--accent-gold);" class="">🔍 點擊放大</span>
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
-            <source src="videos/04_PPG簡報內嵌影片_01_media2.mp4" type="video/mp4">
-          </video>
-          <div class="media-caption">
-            <div>
-              <span class="tile-tag">PPG EXPERIMENT VIDEO</span>
-              <div>8. PPG塗料實驗（佩能漆高彈性延伸與防水測試）</div>
+        <div>
+          <span class="badge-tag">CORE SYSTEM 02 ｜ PPG 全球塗料</span>
+          <h2 class="slide-title">1883 創立 ✕ PPG 塗料技術</h2>
+          <p class="slide-subtitle">原裝進口正式報關、PPG 原料 5 年 ✕ 騰煇施工 5 年雙重保固、連工帶料、適應台灣氣候。</p>
+
+          <div class="slide-grid-2" style="gap: 12px; margin-top: 14px;">
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="color: var(--accent-gold);">雙重保固機制</div>
+              <div class="card-text">PPG 原廠 5年 ✕ 騰煇施工 5年品質保固。</div>
+            </div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="color: var(--accent-gold);">連工帶料全包</div>
+              <div class="card-text">基底檢測 ➔ 選材 ➔ 專業高壓噴塗。</div>
             </div>
           </div>
         </div>
@@ -694,73 +655,73 @@
           <span class="badge-tag">PPG SHOWCASE ｜ PPG 建築塗料工程案例</span>
           <h2 class="slide-title" style="font-size: 1.8rem; margin-bottom: 0;">PPG 塗料工程實績</h2>
         </div>
-        <span style="font-size: 0.8rem; color: var(--accent-gold);">💡 點擊可放大檢視細節</span>
+        <span style="font-size: 0.8rem; color: var(--accent-gold);" class="">💡 點擊可放大檢視細節</span>
       </div>
 
       <div class="gallery-grid-6">
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/case05-renwu-after.jpg', '高雄台塑仁武 AI 研發中心 ｜ PPG 外牆塗料')">
           <img src="img/projects/case05-renwu-after.jpg" alt="高雄台塑仁武AI館">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">KAOHSIUNG</span>
-              <div>台塑仁武 AI 研發中心</div>
+              <div class="">台塑仁武 AI 研發中心</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/ppg-xiaomofang.jpg', '斗六小磨坊廠房 ｜ PPG 佩能漆防護系統')">
           <img src="img/projects/ppg-xiaomofang.jpg" alt="斗六小磨坊廠房">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">YUNLIN</span>
-              <div>斗六小磨坊廠房</div>
+              <div class="">斗六小磨坊廠房</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/ppg-yuanjian.jpg', '宜蘭元健大和總部 ｜ PPG 防護塗料')">
           <img src="img/projects/ppg-yuanjian.jpg" alt="宜蘭元健大和總部">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">YILAN</span>
-              <div>宜蘭元健大和總部</div>
+              <div class="">宜蘭元健大和總部</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/renov-jiangmudao.jpg', '桃園石門水庫薑母島 ｜ 日式純白外牆免打除拉皮整修')">
           <img src="img/projects/renov-jiangmudao.jpg" alt="桃園薑母島拉皮">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAOYUAN</span>
-              <div>桃園薑母島拉皮</div>
+              <div class="">桃園薑母島拉皮</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/case01-tainan-after.jpg', '台南外牆拉皮 ｜ PPG 臻石漆與防護面層')">
           <img src="img/projects/case01-tainan-after.jpg" alt="台南拉皮翻新">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAINAN</span>
-              <div>台南外牆拉皮</div>
+              <div class="">台南外牆拉皮</div>
             </div>
           </div>
         </div>
         <div class="media-box" onclick="handleImageClick(this, 'img/projects/ppg-mayfair.jpg', '大甲別墅群 ｜ PPG 外牆自潔塗料')">
-          <img src="img/projects/ppg-mayfair.jpg" alt="大甲別墅群">
+          <img src="img/projects/ppg-villas-new.jpg" alt="大甲別墅群">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">TAICHUNG</span>
-              <div>大甲別墅群</div>
+              <div class="">大甲別墅群</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 11: 專利窗台導水板 (內嵌導水板測試影片) -->
+    <!-- Slide 11: 專利窗台導水板 -->
     <section class="slide" id="slide-11">
       <div class="slide-grid-2">
         <div>
           <span class="badge-tag">CORE SYSTEM 03 ｜ 細部水痕防護</span>
-          <h2 class="slide-title">專利窗台導水板：窗角滲水與水痕處置</h2>
+          <h2 class="slide-title">窗台導水板：窗角滲水與水痕處置</h2>
           <p class="slide-subtitle">鎖固卡扣升級版：外部導水 ＋ 結構灌注，切斷雨水回滲路徑。</p>
 
           <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -775,15 +736,14 @@
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <video autoplay loop muted playsinline controls controlsList="nodownload">
-            <source src="videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4" type="video/mp4">
-          </video>
+        <div class="media-box" style="height: 400px;" onclick="handleImageClick(this, 'img/projects/case04-tianwei-main-after.jpg', '專利窗台導水板與細部防護實績')">
+          <img src="img/projects/case04-tianwei-main-after.jpg" alt="專利窗台導水板實績">
           <div class="media-caption">
-            <div>
-              <span class="tile-tag">DRIP EDGE VIDEO</span>
-              <div>4. 窗台導水板（排水測試與防護效果紀錄）</div>
+            <div class="">
+              <span class="tile-tag">PATENTED DRIP EDGE</span>
+              <div class="">窗台導水板實績</div>
             </div>
+            <span style="font-size: 0.75rem; color: var(--accent-gold);" class="">🔍 點擊放大</span>
           </div>
         </div>
       </div>
@@ -795,18 +755,18 @@
         <div class="media-box" style="height: 400px;" onclick="handleImageClick(this, 'img/projects/renov-jiangmudao.jpg', '桃園薑母島日式純白外牆免打除拉皮整修實績')">
           <img src="img/projects/renov-jiangmudao.jpg" alt="薑母島外牆免打除拉皮實績">
           <div class="media-caption">
-            <div>
+            <div class="">
               <span class="tile-tag">FACADE RETROFIT</span>
-              <div>桃園薑母島日式純白外牆免打除拉皮整修實績</div>
+              <div class="">桃園薑母島外牆拉皮整修實績</div>
             </div>
-            <span style="font-size: 0.75rem; color: var(--accent-gold);">🔍 點擊放大</span>
+            <span style="font-size: 0.75rem; color: var(--accent-gold);" class="">🔍 點擊放大</span>
           </div>
         </div>
 
         <div>
           <span class="badge-tag">RENOVATION ｜ 老屋外牆拉皮</span>
-          <h2 class="slide-title">老屋外牆免打除拉皮：零粉塵、低噪音、工期縮短</h2>
-          <p class="slide-subtitle">無須敲除瓷磚，透點敲擊檢測 ➔ 高壓清洗 ➔ 介面填縫 ➔ 噴塗防護面層。</p>
+          <h2 class="slide-title">外牆拉皮</h2>
+          <p class="slide-subtitle">透點敲擊檢測 ➔ 高壓清洗 ➔ 介面填縫 ➔ 噴塗防護面層。</p>
 
           <div class="card-box" style="padding: 18px;">
             <div class="card-title" style="margin-bottom: 6px;">安全與成本效益</div>
@@ -821,11 +781,11 @@
       <div style="text-align: center; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
         <span class="badge-tag" style="font-size: 0.95rem; letter-spacing: 3px; margin-bottom: 24px;">TENG SELENDOR</span>
         
-        <h1 style="font-family: 'Noto Serif TC', serif; font-size: 4.0rem; font-weight: 900; color: var(--text-main); margin-bottom: 24px; letter-spacing: 3px; line-height: 1.15;">
+        <h1 style="font-family: 'Noto Serif TC', serif; font-size: 4.0rem; font-weight: 900; color: var(--text-main); margin-bottom: 24px; letter-spacing: 3px; line-height: 1.15;" class="">
           熱烈歡迎
         </h1>
         
-        <h2 style="font-family: 'Noto Serif TC', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 36px; letter-spacing: 2px;">
+        <h2 style="font-family: 'Noto Serif TC', serif; font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 36px; letter-spacing: 2px;" class="">
           帷幕工程領域專家 蒞臨指導
         </h2>
 
@@ -856,7 +816,7 @@
         <!-- Left Column: Playlist Menu -->
         <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 18px;">
           <div style="font-family: 'Noto Serif TC', serif; font-size: 1.15rem; font-weight: 900; color: #ffffff; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-            <span style="color: var(--accent-gold);">🎬</span> 騰煇工程實景影片
+            <span style="color: var(--accent-gold);" class="">🎬</span> 騰煇工程實景影片
           </div>
           <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">點選下方影片目錄即可播放：</div>
 
@@ -891,13 +851,11 @@
         <!-- Right Column: Player Display -->
         <div>
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;">
-            <div style="font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 800; color: #ffffff;" id="videoTitleDisplay">
-              1. Web3D ✕ 4D-BIM
-            </div>
+            <div style="font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 800; color: #ffffff;" id="videoTitleDisplay">1. Web3D ✕ 4D-BIM</div>
           </div>
 
           <div style="position: relative; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.15);">
-            <video id="theaterPlayer" controls style="width: 100%; aspect-ratio: 16/9; max-height: 56vh; display: block;">
+            <video id="theaterPlayer" controls="" style="width: 100%; aspect-ratio: 16/9; max-height: 56vh; display: block;" src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4">
               <source src="videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4" type="video/mp4">
             </video>
           </div>
@@ -988,8 +946,10 @@
     }
 
     function saveAndDownloadPage() {
+      // Create a clean DOM clone for download
       const clone = document.documentElement.cloneNode(true);
       
+      // Remove edit mode artifacts from clone
       clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
       clone.querySelectorAll('.editable-element').forEach(el => el.classList.remove('editable-element'));
       const editBanner = clone.querySelector('#editBanner');
@@ -1056,5 +1016,6 @@
       }
     });
   </script>
-</body>
-</html>
+
+
+</body></html>
