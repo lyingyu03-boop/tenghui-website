@@ -62,7 +62,7 @@
     }
 
     .brand-logo-group { display: flex; align-items: center; gap: 14px; }
-    .brand-logo-img { height: 32px; width: auto; filter: grayscale(100%); }
+    .brand-logo-img { height: 32px; width: auto;  }
     [data-theme="dark"] .brand-logo-img { filter: invert(100%); }
 
     .brand-title {
@@ -304,7 +304,7 @@
   <!-- Top Fixed Header -->
   <header class="fixed-header">
     <div class="brand-logo-group">
-      <img src="img/tenghui-logo.png" alt="騰煇企業 Logo" class="brand-logo-img">
+      <img src="img/tenghui-official-logo.png" alt="騰煇企業 Logo" class="brand-logo-img">
       <div>
         <div class="brand-title">騰煇企業 TENG SELENDOR</div>
         <div class="brand-subtitle">40年外牆工藝 ｜ 3D BIM 數位放樣 ｜ 系統工程整合</div>
@@ -415,9 +415,15 @@
           </div>
         </div>
 
-        <div class="card-box" style="padding: 40px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 380px; border-top: 1px solid var(--text-main);">
-          <div style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px; letter-spacing: 2px;">ISO 14064-1 / 14067</div>
-          <div class="card-text" style="max-width: 400px; line-height: 1.7;">第三方機構權威查證，提供精準的碳足跡數據與低碳憑證。</div>
+        <div class="media-box" style="height: 400px;" onclick="handleImageClick(this, 'img/iso-dual-certificates.png', '騰煇企業 ISO 14064-1 ✕ ISO 14067 國際低碳認證雙證書')">
+          <img src="img/iso-dual-certificates.png" alt="騰煇企業 ISO 14064-1 ✕ ISO 14067 國際低碳認證雙證書" style="object-fit: contain; background: #ffffff;">
+          <div class="media-caption">
+            <div>
+              <span class="tile-tag">ISO CERTIFICATIONS</span>
+              <div>騰煇企業 ISO 14064-1 ✕ ISO 14067 國際低碳認證雙證書</div>
+            </div>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">點擊放大</span>
+          </div>
         </div>
       </div>
     </section>
