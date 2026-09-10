@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>騰煇企業 ｜ 10分鐘 B2B 業務暨帷幕專家開場簡報</title>
-  <meta name="description" content="騰煇企業有限公司 40年外牆工程整合、GRC造型預鑄、PPG塗料與3D BIM數位放樣簡報。">
+  <title>騰煇企業 ｜ 13頁完整版 B2B 業務暨帷幕專家開場簡報</title>
+  <meta name="description" content="騰煇企業有限公司 40年外牆工程整合、GRC造型預鑄、PPG塗料、3D BIM數位放樣與專利導水板簡報。">
   <link rel="icon" href="img/favicon-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,26 +17,24 @@
       --bg-card-border: rgba(255, 255, 255, 0.12);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --text-highlight: #d97706;
       --accent-gold: #c5a059;
       --accent-red: #dc2626;
       --accent-blue: #2563eb;
-      --nav-bg: rgba(11, 15, 25, 0.9);
-      --shadow-color: rgba(0, 0, 0, 0.4);
+      --nav-bg: rgba(11, 15, 25, 0.92);
+      --shadow-color: rgba(0, 0, 0, 0.5);
     }
 
     [data-theme="light"] {
       --bg-main: #f8fafc;
       --bg-card: #ffffff;
-      --bg-card-border: #e2e8f0;
+      --bg-card-border: #cbd5e1;
       --text-main: #0f172a;
       --text-muted: #475569;
-      --text-highlight: #b45309;
       --accent-gold: #b45309;
       --accent-red: #dc2626;
       --accent-blue: #1d4ed8;
-      --nav-bg: rgba(248, 250, 252, 0.92);
-      --shadow-color: rgba(0, 0, 0, 0.06);
+      --nav-bg: rgba(248, 250, 252, 0.94);
+      --shadow-color: rgba(0, 0, 0, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,38 +68,24 @@
       align-items: center;
       gap: 14px;
     }
-    .brand-logo-img {
-      height: 38px; width: auto;
-    }
+    .brand-logo-img { height: 38px; width: auto; }
     .brand-title {
       font-family: 'Outfit', sans-serif;
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--text-main);
-      letter-spacing: 1px;
+      font-weight: 800; font-size: 1.05rem;
+      color: var(--text-main); letter-spacing: 1px;
     }
-    .brand-subtitle {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
+    .brand-subtitle { font-size: 0.75rem; color: var(--text-muted); }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
     .btn-action {
       background: var(--bg-card);
       border: 1px solid var(--bg-card-border);
       color: var(--text-main);
       padding: 7px 14px;
       border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      font-size: 0.82rem; font-weight: 700;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: flex; align-items: center; gap: 6px;
       transition: all 0.2s ease;
     }
     .btn-action:hover {
@@ -110,217 +94,132 @@
       transform: translateY(-1px);
     }
 
-    /* Deck Viewport & Slides Container */
+    /* Deck Viewport & Slides */
     #deckViewport {
       position: absolute;
       top: 68px; bottom: 64px; left: 0; right: 0;
-      perspective: 1000px;
+      perspective: 1200px;
     }
 
     .slide {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       padding: 40px 60px;
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(0.95) translateZ(-50px);
-      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      opacity: 0; visibility: hidden;
+      transform: scale(0.95) translateZ(-60px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column; justify-content: center;
     }
     .slide.active {
-      opacity: 1;
-      visibility: visible;
+      opacity: 1; visibility: visible;
       transform: scale(1) translateZ(0);
     }
-    .slide.prev-slide {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(1.05) translateZ(50px);
-    }
 
-    /* Slide Grid Layouts */
+    /* Grids & Cards */
     .slide-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      height: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 36px; align-items: center; height: 100%;
     }
     .slide-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 24px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 20px;
+    }
+    .slide-grid-4 {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-top: 20px;
     }
 
-    /* Typography */
     .badge-tag {
       display: inline-block;
       font-family: 'Outfit', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent-gold);
-      margin-bottom: 10px;
+      font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent-gold); margin-bottom: 10px;
     }
     .slide-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--text-main);
-      line-height: 1.35;
-      margin-bottom: 16px;
+      font-size: 2.2rem; font-weight: 900;
+      color: var(--text-main); line-height: 1.35; margin-bottom: 14px;
     }
     .slide-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 24px;
+      font-size: 1rem; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 20px;
     }
 
-    /* Glass Cards */
     .card-box {
       background: var(--bg-card);
       border: 1px solid var(--bg-card-border);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 10px 30px var(--shadow-color);
+      border-radius: 12px; padding: 20px;
+      box-shadow: 0 10px 28px var(--shadow-color);
       transition: all 0.3s ease;
     }
     .card-box:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-2px);
+      border-color: var(--accent-gold); transform: translateY(-2px);
     }
     .card-title {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 1.05rem; font-weight: 800;
+      color: var(--text-main); margin-bottom: 8px;
     }
-    .card-text {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
+    .card-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* Visual Media Boxes */
+    /* Media Box & Cinema */
     .media-box {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--bg-card-border);
-      box-shadow: 0 12px 36px var(--shadow-color);
-      background: #000;
+      position: relative; border-radius: 12px;
+      overflow: hidden; border: 1px solid var(--bg-card-border);
+      box-shadow: 0 12px 36px var(--shadow-color); background: #000;
     }
     .media-box img, .media-box video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
     .media-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(8px);
-      color: #ffffff;
-      padding: 10px 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(8px);
+      color: #ffffff; padding: 8px 14px; font-size: 0.8rem; font-weight: 700;
     }
 
-    /* Bottom Control Console */
+    /* Footer Console */
     footer.control-console {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      height: 64px;
-      background: var(--nav-bg);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--bg-card-border);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: fixed; bottom: 0; left: 0; right: 0; height: 64px;
+      background: var(--nav-bg); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--bg-card-border); z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
       padding: 0 28px;
     }
-
     .nav-btn {
-      background: var(--accent-blue);
-      color: #ffffff;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 6px;
-      font-weight: 800;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .nav-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.03);
+      background: var(--accent-blue); color: #ffffff;
+      border: none; padding: 8px 18px; border-radius: 6px;
+      font-weight: 800; font-size: 0.88rem; cursor: pointer;
     }
     .slide-counter {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--accent-gold);
+      font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+      font-weight: 800; color: var(--accent-gold);
     }
-
-    /* Progress Bar */
     .progress-bar-wrap {
-      position: fixed;
-      top: 68px; left: 0; right: 0;
-      height: 3px;
-      background: rgba(255,255,255,0.1);
-      z-index: 101;
+      position: fixed; top: 68px; left: 0; right: 0; height: 3px;
+      background: rgba(255,255,255,0.1); z-index: 101;
     }
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--accent-gold);
-      width: 14%;
-      transition: width 0.4s ease;
-    }
+    .progress-bar-fill { height: 100%; background: var(--accent-gold); width: 7.6%; transition: width 0.4s ease; }
 
-    /* Cinema Modal */
+    /* Modal Video Drawer */
     .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(16px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85); backdrop-filter: blur(16px);
+      z-index: 200; display: none; align-items: center; justify-content: center;
     }
-    .modal-overlay.active {
-      display: flex;
-    }
+    .modal-overlay.active { display: flex; }
     .modal-content {
-      background: #0f172a;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 16px;
-      width: 90%; max-width: 960px;
-      padding: 24px;
-      color: #ffffff;
-      position: relative;
+      background: #0f172a; border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px; width: 92%; max-width: 1000px; padding: 24px; color: #fff; position: relative;
     }
     .modal-close {
-      position: absolute;
-      top: 16px; right: 16px;
-      background: none; border: none;
-      color: #ffffff; font-size: 1.5rem;
-      cursor: pointer;
+      position: absolute; top: 16px; right: 16px; background: none; border: none;
+      color: #ffffff; font-size: 1.5rem; cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Fixed Brand Header -->
+  <!-- Top Fixed Header -->
   <header class="fixed-header">
     <div class="brand-logo-group">
       <img src="img/tenghui-logo.png" alt="騰煇企業 Logo" class="brand-logo-img">
@@ -332,7 +231,7 @@
 
     <div class="header-actions">
       <button class="btn-action" onclick="toggleTheme()">🎨 切換主題：深色 ↔ 明亮</button>
-      <button class="btn-action" onclick="openCinemaModal('../螢幕錄製 2026-08-18 160413.mp4', '3D BIM 雲端展示與放樣錄影')">🎬 影音劇院</button>
+      <button class="btn-action" onclick="openVideoSelector()">🎬 影音劇院 (10支實景影片)</button>
     </div>
   </header>
 
@@ -344,26 +243,26 @@
   <!-- Deck Viewport -->
   <div id="deckViewport">
 
-    <!-- Slide 1: 封面與美學定位 -->
+    <!-- Slide 01: 封面標題 -->
     <section class="slide active" id="slide-1">
       <div class="slide-grid-2">
         <div>
           <span class="badge-tag">SINCE 1981 ｜ 40年建築立面專家</span>
           <h1 class="slide-title">精準，讓設計真正落地。</h1>
           <p class="slide-subtitle">
-            歡迎兩位帷幕博士專家臨！騰煇企業深耕台灣 40 餘年，從傳統水泥藝品工藝，跨越至 3D BIM 數位放樣與系統化外牆工程整合。
+            歡迎兩位帷幕博士專家蒞臨指導！騰煇企業深耕台灣 40 餘年，從傳統水泥工藝發展至今日 3D BIM 數位放樣與系統化外牆工程整合。
           </p>
           <div style="display: flex; gap: 16px; margin-top: 20px;">
-            <div class="card-box" style="flex: 1; padding: 16px;">
-              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">40+ 年</div>
-              <div class="card-text">極致工藝傳承</div>
+            <div class="card-box" style="flex: 1; padding: 14px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.3rem;">40+ 年</div>
+              <div class="card-text">工藝底蘊傳承</div>
             </div>
-            <div class="card-box" style="flex: 1; padding: 16px;">
-              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">150+ 案</div>
+            <div class="card-box" style="flex: 1; padding: 14px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.3rem;">150+ 案</div>
               <div class="card-text">實體工程落地</div>
             </div>
-            <div class="card-box" style="flex: 1; padding: 16px;">
-              <div class="card-title" style="color: var(--accent-gold); font-size: 1.4rem;">ISO 雙認證</div>
+            <div class="card-box" style="flex: 1; padding: 14px;">
+              <div class="card-title" style="color: var(--accent-gold); font-size: 1.3rem;">ISO 雙認證</div>
               <div class="card-text">14064 / 14067 低碳</div>
             </div>
           </div>
@@ -376,49 +275,75 @@
       </div>
     </section>
 
-    <!-- Slide 2: 40年匠心底蘊與歷史演進 -->
+    <!-- Slide 02: 40年沿革歷史 -->
     <section class="slide" id="slide-2">
-      <span class="badge-tag">HERITAGE & EVOLUTION ｜ 品牌沿革</span>
-      <h2 class="slide-title">40 餘年，只做一件事：讓建築立面經得起歲月考驗</h2>
-      <p class="slide-subtitle">從民國 70 年台安藝品工業社的水泥工藝，演進為今日全台頂尖的外牆工程系統整合者。</p>
+      <span class="badge-tag">HERITAGE ｜ 品牌沿革</span>
+      <h2 class="slide-title">40 餘年只做一件事：從水泥工藝走向系統化建築立面</h2>
+      <p class="slide-subtitle">騰煇前身為民國 70 年創立之台安藝品工業社，累積超過 40 年的水泥材料特性與工程經驗。</p>
 
       <div class="slide-grid-3">
         <div class="card-box">
           <div class="card-title">1981 年 (民國70年)</div>
-          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">台安藝品工業社起家</div>
-          <div class="card-text">深耕水泥製品與雕花工藝，打下厚實的水泥材料彈性、沉載與耐久度底蘊。</div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); margin-bottom: 6px;">台安藝品工業社起家</div>
+          <div class="card-text">水泥製品與雕花工藝起家，深刻掌握水泥高抗壓性與材料耐久度。</div>
         </div>
-
         <div class="card-box" style="border-color: var(--accent-gold);">
           <div class="card-title" style="color: var(--accent-gold);">數位轉型時代</div>
-          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">騰煇企業 ✕ 3D BIM 導入</div>
-          <div class="card-text">導入 3D 空間放樣、CNC 數值控制打樣與 4D-BIM 雲端排錯，實現零重工施工。</div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); margin-bottom: 6px;">騰煇企業 ✕ 3D BIM 導入</div>
+          <div class="card-text">導入 3D BIM 放樣、CNC 數值控制打樣與 4D 施工時序排錯。</div>
         </div>
-
         <div class="card-box">
-          <div class="card-title">永續與系統整合</div>
-          <div style="font-weight: 800; font-size: 1.1rem; color: var(--text-main); margin-bottom: 8px;">三大系統 ✕ 低碳 ESG</div>
-          <div class="card-text">整合 GRC 特殊造型、PPG 全球高耐候塗料與專利導水板，提供一站式連工帶料。</div>
+          <div class="card-title">系統化整合</div>
+          <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-main); margin-bottom: 6px;">三大核心系統 ✕ 低碳 ESG</div>
+          <div class="card-text">整合 GRC 特殊造型、PPG 全球高耐候塗料與專利導水板工程。</div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 3: 3D BIM 數位轉型與數位資產 -->
+    <!-- Slide 03: ESG 低碳認證 -->
     <section class="slide" id="slide-3">
       <div class="slide-grid-2">
         <div>
-          <span class="badge-tag">DIGITAL ASSETS ｜ 3D BIM 數位放樣</span>
-          <h2 class="slide-title">Render 設計圖，1:1 精準轉換為可施工構件</h2>
-          <p class="slide-subtitle">我們不做設計，而是作為建築師與帷幕專家最可靠的「3D 數位拆圖與施工落地夥伴」。</p>
+          <span class="badge-tag">SUSTAINABILITY ｜ ESG 綠建築</span>
+          <h2 class="slide-title">ESG 不只是理念：用數據與雙重查證讓永續可被採信</h2>
+          <p class="slide-subtitle">騰煇取得國際 ISO 雙重驗證，協助建商與建築師符合低碳建築與綠建材規範。</p>
           
           <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="card-box" style="padding: 16px;">
-              <div class="card-title" style="font-size: 1rem;">1. 幾何曲面構件分割 (Panelization)</div>
-              <div class="card-text">電腦拆圖符合運輸限制與美學分割線，杜絕現場公差。</div>
+            <div class="card-box" style="border-color: var(--accent-gold);">
+              <div class="card-title" style="color: var(--accent-gold);">ISO 14064-1 溫室氣體盤查查證</div>
+              <div class="card-text">廠區營運與製造過程全面盤查，實踐綠色低碳製造。</div>
             </div>
-            <div class="card-box" style="padding: 16px;">
-              <div class="card-title" style="font-size: 1rem;">2. 鋼構鐵件碰撞檢查 (Clash Detection)</div>
-              <div class="card-text">3D 模型預先干涉排錯，避免現場高空作業重工延誤。</div>
+            <div class="card-box">
+              <div class="card-title">ISO 14067 產品碳足跡查證</div>
+              <div class="card-text">GRC 構件輕量化設計減重 80%，大幅降低營建載重與碳排放。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-box" style="padding: 30px; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">📜</div>
+          <div style="font-family: 'Noto Serif TC', serif; font-size: 1.5rem; font-weight: 900; color: var(--text-main); margin-bottom: 12px;">ISO 14064-1 ✕ ISO 14067</div>
+          <div class="card-text" style="max-width: 400px; margin: 0 auto;">雙重第三方認證查證，為建築提供精準的碳足跡數據報告。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 04: 3D BIM 數位放樣 -->
+    <section class="slide" id="slide-4">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">DIGITAL ASSETS ｜ 3D BIM 放樣</span>
+          <h2 class="slide-title">Render 設計圖，1:1 精準轉換為可施工表皮</h2>
+          <p class="slide-subtitle">我們不做設計，而是作為建築師最可靠的「3D 數位拆圖與施工落地夥伴」。</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card-box">
+              <div class="card-title">幾何曲面構件分割 (Panelization)</div>
+              <div class="card-text">電腦拆圖符合運輸寬度限制與美學分割線，杜絕現場誤差。</div>
+            </div>
+            <div class="card-box">
+              <div class="card-title">鋼構預埋件干涉檢查 (Clash Detection)</div>
+              <div class="card-text">3D 模型預先碰撞排錯，大幅降低現場高空作業重工率。</div>
             </div>
           </div>
         </div>
@@ -427,212 +352,318 @@
           <video autoplay loop muted playsinline>
             <source src="img/4dbim-demo.mp4" type="video/mp4">
           </video>
-          <div class="media-caption">3D BIM 建築模型空間剖面與預先干涉排錯錄影</div>
+          <div class="media-caption">3D BIM 模型剖面與預先干涉排錯實境展示</div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 4: 核心系統 01 —— GRC 特殊造型工程 -->
-    <section class="slide" id="slide-4">
-      <div class="slide-grid-2">
-        <div>
-          <span class="badge-tag">CORE SERVICE 01 ｜ GRC 特殊造型</span>
-          <h2 class="slide-title">GRC 玻璃纖維強化水泥：輕量、強韌、前衛雙曲面</h2>
-          <p class="slide-subtitle">厚度僅 15-25mm，重量只有傳統 RC 的 1/5，專治高難度立體外觀。</p>
-          
-          <div class="slide-grid-2" style="gap: 16px; margin-top: 10px;">
-            <div class="card-box" style="padding: 16px;">
-              <div class="card-title" style="font-size: 0.95rem;">高抗拉與高可塑</div>
-              <div class="card-text">玻璃纖維摻合水泥，完美呈現流線型雙曲面與歐式飾柱。</div>
-            </div>
-            <div class="card-box" style="padding: 16px;">
-              <div class="card-title" style="font-size: 0.95rem;">A1 級不燃與低碳</div>
-              <div class="card-text">水泥材質防火防潮，具備 ISO 碳足跡查證。</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="media-box" style="height: 420px;">
-          <img src="img/projects/humei-dijing.jpg" alt="湖美帝景 GRC 歐式古典造型">
-          <div class="media-caption">台南湖美帝景 ｜ GRC 歐式古典立面預鑄工程</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 5: 核心系統 02 —— PPG 建築高耐候塗料 -->
+    <!-- Slide 05: 騰煇 5 大標準施工流程 -->
     <section class="slide" id="slide-5">
-      <div class="slide-grid-2">
-        <div class="media-box" style="height: 420px;">
-          <img src="img/projects/case05-renwu-after.jpg" alt="台塑仁武 AI 館 PPG 塗料">
-          <div class="media-caption">高雄台塑仁武 AI 研發中心 ｜ PPG 建築防護塗料連工帶料</div>
+      <span class="badge-tag">WORKFLOW ｜ 5 大標準工序</span>
+      <h2 class="slide-title">每一道工序，都建立在毫米級的精準之上</h2>
+      <p class="slide-subtitle">從前期可行性評估到最後塗料整合，提供標準化且可追溯的工程流程。</p>
+
+      <div class="slide-grid-4" style="grid-template-columns: repeat(5, 1fr);">
+        <div class="card-box" style="padding: 16px;">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">STEP 01</div>
+          <div class="card-title" style="font-size: 0.95rem;">設計評估</div>
+          <div class="card-text" style="font-size: 0.8rem;">圖面討論、可行性分析、材料建議。</div>
         </div>
-
-        <div>
-          <span class="badge-tag">CORE SERVICE 02 ｜ PPG 全球第一塗料</span>
-          <h2 class="slide-title">PPG 授權經銷 ✕ 騰煇 5 大主力連工帶料</h2>
-          <p class="slide-subtitle">全球 Top 1 塗料技術，結合騰煇 5年＋5年 雙重原廠與施工保固。</p>
-
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div class="card-box" style="padding: 14px;">
-              <div class="card-title" style="font-size: 0.95rem; color: var(--accent-gold);">絢岩岩彩漆 (Granite Coating)</div>
-              <div class="card-text">單桶包覆色漿，一次噴塗即呈現媲美頂級花崗岩立體石紋。</div>
-            </div>
-            <div class="card-box" style="padding: 14px;">
-              <div class="card-title" style="font-size: 0.95rem;">龐亞漆 (Panya Coating)</div>
-              <div class="card-text">10 奈米級極小分子乳液，高附著力 (1.4MPa)，呈現質感清水模。</div>
-            </div>
-            <div class="card-box" style="padding: 14px;">
-              <div class="card-title" style="font-size: 0.95rem;">彈性佩能漆 ✕ 臻石漆 ✕ 雅飾彈性500</div>
-              <div class="card-text">自潔防污、抗 UV、覆蓋微細裂縫，長效保色 20 年。</div>
-            </div>
-          </div>
+        <div class="card-box" style="padding: 16px;">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">STEP 02</div>
+          <div class="card-title" style="font-size: 0.95rem;">深化拆圖</div>
+          <div class="card-text" style="font-size: 0.8rem;">SketchUp / 3D BIM 施工節點確認。</div>
+        </div>
+        <div class="card-box" style="padding: 16px;">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">STEP 03</div>
+          <div class="card-title" style="font-size: 0.95rem;">GRC 製造</div>
+          <div class="card-text" style="font-size: 0.8rem;">塑形、開模、翻模、品質控管。</div>
+        </div>
+        <div class="card-box" style="padding: 16px;">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">STEP 04</div>
+          <div class="card-title" style="font-size: 0.95rem;">現場施工</div>
+          <div class="card-text" style="font-size: 0.8rem;">高空定位、鋼骨吊裝、鎖固收邊。</div>
+        </div>
+        <div class="card-box" style="padding: 16px;">
+          <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 800;">STEP 05</div>
+          <div class="card-title" style="font-size: 0.95rem;">PPG 整合</div>
+          <div class="card-text" style="font-size: 0.8rem;">建築塗料連工帶料噴塗系統。</div>
         </div>
       </div>
     </section>
 
-    <!-- Slide 6: 核心系統 03 —— 專利窗台導水板與防水 -->
+    <!-- Slide 06: GRC 材料力學與特性 -->
     <section class="slide" id="slide-6">
       <div class="slide-grid-2">
         <div>
-          <span class="badge-tag">CORE SERVICE 03 ｜ 專利水痕防護</span>
-          <h2 class="slide-title">專利窗台導水板：根治滲水壁癌與牆面黑水痕</h2>
-          <p class="slide-subtitle">外部導水 ＋ 結構灌注，從源頭切斷雨水沿外牆下流的滲漏路徑。</p>
-          
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div class="card-box">
-              <div class="card-title">專利鎖固卡扣升級版</div>
-              <div class="card-text">提升高空構件穩定度，完美匹配現代窗框細部收邊。</div>
+          <span class="badge-tag">CORE SYSTEM 01 ｜ GRC 特殊造型</span>
+          <h2 class="slide-title">GRC 玻璃纖維強化水泥：輕量、高抗拉、前衛雙曲面</h2>
+          <p class="slide-subtitle">水泥具高抗壓強度但抗張力不足，摻合耐鹼玻璃纖維補其不足。</p>
+
+          <div class="slide-grid-2" style="gap: 12px; margin-top: 10px;">
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.9rem;">15-25mm 薄型輕量</div>
+              <div class="card-text">重量僅 RC 的 1/5，大幅減輕建築結構負荷。</div>
             </div>
-            <div class="card-box">
-              <div class="card-title">老屋外牆免打除拉皮工法</div>
-              <div class="card-text">零粉塵、低噪音、工期短，免敲瓷磚直上防護塗料與乾式包板。</div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.9rem;">A1 級不燃與防潮</div>
+              <div class="card-text">無毒不燃材質，防潮抗老化，適應台灣氣候。</div>
             </div>
           </div>
         </div>
 
-        <div class="media-box" style="height: 420px;">
-          <img src="img/projects/case04-tianwei-main-after.jpg" alt="田尾外牆導水與拉皮實績">
-          <div class="media-caption">專利窗台導水板與外牆細部防護實績</div>
+        <div class="card-box">
+          <div class="card-title" style="color: var(--accent-gold);">為什麼選擇 GRC？</div>
+          <ul style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.8; padding-left: 18px; margin-top: 8px;">
+            <li>取代牆面外推造型，減少模板與保麗龍廢棄物。</li>
+            <li>預鑄工法施工速度快，縮短整體營建工期。</li>
+            <li>高抗撞擊性能，廣泛應用於大型立體雕花與格柵。</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Slide 7: 跨界整合與熱烈歡迎 -->
+    <!-- Slide 07: GRC 製造與施工 -->
     <section class="slide" id="slide-7">
-      <div style="text-align: center; max-width: 860px; margin: 0 auto;">
-        <span class="badge-tag">EXPERT COLLABORATION ｜ 跨界聯手</span>
-        <h2 class="slide-title" style="font-size: 2.5rem;">攜手帷幕專家，共建頂級建築立面生態系</h2>
-        <p class="slide-subtitle">
-          感謝兩位帷幕博士專家臨！騰煇願作為帷幕與造型工程領域最堅實的落地製造與施工後盾。
-        </p>
-
-        <!-- 3 大推薦口訣包 -->
-        <div class="slide-grid-3" style="text-align: left; margin-bottom: 30px;">
-          <div class="card-box" style="border-color: var(--accent-gold);">
-            <div class="card-title" style="color: var(--accent-gold);">1. 曲面造型專案</div>
-            <div class="card-text">找騰煇做 3D BIM 拆圖放樣 ✕ GRC 輕量化預鑄連工帶料！</div>
-          </div>
-          <div class="card-box" style="border-color: var(--accent-blue);">
-            <div class="card-title" style="color: var(--accent-blue);">2. 建築塗料專案</div>
-            <div class="card-text">找騰煇做 PPG 原廠 5年+5年 雙重保固與高耐候噴塗！</div>
-          </div>
-          <div class="card-box" style="border-color: var(--accent-gold);">
-            <div class="card-title" style="color: var(--accent-gold);">3. 翻新與防護專案</div>
-            <div class="card-text">找騰煇做老屋免打除拉皮 ✕ 專利窗台導水板根治壁癌！</div>
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">GRC CRAFTS ｜ 工廠製造與乾式施工</span>
+          <h2 class="slide-title">從鋼骨架構定位到預鑄構件高空吊裝</h2>
+          <p class="slide-subtitle">採用 GRC 乾式施工法，現場骨架定位 ➔ 構件鎖固 ➔ 面層噴塗完工。</p>
+          
+          <div class="card-box">
+            <div class="card-title">騰煇 GRC 製程與直塑工程</div>
+            <div class="card-text">自營製造工廠，提供從泥塑原型、玻璃纖維開模、噴漿翻模到現場乾式吊裝的完整品質控管。</div>
           </div>
         </div>
 
-        <div style="font-weight: 800; font-size: 1.3rem; color: var(--accent-gold);">
-          熱烈歡迎兩位帷幕博士專家為我們做精彩分享！
+        <div class="media-box" style="height: 400px;">
+          <video autoplay loop muted playsinline>
+            <source src="img/grc-process.mp4" type="video/mp4">
+          </video>
+          <div class="media-caption">騰煇 GRC 廠區開模與現場高空吊裝實景</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 08: GRC 指標案例巡禮 -->
+    <section class="slide" id="slide-8">
+      <span class="badge-tag">LANDMARKS ｜ GRC 指標實績</span>
+      <h2 class="slide-title">精準，成就每一座地標建築</h2>
+
+      <div class="slide-grid-3">
+        <div class="media-box" style="height: 280px;">
+          <img src="img/projects/grc-yayuan.jpg" alt="台中雅園新潮">
+          <div class="media-caption">台中雅園新潮 ｜ GRC 幾何雙曲拱門</div>
+        </div>
+        <div class="media-box" style="height: 280px;">
+          <img src="img/projects/humei-dijing.jpg" alt="台南湖美帝景">
+          <div class="media-caption">台南湖美帝景 ｜ GRC 歐式古典立面</div>
+        </div>
+        <div class="media-box" style="height: 280px;">
+          <img src="img/projects/jinshi-yuan.jpg" alt="嘉義金石龍悅">
+          <div class="media-caption">嘉義金石龍悅 ｜ GRC 幾何格柵造型</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 09: PPG 全球第一塗料 -->
+    <section class="slide" id="slide-9">
+      <div class="slide-grid-2">
+        <div class="media-box" style="height: 420px;">
+          <img src="img/projects/ppg-cangle.jpg" alt="PPG 全球實績">
+          <div class="media-caption">PPG 全球工程實績：法國羅浮宮、迪士尼、新加坡萊佛士酒店</div>
+        </div>
+
+        <div>
+          <span class="badge-tag">CORE SYSTEM 02 ｜ PPG 全球塗料</span>
+          <h2 class="slide-title">1883 創立 ✕ 全球 Top 1 塗料與塗層技術</h2>
+          <p class="slide-subtitle">騰煇四大優勢：原裝進口正式報關、PPG 原料 5 年 ✕ 騰煇施工 5 年雙重保固、連工帶料、適應台灣氣候。</p>
+
+          <div class="slide-grid-2" style="gap: 12px; margin-top: 10px;">
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.9rem; color: var(--accent-gold);">雙重保固機制</div>
+              <div class="card-text">PPG 原廠 5年 ✕ 騰煇施工 5年保固。</div>
+            </div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.9rem; color: var(--accent-gold);">連工帶料全包</div>
+              <div class="card-text">基底檢測 ➔ 選材 ➔ 專業噴塗。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: PPG 5大主力塗料系統 -->
+    <section class="slide" id="slide-10">
+      <span class="badge-tag">PPG SYSTEMS ｜ 5 大主力連工帶料塗料</span>
+      <h2 class="slide-title">從質感石紋到清水模：高耐候防護塗料系統</h2>
+
+      <div class="slide-grid-3">
+        <div class="card-box" style="border-color: var(--accent-gold);">
+          <div class="card-title" style="color: var(--accent-gold);">絢岩岩彩漆 (Granite Coating)</div>
+          <div class="card-text">單桶包覆色漿顆粒，一次噴塗即展現媲美天然花崗石之立體石紋質感。</div>
+        </div>
+        <div class="card-box">
+          <div class="card-title">龐亞漆 (Panya Coating)</div>
+          <div class="card-text">10 奈米極小分子乳液，高超附著力 (1.4MPa)，呈現頂級清水模質感。</div>
+        </div>
+        <div class="card-box">
+          <div class="card-title">彈性佩能漆 ✕ 臻石漆 ✕ 雅飾500</div>
+          <div class="card-text">卓越裂縫延伸率、自潔防污抗 UV，適應台灣氣候保色長達 20 年。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11: 專利窗台導水板 -->
+    <section class="slide" id="slide-11">
+      <div class="slide-grid-2">
+        <div>
+          <span class="badge-tag">CORE SYSTEM 03 ｜ 細部水痕防護</span>
+          <h2 class="slide-title">專利窗台導水板：根治窗角滲水壁癌與黑水痕</h2>
+          <p class="slide-subtitle">鎖固卡扣升級版：外部導水 ＋ 結構灌注，切斷雨水回滲路徑。</p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.95rem;">外部導水設計</div>
+              <div class="card-text">引導雨水離開牆面，降低窗角掛污與積水回滲。</div>
+            </div>
+            <div class="card-box" style="padding: 14px;">
+              <div class="card-title" style="font-size: 0.95rem;">鎖固卡扣升級</div>
+              <div class="card-text">提升高空構件穩定度，呈現細緻收邊工藝。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-box" style="height: 400px;">
+          <img src="img/projects/case04-tianwei-main-after.jpg" alt="專利窗台導水板實績">
+          <div class="media-caption">專利窗台導水板與細部防護實績</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12: 老屋外牆免打除拉皮 -->
+    <section class="slide" id="slide-12">
+      <div class="slide-grid-2">
+        <div class="media-box" style="height: 400px;">
+          <img src="img/projects/case02-jiangmudao-after.jpg" alt="將木島外牆免打除拉皮實績">
+          <div class="media-caption">高雄將木日式風格外牆免打除拉皮整修實績</div>
+        </div>
+
+        <div>
+          <span class="badge-tag">RENOVATION ｜ 老屋外牆拉皮</span>
+          <h2 class="slide-title">老屋外牆免打除拉皮：零粉塵、低噪音、工期縮短</h2>
+          <p class="slide-subtitle">無須敲除瓷磚，透點敲擊檢測 ➔ 高壓清洗 ➔ 介面填縫 ➔ 噴塗防護面層。</p>
+
+          <div class="card-box">
+            <div class="card-title">安全與高 CP 值之選擇</div>
+            <div class="card-text">避免傳統打除產生的粉塵噪音與結構破壞，大幅節省廢棄物清理與工期成本。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: 帷幕專家學術交流開場結語 -->
+    <section class="slide" id="slide-13">
+      <div style="text-align: center; max-width: 860px; margin: 0 auto;">
+        <span class="badge-tag">SEMINAR OPENING ｜ 學術交流開場</span>
+        <h2 class="slide-title" style="font-size: 2.5rem; margin-bottom: 20px;">謙遜求知，自信落地：熱烈歡迎兩位帷幕博士專家蒞臨指導</h2>
+        <p class="slide-subtitle" style="font-size: 1.1rem; max-width: 720px; margin: 0 auto 30px auto; line-height: 1.8;">
+          騰煇 40 年來在 GRC 預鑄造型、PPG 高耐候塗料與 3D BIM 放樣建立了扎實的施工落地能力。<br>
+          我們抱持著學習與探索的心情，積極向帷幕領域深度交流，期待攜手共建更嚴謹的建築立面生態系！
+        </p>
+
+        <div style="font-weight: 800; font-size: 1.35rem; color: var(--accent-gold);">
+          讓我們以最熱烈的掌聲，歡迎兩位博士專家為我們帶來精彩分享！
         </div>
       </div>
     </section>
 
   </div>
 
-  <!-- Bottom Control Console -->
+  <!-- Bottom Controls -->
   <footer class="control-console">
     <button class="nav-btn" onclick="prevSlide()">◄ 上一頁 (Left Arrow)</button>
-
-    <div class="slide-counter" id="slideCounter">01 / 07</div>
-
+    <div class="slide-counter" id="slideCounter">01 / 13</div>
     <button class="nav-btn" onclick="nextSlide()">下一頁 (Right Arrow) ►</button>
   </footer>
 
-  <!-- Cinema Modal -->
-  <div class="modal-overlay" id="cinemaModal">
+  <!-- Video Selector Modal -->
+  <div class="modal-overlay" id="videoSelectorModal">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeCinemaModal()">✕</button>
-      <h3 id="cinemaTitle" style="font-size: 1.2rem; margin-bottom: 16px; color: var(--accent-gold);">影音播放器</h3>
-      <video id="cinemaVideo" controls style="width: 100%; border-radius: 8px; max-height: 70vh;">
-        <source src="" type="video/mp4">
-      </video>
+      <button class="modal-close" onclick="closeVideoSelector()">✕</button>
+      <h3 style="font-size: 1.2rem; margin-bottom: 14px; color: var(--accent-gold);">🎬 騰煇實景影音劇院 (10支高清影片庫)</h3>
+      
+      <div class="slide-grid-2" style="gap: 12px; max-height: 65vh; overflow-y: auto; padding-right: 8px;">
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/01_3D_BIM模型Blender剖面展示.mp4', '01. 3D BIM 模型 Blender 剖面展示')">▶ 01. 3D BIM 模型 Blender 剖面展示</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/02_Web3D與4D_BIM雲端拆解平台錄影.mp4', '02. Web3D 與 4D-BIM 雲端拆解平台錄影')">▶ 02. Web3D 與 4D-BIM 雲端拆解錄影</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('img/grc-process.mp4', '03. GRC 廠區開模與高空吊裝實景影片')">▶ 03. GRC 廠區開模與高空吊裝實景</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/04_PPG簡報內嵌影片_01_media2.mp4', '04. PPG 高耐候塗料實驗與噴塗測試')">▶ 04. PPG 塗料實驗與噴塗測試</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/03_半成品簡報內嵌影片_01_VAHUleJ3xLc.mp4', '05. GRC 泥塑原型打樣現場紀錄')">▶ 05. GRC 泥塑原型打樣現場紀錄</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/03_半成品簡報內嵌影片_02_VAHUlvk_EH8.mp4', '06. 翻模與高壓水泥噴漿工程紀錄')">▶ 06. 翻模與高壓水泥噴漿工程紀錄</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/03_半成品簡報內嵌影片_03_VAHSycg4KB4.mp4', '07. 現場高空定位與鋼骨吊裝實況')">▶ 07. 現場高空定位與鋼骨吊裝實況</button>
+        <button class="btn-action" style="justify-content: flex-start; padding: 12px;" onclick="playSelectedVideo('../all_presentation_videos/03_半成品簡報內嵌影片_04_VAHUlStSVro.mp4', '08. 外牆防水施工與細部收邊紀錄')">▶ 08. 外牆防水施工與細部收邊紀錄</button>
+      </div>
+
+      <div style="margin-top: 16px; display: none;" id="playerContainer">
+        <h4 id="videoTitleDisplay" style="color: #fff; margin-bottom: 8px; font-size: 1rem;">播放中...</h4>
+        <video id="theaterPlayer" controls style="width: 100%; border-radius: 8px; max-height: 50vh;">
+          <source src="" type="video/mp4">
+        </video>
+      </div>
     </div>
   </div>
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 7;
+    const totalSlides = 13;
 
     function updateSlide() {
       document.querySelectorAll('.slide').forEach((s, idx) => {
-        s.classList.remove('active', 'prev-slide');
+        s.classList.remove('active');
         if (idx + 1 === currentSlide) {
           s.classList.add('active');
-        } else if (idx + 1 < currentSlide) {
-          s.classList.add('prev-slide');
         }
       });
-      document.getElementById('slideCounter').innerText = `0${currentSlide} / 0${totalSlides}`;
+      document.getElementById('slideCounter').innerText = `${currentSlide < 10 ? '0' + currentSlide : currentSlide} / ${totalSlides}`;
       document.getElementById('progressFill').style.width = `${(currentSlide / totalSlides) * 100}%`;
     }
 
     function nextSlide() {
-      if (currentSlide < totalSlides) {
-        currentSlide++;
-        updateSlide();
-      }
+      if (currentSlide < totalSlides) { currentSlide++; updateSlide(); }
     }
-
     function prevSlide() {
-      if (currentSlide > 1) {
-        currentSlide--;
-        updateSlide();
-      }
+      if (currentSlide > 1) { currentSlide--; updateSlide(); }
     }
 
     function toggleTheme() {
       const html = document.documentElement;
-      const cur = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     }
 
-    function openCinemaModal(videoSrc, titleText) {
-      const modal = document.getElementById('cinemaModal');
-      const video = document.getElementById('cinemaVideo');
-      const title = document.getElementById('cinemaTitle');
-      title.innerText = titleText;
-      video.src = videoSrc;
-      modal.classList.add('active');
-      video.play();
+    function openVideoSelector() {
+      document.getElementById('videoSelectorModal').classList.add('active');
     }
-
-    function closeCinemaModal() {
-      const modal = document.getElementById('cinemaModal');
-      const video = document.getElementById('cinemaVideo');
-      video.pause();
+    function closeVideoSelector() {
+      const modal = document.getElementById('videoSelectorModal');
+      const player = document.getElementById('theaterPlayer');
+      player.pause();
       modal.classList.remove('active');
     }
+    function playSelectedVideo(src, titleText) {
+      const container = document.getElementById('playerContainer');
+      const player = document.getElementById('theaterPlayer');
+      const title = document.getElementById('videoTitleDisplay');
+      container.style.display = 'block';
+      title.innerText = titleText;
+      player.src = src;
+      player.play();
+    }
 
-    // Keyboard Arrow navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'Space') {
-        nextSlide();
-      } else if (e.key === 'ArrowLeft') {
-        prevSlide();
-      } else if (e.key === 'Escape') {
-        closeCinemaModal();
-      }
+      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+      else if (e.key === 'Escape') closeVideoSelector();
     });
   </script>
 </body>
