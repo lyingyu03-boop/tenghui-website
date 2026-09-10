@@ -963,8 +963,7 @@
         editBtn.innerText = '✏️ 編輯頁面內容';
       }
 
-      const htmlContent = '<!DOCTYPE html>
-' + clone.outerHTML;
+      const htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
       const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -1011,9 +1010,9 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.target.getAttribute('contenteditable') === 'true') return;
-      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
-      else if (e.key === 'ArrowLeft') prevSlide();
+      if (e.target && typeof e.target.getAttribute === 'function' && e.target.getAttribute('contenteditable') === 'true') return;
+      if (e.key === 'ArrowRight' || e.key === 'Space') { nextSlide(); }
+      else if (e.key === 'ArrowLeft') { prevSlide(); }
       else if (e.key === 'Escape') {
         closeVideoSelector();
         closeLightbox();
