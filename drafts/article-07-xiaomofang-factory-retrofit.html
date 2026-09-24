@@ -258,26 +258,26 @@
       position: relative;
     }
 
-    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 */
+    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (流體自適應 3 圓不潰縮) */
     .venn-diagram-wrapper {
       background: var(--bg-warm);
       border: 1px solid var(--border-color);
       border-radius: 24px;
-      padding: 44px 32px;
+      padding: 44px 28px;
       margin: 40px 0;
       text-align: center;
     }
     .venn-container {
       position: relative;
       width: 100%;
-      max-width: 580px;
-      height: 440px;
+      max-width: 540px;
+      aspect-ratio: 540 / 420;
       margin: 0 auto;
     }
     .venn-circle {
       position: absolute;
-      width: 280px;
-      height: 280px;
+      width: 54%;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -285,29 +285,30 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
     }
     .venn-circle:hover {
       transform: scale(1.03);
       z-index: 8 !important;
     }
     
-    /* 圓圈定位與顏色配搭 */
+    /* 圓圈定位與顏色配搭 (百分比精確疊加) */
     .venn-circle.circle-1 {
-      top: 10px;
-      left: 20px;
+      top: 2%;
+      left: 2%;
       background: rgba(37, 99, 235, 0.08);
       border: 2px solid rgba(37, 99, 235, 0.35);
       z-index: 1;
     }
     .venn-circle.circle-2 {
-      top: 10px;
-      right: 20px;
+      top: 2%;
+      right: 2%;
       background: rgba(15, 23, 42, 0.06);
       border: 2px solid rgba(15, 23, 42, 0.3);
       z-index: 2;
     }
     .venn-circle.circle-3 {
-      bottom: 10px;
+      bottom: 2%;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(217, 119, 6, 0.07);
@@ -319,17 +320,18 @@
     }
 
     .venn-circle-inner {
-      padding: 24px;
+      padding: 12px;
       text-align: center;
+      width: 100%;
     }
     .venn-tag {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
+      font-size: clamp(0.62rem, 1.4vw, 0.75rem);
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: var(--slate-500);
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
     .circle-1 .venn-tag { color: var(--accent-blue); }
     .circle-2 .venn-tag { color: var(--primary-dark); }
@@ -337,15 +339,15 @@
 
     .venn-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.25rem;
+      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
       font-weight: 900;
       color: var(--primary-dark);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .venn-desc {
-      font-size: 0.82rem;
+      font-size: clamp(0.68rem, 1.5vw, 0.82rem);
       color: var(--slate-600);
-      line-height: 1.5;
+      line-height: 1.4;
       font-weight: 500;
     }
 
@@ -357,7 +359,7 @@
       transform: translate(-50%, -50%);
       background: var(--primary-dark);
       color: #ffffff;
-      padding: 16px 28px;
+      padding: clamp(8px, 1.8vw, 16px) clamp(14px, 2.5vw, 26px);
       border-radius: 36px;
       box-shadow: 0 12px 35px rgba(15, 23, 42, 0.35);
       border: 2px solid rgba(255, 255, 255, 0.85);
@@ -367,13 +369,13 @@
     }
     .core-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.05rem;
+      font-size: clamp(0.82rem, 1.8vw, 1.05rem);
       font-weight: 900;
       letter-spacing: 1px;
       color: #ffffff;
     }
     .core-subtitle {
-      font-size: 0.75rem;
+      font-size: clamp(0.62rem, 1.4vw, 0.75rem);
       color: #60a5fa;
       font-weight: 800;
       letter-spacing: 1.5px;
@@ -389,6 +391,51 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* 三維度對齊詳細解說 Grid */
+    .dimension-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 32px 0 24px 0;
+    }
+    .dim-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: left;
+    }
+    .dim-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(15,23,42,0.07);
+    }
+    .dim-card-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .dim-card.blue .dim-card-tag { color: var(--accent-blue); }
+    .dim-card.dark .dim-card-tag { color: var(--primary-dark); }
+    .dim-card.amber .dim-card-tag { color: #d97706; }
+
+    .dim-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    .dim-card-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.75;
+      margin: 0;
     }
 
     /* 案例對比區塊 (Section 04) */
@@ -569,13 +616,10 @@
       .editorial-content { padding: 36px 24px; }
       .editorial-hero { padding: 40px 24px; }
       .hero-title { font-size: 1.95rem; }
-      .editorial-grid-2, .editorial-grid-2.reverse, .compare-side-by-side {
+      .editorial-grid-2, .editorial-grid-2.reverse, .compare-side-by-side, .dimension-detail-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
-      .venn-container { height: auto; display: flex; flex-direction: column; gap: 16px; }
-      .venn-circle { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100%; height: auto; border-radius: 16px; padding: 20px; }
-      .venn-center-core { position: relative; top: auto; left: auto; transform: none; margin: 16px auto; width: fit-content; }
     }
   </style>
 </head>
@@ -730,6 +774,51 @@
           <div class="venn-caption-box">
             最佳的外牆更新規劃，建立於「建築現況條件」、「企業品牌形象」與「真實工程需求」三者的精準交集點。
           </div>
+        </div>
+
+        <!-- 💥 三維度對齊詳細解說文案區塊 -->
+        <div class="venn-editorial-narrative" style="margin-top: 36px;">
+          <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 18px; border-left: 4px solid var(--accent-blue); padding-left: 14px;">
+            三個維度的精準對齊，決定了外牆更新的最終成效
+          </h3>
+
+          <p class="editorial-p">
+            在過去許多既有廠辦拉皮的經驗中，常見的瓶頸往往在於只專注於單一面向——例如只強調將外觀刷漂亮，卻忽視了牆面基材底部的龜裂與漏水診斷；或是過度追求花梢的立面裝飾，卻未考量到廠區生產營運的防塵保護與維護效益。
+          </p>
+          <p class="editorial-p">
+            騰煇主張在進行任何廠辦外牆拉皮規劃前，必須將「建築條件、企業形象、工程需求」三者置於同等重要的維度展開評估：
+          </p>
+
+          <!-- 三維度解說卡片 Grid -->
+          <div class="dimension-detail-grid">
+            <div class="dim-card blue">
+              <div class="dim-card-tag">DIMENSION 01</div>
+              <div class="dim-card-title">建築現況條件診斷</div>
+              <p class="dim-card-desc">
+                外牆拉皮的首要基礎，是全面檢視既有牆面材料狀況、風化程度、底材附著力與細部排水設計。唯有奠基於精確的工程現況診斷，後續塗裝與保護層才能達到高耐候性與長久附著力。
+              </p>
+            </div>
+
+            <div class="dim-card dark">
+              <div class="dim-card-tag">DIMENSION 02</div>
+              <div class="dim-card-title">企業品牌形象演繹</div>
+              <p class="dim-card-desc">
+                廠辦立面是企業對外呈現的實體精神象徵。透過專業的色彩脈絡計畫、立面比例與材質質感搭配，讓老舊建築重新煥發符合企業未來市場定位的現代專業氣度。
+              </p>
+            </div>
+
+            <div class="dim-card amber">
+              <div class="dim-card-tag">DIMENSION 03</div>
+              <div class="dim-card-title">真實工程與營運需求</div>
+              <p class="dim-card-desc">
+                深入考量廠區日常營運不中斷、防塵防護措施、工期節奏與高匹配度工法選擇（如節能板、佩能漆系統等），兼顧安全性與養護成本，確保企業投資效益最大化。
+              </p>
+            </div>
+          </div>
+
+          <p class="editorial-p">
+            當這三個維度達成精準交集，廠辦外牆拉皮就不再只是單純的外觀刷彩，而是一次為企業品牌賦能、延長建築壽命的戰略升級。
+          </p>
         </div>
       </section>
 
