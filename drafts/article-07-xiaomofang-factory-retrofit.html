@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>為什麼老舊的廠辦外觀會影響企業形象？要如何改善？以小磨坊斗六廠辦更新工程為例 ｜ 騰煇企業工程專欄</title>
-  <meta name="description" content="深入解析小磨坊斗六廠辦外牆更新工程。從 ALC 版現況檢測、鋼筋防鏽修補、節能板與 PPG 彈性佩能漆工法，到 3D 渲染與完工對照。">
+  <title>為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？ ｜ 騰煇企業工程專欄</title>
+  <meta name="description" content="一間企業的形象，不只存在於 Logo 與網站，廠辦本身就是企業門面。解析老舊廠辦外觀如何重新思考，以及騰煇如何從現況評估到工程整合。">
   
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
   
@@ -26,7 +26,7 @@
       font-family: 'Noto Sans TC', sans-serif;
       color: var(--text-main);
       background-color: #f1f5f9;
-      line-height: 1.8;
+      line-height: 1.85;
       padding-bottom: 80px;
     }
 
@@ -41,7 +41,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
     .header-inner {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -68,9 +68,9 @@
       gap: 6px;
     }
 
-    /* 主要容器 */
+    /* 主要容器 (概念型極簡版) */
     .article-container {
-      max-width: 1060px;
+      max-width: 920px;
       margin: 40px auto;
       background: #ffffff;
       border-radius: 20px;
@@ -84,14 +84,13 @@
       position: relative;
       background: var(--primary-dark);
       color: #ffffff;
-      padding: 48px 40px;
-      overflow: hidden;
+      padding: 56px 48px 48px;
     }
     .hero-badge-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .hero-badge {
       background: rgba(37, 99, 235, 0.2);
@@ -109,213 +108,129 @@
       font-size: 2.3rem;
       font-weight: 900;
       line-height: 1.35;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       color: #ffffff;
     }
     .hero-subtitle {
       font-size: 1.1rem;
       color: #94a3b8;
       font-weight: 500;
-      margin-bottom: 32px;
-    }
-
-    .hero-img-box {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-img-box img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
+      line-height: 1.6;
     }
 
     /* 文章主體內文 */
     .article-content {
-      padding: 48px 40px;
+      padding: 48px;
     }
 
-    /* 章節大標題 (01, 02, 03...) */
-    .section-block {
+    /* 5 大段落 Block */
+    .concept-block {
       margin-bottom: 56px;
     }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--primary-dark);
-      padding-bottom: 10px;
+    .concept-block:last-child {
+      margin-bottom: 0;
     }
-    .num-tag {
+    
+    .concept-num-tag {
       font-family: 'Outfit', sans-serif;
-      font-size: 2.2rem;
+      font-size: 0.85rem;
       font-weight: 900;
       color: var(--accent-blue);
-      line-height: 1;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 8px;
     }
-    .sec-title {
+    .concept-title {
       font-family: 'Noto Serif TC', serif;
       font-size: 1.65rem;
       font-weight: 900;
       color: var(--primary-dark);
+      margin-bottom: 20px;
+      line-height: 1.4;
+      border-left: 4px solid var(--accent-blue);
+      padding-left: 16px;
     }
 
-    .sec-desc {
-      font-size: 1.05rem;
+    .concept-text {
+      font-size: 1.08rem;
       color: #334155;
-      margin-bottom: 24px;
-      line-height: 1.85;
-    }
-
-    /* 01 卡片網格：外牆更新可以帶來的價值 */
-    .value-card-box {
-      background: var(--section-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 32px;
-      margin-top: 24px;
-    }
-    .value-card-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.25rem;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 24px;
-      color: var(--primary-dark);
-    }
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    .val-item {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 20px 16px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
-    .val-icon {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      display: block;
-    }
-    .val-name {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--primary-dark);
+      line-height: 1.9;
+      margin-bottom: 20px;
     }
 
     /* 02 金句 Card */
-    .quote-box {
-      background: #f8fafc;
-      border-left: 4px solid var(--accent-blue);
+    .quote-card {
+      background: var(--section-bg);
+      border: 1px solid var(--border-color);
       padding: 24px 32px;
-      border-radius: 0 12px 12px 0;
-      margin: 24px 0;
+      border-radius: 12px;
+      margin: 28px 0;
       font-family: 'Noto Serif TC', serif;
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--primary-dark);
+      text-align: center;
     }
 
-    /* 03 施工前評估圖卡網格 */
-    .assess-wrapper {
-      display: grid;
-      grid-template-columns: 2.5fr 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-    .photo-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .assess-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    }
-    .assess-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .assess-card-body {
-      padding: 12px 14px;
-    }
-    .assess-card-title {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
-    }
-    .assess-card-sub {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    .assess-sidebar {
-      background: var(--primary-dark);
-      color: #ffffff;
-      border-radius: 12px;
-      padding: 24px 20px;
-    }
-    .assess-sidebar-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
-    }
-    .assess-list {
-      list-style: none;
-    }
-    .assess-list li {
+    /* 03 概念三要素 */
+    .formula-box {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
+      gap: 16px;
+      background: var(--accent-light-blue);
+      border: 1px solid rgba(37,99,235,0.2);
+      padding: 24px;
+      border-radius: 14px;
+      margin: 24px 0;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      flex-wrap: wrap;
+    }
+    .formula-item {
+      background: #ffffff;
+      padding: 8px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    /* 04 案例對照圖框 (3D vs 完工實景) */
+    .proof-case-box {
+      background: var(--section-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+    .proof-case-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--primary-dark);
       margin-bottom: 12px;
     }
-    .assess-num {
-      background: var(--accent-blue);
-      color: #ffffff;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 800;
-      flex-shrink: 0;
+    .proof-case-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
     }
 
-    /* 04 對照圖框 (3D vs 實景) */
     .compare-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      margin-top: 20px;
     }
-    .compare-box {
+    .compare-card {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid var(--border-color);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
     }
-    .compare-box img {
+    .compare-card img {
       width: 100%;
-      height: 260px;
+      height: 280px;
       object-fit: cover;
       display: block;
     }
@@ -326,149 +241,34 @@
       color: #ffffff;
       font-size: 0.82rem;
       font-weight: 800;
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 6px;
       backdrop-filter: blur(4px);
     }
 
-    /* 05 步驟 Strip 照片 */
-    .process-strip {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .process-step-item {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-    }
-    .process-step-item img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      display: block;
-    }
-    .process-step-body {
-      padding: 10px 6px;
-    }
-    .process-step-title {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 2px;
-    }
-    .process-step-desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* 06 隔熱圖解與構造示意 */
-    .diagram-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      margin-top: 24px;
-    }
-    .diagram-box {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 20px;
-      text-align: center;
-    }
-    .diagram-box img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .diagram-note {
-      background: #f8fafc;
-      border-left: 3px solid var(--text-muted);
-      padding: 16px 20px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-radius: 0 8px 8px 0;
-      margin-top: 20px;
-    }
-
-    /* 07 Before After 大圖巨幕 */
-    .hero-before-after {
-      background: var(--section-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 32px;
-      margin-top: 24px;
-    }
-    .ba-img-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 24px;
-    }
-    .ba-img-card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-    .ba-img-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-    }
-    .ba-label {
-      position: absolute;
-      top: 14px; left: 14px;
-      padding: 4px 14px;
-      border-radius: 6px;
-      font-weight: 900;
-      font-size: 0.85rem;
-    }
-    .ba-label.before { background: #64748b; color: #ffffff; }
-    .ba-label.after { background: var(--accent-blue); color: #ffffff; }
-
-    /* CTA 底部 Banner */
-    .article-cta-block {
+    /* 05 CTA 轉化區塊 */
+    .cta-concept-block {
       background: var(--primary-dark);
       color: #ffffff;
       padding: 48px 40px;
       border-radius: 16px;
-      margin-top: 56px;
+      margin-top: 48px;
       text-align: center;
     }
-    .cta-title {
+    .cta-concept-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: 1.8rem;
+      font-size: 1.75rem;
       font-weight: 900;
       margin-bottom: 12px;
     }
-    .cta-subtitle {
+    .cta-concept-desc {
       font-size: 1rem;
       color: #94a3b8;
       margin-bottom: 32px;
-      max-width: 650px;
+      max-width: 620px;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    .cta-feature-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-    .cta-feat-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 16px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #cbd5e1;
+      line-height: 1.7;
     }
     .cta-btn {
       display: inline-block;
@@ -489,12 +289,11 @@
     }
 
     @media (max-width: 768px) {
-      .value-grid, .cta-feature-grid { grid-template-columns: 1fr 1fr; }
-      .assess-wrapper, .compare-grid-2, .diagram-grid-2, .ba-img-grid { grid-template-columns: 1fr; }
-      .process-strip { grid-template-columns: repeat(3, 1fr); }
-      .article-content { padding: 24px 20px; }
-      .hero-banner { padding: 32px 20px; }
+      .article-content { padding: 28px 20px; }
+      .hero-banner { padding: 36px 20px; }
       .hero-title { font-size: 1.75rem; }
+      .compare-grid-2 { grid-template-columns: 1fr; }
+      .formula-box { flex-direction: column; gap: 8px; }
     }
   </style>
 </head>
@@ -515,275 +314,125 @@
 
   <main class="article-container">
     
-    <!-- Hero 頂部主 Banner (比照圖樣) -->
+    <!-- Hero 頂部主 Banner -->
     <section class="hero-banner">
       <div class="hero-badge-wrap">
-        <span class="hero-badge">CASE STUDY ｜ 既有廠辦外牆拉皮更新</span>
-        <span style="font-size: 0.8rem; color: #64748b;">內部審核稿件 v1.0 (PPTX 原圖高清版)</span>
+        <span class="hero-badge">CONCEPT COLUMN ｜ 企業廠辦外觀專題</span>
+        <span style="font-size: 0.8rem; color: #64748b;">內部審核稿件 v2.0 (概念型)</span>
       </div>
       <h1 class="hero-title">
-        為什麼老舊的廠辦外觀會影響企業形象？要如何改善？
+        為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？
       </h1>
       <p class="hero-subtitle">
-        —— 以小磨坊斗六廠辦更新工程，看外牆更新的可能
+        —— 廠辦外牆拉皮更新，不只是重新刷漆，更是重新整理企業對外呈現的方式。
       </p>
-
-      <div class="hero-img-box">
-        <img src="../img/projects/xiaomofang_named/38_對比照_完工後更新廠辦(After).jpg" alt="小磨坊斗六廠辦更新工程 完工照片原檔">
-      </div>
     </section>
 
-    <!-- 文章主體內容 -->
+    <!-- 文章主體內容 (5 大段落概念型) -->
     <article class="article-content">
 
-      <!-- 01 企業的建築外觀，也是品牌的一部分 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">01</span>
-          <h2 class="sec-title">企業的建築外觀，也是品牌的一部分</h2>
-        </div>
-        <p class="sec-desc">
-          一棟使用多年的廠辦，最先改變的，往往不是企業本身，而是建築外觀。<br>
-          塗層逐漸老化、牆面髒污、色彩褪去，甚至出現漏水、鏽蝕等問題。當企業設備、品牌與營運早已持續更新，建築卻仍停留在多年前的狀態，企業給人的第一印象，也可能跟著停留在過去。
+      <!-- 01 ｜ 先讓企業主想到自己的廠辦 -->
+      <section class="concept-block">
+        <span class="concept-num-tag">SECTION 01</span>
+        <h2 class="concept-title">一間企業的形象，不只存在於 Logo、網站與名片</h2>
+        <p class="concept-text">
+          對許多企業而言，廠辦本身就是每天被看見的企業門面。<br>
+          當客戶、合作夥伴或訪客來到廠區，第一眼看到的，往往就是這座建築。
         </p>
-        <p class="sec-desc">
-          但廠辦外牆更新，真的只是把建築重新刷漂亮嗎？其實不一定。<br>
-          從一棟既有廠辦的更新工程來看，外牆拉皮往往同時涉及現況檢測、基面處理、修補、隔熱、細部排水、塗裝與立面規劃。以下就以騰煇參與的小磨坊斗六廠辦更新工程為例，看看一棟既有廠辦，是如何一步一步重新整理外牆。
+        <p class="concept-text">
+          但建築使用多年後，外牆可能逐漸出現褪色、髒污、老化，甚至與企業現在的品牌形象產生落差。<br>
+          企業的設備、技術與營運早已持續升級與轉型，建築外觀卻仍停留在多年前的狀態。企業已經往前走了，建築外貌卻還停留在過去。
+        </p>
+        <p class="concept-text" style="font-weight: 700; color: var(--primary-dark);">
+          那麼，當既有廠辦外觀老舊了，應該如何開始思考改善？
+        </p>
+      </section>
+
+      <!-- 02 ｜ 不是所有廠辦，都適合同一種做法 -->
+      <section class="concept-block">
+        <span class="concept-num-tag">SECTION 02</span>
+        <h2 class="concept-title">不是所有廠辦，都適合同一種做法</h2>
+        <p class="concept-text">
+          每個案場，狀況都不同。<br>
+          既有建築的結構材料（如 ALC 板、RC 混凝土、舊瓷磚）、使用年限、外牆現況、立面條件，以及企業本身對於耐候或節能的需求，都可能影響後續規劃。
+        </p>
+        <p class="concept-text">
+          因此，外牆更新的第一步，不是直接決定「要刷什麼顏色」或「要買什麼材料」。
         </p>
 
-        <div class="value-card-box">
-          <div class="value-card-title">外牆更新可以帶來的價值</div>
-          <div class="value-grid">
-            <div class="val-item">
-              <span class="val-icon">🏢</span>
-              <div class="val-name">提升企業形象</div>
-            </div>
-            <div class="val-item">
-              <span class="val-icon">🛡️</span>
-              <div class="val-name">延長建築總壽命</div>
-            </div>
-            <div class="val-item">
-              <span class="val-icon">🍃</span>
-              <div class="val-name">改善建築透氣防滲</div>
-            </div>
-            <div class="val-item">
-              <span class="val-icon">🎨</span>
-              <div class="val-name">重新整理建築立面風格</div>
-            </div>
-          </div>
+        <div class="quote-card">
+          「先了解建築現在的狀態，再思考適合的更新方向。」
         </div>
       </section>
 
-      <!-- 02 每個案場，狀況都不同 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">02</span>
-          <h2 class="sec-title">每個案場，狀況都不同</h2>
-        </div>
-        <p class="sec-desc">
-          不同建築的外牆材料、使用年限、外在環境與既有問題都不相同，替可影響評估與工法。<br>
-          因此，外牆更新沒有一套固定答案，需要先了解現況，才能規劃適合的工程方式。
+      <!-- 03 ｜ 外牆更新，其實可以重新思考企業形象 -->
+      <section class="concept-block">
+        <span class="concept-num-tag">SECTION 03</span>
+        <h2 class="concept-title">外牆更新，其實可以重新思考企業形象</h2>
+        <p class="concept-text">
+          外牆更新不一定只是把建築變新。<br>
+          從立面比例、色彩配置、材質選擇到整體視覺效果，可以重新思考建築與企業品牌形象之間的關係。
         </p>
-        <div class="quote-box">
-          「從現況出發，找到適合這個情境的解法。」
+        <p class="concept-text">
+          對既有廠辦而言，重新整理外觀，有時候也是重新整理企業對外呈現的方式：
+        </p>
+
+        <div class="formula-box">
+          <div class="formula-item">企業形象</div>
+          <span>✕</span>
+          <div class="formula-item">建築美感</div>
+          <span>✕</span>
+          <div class="formula-item">外牆工程</div>
         </div>
       </section>
 
-      <!-- 03 案例 ｜ 小磨坊斗六廠辦現況評估 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">03</span>
-          <h2 class="sec-title">案例 ｜ 小磨坊斗六廠辦現況評估</h2>
-        </div>
-        <p class="sec-desc">
-          在小磨坊斗六廠辦更新工程中，施工前的現況評估顯示，本案為 <strong>ALC 版外牆</strong>，存在接縫處滲漏水、鋼筋鏽蝕裸露，以及既有防水漆處理效果不佳等問題。<br>
-          這也說明了一件事：外牆老化不一定只是視覺問題。當企業廠辦長期使用，表面塗層老化、髒污與褪色、接縫處滲漏水、基材局部損壞與鋼筋鏽蝕裸露往往同時發生。因此在規劃更新前，第一步不是急著決定「要刷什麼顏色」，而是先了解建築現在的狀況。
+      <!-- 04 ｜ 用一個案例證明「這不是空談」 -->
+      <section class="concept-block">
+        <span class="concept-num-tag">SECTION 04</span>
+        <h2 class="concept-title">案例 ｜ 小磨坊斗六廠辦更新工程</h2>
+        <p class="concept-text">
+          在小磨坊斗六廠辦更新工程中，施工前先依既有建築狀況進行現況評估，再依規劃方向進行外牆更新。<br>
+          本案採用 <strong>PPG 佩能漆 ＋ 節能板工法</strong>，並透過 3D 渲染圖預先確認更新後的立面色彩與整體風格，確保設計規劃與實際完工成果高度一致。
         </p>
 
-        <div class="assess-wrapper">
-          <div class="photo-grid-3">
-            <div class="assess-card">
-              <img src="../img/projects/xiaomofang_named/01_現況評估_ALC版滲漏水.jpg" alt="接縫處滲漏水 ALC板">
-              <div class="assess-card-body">
-                <div class="assess-card-title">接縫處滲漏水</div>
-                <div class="assess-card-sub">ALC 板接縫處有滲漏水情況</div>
-              </div>
-            </div>
-            <div class="assess-card">
-              <img src="../img/projects/xiaomofang_named/18_施工紀錄_裸露鋼筋防鏽.jpg" alt="鋼筋鏽蝕裸露">
-              <div class="assess-card-body">
-                <div class="assess-card-title">鋼筋鏽蝕裸露</div>
-                <div class="assess-card-sub">局部區域鋼筋鏽蝕剝落</div>
-              </div>
-            </div>
-            <div class="assess-card">
-              <img src="../img/projects/xiaomofang_named/14_施工紀錄_鷹架現場檢測.jpg" alt="既有防水漆處理效果不佳">
-              <div class="assess-card-body">
-                <div class="assess-card-title">既有防水漆處理無效</div>
-                <div class="assess-card-sub">舊有防水漆已無法有效解決問題</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="assess-sidebar">
-            <div class="assess-sidebar-title">現況評估重點</div>
-            <ul class="assess-list">
-              <li><span class="assess-num">1</span> 環保現況檢測</li>
-              <li><span class="assess-num">2</span> 問題項目標記</li>
-              <li><span class="assess-num">3</span> 既有條件分析</li>
-              <li><span class="assess-num">4</span> 更新需求了解</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 04 規劃設計 ｜ 從現況決定更新方向 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">04</span>
-          <h2 class="sec-title">規劃設計 ｜ 從現況決定更新方向</h2>
-        </div>
-        <p class="sec-desc">
-          依據現場評估結果，本案規劃採用 <strong>PPG 彈性佩能漆 ＋ 節能板工法</strong>，並透過 3D 渲染圖確認立面色彩與整體數值樣態，讓業主在施工前看見更新後的樣子。
-        </p>
-
-        <div class="compare-grid-2">
-          <div class="compare-box">
-            <span class="compare-tag">3D 渲染圖</span>
-            <img src="../img/projects/xiaomofang_named/05_規劃設計_3D渲染圖.jpg" alt="小磨坊 3D 渲染圖 (3.77MB 高清原檔)">
-          </div>
-          <div class="compare-box">
-            <span class="compare-tag">實景完工</span>
-            <img src="../img/projects/xiaomofang_named/06_完工照片_現場實景正面.jpg" alt="小磨坊 實景完工照片 (1.33MB 高清原檔)">
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 工程施工 ｜ 一步一步，重新整理外牆 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">05</span>
-          <h2 class="sec-title">工程施工 ｜ 一步一步，重新整理外牆</h2>
-        </div>
-        <p class="sec-desc">
-          如果原有基面存在問題，直接在表面增加新的材料並不能解決問題。在小磨坊斗六廠辦的施工紀錄中，可以看到外牆經過敲除 ➔ 防鏽 ➔ 修補等處理，窗框周邊原有的矽利康也進行割除處理。這些看起來不像「外觀設計」的工作，反而是外牆更新能否順利進行的重要基礎。
-        </p>
-
-        <div class="process-strip">
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/12_施工紀錄_外牆檢測敲除標示.jpg" alt="檢測標示">
-            <div class="process-step-body">
-              <div class="process-step-title">檢測標示</div>
-              <div class="process-step-desc">外牆檢測與敲除標示</div>
-            </div>
-          </div>
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/13_施工紀錄_高壓水槍清洗.jpg" alt="外牆清洗">
-            <div class="process-step-body">
-              <div class="process-step-title">清洗</div>
-              <div class="process-step-desc">外牆清洗，確認基面</div>
-            </div>
-          </div>
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/19_施工紀錄_修補防鏽底材.jpg" alt="敲除防鏽修補">
-            <div class="process-step-body">
-              <div class="process-step-title">敲除．防鏽．修補</div>
-              <div class="process-step-desc">局部敲除、鋼筋防鏽修補</div>
-            </div>
-          </div>
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/25_施工紀錄_節能板貼附安裝.jpg" alt="節能板施工">
-            <div class="process-step-body">
-              <div class="process-step-title">節能板施工</div>
-              <div class="process-step-desc">放樣．安裝．網片固定</div>
-            </div>
-          </div>
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/32_施工紀錄_滴水條安裝.jpg" alt="防汙滴水條施工">
-            <div class="process-step-body">
-              <div class="process-step-title">防汙滴水條</div>
-              <div class="process-step-desc">放樣．安裝．完成</div>
-            </div>
-          </div>
-          <div class="process-step-item">
-            <img src="../img/projects/xiaomofang_named/36_施工紀錄_PPG彈性佩能漆噴塗.jpg" alt="PPG彈性佩能漆施工">
-            <div class="process-step-body">
-              <div class="process-step-title">PPG彈性佩能漆</div>
-              <div class="process-step-desc">多功能封孔底漆．噴塗面漆</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 06 工法說明 ｜ PPG 彈性佩能漆 ＋ 節能板 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">06</span>
-          <h2 class="sec-title">工法說明 ｜ PPG 彈性佩能漆 ＋ 節能板</h2>
-        </div>
-        <p class="sec-desc">
-          本案採用 PPG 彈性佩能漆搭配節能板工法，提升建築外牆的隔熱效果與耐候防護，並預防極端氣候下的水氣滲漏。
-        </p>
-
-        <div class="diagram-grid-2">
-          <div class="diagram-box">
-            <img src="../img/projects/xiaomofang_named/03_工法圖解_雙倍隔熱效果.jpg" alt="隔熱漆+節能板 雙倍隔熱效果">
-          </div>
-          <div class="diagram-box">
-            <img src="../img/projects/xiaomofang_named/04_SGS報告_熱傳導試驗.jpg" alt="SGS 熱傳導係數試驗報告">
-          </div>
-        </div>
-
-        <div class="diagram-note">
-          ※ 並非所有場域的工法與材料都相同，建築條件、氣候與需求各有不同，本頁內容為小磨坊斗六廠辦之實際案例工法說明。
-        </div>
-      </section>
-
-      <!-- 07 成果 ｜ 同一棟廠辦，更新前後 -->
-      <section class="section-block">
-        <div class="section-header">
-          <span class="num-tag">07</span>
-          <h2 class="sec-title">成果 ｜ 同一棟廠辦，更新前後</h2>
-        </div>
-        
-        <div class="hero-before-after">
-          <div class="ba-img-grid">
-            <div class="ba-img-card">
-              <span class="ba-label before">BEFORE 施工前</span>
-              <img src="../img/projects/xiaomofang_named/37_對比照_施工前原有廠辦(Before).jpg" alt="施工前原有廠辦外觀">
-            </div>
-            <div class="ba-img-card">
-              <span class="ba-label after">AFTER 完工後</span>
-              <img src="../img/projects/xiaomofang_named/38_對比照_完工後更新廠辦(After).jpg" alt="完工後更新廠辦外觀">
-            </div>
-          </div>
-
-          <div style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: var(--primary-dark); text-align: center; margin-top: 16px;">
-            建築會老，企業不會停在原地。
-          </div>
-          <p style="text-align: center; font-size: 0.98rem; color: var(--text-muted); margin-top: 8px;">
-            外牆更新，不只是讓建築變新。從既有外牆條件、工程處理，到立面規劃與塗裝，重新思考企業建築的外貌，讓企業形象也能持續向前。
+        <div class="proof-case-box">
+          <div class="proof-case-title">3D 規劃渲染 ➔ 現場實際完工對照</div>
+          <p class="proof-case-desc">
+            從施工前以 3D 渲染圖確認白色基調與彩繪色塊，到現場完工拍攝，呈現從規劃到精準落地的過程。
           </p>
+
+          <div class="compare-grid-2">
+            <div class="compare-card">
+              <span class="compare-tag">3D 渲染規劃圖</span>
+              <img src="../img/projects/xiaomofang_named/05_規劃設計_3D渲染圖.jpg" alt="小磨坊 3D 渲染圖">
+            </div>
+            <div class="compare-card">
+              <span class="compare-tag">現場實際完工照</span>
+              <img src="../img/projects/xiaomofang_named/06_完工照片_現場實景正面.jpg" alt="小磨坊 完工現場照">
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- 底部 CTA 區塊 -->
-      <section class="article-cta-block">
-        <h3 class="cta-title">外牆更新工程，找騰煇</h3>
-        <p class="cta-subtitle">
-          從現況評估、規劃設計，到材料與工程施工，騰煇提供完整外牆整合服務，讓舊建築重新展現企業現有的價值。
+      <!-- 05 ｜ 最後讓人知道「騰煇是誰」 -->
+      <section class="concept-block">
+        <span class="concept-num-tag">SECTION 05</span>
+        <h2 class="concept-title">讓既有建築，重新跟上企業現在的樣子</h2>
+        <p class="concept-text">
+          外牆更新，不只是把建築重新刷一遍。<br>
+          不同案場有不同條件。騰煇企業從既有建築現況出發，結合立面規劃、GRC 預鑄、BIM 3D 建模、PPG 建築塗料與外牆工程，依工程需求整合適合的更新方向。
         </p>
 
-        <div class="cta-feature-grid">
-          <div class="cta-feat-card">🏛️ GRC 外牆工程</div>
-          <div class="cta-feat-card">📐 BIM 3D 放樣</div>
-          <div class="cta-feat-card">🎨 PPG 建築塗料</div>
-          <div class="cta-feat-card">🛠️ 外牆更新整合</div>
-        </div>
+        <div class="cta-concept-block">
+          <h3 class="cta-concept-title">廠辦外觀更新，歡迎與騰煇聊聊</h3>
+          <p class="cta-concept-desc">
+            如果您的既有廠辦開始出現外牆老化、色彩褪變或與企業形象不符的問題，這件事，可以交給騰煇進行初步評估與規劃。
+          </p>
 
-        <a href="../contact.html" class="cta-btn">
-          預約現場勘查與諮詢 ➔
-        </a>
+          <a href="../contact.html" class="cta-btn">
+            預約專案評估與諮詢 ➔
+          </a>
+        </div>
       </section>
 
     </article>
