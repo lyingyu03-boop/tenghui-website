@@ -68,9 +68,9 @@
       gap: 6px;
     }
 
-    /* 主要容器 (極簡概念型) */
+    /* 主要容器 */
     .article-container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 40px auto;
       background: #ffffff;
       border-radius: 20px;
@@ -239,6 +239,7 @@
       font-weight: 800;
     }
     .caption-badge.case { background: #e0f2fe; color: #0369a1; }
+    .caption-badge.schema { background: #fef3c7; color: #b45309; }
 
     /* 04 案例對照圖框 (3D vs 完工實景) */
     .proof-case-box {
@@ -318,6 +319,83 @@
     .ba-label.before { background: #64748b; color: #ffffff; }
     .ba-label.after { background: var(--accent-blue); color: #ffffff; }
 
+    /* 💥 互動拉桿對比 CSS */
+    .ba-slider-container {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      user-select: none;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border-color);
+    }
+    .ba-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .ba-before-wrapper {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .ba-before-wrapper .ba-image-before {
+      width: 100%;
+      max-width: none;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 4px;
+      background: #ffffff;
+      z-index: 5;
+      transform: translateX(-50%);
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .ba-handle-circle {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      gap: 2px;
+    }
+    .ba-range-slider {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+      margin: 0;
+    }
+    .grc-tab-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: #475569;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .grc-tab-btn:hover { background: #f1f5f9; color: var(--accent-blue); }
+    .grc-tab-btn.active { background: var(--accent-blue); color: #ffffff; border-color: var(--accent-blue); }
+
     /* CTA 溫和轉化區塊 */
     .cta-concept-block {
       background: var(--primary-dark);
@@ -389,7 +467,7 @@
     <section class="hero-banner">
       <div class="hero-badge-wrap">
         <span class="hero-badge">CONCEPT COLUMN ｜ 企業廠辦外觀專題</span>
-        <span style="font-size: 0.8rem; color: #64748b;">內部審核稿件 v4.0 (高精準概念型)</span>
+        <span style="font-size: 0.8rem; color: #64748b;">內部審核稿件 v5.0 (含配圖與互動拉桿)</span>
       </div>
       <h1 class="hero-title">
         為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？
@@ -399,7 +477,7 @@
       </p>
     </section>
 
-    <!-- 文章主體內容 (資訊比例：60%概念 / 25%方法論 / 15%案例) -->
+    <!-- 文章主體內容 (資訊比例：60%概念 / 25%方法論 / 15%案例 + 互動對比拉桿) -->
     <article class="article-content">
 
       <!-- SECTION 01 ｜ 先讓企業主想到自己的廠辦 -->
@@ -409,6 +487,15 @@
         <p class="concept-text">
           對企業而言，廠辦不只是生產與辦公的空間，也可能是客戶、合作夥伴與求職者接觸企業時所看見的實體環境。
         </p>
+
+        <figure class="article-img-figure">
+          <img src="../img/projects/factory_concepts/01_old_factory_facade.png" alt="既有廠辦外觀門面現況">
+          <figcaption class="img-caption">
+            <span class="caption-badge schema">【示意圖】</span>
+            既有廠辦使用多年後的外觀門面現況
+          </figcaption>
+        </figure>
+
         <p class="concept-text">
           當企業本身持續成長、設備升級並拓展市場，但建築外觀長期沒有更新，企業現在的形象與建築呈現之間，可能逐漸產生落差。
         </p>
@@ -424,6 +511,15 @@
         <p class="concept-text">
           每個案場的既有材料、使用狀況與外牆條件不同，因此更新方式也不會完全相同。
         </p>
+
+        <figure class="article-img-figure">
+          <img src="../img/projects/factory_concepts/02_three_types_old_factories.png" alt="三種不同狀況舊廠辦">
+          <figcaption class="img-caption">
+            <span class="caption-badge schema">【示意圖】</span>
+            三種不同建築結構與老化條件的既有廠辦現況
+          </figcaption>
+        </figure>
+
         <p class="concept-text">
           外牆更新的第一步，是先了解既有建築現況，再依實際條件思考適合的更新方向。
         </p>
@@ -440,6 +536,14 @@
         <p class="concept-text">
           外牆拉皮不一定只是把建築重新刷一遍，而是重新審視實體環境與企業發展之間的關係：
         </p>
+
+        <figure class="article-img-figure">
+          <img src="../img/projects/factory_concepts/03_factory_renovation_planning.png" alt="廠辦更新規劃示意圖">
+          <figcaption class="img-caption">
+            <span class="caption-badge schema">【示意圖】</span>
+            廠辦外牆拉皮更新與立面色彩整體規劃
+          </figcaption>
+        </figure>
 
         <div class="dimension-grid">
           <div class="dimension-card">
@@ -506,7 +610,7 @@
         </div>
       </section>
 
-      <!-- SECTION 05 ｜ 讓既有建築重新跟上企業現在的樣子 -->
+      <!-- SECTION 05 ｜ 讓既有建築重新跟上企業現在的樣子 ＋ 互動拉桿組 -->
       <section class="concept-block">
         <span class="concept-num-tag">SECTION 05</span>
         <h2 class="concept-title">讓既有建築，重新跟上企業現在的樣子</h2>
@@ -514,6 +618,45 @@
           騰煇企業自 1981 年成立累積至今，持續投入建築外牆相關工程與材料應用。<br>
           我們從既有建築條件出發，結合立面規劃、材料與外牆工程，依不同案場需求規劃更新方向。
         </p>
+
+        <!-- 💥 更多廠辦外牆拉皮工程實績 互動拉桿對比組 -->
+        <div style="background: var(--section-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; margin: 32px 0;">
+          <div style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: var(--primary-dark); margin-bottom: 8px;">
+            更多企業廠辦外牆拉皮工程實績對比
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 20px;">
+            拖曳中央滑桿，檢視高壓噴塗塗裝、外牆拉桿與乾式包板在不同廠辦結構上的實際成效：
+          </p>
+
+          <div class="ba-slider-container" id="renovBaContainer">
+            <img src="../img/renovation/renwu-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image">
+            <span class="ba-label ba-label-after" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; padding: 4px 12px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; z-index: 5;">AFTER 施工後</span>
+            
+            <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
+              <img src="../img/renovation/renwu-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image">
+              <span class="ba-label ba-label-before" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; padding: 4px 12px; border-radius: 6px; font-weight: 800; font-size: 0.8rem; z-index: 5;">BEFORE 施工前</span>
+            </div>
+
+            <div class="ba-handle" id="renovHandle" style="left: 50%;"><div class="ba-handle-circle"><span>&lsaquo;</span><span>&rsaquo;</span></div></div>
+            <input type="range" min="0" max="100" value="50" class="ba-range-slider" id="renovRangeInput" oninput="updateBaSlider(this.value)">
+            
+            <span id="renovCaseBadge" style="position: absolute; bottom: 14px; left: 14px; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.8rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; z-index: 10;">
+              CASE 01 ｜ 高雄仁武 台塑仁武廠 AI 研發中心
+            </span>
+          </div>
+
+          <div class="img-caption" style="margin-top: 14px;">
+            <span class="caption-badge case">【騰煇案例紀錄】</span>
+            台塑 AI 仁武研發中心 ＆ 桃園觀音廠房大樓外牆拉皮工程實績對比
+          </div>
+
+          <!-- 切換按鈕列表 -->
+          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; flex-wrap: wrap;">
+            <button class="grc-tab-btn active" onclick="switchRenovCase(0, this)"><span>01</span> 高雄台塑 AI 研發中心</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(1, this)"><span>02</span> 桃園觀音廠房 (正立面)</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(2, this)"><span>03</span> 桃園觀音廠房 (側立面)</button>
+          </div>
+        </div>
 
         <div class="cta-concept-block">
           <h3 class="cta-concept-title">如果您的廠辦外觀已經多年沒有更新</h3>
@@ -529,6 +672,50 @@
 
     </article>
   </main>
+
+  <script>
+    // 💥 互動拉桿拖曳邏輯
+    function updateBaSlider(val) {
+      document.getElementById('renovBeforeWrapper').style.width = val + '%';
+      document.getElementById('renovHandle').style.left = val + '%';
+    }
+
+    const renovCasesData = [
+      {
+        badge: "CASE 01 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
+        before: "../img/renovation/renwu-before.jpg",
+        after: "../img/renovation/renwu-after.jpg"
+      },
+      {
+        badge: "CASE 02 ｜ 桃園觀音 廠房大樓 (正立面)",
+        before: "../img/renovation/renov3a-before.jpg",
+        after: "../img/renovation/renov3a-after.jpg"
+      },
+      {
+        badge: "CASE 03 ｜ 桃園觀音 廠房大樓 (側立面)",
+        before: "../img/renovation/renov3b-before.jpg",
+        after: "../img/renovation/renov3b-after.jpg"
+      }
+    ];
+
+    function switchRenovCase(index, btn) {
+      const data = renovCasesData[index];
+      document.getElementById('renovCaseBadge').innerText = data.badge;
+      document.getElementById('renovBeforeImg').src = data.before;
+      document.getElementById('renovAfterImg').src = data.after;
+
+      const btns = btn.parentNode.querySelectorAll('.grc-tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // 重置拉桿至 50%
+      const input = document.getElementById('renovRangeInput');
+      if (input) {
+        input.value = 50;
+        updateBaSlider(50);
+      }
+    }
+  </script>
 
 </body>
 </html>
