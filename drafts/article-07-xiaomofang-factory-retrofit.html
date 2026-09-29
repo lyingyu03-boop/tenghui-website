@@ -258,7 +258,7 @@
       position: relative;
     }
 
-    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (極簡黑白靜態版 - 無浮動動畫，防手機潰縮) */
+    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (純極簡透視交疊線條版 - 無背景區塊) */
     .venn-diagram-wrapper {
       background: #ffffff;
       border: 1px solid var(--border-color);
@@ -276,43 +276,48 @@
     }
     .venn-circle {
       position: absolute;
-      width: 54%;
+      width: 52%;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      background: #ffffff;
+      background: transparent;
       border: 1.5px solid #1e293b;
       box-shadow: none;
+      pointer-events: none;
     }
     
-    /* 圓圈定位與極簡黑白配搭 */
+    /* 圓圈定位與透視線條交疊 */
     .venn-circle.circle-1 {
       top: 2%;
-      left: 2%;
-      background: rgba(248, 250, 252, 0.95);
-      border: 1.5px solid #334155;
+      left: 3%;
       z-index: 1;
     }
+    .venn-circle.circle-1 .venn-circle-inner {
+      padding-top: 14%;
+    }
+
     .venn-circle.circle-2 {
       top: 2%;
-      right: 2%;
-      background: rgba(241, 245, 249, 0.95);
-      border: 1.5px solid #334155;
+      right: 3%;
       z-index: 2;
     }
+    .venn-circle.circle-2 .venn-circle-inner {
+      padding-top: 14%;
+    }
+
     .venn-circle.circle-3 {
       bottom: 2%;
       left: 50%;
       transform: translateX(-50%);
-      background: #ffffff;
-      border: 1.5px solid #0f172a;
       z-index: 3;
+    }
+    .venn-circle.circle-3 .venn-circle-inner {
+      padding-top: 32%;
     }
 
     .venn-circle-inner {
-      padding: 12px;
       text-align: center;
       width: 100%;
     }
@@ -340,31 +345,32 @@
       font-weight: 500;
     }
 
-    /* 中央交集核心 (靜態黑白) */
+    /* 中央交集核心 (純文字無背景) */
     .venn-center-core {
       position: absolute;
-      top: 48%;
+      top: 41%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #0f172a;
-      color: #ffffff;
-      padding: clamp(8px, 1.8vw, 14px) clamp(14px, 2.5vw, 24px);
-      border-radius: 30px;
-      border: 2px solid #ffffff;
+      background: transparent;
+      color: #0f172a;
+      padding: 0;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
       z-index: 10;
       text-align: center;
       white-space: nowrap;
     }
     .core-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(0.82rem, 1.8vw, 1.05rem);
+      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
       font-weight: 900;
       letter-spacing: 1px;
-      color: #ffffff;
+      color: #0f172a;
     }
     .core-subtitle {
-      font-size: clamp(0.62rem, 1.4vw, 0.75rem);
-      color: #94a3b8;
+      font-size: clamp(0.68rem, 1.5vw, 0.82rem);
+      color: #64748b;
       font-weight: 700;
       letter-spacing: 1.5px;
       margin-top: 2px;
