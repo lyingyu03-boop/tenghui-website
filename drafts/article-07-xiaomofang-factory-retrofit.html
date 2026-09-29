@@ -218,7 +218,7 @@
       object-fit: cover;
     }
     .card-caption-bar {
-      padding: 12px 18px;
+      padding: 12px 16px;
       background: #ffffff;
       border-top: 1px solid var(--border-color);
       font-size: 0.85rem;
@@ -226,6 +226,7 @@
       color: var(--slate-600);
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
@@ -236,6 +237,8 @@
       font-size: 0.75rem;
       font-weight: 800;
       letter-spacing: 0.5px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .badge-label.schema { background: #fef3c7; color: #b45309; }
     .badge-label.case { background: #e0f2fe; color: #0369a1; }
@@ -602,7 +605,7 @@
             <img src="../img/projects/factory_concepts/01_old_factory_facade.webp" alt="既有廠辦外觀門面現況">
             <div class="card-caption-bar">
               <span class="badge-label schema">【AI示意圖】</span>
-              <span>既有廠辦使用多年後的外觀門面現況</span>
+              <span>既有廠辦使用多年後門面現況</span>
             </div>
           </div>
         </div>
@@ -618,7 +621,7 @@
             <img src="../img/projects/factory_concepts/02_three_types_old_factories.webp" alt="三種不同狀況舊廠辦">
             <div class="card-caption-bar">
               <span class="badge-label schema">【AI示意圖】</span>
-              <span>三種不同建築結構與老化條件的既有廠辦現況</span>
+              <span>三種不同老化條件之廠辦現況</span>
             </div>
           </div>
 
@@ -649,7 +652,7 @@
           <img src="../img/projects/factory_concepts/03_factory_renovation_planning.webp" alt="廠辦更新規劃示意圖">
           <div class="card-caption-bar">
             <span class="badge-label schema">【AI示意圖】</span>
-            <span>廠辦外牆拉皮更新與立面色彩整體規劃示意</span>
+            <span>廠辦外牆更新立面整體規劃示意</span>
           </div>
         </div>
 
@@ -749,24 +752,24 @@
           </div>
           <div class="card-caption-bar" style="margin-top: 14px; background: transparent; border: none; padding: 0;">
             <span class="badge-label case">【騰煇案例紀錄】</span>
-            <span>小磨坊斗六廠辦 3D 立面規劃圖（左）與現場實際完工全景拍攝對照（右）</span>
+            <span>小磨坊斗六廠辦 3D 規劃（左）與完工全景實景（右）</span>
           </div>
 
           <!-- Before / After 巨幕 -->
           <div class="ba-hero-container">
             <div class="compare-side-by-side" style="margin-top: 20px;">
               <div class="compare-item">
-                <span class="badge-label" style="position: absolute; top: 12px; left: 12px; background: #64748b; color: #fff; z-index: 5;">BEFORE 施工前</span>
+                <span class="badge-label" style="position: absolute; top: 12px; left: 12px; background: #64748b; color: #fff; z-index: 5; white-space: nowrap;">BEFORE 施工前</span>
                 <img src="../img/projects/xiaomofang_named/37_對比照_施工前原有廠辦(Before).jpg" alt="施工前原有廠辦外觀">
               </div>
               <div class="compare-item">
-                <span class="badge-label" style="position: absolute; top: 12px; left: 12px; background: var(--accent-blue); color: #fff; z-index: 5;">AFTER 完工後</span>
+                <span class="badge-label" style="position: absolute; top: 12px; left: 12px; background: var(--accent-blue); color: #fff; z-index: 5; white-space: nowrap;">AFTER 完工後</span>
                 <img src="../img/projects/xiaomofang_named/38_對比照_完工後更新廠辦(After).jpg" alt="完工後更新廠辦外觀">
               </div>
             </div>
             <div class="card-caption-bar" style="margin-top: 14px; background: transparent; border: none; padding: 0;">
               <span class="badge-label case">【騰煇案例紀錄】</span>
-              <span>小磨坊斗六廠辦 施工前原有外觀（左）與 完工後更新立面（右）對比</span>
+              <span>小磨坊斗六廠辦 施工前（左）與完工後（右）對比</span>
             </div>
           </div>
         </div>
@@ -790,24 +793,24 @@
 
           <div class="ba-slider-container" id="renovBaContainer">
             <img src="../img/renovation/renwu-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image">
-            <span class="badge-label" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; z-index: 5;">AFTER 施工後</span>
+            <span class="badge-label" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; z-index: 5; white-space: nowrap;">AFTER 施工後</span>
             
             <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
               <img src="../img/renovation/renwu-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image">
-              <span class="badge-label" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; z-index: 5;">BEFORE 施工前</span>
+              <span class="badge-label" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; z-index: 5; white-space: nowrap;">BEFORE 施工前</span>
             </div>
 
             <div class="ba-handle" id="renovHandle" style="left: 50%;"><div class="ba-handle-circle"><span>&lsaquo;</span><span>&rsaquo;</span></div></div>
             <input type="range" min="0" max="100" value="50" class="ba-range-slider" id="renovRangeInput" oninput="updateBaSlider(this.value)">
             
-            <span id="renovCaseBadge" style="position: absolute; bottom: 14px; left: 14px; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.82rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; z-index: 10;">
-              CASE 01 ｜ 高雄仁武 台塑仁武廠 AI 研發中心
+            <span id="renovCaseBadge" style="position: absolute; bottom: 14px; left: 14px; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(8px); color: #ffffff; font-size: clamp(0.72rem, 3.2vw, 0.82rem); font-weight: 800; padding: 6px 14px; border-radius: 6px; z-index: 10; white-space: nowrap; max-width: calc(100% - 28px); overflow: hidden; text-overflow: ellipsis;">
+              CASE 01 ｜ 台塑仁武廠 AI 研發中心
             </span>
           </div>
 
           <div class="card-caption-bar" style="margin-top: 14px; background: transparent; border: none; padding: 0;">
             <span class="badge-label case">【騰煇案例紀錄】</span>
-            <span>台塑 AI 仁武研發中心 ＆ 桃園觀音廠房大樓外牆拉皮工程實績對比</span>
+            <span>台塑 AI 仁武研發中心 ＆ 觀音廠房實績</span>
           </div>
 
           <!-- 頁籤切換按鈕 -->
@@ -843,17 +846,17 @@
 
     const renovCasesData = [
       {
-        badge: "CASE 01 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
+        badge: "CASE 01 ｜ 台塑仁武廠 AI 研發中心",
         before: "../img/renovation/renwu-before.jpg",
         after: "../img/renovation/renwu-after.jpg"
       },
       {
-        badge: "CASE 02 ｜ 桃園觀音 廠房大樓 (正立面)",
+        badge: "CASE 02 ｜ 桃園觀音廠房 (正立面)",
         before: "../img/renovation/renov3a-before.jpg",
         after: "../img/renovation/renov3a-after.jpg"
       },
       {
-        badge: "CASE 03 ｜ 桃園觀音 廠房大樓 (側立面)",
+        badge: "CASE 03 ｜ 桃園觀音廠房 (側立面)",
         before: "../img/renovation/renov3b-before.jpg",
         after: "../img/renovation/renov3b-after.jpg"
       }
