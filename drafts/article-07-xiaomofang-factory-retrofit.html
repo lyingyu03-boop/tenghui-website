@@ -627,36 +627,33 @@
           </div>
         </div>
 
-        <!-- 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (極簡向量 SVG 精準對齊版) -->
+        <!-- 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (數學級幾何對齊：字在正中央、線零壓字、無方塊背景) -->
         <div class="venn-diagram-wrapper">
           <div class="venn-svg-container">
-            <svg viewBox="0 0 600 450" style="width: 100%; height: auto; display: block;">
-              <!-- 三圓透視交疊 (圓形外框 + 薄霧透視色) -->
-              <circle cx="230" cy="170" r="140" fill="rgba(241, 245, 249, 0.45)" stroke="#334155" stroke-width="1.5" />
-              <circle cx="370" cy="170" r="140" fill="rgba(248, 250, 252, 0.45)" stroke="#334155" stroke-width="1.5" />
-              <circle cx="300" cy="270" r="140" fill="rgba(255, 255, 255, 0.75)" stroke="#334155" stroke-width="1.5" />
+            <svg viewBox="0 0 640 440" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+              <!-- 1. 三圓極簡透視交疊框 (無遮擋透明底 + 經典深石墨外框) -->
+              <circle cx="210" cy="145" r="125" fill="rgba(248, 250, 252, 0.4)" stroke="#334155" stroke-width="1.5" />
+              <circle cx="430" cy="145" r="125" fill="rgba(241, 245, 249, 0.4)" stroke="#334155" stroke-width="1.5" />
+              <circle cx="320" cy="305" r="125" fill="rgba(255, 255, 255, 0.7)" stroke="#334155" stroke-width="1.5" />
 
-              <!-- 中央交集白底橢圓膠囊 (遮蔽交錯線條，讓文字 100% 清晰) -->
-              <rect x="235" y="196" width="130" height="48" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
-              <text x="300" y="218" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="15" fill="#0f172a">外牆更新</text>
-              <text x="300" y="234" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="700" font-size="11" fill="#64748b" letter-spacing="1">思考與平衡</text>
+              <!-- 2. 中央交集純文字 (正中央對齊，完全無方塊背景色) -->
+              <text x="320" y="190" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="15" fill="#0f172a">外牆更新</text>
+              <text x="320" y="208" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="700" font-size="11" fill="#64748b" letter-spacing="1">思考與平衡</text>
 
-              <!-- DIMENSION 01：建築條件 (位於左上圓核心空位，零線條交叉) -->
-              <text x="175" y="130" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 01</text>
-              <text x="175" y="154" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">建築條件</text>
-              <text x="175" y="178" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">既有外牆材質</text>
-              <text x="175" y="196" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">使用狀況與現況</text>
+              <!-- 3. DIMENSION 01：建築條件 (文字恰好位於左圓正中央 210, 145，絕對零壓線) -->
+              <text x="210" y="125" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 01</text>
+              <text x="210" y="148" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="18" fill="#0f172a">建築條件</text>
+              <text x="210" y="170" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">既有外牆材質．現況條件</text>
 
-              <!-- DIMENSION 02：企業形象 (位於右上圓核心空位，零線條交叉) -->
-              <text x="425" y="130" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 02</text>
-              <text x="425" y="154" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">企業形象</text>
-              <text x="425" y="178" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">色彩、立面與</text>
-              <text x="425" y="196" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">企業對外呈現</text>
+              <!-- 4. DIMENSION 02：企業形象 (文字恰好位於右圓正中央 430, 145，絕對零壓線) -->
+              <text x="430" y="125" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 02</text>
+              <text x="430" y="148" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="18" fill="#0f172a">企業形象</text>
+              <text x="430" y="170" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">色彩、立面與對外呈現</text>
 
-              <!-- DIMENSION 03：工程需求 (位於下方圓核心空位，零線條交叉) -->
-              <text x="300" y="300" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 03</text>
-              <text x="300" y="324" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">工程需求</text>
-              <text x="300" y="348" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">施工條件、使用需求與後續維護</text>
+              <!-- 5. DIMENSION 03：工程需求 (文字恰好位於下圓正中央 320, 305，絕對零壓線) -->
+              <text x="320" y="285" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 03</text>
+              <text x="320" y="308" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="18" fill="#0f172a">工程需求</text>
+              <text x="320" y="330" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">施工條件、使用需求與維護</text>
             </svg>
           </div>
 
