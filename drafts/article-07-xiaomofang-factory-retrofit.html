@@ -258,126 +258,33 @@
       position: relative;
     }
 
-    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (純極簡透視交疊線條版 - 無背景區塊) */
+    /* 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (極簡向量 SVG 精準對齊版 - 絕對零打亂、零文字擠壓) */
     .venn-diagram-wrapper {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 40px 24px;
+      padding: 36px 24px;
       margin: 36px 0;
       text-align: center;
     }
-    .venn-container {
-      position: relative;
+
+    .venn-svg-container {
       width: 100%;
-      max-width: 520px;
-      aspect-ratio: 540 / 420;
+      max-width: 580px;
       margin: 0 auto;
-    }
-    .venn-circle {
-      position: absolute;
-      width: 52%;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      background: transparent;
-      border: 1.5px solid #1e293b;
-      box-shadow: none;
-      pointer-events: none;
-    }
-    
-    /* 圓圈定位與透視線條交疊 */
-    .venn-circle.circle-1 {
-      top: 2%;
-      left: 3%;
-      z-index: 1;
-    }
-    .venn-circle.circle-1 .venn-circle-inner {
-      padding-top: 14%;
-    }
-
-    .venn-circle.circle-2 {
-      top: 2%;
-      right: 3%;
-      z-index: 2;
-    }
-    .venn-circle.circle-2 .venn-circle-inner {
-      padding-top: 14%;
-    }
-
-    .venn-circle.circle-3 {
-      bottom: 2%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-    }
-    .venn-circle.circle-3 .venn-circle-inner {
-      padding-top: 32%;
-    }
-
-    .venn-circle-inner {
-      text-align: center;
-      width: 100%;
-    }
-    .venn-tag {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(0.62rem, 1.4vw, 0.75rem);
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      color: #64748b;
       display: block;
-      margin-bottom: 2px;
-    }
-
-    .venn-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: clamp(0.95rem, 2.2vw, 1.25rem);
-      font-weight: 900;
-      color: #0f172a;
-      margin-bottom: 4px;
-    }
-    .venn-desc {
-      font-size: clamp(0.68rem, 1.5vw, 0.82rem);
-      color: #475569;
-      line-height: 1.4;
-      font-weight: 500;
-    }
-
-    /* 中央交集核心 (純文字無背景) */
-    .venn-center-core {
-      position: absolute;
-      top: 41%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: transparent;
-      color: #0f172a;
-      padding: 0;
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-      z-index: 10;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .core-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: clamp(0.95rem, 2.2vw, 1.2rem);
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #0f172a;
-    }
-    .core-subtitle {
-      font-size: clamp(0.68rem, 1.5vw, 0.82rem);
-      color: #64748b;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      margin-top: 2px;
     }
 
     .venn-caption-box {
-      margin-top: 20px;
+      margin-top: 16px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
       font-size: 0.92rem;
       font-weight: 700;
       color: var(--slate-600);
@@ -720,41 +627,37 @@
           </div>
         </div>
 
-        <!-- 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 -->
+        <!-- 💥 3-Circle Venn Diagram 三圓交疊文氏圖區塊 (極簡向量 SVG 精準對齊版) -->
         <div class="venn-diagram-wrapper">
-          <div class="venn-container">
-            <!-- Circle 1: 建築條件 -->
-            <div class="venn-circle circle-1">
-              <div class="venn-circle-inner">
-                <span class="venn-tag">DIMENSION 01</span>
-                <div class="venn-title">建築條件</div>
-                <div class="venn-desc">既有外牆材質<br>使用狀況與現況</div>
-              </div>
-            </div>
+          <div class="venn-svg-container">
+            <svg viewBox="0 0 600 450" style="width: 100%; height: auto; display: block;">
+              <!-- 三圓透視交疊 (圓形外框 + 薄霧透視色) -->
+              <circle cx="230" cy="170" r="140" fill="rgba(241, 245, 249, 0.45)" stroke="#334155" stroke-width="1.5" />
+              <circle cx="370" cy="170" r="140" fill="rgba(248, 250, 252, 0.45)" stroke="#334155" stroke-width="1.5" />
+              <circle cx="300" cy="270" r="140" fill="rgba(255, 255, 255, 0.75)" stroke="#334155" stroke-width="1.5" />
 
-            <!-- Circle 2: 企業形象 -->
-            <div class="venn-circle circle-2">
-              <div class="venn-circle-inner">
-                <span class="venn-tag">DIMENSION 02</span>
-                <div class="venn-title">企業形象</div>
-                <div class="venn-desc">色彩、立面與<br>企業對外呈現</div>
-              </div>
-            </div>
+              <!-- 中央交集白底橢圓膠囊 (遮蔽交錯線條，讓文字 100% 清晰) -->
+              <rect x="235" y="196" width="130" height="48" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+              <text x="300" y="218" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="15" fill="#0f172a">外牆更新</text>
+              <text x="300" y="234" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="700" font-size="11" fill="#64748b" letter-spacing="1">思考與平衡</text>
 
-            <!-- Circle 3: 工程需求 -->
-            <div class="venn-circle circle-3">
-              <div class="venn-circle-inner">
-                <span class="venn-tag">DIMENSION 03</span>
-                <div class="venn-title">工程需求</div>
-                <div class="venn-desc">施工條件、使用需求<br>與後續維護</div>
-              </div>
-            </div>
+              <!-- DIMENSION 01：建築條件 (位於左上圓核心空位，零線條交叉) -->
+              <text x="175" y="130" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 01</text>
+              <text x="175" y="154" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">建築條件</text>
+              <text x="175" y="178" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">既有外牆材質</text>
+              <text x="175" y="196" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">使用狀況與現況</text>
 
-            <!-- 中央交集核心 -->
-            <div class="venn-center-core">
-              <div class="core-title">外牆更新</div>
-              <div class="core-subtitle">思考與平衡</div>
-            </div>
+              <!-- DIMENSION 02：企業形象 (位於右上圓核心空位，零線條交叉) -->
+              <text x="425" y="130" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 02</text>
+              <text x="425" y="154" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">企業形象</text>
+              <text x="425" y="178" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">色彩、立面與</text>
+              <text x="425" y="196" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">企業對外呈現</text>
+
+              <!-- DIMENSION 03：工程需求 (位於下方圓核心空位，零線條交叉) -->
+              <text x="300" y="300" text-anchor="middle" font-family="'Outfit', sans-serif" font-weight="800" font-size="11" fill="#64748b" letter-spacing="1.5">DIMENSION 03</text>
+              <text x="300" y="324" text-anchor="middle" font-family="'Noto Serif TC', serif" font-weight="900" font-size="19" fill="#0f172a">工程需求</text>
+              <text x="300" y="348" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-weight="500" font-size="12" fill="#475569">施工條件、使用需求與後續維護</text>
+            </svg>
           </div>
 
           <div class="venn-caption-box">
