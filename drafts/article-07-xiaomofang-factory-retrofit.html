@@ -802,11 +802,11 @@
 
           <div class="ba-slider-container" id="renovBaContainer">
             <img src="../img/renovation/renwu-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image">
-            <span class="badge-label" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; z-index: 5; white-space: nowrap;">AFTER 施工後</span>
+            <span class="badge-label" id="renovAfterBadge" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; z-index: 5; white-space: nowrap; transition: opacity 0.2s ease;">AFTER 施工後</span>
             
             <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
               <img src="../img/renovation/renwu-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image">
-              <span class="badge-label" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; z-index: 5; white-space: nowrap;">BEFORE 施工前</span>
+              <span class="badge-label" id="renovBeforeBadge" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; z-index: 5; white-space: nowrap; transition: opacity 0.2s ease;">BEFORE 施工前</span>
             </div>
 
             <div class="ba-handle" id="renovHandle" style="left: 50%;"><div class="ba-handle-circle"><span>&lsaquo;</span><span>&rsaquo;</span></div></div>
@@ -847,10 +847,30 @@
   </main>
 
   <script>
-    // 💥 互動拉桿拖曳邏輯
+    // 💥 互動拉桿拖曳邏輯（含標籤防遮擋動態隱藏）
     function updateBaSlider(val) {
-      document.getElementById('renovBeforeWrapper').style.width = val + '%';
-      document.getElementById('renovHandle').style.left = val + '%';
+      const numericVal = parseFloat(val);
+      document.getElementById('renovBeforeWrapper').style.width = numericVal + '%';
+      document.getElementById('renovHandle').style.left = numericVal + '%';
+
+      // 💥 當拉桿滑向右側 (接近 BEFORE 全螢幕) 時，動態淡出 AFTER 標籤；反之亦然
+      const afterBadge = document.getElementById('renovAfterBadge');
+      if (afterBadge) {
+        if (numericVal > 75) {
+          afterBadge.style.opacity = Math.max(0, (92 - numericVal) / 17);
+        } else {
+          afterBadge.style.opacity = 1;
+        }
+      }
+
+      const beforeBadge = document.getElementById('renovBeforeBadge');
+      if (beforeBadge) {
+        if (numericVal < 25) {
+          beforeBadge.style.opacity = Math.max(0, (numericVal - 8) / 17);
+        } else {
+          beforeBadge.style.opacity = 1;
+        }
+      }
     }
 
     const renovCasesData = [
