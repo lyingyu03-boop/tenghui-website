@@ -7,7 +7,13 @@
   <title>為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？ ｜ 騰煇企業工程專欄</title>
   <meta name="description" content="廠辦不只是生產辦公空間，更是客戶與求職者看見的實體環境。解析老舊廠辦外觀如何重新思考，從現況評估到立面、材料與工程整合。">
   
+  <link rel="icon" href="../img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="../img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-07-xiaomofang-factory-retrofit.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
   
   <style>
     :root {
@@ -564,41 +570,67 @@
 </head>
 <body>
 
-  <!-- 頂部 Header -->
+  <!-- 頁首 Header (官方標準全功能 Header) -->
   <header class="site-header">
-    <div class="header-inner">
-      <a href="../index.html" class="brand-logo">
-        <img src="../img/projects/tenghui-hq-new.jpg" alt="騰煇企業" onerror="this.style.display='none'">
-        <span>騰煇企業有限公司</span>
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="../img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name">騰煇企業有限公司</span>
+          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
       </a>
-      <a href="../internal-drafts.html" class="nav-back">
-        ← 返回專欄審核中心
-      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="../index.html" class="nav-link">首頁</a></li>
+            <li><a href="../about.html" class="nav-link">關於騰煇</a></li>
+            <li class="dropdown">
+              <a href="../services.html" class="nav-link">服務項目</a>
+              <ul class="dropdown-menu">
+                <li><a href="../services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
+                <li><a href="../services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
+                <li><a href="../services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+            <li><a href="../process.html" class="nav-link">工程流程</a></li>
+            <li><a href="../projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="../articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="../faq.html" class="nav-link">常見問題</a></li>
+            <li><a href="../contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-icons-group">
+          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
+      </div>
     </div>
   </header>
 
-  <main class="editorial-wrapper">
-    
-    <!-- 雜誌級 Header 區塊 -->
-    <header class="editorial-hero">
-      <div class="hero-meta-bar">
-        <span class="hero-badge">CONCEPT COLUMN ｜ 企業廠辦外觀專題</span>
-        <div class="hero-meta-info">
-          <span>撰寫：騰煇工程技術團隊</span>
-          <span>｜</span>
-          <span>適合對象：企業主、廠長、管理階層</span>
+  <main style="padding: 60px 0; background: #ffffff;">
+    <div class="container article-editorial-wrap" style="max-width: 960px;">
+      
+      <!-- 專題文章頭部 (對齊附圖三官方格式) -->
+      <div style="border-bottom: 2px solid #0f172a; padding-bottom: 24px; margin-bottom: 36px;" class="reveal-quiet">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 700; color: #64748b; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px;">ARCHITECTURAL INSIGHTS ｜ 騰煇建築與工程誌</span>
+        <h1 class="article-hero-title" style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: #0f172a; line-height: 1.4; margin-bottom: 16px;">
+          為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？
+        </h1>
+        <div style="display: flex; gap: 24px; font-size: 0.88rem; color: #64748b; margin-top: 16px; align-items: center; flex-wrap: wrap;">
+          <span>2026 年 9 月專題刊登</span>
+          <span>撰稿：騰煇工程技術團隊</span>
+          <span>閱讀時間約 5 分鐘</span>
         </div>
       </div>
-      <h1 class="hero-title">
-        為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？
-      </h1>
-      <p class="hero-subtitle">
-        對許多企業而言，廠辦本身就是每天被看見的實體環境。當企業持續成長，建築呈現是否跟上企業現在的樣子？
-      </p>
-    </header>
 
-    <!-- 專刊主內文區塊 -->
-    <article class="editorial-content">
+      <!-- 專刊主內文區塊 -->
+      <article class="editorial-content" style="padding: 0;">
 
       <!-- SECTION 01 ｜ 企業門面與品牌形象 (圖文非對稱雙欄) -->
       <section class="section-editorial-block">
@@ -850,7 +882,43 @@
       </section>
 
     </article>
+
+    <!-- 💥 專欄文章前後篇導覽切換列 (Article Navigation Channel) -->
+    <div class="article-nav-switcher reveal-quiet" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 24px 0; margin: 40px 0; flex-wrap: wrap; gap: 16px;">
+      <a href="../article-stone.html" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: #2563eb; text-decoration: none; font-size: 0.95rem;">
+        &larr; 上一篇專題：GRC 假石造景與真石材對比
+      </a>
+      <a href="../articles.html" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: #475569; text-decoration: none; font-size: 0.92rem;">
+        <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:currentColor;"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> 返回專欄總覽
+      </a>
+    </div>
+
+  </div>
   </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand" style="max-width: 420px;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <img decoding="async" loading="lazy" src="../img/logo-white.png" alt="騰煇企業 白色 Logo" style="height: 44px; width: auto;">
+          <div>
+            <h4 style="color: #e8e8ea; font-size: 1.05rem; margin: 0; font-weight: 600;">騰煇企業有限公司</h4>
+            <span style="color: #a1a1aa; font-size: 0.72rem; font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+          </div>
+        </div>
+        <p style="font-size: 0.88rem; color: #a1a1aa; line-height: 1.6; margin-bottom: 12px;"><strong>外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</strong></p>
+        <p style="font-size: 0.82rem; color: #71717a; line-height: 1.5; margin: 0;">美感，由設計定義。耐久，由工程守護。<br>40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+
+      <div class="footer-contact-info" style="color: #a1a1aa; font-size: 0.85rem; display: flex; flex-direction: column; gap: 8px;">
+        <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; margin-bottom: 4px;">聯絡我們 (服務地區：台灣全區)</h4>
+        <p style="margin:0;">台中服務據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p style="margin:0;">高雄服務據點：807高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p style="margin:0;">傳真：04-26864726 ｜ 信箱：<a href="mailto:w862726@gmail.com" style="color: #71717a; text-decoration: underline;">w862726@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // 💥 保持 BEFORE 圖片寬度固定等於外框寬度，避免拖曳時變形縮放
@@ -869,7 +937,6 @@
       document.getElementById('renovBeforeWrapper').style.width = numericVal + '%';
       document.getElementById('renovHandle').style.left = numericVal + '%';
 
-      // 💥 當拉桿滑向右側 (接近 BEFORE 全螢幕) 時，動態淡出 AFTER 標籤；反之亦然
       const afterBadge = document.getElementById('renovAfterBadge');
       if (afterBadge) {
         if (numericVal > 75) {
@@ -893,14 +960,14 @@
       {
         badge: "CASE 01 ｜ 台塑仁武廠 AI 研發中心",
         caption: "高雄台塑 AI 仁武研發中心外牆整體拉皮工程",
-        before: "../img/renovation/renwu-before.jpg",
-        after: "../img/renovation/renwu-after.jpg"
+        before: "img/renovation/renwu-before.jpg",
+        after: "img/renovation/renwu-after.jpg"
       },
       {
         badge: "CASE 02 ｜ 廠辦外牆拉皮更新實績",
         caption: "企業廠辦外牆拉皮與色彩立面重新規劃實績",
-        before: "../img/renovation/case2-before.jpg",
-        after: "../img/renovation/case2-after.jpg"
+        before: "img/renovation/case2-before.jpg",
+        after: "img/renovation/case2-after.jpg"
       }
     ];
 
@@ -930,6 +997,16 @@
     window.addEventListener('resize', syncBeforeImgWidth);
     window.addEventListener('load', syncBeforeImgWidth);
     document.addEventListener('DOMContentLoaded', syncBeforeImgWidth);
+
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? '✕' : '☰';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+    }
   </script>
 
 </body>
