@@ -418,9 +418,13 @@
       overflow: hidden;
       z-index: 2;
     }
-    .ba-before-wrapper .ba-image-before {
-      width: 100%;
-      max-width: none;
+    .ba-before-wrapper img {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      max-width: none !important;
+      object-fit: cover;
+      pointer-events: none;
     }
     .ba-handle {
       position: absolute;
@@ -846,8 +850,18 @@
   </main>
 
   <script>
+    // 💥 保持 BEFORE 圖片寬度固定等於外框寬度，避免拖曳時變形縮放
+    function syncBeforeImgWidth() {
+      const container = document.getElementById('renovBaContainer');
+      const beforeImg = document.getElementById('renovBeforeImg');
+      if (container && beforeImg) {
+        beforeImg.style.width = container.offsetWidth + 'px';
+      }
+    }
+
     // 💥 互動拉桿拖曳邏輯（含標籤防遮擋動態隱藏）
     function updateBaSlider(val) {
+      syncBeforeImgWidth();
       const numericVal = parseFloat(val);
       document.getElementById('renovBeforeWrapper').style.width = numericVal + '%';
       document.getElementById('renovHandle').style.left = numericVal + '%';
@@ -901,12 +915,18 @@
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
+      syncBeforeImgWidth();
+
       const input = document.getElementById('renovRangeInput');
       if (input) {
         input.value = 50;
         updateBaSlider(50);
       }
     }
+
+    window.addEventListener('resize', syncBeforeImgWidth);
+    window.addEventListener('load', syncBeforeImgWidth);
+    document.addEventListener('DOMContentLoaded', syncBeforeImgWidth);
   </script>
 
 </body>
