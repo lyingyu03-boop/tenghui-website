@@ -819,14 +819,13 @@
 
           <div class="card-caption-bar" style="margin-top: 14px; background: transparent; border: none; padding: 0;">
             <span class="badge-label case">【騰煇案例紀錄】</span>
-            <span>台塑 AI 仁武研發中心 ＆ 觀音廠房實績</span>
+            <span id="renovCaptionText">高雄台塑 AI 仁武研發中心外牆整體拉皮工程</span>
           </div>
 
           <!-- 頁籤切換按鈕 -->
-          <div style="display: flex; justify-content: center; gap: 8px; margin-top: 24px; flex-wrap: wrap;">
+          <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
             <button class="grc-tab-btn active" onclick="switchRenovCase(0, this)"><span>01</span> 高雄台塑 AI 研發中心</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(1, this)"><span>02</span> 桃園觀音廠房 (正立面)</button>
-            <button class="grc-tab-btn" onclick="switchRenovCase(2, this)"><span>03</span> 桃園觀音廠房 (側立面)</button>
+            <button class="grc-tab-btn" onclick="switchRenovCase(1, this)"><span>02</span> 廠辦外牆拉皮更新實績</button>
           </div>
         </div>
 
@@ -876,18 +875,15 @@
     const renovCasesData = [
       {
         badge: "CASE 01 ｜ 台塑仁武廠 AI 研發中心",
+        caption: "高雄台塑 AI 仁武研發中心外牆整體拉皮工程",
         before: "../img/renovation/renwu-before.jpg",
         after: "../img/renovation/renwu-after.jpg"
       },
       {
-        badge: "CASE 02 ｜ 桃園觀音廠房 (正立面)",
-        before: "../img/renovation/renov3a-before.jpg",
-        after: "../img/renovation/renov3a-after.jpg"
-      },
-      {
-        badge: "CASE 03 ｜ 桃園觀音廠房 (側立面)",
-        before: "../img/renovation/renov3b-before.jpg",
-        after: "../img/renovation/renov3b-after.jpg"
+        badge: "CASE 02 ｜ 廠辦外牆拉皮更新實績",
+        caption: "企業廠辦外牆拉皮與色彩立面重新規劃實績",
+        before: "../img/renovation/case2-before.jpg",
+        after: "../img/renovation/case2-after.jpg"
       }
     ];
 
@@ -896,6 +892,10 @@
       document.getElementById('renovCaseBadge').innerText = data.badge;
       document.getElementById('renovBeforeImg').src = data.before;
       document.getElementById('renovAfterImg').src = data.after;
+      const captionText = document.getElementById('renovCaptionText');
+      if (captionText && data.caption) {
+        captionText.innerText = data.caption;
+      }
 
       const btns = btn.parentNode.querySelectorAll('.grc-tab-btn');
       btns.forEach(b => b.classList.remove('active'));
