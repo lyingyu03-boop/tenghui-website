@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>BIM 是什麼？從 3D 建模，到建築資訊模型 ｜ 騰煇建築工程知識專欄</title>
+  <meta name="description" content="BIM 是什麼？了解 BIM 與 3D 建模的差異，以及 3D BIM、4D BIM 如何應用於設計、工程協調、施工與竣工階段。">
+  <meta name="keywords" content="BIM 是什麼, BIM, 3D BIM, 4D BIM, 建築資訊模型, BIM 建模">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-bim-what-is-bim.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --accent-red: #b91c1c;
+      --accent-red-light: #fef2f2;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Architectural Editorial Typography */
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 80px 24px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .article-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      background: var(--accent-red-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--slate-600);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #1e293b;
+    }
+    .article-content h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 44px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+    .article-content h3 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 0 12px 0;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    /* Pull Quote Block */
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.75;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    /* Key Points Card Box */
+    .concept-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .concept-box-title {
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed var(--border-color);
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      color: var(--slate-600);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    /* Navigation Switcher */
+    .article-nav-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      margin: 60px 0 30px 0;
+      gap: 16px;
+    }
+  </style>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BIM 是什麼？從 3D 建模，到建築資訊模型",
+    "description": "BIM 是什麼？了解 BIM 與 3D 建模的差異，以及 3D BIM、4D BIM 如何應用於設計、工程協調、施工與竣工階段。",
+    "author": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tenghui.com.tw/img/logo-icon.png"
+      }
+    },
+    "mainEntityOfPage": "https://tenghui.com.tw/article-bim-what-is-bim.html"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 頁首 Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" style="height: 38px; width: auto;">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 900; color: #0f172a; font-size: 1.05rem; display: block;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="font-size: 0.7rem; color: #64748b; font-family: 'Outfit', sans-serif;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 20px; list-style: none;">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li><a href="services.html" class="nav-link">服務項目</a></li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- 文章主體內容 -->
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-tag">CONCEPT COLUMN ｜ 建築工程基礎詞彙</span>
+      <h1 class="article-title">BIM 是什麼？從 3D 建模，到建築資訊模型</h1>
+      <p class="article-subtitle">第一次聽到 BIM，很多人想到的可能是「把建築畫成 3D」。但 3D 模型，並不等於 BIM。</p>
+      <div class="article-meta">
+        <span>騰煇建築工程知識專欄</span>
+        <span>・</span>
+        <span>閱讀時間約 5 分鐘</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>BIM 的全名是 <strong>Building Information Modeling</strong>，中文通常稱為「建築資訊模型」。它不只是把建築從 2D 圖面變成立體模型，而是將建築的幾何資訊與工程資訊整合到數位模型中，讓模型可以在不同階段持續被使用。</p>
+
+      <h2>BIM 裡的「I」，其實才是關鍵</h2>
+      
+      <p>要真正理解 BIM，可以拆解其三個核心字彙：</p>
+      
+      <div class="concept-box">
+        <div class="concept-box-title">BIM 三大核心維度</div>
+        <p style="margin-bottom: 10px;"><strong>Building｜建築</strong>：描述建築本身，包括空間、構件與彼此之間的幾何關係。</p>
+        <p style="margin-bottom: 10px;"><strong>Information｜資訊</strong>：除了「長什麼樣子」之外，也可以包含尺寸、材料、構件等工程資訊。</p>
+        <p style="margin-bottom: 0;"><strong>Modeling｜建模</strong>：將這些資訊建立、整理並維持在數位模型中。</p>
+      </div>
+
+      <blockquote class="pull-quote">
+        BIM 不只是把建築「畫成立體」，而是讓建築相關資訊進入一個可以持續使用的數位模型。
+      </blockquote>
+
+      <p>內政部建築研究所過去的 BIM 研究也將 BIM 應用延伸至設計、施工、竣工驗收與設施管理等不同階段，代表 BIM 本身並不只停留在設計建模。</p>
+
+      <h2>3D 模型與 BIM，有什麼不同？</h2>
+
+      <p>一個單純的 3D 模型，主要是在描述：「這棟建築長什麼樣子。」</p>
+      <p>而 BIM 進一步處理：「這個構件是什麼？它在哪裡？尺寸是多少？與其他構件有什麼關係？」</p>
+
+      <p>因此，<strong>3D 模型</strong>比較偏向「看見建築」；<strong>BIM</strong> 則進一步讓模型成為「建築資訊的載體」。這也是 BIM 能夠延伸到設計檢討、工程協調、施工模擬等應用的原因。</p>
+
+      <h2>BIM 可以用在哪些階段？</h2>
+
+      <p>BIM 並不是只存在於設計階段。依照專案需求，可以延伸到：</p>
+      
+      <ol style="margin-left: 20px; margin-bottom: 24px; line-height: 2;">
+        <li><strong>設計</strong>：建立建築模型，協助設計檢討。</li>
+        <li><strong>工程協調</strong>：整合不同專業的模型與資訊，協助檢視空間與構件之間的關係。</li>
+        <li><strong>施工</strong>：依照工程需求進行施工模型、施工製作圖、施工模擬等應用。</li>
+        <li><strong>竣工</strong>：將施工過程中的資訊更新至模型，形成符合專案要求的竣工成果。</li>
+        <li><strong>維護管理</strong>：若專案有相應需求，模型還可以進一步成為建築後續維護管理的資訊來源。</li>
+      </ol>
+
+      <p>公共工程委員會目前的 BIM 專區也收錄施工階段 BIM 建置規範，以及 BIM 算量匯入 PCCES 的示範案例，顯示 BIM 可以與工程數量及施工階段資訊產生連結。</p>
+
+      <h2>3D BIM 與 4D BIM 差在哪裡？</h2>
+
+      <p><strong>3D BIM（空間）</strong>：回答「建築是什麼樣子？」</p>
+      <p><strong>4D BIM（時間）</strong>：進一步加入「這些構件什麼時候施工？」，將模型與施工時序結合，讓工程不只是看見最後完成的建築，也能理解施工如何一步一步進行。</p>
+
+      <h2>BIM 真正重要的地方</h2>
+
+      <blockquote class="pull-quote">
+        BIM 最值得注意的地方，不是「3D 看起來很漂亮」，而是當不同專業都需要處理同一棟建築時，能不能透過共同的數位模型，讓資訊更容易被理解、檢討、修改與交換。
+      </blockquote>
+
+      <p>因此 BIM 更接近一種<strong>數位化的建築資訊協作方式</strong>。它不是單純的一套繪圖軟體，也不是「只要會畫 3D 就叫 BIM」。</p>
+
+      <p>真正需要理解的是：一個專案需要哪些 BIM 資訊？誰建立？誰使用？什麼時候交付？又如何從一個階段交給下一個階段？當 BIM 從「建模」走向「工程應用」，這些問題就會越來越重要。</p>
+
+      <!-- FAQ 區塊 -->
+      <section class="faq-section">
+        <h2 style="margin-top: 0; border: none; padding: 0;">常見問題 FAQ</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">Q1: BIM 是不是就是 3D 建模？</div>
+          <div class="faq-answer">不是。3D 建模主要描述幾何形狀；BIM 則進一步整合建築幾何與工程資訊。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q2: BIM 一定要做到 4D 嗎？</div>
+          <div class="faq-answer">不一定。應依專案目標與需求決定 BIM 應用程度。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q3: BIM 只能用在大型建築嗎？</div>
+          <div class="faq-answer">不一定。是否採用 BIM，以及做到什麼程度，應依專案規模、複雜度、需求與成本評估。</div>
+        </div>
+      </section>
+
+      <!-- 文章導覽區域 -->
+      <div class="article-nav-switcher">
+        <a href="articles.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 返回專欄總覽</a>
+        <a href="article-pcm-what-is-pcm.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：PCM 是什麼？專案管理在管理什麼？ &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

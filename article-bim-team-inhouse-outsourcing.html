@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>BIM 一定要自己養一個團隊嗎？從「會不會用」到「怎麼導入」 ｜ 騰煇建築工程知識專欄</title>
+  <meta name="description" content="BIM 導入一定要自己養 BIM 團隊嗎？從人力、案量、技術能力與專案需求，理解 BIM 自建、外包與合作模式。">
+  <meta name="keywords" content="BIM 導入, BIM 外包, BIM 團隊, BIM 人力, BIM 建築師事務所">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-bim-team-inhouse-outsourcing.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --accent-red: #b91c1c;
+      --accent-red-light: #fef2f2;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 80px 24px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .article-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      background: var(--accent-red-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--slate-600);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #1e293b;
+    }
+    .article-content h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 44px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+    .article-content h3 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 0 12px 0;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.75;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .concept-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .concept-box-title {
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .faq-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed var(--border-color);
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      color: var(--slate-600);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    .article-nav-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      margin: 60px 0 30px 0;
+      gap: 16px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BIM 一定要自己養一個團隊嗎？從「會不會用」到「怎麼導入」",
+    "description": "BIM 導入一定要自己養 BIM 團隊嗎？從人力、案量、技術能力與專案需求，理解 BIM 自建、外包與合作模式。",
+    "author": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tenghui.com.tw/img/logo-icon.png"
+      }
+    },
+    "mainEntityOfPage": "https://tenghui.com.tw/article-bim-team-inhouse-outsourcing.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" style="height: 38px; width: auto;">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 900; color: #0f172a; font-size: 1.05rem; display: block;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="font-size: 0.7rem; color: #64748b; font-family: 'Outfit', sans-serif;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 20px; list-style: none;">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li><a href="services.html" class="nav-link">服務項目</a></li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-tag">CONCEPT COLUMN ｜ BIM 導入與工程實務</span>
+      <h1 class="article-title">BIM 一定要自己養一個團隊嗎？從「會不會用」到「怎麼導入」</h1>
+      <p class="article-subtitle">知道 BIM 是什麼，和公司真的有能力把 BIM 用起來，是兩件事。</p>
+      <div class="article-meta">
+        <span>騰煇建築工程知識專欄</span>
+        <span>・</span>
+        <span>閱讀時間約 5 分鐘</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>BIM 已經不是一個陌生名詞。政府持續推動公共工程 BIM，也逐步建立不同階段的應用規範。但真正進入企業之後，會出現另一個實際問題：公司一定要自己培養一個完整的 BIM 團隊嗎？</p>
+
+      <h2>BIM 不只是買一套軟體</h2>
+
+      <p>真正執行 BIM，會涉及：「軟體＋硬體＋模型建立＋資訊整理＋專業人員＋工作流程＋後續修改＋跨專業協作」。所以真正需要思考的不是「公司要不要買 BIM 軟體」，而是：</p>
+
+      <blockquote class="pull-quote">
+        公司要不要建立一套能持續使用 BIM 的工作能力？
+      </blockquote>
+
+      <h2>BIM 需要什麼樣的人？</h2>
+
+      <p>BIM 並不是單一職務，實務上可能涉及：BIM 建模、設計分析、模型整合、BIM 協調、專案管理、品質檢核與模型交付。</p>
+
+      <div class="concept-box">
+        <div class="concept-box-title">內政部建研所歸納的三大模型建置模式</div>
+        <p style="margin-bottom: 8px;"><strong>自建</strong>：內部建立專職 BIM 團隊，適合案量穩定且 BIM 頻率高之組織。</p>
+        <p style="margin-bottom: 8px;"><strong>外包</strong>：委託外部專業團隊進行模型建置，適合案件導向與彈性人力配置。</p>
+        <p style="margin-bottom: 0;"><strong>合作</strong>：內部掌握核心設計與需求，外部團隊協助工程深化與協調。</p>
+      </div>
+
+      <p>研究指出，不同人員規模、BIM 技術能力與資源條件的事務所，適合的投入方式並不一定相同。因此「自建」與「外包」不是唯一的二選一，也存在合作模式。</p>
+
+      <h2>真正困難的，是模型建立之後誰來接著使用？</h2>
+
+      <p>在工程實務中，真正考驗營建團隊的往往不是建立第一個模型，而是後續的資訊交接：</p>
+
+      <ul style="margin-left: 20px; margin-bottom: 24px; line-height: 2;">
+        <li>如果設計變更：誰修改？</li>
+        <li>如果進入施工階段：誰深化？</li>
+        <li>如果不同專業需要協調：誰整合？</li>
+        <li>如果模型要交給下一個單位：資訊怎麼交接？</li>
+        <li>如果到了竣工：誰確認模型內容符合要求？</li>
+      </ul>
+
+      <blockquote class="pull-quote">
+        自建或外包都不能免除不同階段的移出與銜接，因此需要相應的繪圖規則與移交標準。
+      </blockquote>
+
+      <p>當我們不再只問「會不會建模」，而是問「這個模型能不能被下一個階段真正使用」，BIM 才真正從 3D 模型走向工程資訊。而要讓不同專業順利達成這件事，就需要一份共同規範：<strong>BEP (BIM Execution Plan)</strong>。</p>
+
+      <!-- FAQ 區塊 -->
+      <section class="faq-section">
+        <h2 style="margin-top: 0; border: none; padding: 0;">常見問題 FAQ</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">Q1: BIM 一定要公司自己做嗎？</div>
+          <div class="faq-answer">不一定。可依專案需求、案量、內部人力與技術能力選擇自建、外包或合作。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q2: BIM 外包就代表公司不需要懂 BIM 嗎？</div>
+          <div class="faq-answer">不代表。即使模型由外部團隊建立，專案團隊仍需要理解要求、交付內容與資訊銜接方式。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q3: 小型事務所適合導入 BIM 嗎？</div>
+          <div class="faq-answer">沒有單一答案，應依案件特性、BIM 使用需求、內部資源與外部合作條件評估。</div>
+        </div>
+      </section>
+
+      <!-- 文章導覽區域 -->
+      <div class="article-nav-switcher">
+        <a href="article-pcm-what-is-pcm.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 上一篇：PCM 是什麼？</a>
+        <a href="article-bep-bim-execution-plan.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：BEP 是什麼？BIM 執行計畫解析 &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

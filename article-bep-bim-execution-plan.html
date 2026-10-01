@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？ ｜ 騰煇建築工程知識專欄</title>
+  <meta name="description" content="BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 協作。">
+  <meta name="keywords" content="BEP 是什麼, BIM Execution Plan, BIM 執行計畫, BEP 計畫書, BIM 協作">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-bep-bim-execution-plan.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --accent-red: #b91c1c;
+      --accent-red-light: #fef2f2;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 80px 24px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .article-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      background: var(--accent-red-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--slate-600);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #1e293b;
+    }
+    .article-content h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 44px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+    .article-content h3 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 0 12px 0;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.75;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .concept-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .concept-box-title {
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .faq-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed var(--border-color);
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      color: var(--slate-600);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    .article-nav-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      margin: 60px 0 30px 0;
+      gap: 16px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？",
+    "description": "BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 協作。",
+    "author": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tenghui.com.tw/img/logo-icon.png"
+      }
+    },
+    "mainEntityOfPage": "https://tenghui.com.tw/article-bep-bim-execution-plan.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" style="height: 38px; width: auto;">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 900; color: #0f172a; font-size: 1.05rem; display: block;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="font-size: 0.7rem; color: #64748b; font-family: 'Outfit', sans-serif;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 20px; list-style: none;">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li><a href="services.html" class="nav-link">服務項目</a></li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-tag">CONCEPT COLUMN ｜ BIM 工程實務詞彙</span>
+      <h1 class="article-title">BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？</h1>
+      <p class="article-subtitle">如果 BIM 是數位模型與資訊方法，那麼 BEP 就是這個專案大家要如何一起使用 BIM 的遊戲規則。</p>
+      <div class="article-meta">
+        <span>騰煇建築工程知識專欄</span>
+        <span>・</span>
+        <span>閱讀時間約 5 分鐘</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>BEP 的全名是 <strong>BIM Execution Plan</strong>，中文通常稱為「BIM 執行計畫／BIM 工作執行計畫書」。</p>
+
+      <h2>為什麼需要 BEP？</h2>
+
+      <p>想像一個工程裡有：建築師＋結構顧問＋機電顧問＋PCM＋營造＋專業分包＋材料／製造廠商。大家都使用 BIM。</p>
+
+      <p>但如果沒有先說清楚：誰負責什麼？模型做到什麼程度？什麼時候交？要交什麼資料？用什麼方式交換？誰負責檢查？那麼即使每個人都「有做 BIM」，最後仍可能無法順利協作。因此 BIM 真正進入跨專業工程後：</p>
+
+      <blockquote class="pull-quote">
+        「怎麼工作」本身也需要被定義。
+      </blockquote>
+
+      <h2>BEP 可能規劃哪些事情？</h2>
+
+      <div class="concept-box">
+        <div class="concept-box-title">BEP 包含的八大核心範疇</div>
+        <p style="margin-bottom: 6px;"><strong>01. 專案資訊</strong>：確認專案基本資料與相關條件。</p>
+        <p style="margin-bottom: 6px;"><strong>02. 專案成員</strong>：確認參與團隊與角色分工。</p>
+        <p style="margin-bottom: 6px;"><strong>03. 專案目標</strong>：明確定義專案為什麼使用 BIM。</p>
+        <p style="margin-bottom: 6px;"><strong>04. BIM 應用</strong>：確認各階段要使用 BIM 做什麼。</p>
+        <p style="margin-bottom: 6px;"><strong>05. 交付項目</strong>：確認各階段需交付哪些 BIM 成果。</p>
+        <p style="margin-bottom: 6px;"><strong>06. 模型與資訊要求</strong>：確認幾何與非幾何資訊細節。</p>
+        <p style="margin-bottom: 6px;"><strong>07. 建模與協作流程</strong>：確認模型發布、協作及品質檢核方式。</p>
+        <p style="margin-bottom: 0;"><strong>08. 軟體與資料環境</strong>：確認專案所需軟體與共享平台 (CDE)。</p>
+      </div>
+
+      <h2>BEP 不是「一份表格」而已</h2>
+
+      <p>它真正重要的地方在於把 BIM 的工作方式先講清楚。如果沒有共同規則，就可能變成「每個人都做了自己的部分，但最後還是接不起來」。</p>
+
+      <p>內政部建築研究所 2026 年公開的研究指出，在部分公共工程/社會住宅 BIM 專案中，PCM 需要提出 BEP，並透過 BEP 管理 BIM 執行品管；研究也發現，實務上可能存在 BEP 過於繁瑣而與實務脫節等問題。</p>
+
+      <blockquote class="pull-quote">
+        BEP 不是為了讓文件變多，而是為了讓 BIM 的要求可以被真正執行與驗收。
+      </blockquote>
+
+      <p>這也讓我們回到一個更大的問題：當建築越來越需要跨專業協作，建築師未來需要的，可能不只是單一供應商，而是一組真正能長期合作的專業團隊。</p>
+
+      <!-- FAQ 區塊 -->
+      <section class="faq-section">
+        <h2 style="margin-top: 0; border: none; padding: 0;">常見問題 FAQ</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">Q1: BEP 是不是 BIM 模型？</div>
+          <div class="faq-answer">不是。BEP 是 BIM 執行計畫，模型則是 BIM 工作的其中一項成果。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q2: 每個 BIM 專案都一定有完全相同的 BEP 嗎？</div>
+          <div class="faq-answer">不應直接套用同一份內容。BEP 應依專案目標、角色、BIM 應用與交付需求調整。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q3: BEP 越詳細越好嗎？</div>
+          <div class="faq-answer">不一定。內容應與實際工作結合，避免文件非常完整，但執行時無法使用。</div>
+        </div>
+      </section>
+
+      <!-- 文章導覽區域 -->
+      <div class="article-nav-switcher">
+        <a href="article-bim-team-inhouse-outsourcing.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 上一篇：BIM 團隊導入模式</a>
+        <a href="article-architect-engineering-partner-team.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：未來的建築師，可能都需要固定的合作團隊 &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

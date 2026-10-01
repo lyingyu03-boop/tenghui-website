@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>未來的建築師，可能都需要一個固定的合作團隊｜從設計到工程，誰來接住中間這一段？ ｜ 騰煇建築工程知識專欄</title>
+  <meta name="description" content="從 BIM、BEP 到 GRC 預鑄與工程整合，理解建築設計如何走向工程，以及為什麼固定的專業合作團隊可能越來越重要。">
+  <meta name="keywords" content="建築師 合作團隊, BIM 協作, 建築工程整合, GRC 預鑄, 建築工程合作">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-architect-engineering-partner-team.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --accent-red: #b91c1c;
+      --accent-red-light: #fef2f2;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 80px 24px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .article-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      background: var(--accent-red-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--slate-600);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #1e293b;
+    }
+    .article-content h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 44px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+    .article-content h3 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 0 12px 0;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.75;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .concept-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .concept-box-title {
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .brand-statement-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 40px 32px;
+      margin: 50px 0 30px 0;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+    }
+    .brand-statement-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .brand-statement-card p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 0;
+    }
+
+    .article-nav-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      margin: 60px 0 30px 0;
+      gap: 16px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "未來的建築師，可能都需要一個固定的合作團隊｜從設計到工程，誰來接住中間這一段？",
+    "description": "從 BIM、BEP 到 GRC 預鑄與工程整合，理解建築設計如何走向工程，以及為什麼固定的專業合作團隊可能越來越重要。",
+    "author": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tenghui.com.tw/img/logo-icon.png"
+      }
+    },
+    "mainEntityOfPage": "https://tenghui.com.tw/article-architect-engineering-partner-team.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" style="height: 38px; width: auto;">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 900; color: #0f172a; font-size: 1.05rem; display: block;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="font-size: 0.7rem; color: #64748b; font-family: 'Outfit', sans-serif;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 20px; list-style: none;">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li><a href="services.html" class="nav-link">服務項目</a></li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-tag">CONCEPT COLUMN ｜ 建築設計 × 工程協作</span>
+      <h1 class="article-title">未來的建築師，可能都需要一個固定的合作團隊</h1>
+      <p class="article-subtitle">從設計到工程，誰來接住中間這一段？理解建築設計如何走向實體工程落地。</p>
+      <div class="article-meta">
+        <span>騰煇建築工程知識專欄</span>
+        <span>・</span>
+        <span>閱讀時間約 6 分鐘</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>一個建築專案，很少只由一個專業完成。從建築設計到結構、機電、BIM、材料、製造、施工與管理，不同專業會在不同階段加入。因此，未來的建築師需要的可能不只是更多供應商，而是一群真正了解彼此工作方式，可以長期合作的專業夥伴。</p>
+
+      <h2>設計完成，不代表工程完成</h2>
+
+      <p>一張完成的立面圖，看起來可能已經非常完整。但真正進入工程階段後，還會出現：這個造型怎麼深化？尺寸怎麼確認？構件怎麼分割？材料怎麼選？能不能製作？怎麼運送？怎麼安裝？最終表面效果怎麼完成？</p>
+
+      <blockquote class="pull-quote">
+        設計 &rarr; 工程 中間，其實存在一大段需要專業協作的過程。
+      </blockquote>
+
+      <h2>但建築師不一定需要把所有能力都養在自己公司裡</h2>
+
+      <p>這也是「固定合作團隊」真正的意義。一個建築師事務所不一定需要每天都維持完整的 BIM 團隊、特殊造型工程團隊、預鑄製造團隊、塗裝工程團隊與施工團隊。但某些專案，確實可能同時需要這些專業。</p>
+
+      <h2>那麼，騰煇可以接住哪些部分？</h2>
+
+      <p>這也是騰煇目前逐步累積與提供的能力：</p>
+
+      <div class="concept-box">
+        <div class="concept-box-title">騰煇在設計走向工程中可參與的環節</div>
+        <p style="margin-bottom: 10px;"><strong>01. 3D BIM 建模與放樣</strong>：從 2D 圖面建立 3D 模型，進行問題確認與修改，協助設計資訊繼續往工程階段延伸。</p>
+        <p style="margin-bottom: 10px;"><strong>02. 工廠預鑄</strong>：從數位設計走向實體構件（圖面評估 &rarr; 3D 建模/數位開模 &rarr; 工廠 GRC 預鑄 &rarr; 現場吊掛組裝）。</p>
+        <p style="margin-bottom: 10px;"><strong>03. GRC 特殊造型工程</strong>：提供曲面、弧線、特殊立面、歐式與仿生造型的材料與構件實現可能。</p>
+        <p style="margin-bottom: 10px;"><strong>04. 造型 × PPG 塗裝</strong>：從構件製作到最終 PPG 建築塗料表面質感效果，一體化完成。</p>
+        <p style="margin-bottom: 10px;"><strong>05. 工程整合</strong>：從工廠製作、運輸、現場安裝到塗裝 confirmation，讓專業在同一個專案裡持續銜接。</p>
+        <p style="margin-bottom: 0;"><strong>06. 永續與 ESG</strong>：公開 ISO 14064-1 溫室氣體盤查與 ISO 14067 GRC 產品碳足跡聲明，回應綠建材要求。</p>
+      </div>
+
+      <h2>騰煇想成為的，不是取代建築師</h2>
+
+      <p>建築師負責設計、空間與建築意圖；工程團隊則協助深化、材料、製造與施工。不同專業在不同位置上共同完成一個建築。</p>
+
+      <blockquote class="pull-quote">
+        騰煇不是要取代建築師的設計，而是希望成為設計進入工程階段後，可以一起工作的專業夥伴。
+      </blockquote>
+
+      <!-- 品牌標語卡片 -->
+      <div class="brand-statement-card">
+        <h3>讓設計，不只停留在圖面。</h3>
+        <p>騰煇企業｜GRC・BIM・PPG・外牆工程</p>
+      </div>
+
+      <!-- 文章導覽區域 -->
+      <div class="article-nav-switcher">
+        <a href="article-bep-bim-execution-plan.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 上一篇：BEP 是什麼？</a>
+        <a href="article-bim-what-is-bim.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">回到系列首篇：01 BIM 是什麼？ &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>PCM 是什麼？建築工程中的專案管理，到底在管理什麼？ ｜ 騰煇建築工程知識專欄</title>
+  <meta name="description" content="PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理的角色，以及 PCM 與建築師、BIM 的關係。">
+  <meta name="keywords" content="PCM 是什麼, PCM, 專業營建管理, 專案管理, 建築工程管理">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/article-pcm-what-is-pcm.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260828_clean">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --accent-red: #b91c1c;
+      --accent-red-light: #fef2f2;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--slate-800);
+      background-color: #f8fafc;
+      line-height: 1.9;
+      letter-spacing: 0.2px;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 80px 24px;
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #0f172a;
+    }
+    .article-tag {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      background: var(--accent-red-light);
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(185, 28, 28, 0.2);
+    }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 1.15rem;
+      color: var(--slate-600);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .article-content {
+      font-size: 1.05rem;
+      color: #1e293b;
+    }
+    .article-content h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 44px 0 20px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-content h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--accent-red);
+      border-radius: 2px;
+    }
+    .article-content h3 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 28px 0 12px 0;
+    }
+    .article-content p {
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #f8fafc;
+      border-left: 4px solid var(--accent-red);
+      border-radius: 0 8px 8px 0;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.75;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .concept-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 30px 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    .concept-box-title {
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .faq-section {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 2px dashed var(--border-color);
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 800;
+      color: #0f172a;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      color: var(--slate-600);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+
+    .article-nav-switcher {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 24px 0;
+      margin: 60px 0 30px 0;
+      gap: 16px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PCM 是什麼？建築工程中的專案管理，到底在管理什麼？",
+    "description": "PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理的角色，以及 PCM 與建築師、BIM 的關係。",
+    "author": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tenghui.com.tw/img/logo-icon.png"
+      }
+    },
+    "mainEntityOfPage": "https://tenghui.com.tw/article-pcm-what-is-pcm.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" style="height: 38px; width: auto;">
+        <div class="brand-text-block">
+          <span class="brand-company-name" style="font-weight: 900; color: #0f172a; font-size: 1.05rem; display: block;">騰煇企業有限公司</span>
+          <span class="brand-company-en" style="font-size: 0.7rem; color: #64748b; font-family: 'Outfit', sans-serif;">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+        <nav>
+          <ul class="nav-menu" id="navMenu" style="display: flex; gap: 20px; list-style: none;">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li><a href="services.html" class="nav-link">服務項目</a></li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li><a href="projects.html" class="nav-link">案例分享</a></li>
+            <li><a href="articles.html" class="nav-link active">工程專欄</a></li>
+            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-container">
+    <header class="article-header">
+      <span class="article-tag">CONCEPT COLUMN ｜ 建築工程基礎詞彙</span>
+      <h1 class="article-title">PCM 是什麼？建築工程中的專案管理，到底在管理什麼？</h1>
+      <p class="article-subtitle">如果 BIM 處理的是「建築資訊」，那麼 PCM 處理的則是「複雜工程的組織與管理」。</p>
+      <div class="article-meta">
+        <span>騰煇建築工程知識專欄</span>
+        <span>・</span>
+        <span>閱讀時間約 5 分鐘</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>PCM 常見的全名是 <strong>Professional Construction Management</strong>，中文可稱為「專業營建管理／專案營建管理」。</p>
+
+      <h2>PCM 和一般 PM 一樣嗎？</h2>
+
+      <p>不完全一樣。PM (Project Management) 是比較廣義的專案管理；PCM 則是將專案管理的概念專門應用於營建工程。</p>
+
+      <p>工程會對 PCM 的說明指出，當主辦機關缺乏工程專業知識或人力時，可以委託專業營建管理廠商提供工程專業服務，協助統籌管理、協調溝通及工程督導。因此 PCM 並不是單純「幫忙盯工地」，它涉及的是更完整的工程管理工作。</p>
+
+      <h2>PCM 在管理什麼？</h2>
+
+      <div class="concept-box">
+        <div class="concept-box-title">PCM 三大階段管理範疇</div>
+        <p style="margin-bottom: 10px;"><strong>01. 規劃階段</strong>：需求評估、可行性分析、方案比較、初步經費與進度規劃。</p>
+        <p style="margin-bottom: 10px;"><strong>02. 設計階段</strong>：設計進度管理、圖說與規範審查、專業協調、材料與設備檢討、施工可行性檢討。</p>
+        <p style="margin-bottom: 0;"><strong>03. 發包與施工階段</strong>：發包相關工作、工程進度、品質管理、成本管理、專業界面協調與工程履約管理。</p>
+      </div>
+
+      <h2>PCM 和建築師有什麼不同？</h2>
+
+      <p>建築師主要負責<strong>建築設計與相關專業服務</strong>；PCM 則偏向<strong>站在專案整體角度，協助業主管理不同階段與不同專業</strong>。兩者並不是互相取代，而是不同層面的分工：</p>
+
+      <blockquote class="pull-quote">
+        業主 &rarr; PCM (專案管理) &rarr; 建築師 / 結構 / 機電 / 營造 / 專業廠商
+      </blockquote>
+
+      <h2>為什麼工程需要 PCM？</h2>
+
+      <p>因為建築工程不是「設計完成 &rarr; 工程完成」，中間還會經過「需求 &rarr; 規劃 &rarr; 設計 &rarr; 發包 &rarr; 施工 &rarr; 驗收」。每一個階段都會產生大量的人、資訊、時間、成本與專業界面。當工程規模越大、參與專業越多，就越需要專業角色進行管理與協調。</p>
+
+      <h2>BIM 和 PCM 有什麼關係？</h2>
+
+      <p>兩者不是同一件事，但可以互相支援：</p>
+
+      <p><strong>PCM</strong> 關心「工程怎麼被管理」；<strong>BIM</strong> 關心「建築資訊怎麼被建立、整合與使用」。</p>
+
+      <blockquote class="pull-quote">
+        PCM 管理的是專案；BIM 則可以成為管理專案時的重要資訊工具。
+      </blockquote>
+
+      <p>而當兩者真正結合之後，就會出現下一個關鍵概念：<strong>BEP (BIM Execution Plan)</strong>。</p>
+
+      <!-- FAQ 區塊 -->
+      <section class="faq-section">
+        <h2 style="margin-top: 0; border: none; padding: 0;">常見問題 FAQ</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">Q1: PCM 是不是就是工地主任？</div>
+          <div class="faq-answer">不是。PCM 是較完整的專案管理角色，實際工作內容依專案契約與組織方式而定。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q2: PCM 和建築師誰比較重要？</div>
+          <div class="faq-answer">兩者是不同專業與職責，不能用高低比較。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q3: PCM 一定要有 BIM 嗎？</div>
+          <div class="faq-answer">不一定。是否採用 BIM 應依專案需求與要求決定。</div>
+        </div>
+      </section>
+
+      <!-- 文章導覽區域 -->
+      <div class="article-nav-switcher">
+        <a href="article-bim-what-is-bim.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 上一篇：BIM 是什麼？</a>
+        <a href="article-bim-team-inhouse-outsourcing.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：BIM 一定要自己養團隊嗎？ &rarr;</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
