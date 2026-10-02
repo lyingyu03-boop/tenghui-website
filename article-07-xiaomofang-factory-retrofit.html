@@ -856,11 +856,11 @@
           </div>
 
           <div class="ba-slider-container" id="renovBaContainer">
-            <img src="img/renovation/renwu-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image">
+            <img decoding="async" fetchpriority="high" src="img/renovation/renwu-after.webp" id="renovAfterImg" alt="施工後" class="ba-image">
             <span class="badge-label" id="renovAfterBadge" style="background: var(--accent-blue); color: #fff; position: absolute; top: 14px; right: 14px; z-index: 5; white-space: nowrap; transition: opacity 0.2s ease;">AFTER 施工後</span>
             
             <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
-              <img src="img/renovation/renwu-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image">
+              <img decoding="async" fetchpriority="high" src="img/renovation/renwu-before.webp" id="renovBeforeImg" alt="施工前" class="ba-image">
               <span class="badge-label" id="renovBeforeBadge" style="background: #64748b; color: #fff; position: absolute; top: 14px; left: 14px; z-index: 5; white-space: nowrap; transition: opacity 0.2s ease;">BEFORE 施工前</span>
             </div>
 
@@ -977,16 +977,23 @@
       {
         badge: "CASE 01 ｜ 高雄企業 AI 研發中心",
         caption: "高雄企業 AI 研發中心外牆整體拉皮工程",
-        before: "img/renovation/renwu-before.jpg",
-        after: "img/renovation/renwu-after.jpg"
+        before: "img/renovation/renwu-before.webp",
+        after: "img/renovation/renwu-after.webp"
       },
       {
         badge: "CASE 02 ｜ 廠辦外牆拉皮更新實績",
         caption: "企業廠辦外牆拉皮與色彩立面重新規劃實績",
-        before: "img/renovation/case2-before.jpg",
-        after: "img/renovation/case2-after.jpg"
+        before: "img/renovation/case2-before.webp",
+        after: "img/renovation/case2-after.webp"
       }
     ];
+
+    if (typeof window !== 'undefined') {
+      renovCasesData.forEach(item => {
+        const imgB = new Image(); imgB.src = item.before;
+        const imgA = new Image(); imgA.src = item.after;
+      });
+    }
 
     function switchRenovCase(index, btn) {
       const data = renovCasesData[index];

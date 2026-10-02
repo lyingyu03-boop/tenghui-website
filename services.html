@@ -568,11 +568,11 @@
 
           <!-- 中央互動對比滑桿視窗 -->
           <div class="ba-slider-container" style="height: 420px; max-width: 860px; margin: 0 auto; border-radius: 12px; overflow: hidden;" id="renovBaContainer">
-            <img decoding="async" loading="lazy" src="img/renovation/renov1-after.jpg" id="renovAfterImg" alt="施工後" class="ba-image ba-image-after">
+            <img decoding="async" fetchpriority="high" src="img/renovation/renov1-after.webp" id="renovAfterImg" alt="施工後" class="ba-image ba-image-after">
             <span class="ba-label ba-label-after">AFTER 施工後</span>
             
             <div class="ba-before-wrapper" id="renovBeforeWrapper" style="width: 50%;">
-              <img decoding="async" loading="lazy" src="img/renovation/renov1-before.jpg" id="renovBeforeImg" alt="施工前" class="ba-image ba-image-before">
+              <img decoding="async" fetchpriority="high" src="img/renovation/renov1-before.webp" id="renovBeforeImg" alt="施工前" class="ba-image ba-image-before">
               <span class="ba-label ba-label-before">BEFORE 施工前</span>
             </div>
 
@@ -664,34 +664,42 @@
           if (list) list.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
         }
 
-        // 💥 外牆拉皮前後對比展示切換邏輯 (保留動態滑桿)
+        // 💥 外牆拉皮前後對比展示切換邏輯 (全 WebP + 0ms 記憶體預載入)
         const renovCasesData = [
           {
             badge: "CASE 01 ｜ 台南北區民宅透天拉皮",
-            before: "img/renovation/renov1-before.jpg",
-            after: "img/renovation/renov1-after.jpg"
+            before: "img/renovation/renov1-before.webp",
+            after: "img/renovation/renov1-after.webp"
           },
           {
             badge: "CASE 02 ｜ 桃園大溪 薑母島軍營",
-            before: "img/renovation/renov2-before.jpg",
-            after: "img/renovation/renov2-after.jpg"
+            before: "img/renovation/renov2-before.webp",
+            after: "img/renovation/renov2-after.webp"
           },
           {
             badge: "CASE 03-A ｜ 桃園觀音 廠房大樓 (主立面)",
-            before: "img/renovation/renov3a-before.jpg",
-            after: "img/renovation/renov3a-after.jpg"
+            before: "img/renovation/renov3a-before.webp",
+            after: "img/renovation/renov3a-after.webp"
           },
           {
             badge: "CASE 03-B ｜ 桃園觀音 廠房大樓 (側立面)",
-            before: "img/renovation/renov3b-before.jpg",
-            after: "img/renovation/renov3b-after.jpg"
+            before: "img/renovation/renov3b-before.webp",
+            after: "img/renovation/renov3b-after.webp"
           },
           {
             badge: "CASE 05 ｜ 高雄仁武 台塑仁武廠 AI 研發中心",
-            before: "img/renovation/renwu-before.jpg",
-            after: "img/renovation/renwu-after.jpg"
+            before: "img/renovation/renwu-before.webp",
+            after: "img/renovation/renwu-after.webp"
           }
         ];
+
+        // 💥 頁面載入時立即預載入所有案例圖片至快取記憶體 (消除點擊頁籤的網路載入延遲)
+        if (typeof window !== 'undefined') {
+          renovCasesData.forEach(item => {
+            const imgB = new Image(); imgB.src = item.before;
+            const imgA = new Image(); imgA.src = item.after;
+          });
+        }
 
         function switchRenovCase(index) {
           const data = renovCasesData[index];
