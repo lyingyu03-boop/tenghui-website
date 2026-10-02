@@ -448,15 +448,15 @@
 
         <script>
           const grcSimpleSlides = [
-            { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/設計圖手繪.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 0 },
-            { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/Rhino.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 1 },
-            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/yayuan-3d-print-official.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 2 },
-            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/yayuan-formwork-official.png", fit: "contain", pos: "center center", scale: 1, stepIdx: 3 },
-            { badge: "STEP 05 / 06 ｜ 現場吊掛安裝", img: "img/grc-workflow/grc-site-hoisting.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 4 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
-            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 }
+            { badge: "STEP 01 / 06 ｜ 概念手繪", img: "img/grc-workflow/design-sketch.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 0 },
+            { badge: "STEP 02 / 06 ｜ 3D BIM 建模放樣", img: "img/grc-workflow/rhino-3d.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 1 },
+            { badge: "STEP 03 / 06 ｜ 3D 列印", img: "img/grc-workflow/3d-print.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 2 },
+            { badge: "STEP 04 / 06 ｜ 造型製作", img: "img/grc-workflow/formwork.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 3 },
+            { badge: "STEP 05 / 06 ｜ 現場吊掛安裝", img: "img/grc-workflow/hoisting.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 4 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (正立面 1/4)", img: "img/grc-workflow/yayuan-c1.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 2/4)", img: "img/grc-workflow/yayuan-c2.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (實景 3/4)", img: "img/grc-workflow/yayuan-c3.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 },
+            { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.webp", fit: "contain", pos: "center center", scale: 1, stepIdx: 5 }
           ];
 
           // 💥 預先載入所有 6 大步驟工程圖片至快取記憶體 (實現 0ms 瞬間切換)
@@ -542,12 +542,12 @@
           <button class="grc-tab-btn" onclick="switchPpgTab(4)">雅飾彈性 500</button>
         </div>
 
-        <!-- PPG 產品詳細展示卡 (左圖右文) -->
-        <div style="display: grid; grid-template-columns: min(420px, 45%) 1fr; gap: 32px; background: #f8fafc; border: 1px solid rgba(58,58,63,0.08); border-radius: 14px; padding: 24px; align-items: center;" id="ppgViewerBox" class="ppg-viewer-box">
-          <div style="height: 260px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid rgba(58,58,63,0.08);">
-            <img decoding="async" loading="lazy" src="img/ppg/龐亞漆2.avif" id="ppgImg" alt="PPG 塗料樣品" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- PPG 產品詳細展示卡 (精準固定左圖寬度，防止文字排序遭擠壓) -->
+        <div style="display: flex; gap: 32px; background: #f8fafc; border: 1px solid rgba(58,58,63,0.08); border-radius: 14px; padding: 24px; align-items: center; flex-wrap: wrap;" id="ppgViewerBox" class="ppg-viewer-box">
+          <div style="flex: 0 0 320px; width: 320px; max-width: 100%; height: 240px; border-radius: 10px; overflow: hidden; background: #ffffff; border: 1px solid rgba(58,58,63,0.08);">
+            <img decoding="async" fetchpriority="high" src="img/ppg/panya.webp" id="ppgImg" alt="PPG 塗料樣品" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
-          <div>
+          <div style="flex: 1; min-width: 280px;">
             <h3 id="ppgTitle" style="font-size: 1.35rem; color: #3a3a3f; font-weight: 800; margin-bottom: 12px;">龐亞漆（Panya Coating）</h3>
             <ul id="ppgList" style="font-size: 0.92rem; color: #55555e; padding-left: 20px; line-height: 1.8; display: flex; flex-direction: column; gap: 8px;">
               <li><strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。</li>
@@ -603,11 +603,11 @@
       </section>
 
       <script>
-        // 💥 PPG 塗料頁籤切換邏輯
+        // 💥 PPG 塗料頁籤切換邏輯 (全 WebP + 0ms 記憶體預載入)
         const ppgData = [
           {
             title: "龐亞漆（Panya Coating）",
-            img: "img/ppg/龐亞漆2.avif",
+            img: "img/ppg/panya.webp",
             list: [
               "<strong>高超附著力：</strong> 達 1.4MPa (普通水性漆僅 1.0MPa)。",
               "<strong>奈米級分子：</strong> 乳液分子達 10 納米，耐污防塵性能極佳。",
@@ -617,7 +617,7 @@
           },
           {
             title: "彈性佩能漆（PainTex Coating）",
-            img: "img/ppg/彈性佩能漆.jpg",
+            img: "img/ppg/paintex.webp",
             list: [
               "<strong>卓越彈性裂縫延伸率：</strong> 能有效跨越基底微細裂縫，防止水氣侵入結構內部。",
               "<strong>高耐候與自潔防污：</strong> 抵抗紫外線與酸雨侵蝕，面層平滑不易附著塵埃污染。",
@@ -627,7 +627,7 @@
           },
           {
             title: "臻石漆（Real Stone Coating）",
-            img: "img/ppg/臻石漆1.avif",
+            img: "img/ppg/realstone.webp",
             list: [
               "<strong>天然彩色礦石粉：</strong> 採用天然礦石碎粉非市售染色漆，不褪色。",
               "<strong>漆膜具備柔韌彈性：</strong> 克服市售真石漆易龜裂與褪色問題。",
@@ -636,7 +636,7 @@
           },
           {
             title: "絢岩岩彩漆（Granite Coating）",
-            img: "img/ppg/絢岩岩彩漆1.avif",
+            img: "img/ppg/granite.webp",
             list: [
               "<strong>花崗岩質感：</strong> 單桶包覆主材與色漿，一次噴塗即展現花崗石質感。",
               "<strong>客製色樣：</strong> 顏色選擇多樣，可依建築設計樣板調配。",
@@ -645,13 +645,20 @@
           },
           {
             title: "雅飾彈性 500（Elastic 500）",
-            img: "img/ppg/IMG_574_雅飾彈性500_案例圖.avif",
+            img: "img/ppg/elastic500.webp",
             list: [
               "<strong>低溫優秀彈性：</strong> 在不同氣溫條件下皆保有彈性，有效遮蓋牆體表面龜裂紋。",
               "<strong>長效保色抗粉化：</strong> 優良抗紫外線與保色性能，適合大樓與透天外牆翻新防護。"
             ]
           }
         ];
+
+        // 💥 預載入所有 PPG 產品圖片至 RAM (消除切換點擊延遲)
+        if (typeof window !== 'undefined') {
+          ppgData.forEach(p => {
+            const img = new Image(); img.src = p.img;
+          });
+        }
 
         function switchPpgTab(index) {
           const data = ppgData[index];
@@ -661,8 +668,7 @@
           const btns = document.querySelectorAll('#ppgTabs .grc-tab-btn');
 
           btns.forEach((b, i) => {
-            if (i === index) b.classList.add('active');
-            else b.classList.remove('active');
+            b.classList.toggle('active', i === index);
           });
 
           if (img) img.src = data.img;
