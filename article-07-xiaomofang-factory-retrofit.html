@@ -946,29 +946,30 @@
       }
     }
 
-    // 💥 互動拉桿拖曳邏輯（含標籤防遮擋動態隱藏）
+    // 💥 互動拉桿拖曳邏輯（rAF 60fps + 標籤防遮擋動態隱藏）
+    let updateTicking = false;
     function updateBaSlider(val) {
-      syncBeforeImgWidth();
-      const numericVal = parseFloat(val);
-      document.getElementById('renovBeforeWrapper').style.width = numericVal + '%';
-      document.getElementById('renovHandle').style.left = numericVal + '%';
+      if (!updateTicking) {
+        window.requestAnimationFrame(() => {
+          syncBeforeImgWidth();
+          const numericVal = parseFloat(val);
+          const wrapper = document.getElementById('renovBeforeWrapper');
+          const handle = document.getElementById('renovHandle');
+          if (wrapper) wrapper.style.width = numericVal + '%';
+          if (handle) handle.style.left = numericVal + '%';
 
-      const afterBadge = document.getElementById('renovAfterBadge');
-      if (afterBadge) {
-        if (numericVal > 75) {
-          afterBadge.style.opacity = Math.max(0, (92 - numericVal) / 17);
-        } else {
-          afterBadge.style.opacity = 1;
-        }
-      }
+          const afterBadge = document.getElementById('renovAfterBadge');
+          if (afterBadge) {
+            afterBadge.style.opacity = numericVal > 75 ? Math.max(0, (92 - numericVal) / 17) : 1;
+          }
 
-      const beforeBadge = document.getElementById('renovBeforeBadge');
-      if (beforeBadge) {
-        if (numericVal < 25) {
-          beforeBadge.style.opacity = Math.max(0, (numericVal - 8) / 17);
-        } else {
-          beforeBadge.style.opacity = 1;
-        }
+          const beforeBadge = document.getElementById('renovBeforeBadge');
+          if (beforeBadge) {
+            beforeBadge.style.opacity = numericVal < 25 ? Math.max(0, (numericVal - 8) / 17) : 1;
+          }
+          updateTicking = false;
+        });
+        updateTicking = true;
       }
     }
 

@@ -716,22 +716,13 @@
           if (rangeInput) rangeInput.value = 50;
           if (beforeWrapper) beforeWrapper.style.width = '50%';
           if (handle) handle.style.left = '50%';
-        }
 
-        // 動態監聽對比滑桿
-        document.addEventListener('DOMContentLoaded', () => {
-          const input = document.getElementById('renovRangeInput');
-          const wrapper = document.getElementById('renovBeforeWrapper');
-          const handle = document.getElementById('renovHandle');
-          
-          if (input) {
-            input.addEventListener('input', (e) => {
-              const val = e.target.value;
-              if (wrapper) wrapper.style.width = val + '%';
-              if (handle) handle.style.left = val + '%';
-            });
+          // 同步 BEFORE 圖片寬度
+          const container = document.getElementById('renovBaContainer');
+          if (beforeImg && container) {
+            beforeImg.style.width = container.offsetWidth + 'px';
           }
-        });
+        }
       </script>
 
       <!-- 4. 外牆配件系統 -->
@@ -801,9 +792,12 @@
   </footer>
 
   <script>
-    // 通用多對比拉桿 JS 控制器 (邊緣標籤動態隱藏機制)
+    // 高性能通用對比滑桿 JS 控制器 (60fps rAF + 防重複綁定 + 邊緣標籤隱藏)
     function initBaSliders() {
       document.querySelectorAll('.ba-slider-container').forEach(container => {
+        if (container.dataset.baInited) return;
+        container.dataset.baInited = "true";
+
         const range = container.querySelector('.ba-range-slider');
         const wrapper = container.querySelector('.ba-before-wrapper');
         const handle = container.querySelector('.ba-handle');
@@ -813,33 +807,44 @@
 
         function syncWidth() {
           if (imgBefore && container) {
-            const containerWidth = container.getBoundingClientRect().width;
-            imgBefore.style.width = containerWidth + 'px';
-            imgBefore.style.maxWidth = 'none';
+            const containerWidth = container.offsetWidth;
+            if (containerWidth > 0) {
+              imgBefore.style.width = containerWidth + 'px';
+              imgBefore.style.maxWidth = 'none';
+            }
           }
         }
 
-        window.addEventListener('resize', syncWidth);
         syncWidth();
-        setTimeout(syncWidth, 100);
-        setTimeout(syncWidth, 500);
+        window.addEventListener('resize', syncWidth, { passive: true });
+        if (window.ResizeObserver) {
+          new ResizeObserver(syncWidth).observe(container);
+        }
 
         if (range) {
+          let ticking = false;
           range.addEventListener('input', (e) => {
             const val = parseFloat(e.target.value);
-            wrapper.style.width = val + '%';
-            handle.style.left = val + '%';
-
-            if (labelBefore) labelBefore.style.opacity = val < 4 ? '0' : '1';
-            if (labelAfter) labelAfter.style.opacity = val > 96 ? '0' : '1';
-          });
+            if (!ticking) {
+              window.requestAnimationFrame(() => {
+                if (wrapper) wrapper.style.width = val + '%';
+                if (handle) handle.style.left = val + '%';
+                if (labelBefore) labelBefore.style.opacity = val < 4 ? '0' : '1';
+                if (labelAfter) labelAfter.style.opacity = val > 96 ? '0' : '1';
+                ticking = false;
+              });
+              ticking = true;
+            }
+          }, { passive: true });
         }
       });
     }
 
-    document.addEventListener('DOMContentLoaded', initBaSliders);
-    window.addEventListener('load', initBaSliders);
-    initBaSliders();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBaSliders);
+    } else {
+      initBaSliders();
+    }
   </script>
 
 
