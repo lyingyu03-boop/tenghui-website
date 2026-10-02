@@ -58,10 +58,23 @@
       align-items: center;
     }
 
+    .breadcrumb-nav {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--slate-600);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
     .article-container {
       max-width: 780px;
       margin: 0 auto;
-      padding: 50px 24px 80px 24px;
+      padding: 40px 24px 80px 24px;
     }
     
     .article-header {
@@ -97,13 +110,29 @@
       font-weight: 500;
       line-height: 1.7;
     }
-    .article-meta {
-      font-size: 0.85rem;
-      color: var(--slate-500);
-      margin-top: 20px;
+    
+    .author-meta-card {
       display: flex;
-      gap: 16px;
       align-items: center;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-top: 24px;
+      font-size: 0.88rem;
+    }
+    .author-avatar-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
     }
 
     .article-content {
@@ -141,17 +170,32 @@
       line-height: 1.9;
     }
 
-    .pull-quote {
-      margin: 36px 0;
-      padding: 24px 28px;
+    .ai-definition-card {
       background: #f8fafc;
       border-left: 4px solid var(--accent-red);
       border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .ai-definition-card strong {
+      color: #0f172a;
+      font-size: 1.08rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 8px;
       font-size: 1.12rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.75;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .concept-box {
@@ -160,7 +204,6 @@
       border-radius: 12px;
       padding: 24px 28px;
       margin: 30px 0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
     .concept-box-title {
       font-weight: 800;
@@ -193,6 +236,52 @@
       margin-bottom: 0;
     }
 
+    .reference-section {
+      margin-top: 50px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+    .reference-section h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+    .reference-section ul {
+      margin-left: 20px;
+      color: var(--slate-600);
+      line-height: 1.8;
+    }
+
+    .semantic-nav-banner {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 50px 0 30px 0;
+    }
+    .semantic-nav-banner p {
+      color: #334155;
+      font-size: 1.02rem;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .semantic-nav-banner ul {
+      margin-left: 20px;
+      line-height: 1.9;
+    }
+    .semantic-nav-banner a {
+      font-weight: 700;
+      color: var(--accent-red);
+      text-decoration: none;
+    }
+    .semantic-nav-banner a:hover {
+      text-decoration: underline;
+    }
+
     .article-nav-switcher {
       display: flex;
       justify-content: space-between;
@@ -205,26 +294,55 @@
     }
   </style>
 
+  <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "未來的建築師，可能都需要一個固定的合作團隊｜從設計到工程，誰來接住中間這一段？",
-    "description": "從 BIM、BEP 到 GRC 預鑄與工程整合，理解建築設計如何走向工程，以及為什麼固定的專業合作團隊可能越來越重要。",
-    "author": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://tenghui.com.tw/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "騰煇工程專欄", "item": "https://tenghui.com.tw/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "未來的建築師，可能都需要一個固定的合作團隊", "item": "https://tenghui.com.tw/article-architect-engineering-partner-team.html" }
+      ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://tenghui.com.tw/img/logo-icon.png"
-      }
-    },
-    "mainEntityOfPage": "https://tenghui.com.tw/article-architect-engineering-partner-team.html"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "未來的建築師，可能都需要固定的合作團隊？從 BIM 到工程協作",
+      "description": "從 BIM、BEP 到 GRC 預鑄與工程整合，理解建築設計如何走向工程，以及為什麼固定的專業合作團隊可能越來越重要。",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-02",
+      "author": {
+        "@type": "Person",
+        "name": "李瑩昱",
+        "jobTitle": "專業顧問",
+        "knowsAbout": ["建築工程協作", "GRC預鑄", "BIM放樣", "外牆工程整合"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "騰煇企業有限公司",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tenghui.com.tw/img/logo-icon.png"
+        }
+      },
+      "mainEntityOfPage": "https://tenghui.com.tw/article-architect-engineering-partner-team.html"
+    }
+  ]
+  </script>
+
+  <!-- JS Semantic Layer Configuration -->
+  <script>
+    window.articleSemantic = {
+      primaryTopic: "建築師工程協作",
+      primaryEntity: "建築師工程協作團隊",
+      relatedEntities: ["建築師", "建築師事務所", "BIM", "PCM", "BEP", "工程整合", "GRC", "GRC 預鑄", "外牆工程"],
+      audience: ["建築師", "建築師事務所", "建築設計團隊", "工程顧問", "營造"],
+      questions: ["建築師為什麼需要跨專業合作？", "BIM 如何連結設計與工程？", "從設計到施工，中間需要哪些專業？"],
+      relatedArticles: ["/article-bim-what-is-bim.html", "/article-pcm-what-is-pcm.html", "/article-bep-bim-execution-plan.html"],
+      relatedServices: ["/services.html#grc", "/services.html#renovation"]
+    };
   </script>
 </head>
 <body>
@@ -256,18 +374,33 @@
   </header>
 
   <main class="article-container">
+    <nav class="breadcrumb-nav" aria-label="麵包屑導覽">
+      <a href="index.html">首頁</a> &rsaquo; 
+      <a href="articles.html">騰煇工程專欄</a> &rsaquo; 
+      <span style="color: #0f172a; font-weight: 500;">未來的建築師，可能都需要固定的合作團隊？</span>
+    </nav>
+
     <header class="article-header">
       <span class="article-tag">CONCEPT COLUMN ｜ 建築設計 × 工程協作</span>
       <h1 class="article-title">未來的建築師，可能都需要一個固定的合作團隊</h1>
       <p class="article-subtitle">從設計到工程，誰來接住中間這一段？理解建築設計如何走向實體工程落地。</p>
-      <div class="article-meta">
-        <span>騰煇建築工程知識專欄</span>
-        <span>・</span>
-        <span>閱讀時間約 6 分鐘</span>
+      
+      <div class="author-meta-card">
+        <div class="author-avatar-badge">李</div>
+        <div>
+          <div style="font-weight: 800; color: #0f172a;">作者／專業顧問：李瑩昱</div>
+          <div style="color: var(--slate-500); font-size: 0.8rem;">BIM × 建築資訊 × 數位工程</div>
+        </div>
       </div>
     </header>
 
     <article class="article-content">
+      <!-- AI 可直接引用的核心定義區塊 -->
+      <div class="ai-definition-card">
+        <strong>建築設計走向工程落地的核心觀點：</strong>
+        建築專案涉及跨領域界面。固定合作團隊並非取代建築師的設計決策，而是建立熟悉的工作語言，讓 3D BIM 資訊、GRC 預鑄、特殊造型與 PPG 塗裝工程能從圖面順利銜接至施工現場。
+      </div>
+
       <p>一個建築專案，很少只由一個專業完成。從建築設計到結構、機電、BIM、材料、製造、施工與管理，不同專業會在不同階段加入。因此，未來的建築師需要的可能不只是更多供應商，而是一群真正了解彼此工作方式，可以長期合作的專業夥伴。</p>
 
       <h2>設計完成，不代表工程完成</h2>
@@ -288,11 +421,11 @@
 
       <div class="concept-box">
         <div class="concept-box-title">騰煇在設計走向工程中可參與的環節</div>
-        <p style="margin-bottom: 10px;"><strong>01. 3D BIM 建模與放樣</strong>：從 2D 圖面建立 3D 模型，進行問題確認與修改，協助設計資訊繼續往工程階段延伸。</p>
+        <p style="margin-bottom: 10px;"><strong>01. 3D BIM 建模與放樣</strong>：從 2D 圖面建立 3D 模型，進行問題確認與修改，協助設計資訊繼續往工程階段延伸。<a href="services.html" style="color: var(--accent-red); margin-left: 6px;">[了解 3D BIM 服務 &rarr;]</a></p>
         <p style="margin-bottom: 10px;"><strong>02. 工廠預鑄</strong>：從數位設計走向實體構件（圖面評估 &rarr; 3D 建模/數位開模 &rarr; 工廠 GRC 預鑄 &rarr; 現場吊掛組裝）。</p>
-        <p style="margin-bottom: 10px;"><strong>03. GRC 特殊造型工程</strong>：提供曲面、弧線、特殊立面、歐式與仿生造型的材料與構件實現可能。</p>
+        <p style="margin-bottom: 10px;"><strong>03. GRC 特殊造型工程</strong>：提供曲面、弧線、特殊立面、歐式與仿生造型的材料與構件實現可能。<a href="services.html#grc" style="color: var(--accent-red); margin-left: 6px;">[了解 GRC 工程 &rarr;]</a></p>
         <p style="margin-bottom: 10px;"><strong>04. 造型 × PPG 塗裝</strong>：從構件製作到最終 PPG 建築塗料表面質感效果，一體化完成。</p>
-        <p style="margin-bottom: 10px;"><strong>05. 工程整合</strong>：從工廠製作、運輸、現場安裝到塗裝 confirmation，讓專業在同一個專案裡持續銜接。</p>
+        <p style="margin-bottom: 10px;"><strong>05. 工程整合</strong>：從工廠製作、運輸、現場安裝到塗裝 confirmation，讓專業在同一個專案裡持續銜接。<a href="services.html#renovation" style="color: var(--accent-red); margin-left: 6px;">[了解外牆翻新整合 &rarr;]</a></p>
         <p style="margin-bottom: 0;"><strong>06. 永續與 ESG</strong>：公開 ISO 14064-1 溫室氣體盤查與 ISO 14067 GRC 產品碳足跡聲明，回應綠建材要求。</p>
       </div>
 
@@ -309,6 +442,25 @@
         <h3>讓設計，不只停留在圖面。</h3>
         <p>騰煇企業｜GRC・BIM・PPG・外牆工程</p>
       </div>
+
+      <!-- 閉環語意導覽 Banner -->
+      <div class="semantic-nav-banner">
+        <p>回到建築工程基礎知識探索閉環：</p>
+        <ul>
+          <li><a href="article-bim-what-is-bim.html">01 BIM 是什麼？從 3D 建模，到建築資訊模型</a></li>
+          <li><a href="article-pcm-what-is-pcm.html">02 PCM 是什麼？建築工程中的專案管理，到底在管理什麼？</a></li>
+          <li><a href="article-bep-bim-execution-plan.html">03 BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？</a></li>
+        </ul>
+      </div>
+
+      <!-- 參考資料區塊 -->
+      <section class="reference-section">
+        <h3>參考資料與官方研究來源</h3>
+        <ul>
+          <li>內政部建築研究所：〈建築專案跨專業協作與工程介面整合研究報告〉</li>
+          <li>騰煇企業第一手工程與認證資料：〈騰煇企業官方能力、流程與 ISO 雙認證範疇〉</li>
+        </ul>
+      </section>
 
       <!-- 文章導覽區域 -->
       <div class="article-nav-switcher">

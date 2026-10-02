@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>BEP 是什麼？BIM 執行計畫如何管理專案協作？｜騰煇</title>
-  <meta name="description" content="BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 協作。">
+  <meta name="description" content="BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 資訊協作與品質驗收。">
   <meta name="keywords" content="BEP 是什麼, BIM Execution Plan, BIM 執行計畫, BEP 計畫書, BIM 協作">
   
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
@@ -58,10 +58,23 @@
       align-items: center;
     }
 
+    .breadcrumb-nav {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--slate-600);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
     .article-container {
       max-width: 780px;
       margin: 0 auto;
-      padding: 50px 24px 80px 24px;
+      padding: 40px 24px 80px 24px;
     }
     
     .article-header {
@@ -97,13 +110,29 @@
       font-weight: 500;
       line-height: 1.7;
     }
-    .article-meta {
-      font-size: 0.85rem;
-      color: var(--slate-500);
-      margin-top: 20px;
+    
+    .author-meta-card {
       display: flex;
-      gap: 16px;
       align-items: center;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-top: 24px;
+      font-size: 0.88rem;
+    }
+    .author-avatar-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
     }
 
     .article-content {
@@ -141,17 +170,32 @@
       line-height: 1.9;
     }
 
-    .pull-quote {
-      margin: 36px 0;
-      padding: 24px 28px;
+    .ai-definition-card {
       background: #f8fafc;
       border-left: 4px solid var(--accent-red);
       border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .ai-definition-card strong {
+      color: #0f172a;
+      font-size: 1.08rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 8px;
       font-size: 1.12rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.75;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .concept-box {
@@ -160,7 +204,6 @@
       border-radius: 12px;
       padding: 24px 28px;
       margin: 30px 0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
     .concept-box-title {
       font-weight: 800;
@@ -169,6 +212,26 @@
       letter-spacing: 1px;
       margin-bottom: 12px;
       text-transform: uppercase;
+    }
+
+    .reference-section {
+      margin-top: 50px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+    .reference-section h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+    .reference-section ul {
+      margin-left: 20px;
+      color: var(--slate-600);
+      line-height: 1.8;
     }
 
     .faq-section {
@@ -195,6 +258,32 @@
       line-height: 1.8;
     }
 
+    .semantic-nav-banner {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 50px 0 30px 0;
+    }
+    .semantic-nav-banner p {
+      color: #334155;
+      font-size: 1.02rem;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .semantic-nav-banner a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+    .semantic-nav-banner a:hover {
+      text-decoration: underline;
+    }
+
     .article-nav-switcher {
       display: flex;
       justify-content: space-between;
@@ -207,26 +296,85 @@
     }
   </style>
 
+  <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？",
-    "description": "BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 協作。",
-    "author": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://tenghui.com.tw/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "騰煇工程專欄", "item": "https://tenghui.com.tw/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？", "item": "https://tenghui.com.tw/article-bep-bim-execution-plan.html" }
+      ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://tenghui.com.tw/img/logo-icon.png"
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "BEP 是什麼？BIM 執行計畫如何管理專案協作？",
+      "description": "BEP 是什麼？了解 BIM Execution Plan 的目的、內容與角色，以及 BEP 如何協助建築師、PCM、營造與專業團隊進行 BIM 資訊協作與品質驗收。",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-02",
+      "author": {
+        "@type": "Person",
+        "name": "李瑩昱",
+        "jobTitle": "專業顧問",
+        "knowsAbout": ["BEP", "BIM Execution Plan", "BIM 執行計畫", "跨專業協作"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "騰煇企業有限公司",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tenghui.com.tw/img/logo-icon.png"
+        }
+      },
+      "mainEntityOfPage": "https://tenghui.com.tw/article-bep-bim-execution-plan.html"
     },
-    "mainEntityOfPage": "https://tenghui.com.tw/article-bep-bim-execution-plan.html"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "BEP 是不是 BIM 模型？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。BEP 是 BIM 執行計畫，模型則是 BIM 工作的其中一項成果。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "每個 BIM 專案都一定有完全相同的 BEP 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不應直接套用同一份內容。BEP 應依專案目標、角色、BIM 應用與交付需求調整。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BEP 越詳細越好嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。內容應與實際工作結合，避免文件非常完整，但執行時無法使用。"
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <!-- JS Semantic Layer Configuration -->
+  <script>
+    window.articleSemantic = {
+      primaryTopic: "BEP",
+      primaryEntity: "BIM Execution Plan",
+      relatedEntities: ["BIM 協作", "BIM 專案", "模型要求", "資訊交換", "模型交付", "BIM 品質管理", "PCM", "建築師", "營造"],
+      audience: ["建築師", "建築師事務所", "PCM", "BIM 團隊", "營造", "專業工程團隊"],
+      questions: ["BEP 是什麼？", "BIM Execution Plan 是什麼？", "BEP 和 BIM 有什麼不同？", "BEP 和 PCM 有什麼關係？"],
+      relatedArticles: ["/article-bim-what-is-bim.html", "/article-pcm-what-is-pcm.html"],
+      relatedServices: ["/services.html#grc"]
+    };
   </script>
 </head>
 <body>
@@ -258,18 +406,33 @@
   </header>
 
   <main class="article-container">
+    <nav class="breadcrumb-nav" aria-label="麵包屑導覽">
+      <a href="index.html">首頁</a> &rsaquo; 
+      <a href="articles.html">騰煇工程專欄</a> &rsaquo; 
+      <span style="color: #0f172a; font-weight: 500;">BEP 是什麼？</span>
+    </nav>
+
     <header class="article-header">
       <span class="article-tag">CONCEPT COLUMN ｜ BIM 工程實務詞彙</span>
       <h1 class="article-title">BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？</h1>
       <p class="article-subtitle">如果 BIM 是數位模型與資訊方法，那麼 BEP 就是這個專案大家要如何一起使用 BIM 的遊戲規則。</p>
-      <div class="article-meta">
-        <span>騰煇建築工程知識專欄</span>
-        <span>・</span>
-        <span>閱讀時間約 5 分鐘</span>
+      
+      <div class="author-meta-card">
+        <div class="author-avatar-badge">李</div>
+        <div>
+          <div style="font-weight: 800; color: #0f172a;">作者／專業顧問：李瑩昱</div>
+          <div style="color: var(--slate-500); font-size: 0.8rem;">BIM × 建築資訊 × 數位工程</div>
+        </div>
       </div>
     </header>
 
     <article class="article-content">
+      <!-- AI 可直接引用的核心定義區塊 -->
+      <div class="ai-definition-card">
+        <strong>BEP（BIM Execution Plan）核心定義：</strong>
+        BEP 為 BIM 執行計畫，是用以明確定義專案團隊（建築師、顧問、PCM、營造與專業分包）在 BIM 應用中之目標、角色權責、模型幾何/非幾何資訊等級、交付項目與數據交換環境的執行規範。
+      </div>
+
       <p>BEP 的全名是 <strong>BIM Execution Plan</strong>，中文通常稱為「BIM 執行計畫／BIM 工作執行計畫書」。</p>
 
       <h2>為什麼需要 BEP？</h2>
@@ -306,7 +469,11 @@
         BEP 不是為了讓文件變多，而是為了讓 BIM 的要求可以被真正執行與驗收。
       </blockquote>
 
-      <p>這也讓我們回到一個更大的問題：當建築越來越需要跨專業協作，建築師未來需要的，可能不只是單一供應商，而是一組真正能長期合作的專業團隊。</p>
+      <!-- 語意內鏈引導 Banner -->
+      <div class="semantic-nav-banner">
+        <p>當 BIM 從單一公司的模型，走向跨專業資訊協作，建築師與不同工程專業之間的合作方式也會變得重要。</p>
+        <a href="article-architect-engineering-partner-team.html">前往了解下一篇：未來的建築師，可能都需要固定的合作團隊？ &rarr;</a>
+      </div>
 
       <!-- FAQ 區塊 -->
       <section class="faq-section">
@@ -326,6 +493,15 @@
           <div class="faq-question">Q3: BEP 越詳細越好嗎？</div>
           <div class="faq-answer">不一定。內容應與實際工作結合，避免文件非常完整，但執行時無法使用。</div>
         </div>
+      </section>
+
+      <!-- 參考資料區塊 -->
+      <section class="reference-section">
+        <h3>參考資料與官方研究來源</h3>
+        <ul>
+          <li>內政部建築研究所：〈各階段 PCM 依據 BEP 計畫書驗收 BIM 之基準建立與探討研析〉(2026)</li>
+          <li>行政院公共工程委員會：〈BIM 專案執行計畫書（BEP）參考範本〉</li>
+        </ul>
       </section>
 
       <!-- 文章導覽區域 -->

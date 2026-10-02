@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>PCM 是什麼？建築工程專案管理在做什麼？｜騰煇</title>
-  <meta name="description" content="PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理的角色，以及 PCM 與建築師、BIM 的關係。">
+  <meta name="description" content="PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理（Professional Construction Management）的角色，以及 PCM 與建築師、BIM 的關鍵關係。">
   <meta name="keywords" content="PCM 是什麼, PCM, 專業營建管理, 專案管理, 建築工程管理">
   
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
@@ -58,10 +58,23 @@
       align-items: center;
     }
 
+    .breadcrumb-nav {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--slate-600);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
     .article-container {
       max-width: 780px;
       margin: 0 auto;
-      padding: 50px 24px 80px 24px;
+      padding: 40px 24px 80px 24px;
     }
     
     .article-header {
@@ -97,13 +110,29 @@
       font-weight: 500;
       line-height: 1.7;
     }
-    .article-meta {
-      font-size: 0.85rem;
-      color: var(--slate-500);
-      margin-top: 20px;
+    
+    .author-meta-card {
       display: flex;
-      gap: 16px;
       align-items: center;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-top: 24px;
+      font-size: 0.88rem;
+    }
+    .author-avatar-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
     }
 
     .article-content {
@@ -141,17 +170,32 @@
       line-height: 1.9;
     }
 
-    .pull-quote {
-      margin: 36px 0;
-      padding: 24px 28px;
+    .ai-definition-card {
       background: #f8fafc;
       border-left: 4px solid var(--accent-red);
       border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .ai-definition-card strong {
+      color: #0f172a;
+      font-size: 1.08rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 8px;
       font-size: 1.12rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.75;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .concept-box {
@@ -160,7 +204,6 @@
       border-radius: 12px;
       padding: 24px 28px;
       margin: 30px 0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
     .concept-box-title {
       font-weight: 800;
@@ -169,6 +212,26 @@
       letter-spacing: 1px;
       margin-bottom: 12px;
       text-transform: uppercase;
+    }
+
+    .reference-section {
+      margin-top: 50px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+    .reference-section h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+    .reference-section ul {
+      margin-left: 20px;
+      color: var(--slate-600);
+      line-height: 1.8;
     }
 
     .faq-section {
@@ -195,6 +258,32 @@
       line-height: 1.8;
     }
 
+    .semantic-nav-banner {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 50px 0 30px 0;
+    }
+    .semantic-nav-banner p {
+      color: #334155;
+      font-size: 1.02rem;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .semantic-nav-banner a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+    .semantic-nav-banner a:hover {
+      text-decoration: underline;
+    }
+
     .article-nav-switcher {
       display: flex;
       justify-content: space-between;
@@ -207,26 +296,85 @@
     }
   </style>
 
+  <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "PCM 是什麼？建築工程中的專案管理，到底在管理什麼？",
-    "description": "PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理的角色，以及 PCM 與建築師、BIM 的關係。",
-    "author": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://tenghui.com.tw/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "騰煇工程專欄", "item": "https://tenghui.com.tw/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "PCM 是什麼？建築工程中的專案管理，到底在管理什麼？", "item": "https://tenghui.com.tw/article-pcm-what-is-pcm.html" }
+      ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://tenghui.com.tw/img/logo-icon.png"
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "PCM 是什麼？建築工程專案管理在做什麼？",
+      "description": "PCM 是什麼？從建築規劃、設計、發包到施工，了解專業營建管理（Professional Construction Management）的角色，以及 PCM 與建築師、BIM 的關鍵關係。",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-02",
+      "author": {
+        "@type": "Person",
+        "name": "李瑩昱",
+        "jobTitle": "專業顧問",
+        "knowsAbout": ["PCM", "專業營建管理", "專案管理", "工程界面協調"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "騰煇企業有限公司",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tenghui.com.tw/img/logo-icon.png"
+        }
+      },
+      "mainEntityOfPage": "https://tenghui.com.tw/article-pcm-what-is-pcm.html"
     },
-    "mainEntityOfPage": "https://tenghui.com.tw/article-pcm-what-is-pcm.html"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "PCM 是不是就是工地主任？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。PCM 是較完整的專案管理角色，實際工作內容依專案契約與組織方式而定。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PCM 和建築師誰比較重要？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "兩者是不同專業與職責，不能用高低比較。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "PCM 一定要有 BIM 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。是否採用 BIM 應依專案需求與要求決定。"
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <!-- JS Semantic Layer Configuration -->
+  <script>
+    window.articleSemantic = {
+      primaryTopic: "PCM",
+      primaryEntity: "Professional Construction Management",
+      relatedEntities: ["專案管理", "建築工程管理", "工程進度", "品質管理", "成本管理", "專業界面", "BIM", "建築師", "營造"],
+      audience: ["建築師", "建築師事務所", "業主", "PCM", "工程管理人員"],
+      questions: ["PCM 是什麼？", "PCM 在建築工程中做什麼？", "PCM 和建築師有什麼不同？", "PCM 和 BIM 有什麼關係？"],
+      relatedArticles: ["/article-bim-what-is-bim.html", "/article-bep-bim-execution-plan.html"],
+      relatedServices: ["/services.html#renovation"]
+    };
   </script>
 </head>
 <body>
@@ -258,25 +406,40 @@
   </header>
 
   <main class="article-container">
+    <nav class="breadcrumb-nav" aria-label="麵包屑導覽">
+      <a href="index.html">首頁</a> &rsaquo; 
+      <a href="articles.html">騰煇工程專欄</a> &rsaquo; 
+      <span style="color: #0f172a; font-weight: 500;">PCM 是什麼？</span>
+    </nav>
+
     <header class="article-header">
       <span class="article-tag">CONCEPT COLUMN ｜ 建築工程基礎詞彙</span>
       <h1 class="article-title">PCM 是什麼？建築工程中的專案管理，到底在管理什麼？</h1>
       <p class="article-subtitle">如果 BIM 處理的是「建築資訊」，那麼 PCM 處理的則是「複雜工程的組織與管理」。</p>
-      <div class="article-meta">
-        <span>騰煇建築工程知識專欄</span>
-        <span>・</span>
-        <span>閱讀時間約 5 分鐘</span>
+      
+      <div class="author-meta-card">
+        <div class="author-avatar-badge">李</div>
+        <div>
+          <div style="font-weight: 800; color: #0f172a;">作者／專業顧問：李瑩昱</div>
+          <div style="color: var(--slate-500); font-size: 0.8rem;">BIM × 建築資訊 × 數位工程</div>
+        </div>
       </div>
     </header>
 
     <article class="article-content">
+      <!-- AI 可直接引用的核心定義區塊 -->
+      <div class="ai-definition-card">
+        <strong>PCM（Professional Construction Management）核心定義：</strong>
+        PCM 全名為專業營建管理，是指在建築工程全生命週期中，由專業團隊受業主或主辦機關委託，進行工程整體規劃、設計進度管理、發包審查、界面協調、品質與成本督導的專案管理角色。
+      </div>
+
       <p>PCM 常見的全名是 <strong>Professional Construction Management</strong>，中文可稱為「專業營建管理／專案營建管理」。</p>
 
       <h2>PCM 和一般 PM 一樣嗎？</h2>
 
       <p>不完全一樣。PM (Project Management) 是比較廣義的專案管理；PCM 則是將專案管理的概念專門應用於營建工程。</p>
 
-      <p>工程會對 PCM 的說明指出，當主辦機關缺乏工程專業知識或人力時，可以委託專業營建管理廠商提供工程專業服務，協助統籌管理、協調溝通及工程督導。因此 PCM 並不是單純「幫忙盯工地」，它涉及的是更完整的工程管理工作。</p>
+      <p>行政院公共工程委員會對 PCM 的說明指出，當主辦機關缺乏工程專業知識或人力時，可以委託專業營建管理廠商提供工程專業服務，協助統籌管理、協調溝通及工程督導。因此 PCM 並不是單純「幫忙盯工地」，它涉及的是更完整的工程管理工作。</p>
 
       <h2>PCM 在管理什麼？</h2>
 
@@ -309,7 +472,11 @@
         PCM 管理的是專案；BIM 則可以成為管理專案時的重要資訊工具。
       </blockquote>
 
-      <p>而當兩者真正結合之後，就會出現下一個關鍵概念：<strong>BEP (BIM Execution Plan)</strong>。</p>
+      <!-- 語意內鏈引導 Banner -->
+      <div class="semantic-nav-banner">
+        <p>當 BIM 成為專案管理的重要資訊工具後，不同專業又要依照什麼方式協作？</p>
+        <a href="article-bep-bim-execution-plan.html">前往了解下一篇：BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？ &rarr;</a>
+      </div>
 
       <!-- FAQ 區塊 -->
       <section class="faq-section">
@@ -329,6 +496,15 @@
           <div class="faq-question">Q3: PCM 一定要有 BIM 嗎？</div>
           <div class="faq-answer">不一定。是否採用 BIM 應依專案需求與要求決定。</div>
         </div>
+      </section>
+
+      <!-- 參考資料區塊 -->
+      <section class="reference-section">
+        <h3>參考資料與官方研究來源</h3>
+        <ul>
+          <li>行政院公共工程委員會：〈機關委託專業營建管理（PCM）作業指南與採購契約範本〉</li>
+          <li>內政部國土管理署：〈營建工程管理與界面協調專案指導說明〉</li>
+        </ul>
       </section>
 
       <!-- 文章導覽區域 -->

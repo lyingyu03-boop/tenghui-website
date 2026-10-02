@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>BIM 是什麼？3D BIM、4D BIM 與建築資訊模型一次看懂｜騰煇</title>
-  <meta name="description" content="BIM 是什麼？了解 BIM 與 3D 建模的差異，以及 3D BIM、4D BIM 如何應用於設計、工程協調、施工與竣工階段。了解自建、外包與合作導入模式。">
+  <meta name="description" content="BIM 是什麼？解密 BIM 與 3D 建模的本質差異，解析 3D BIM、4D BIM 在設計、工程協調與施工階段的應用，以及自建、外包與合作導入模式。">
   <meta name="keywords" content="BIM 是什麼, BIM, 3D BIM, 4D BIM, 建築資訊模型, BIM 建模, BIM 導入, BIM 外包">
   
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
@@ -58,10 +58,23 @@
       align-items: center;
     }
 
+    .breadcrumb-nav {
+      font-size: 0.85rem;
+      color: var(--slate-500);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--slate-600);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+
     .article-container {
       max-width: 780px;
       margin: 0 auto;
-      padding: 50px 24px 80px 24px;
+      padding: 40px 24px 80px 24px;
     }
     
     .article-header {
@@ -97,13 +110,29 @@
       font-weight: 500;
       line-height: 1.7;
     }
-    .article-meta {
-      font-size: 0.85rem;
-      color: var(--slate-500);
-      margin-top: 20px;
+    
+    .author-meta-card {
       display: flex;
-      gap: 16px;
       align-items: center;
+      gap: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-top: 24px;
+      font-size: 0.88rem;
+    }
+    .author-avatar-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.9rem;
     }
 
     .article-content {
@@ -141,17 +170,33 @@
       line-height: 1.9;
     }
 
-    .pull-quote {
-      margin: 36px 0;
-      padding: 24px 28px;
+    /* AI Definition Box */
+    .ai-definition-card {
       background: #f8fafc;
       border-left: 4px solid var(--accent-red);
       border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 28px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .ai-definition-card strong {
+      color: #0f172a;
+      font-size: 1.08rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .pull-quote {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 8px;
       font-size: 1.12rem;
       font-weight: 700;
       color: #0f172a;
       line-height: 1.75;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
 
     .concept-box {
@@ -160,7 +205,6 @@
       border-radius: 12px;
       padding: 24px 28px;
       margin: 30px 0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
     .concept-box-title {
       font-weight: 800;
@@ -169,6 +213,26 @@
       letter-spacing: 1px;
       margin-bottom: 12px;
       text-transform: uppercase;
+    }
+
+    .reference-section {
+      margin-top: 50px;
+      padding: 28px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 0.92rem;
+    }
+    .reference-section h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+    .reference-section ul {
+      margin-left: 20px;
+      color: var(--slate-600);
+      line-height: 1.8;
     }
 
     .faq-section {
@@ -195,42 +259,117 @@
       line-height: 1.8;
     }
 
-    .article-nav-switcher {
-      display: flex;
-      justify-content: space-between;
+    .semantic-nav-banner {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 50px 0 30px 0;
+    }
+    .semantic-nav-banner p {
+      color: #334155;
+      font-size: 1.02rem;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .semantic-nav-banner a {
+      display: inline-flex;
       align-items: center;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-      padding: 24px 0;
-      margin: 60px 0 30px 0;
-      gap: 16px;
+      gap: 8px;
+      font-weight: 800;
+      color: var(--accent-red);
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+    .semantic-nav-banner a:hover {
+      text-decoration: underline;
     }
   </style>
 
+  <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "BIM 是什麼？從 3D 建模，到建築資訊模型",
-    "description": "BIM 是什麼？了解 BIM 與 3D 建模的差異，以及 3D BIM、4D BIM 如何應用於設計、工程協調、施工與竣工階段。",
-    "author": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://tenghui.com.tw/index.html" },
+        { "@type": "ListItem", "position": 2, "name": "騰煇工程專欄", "item": "https://tenghui.com.tw/articles.html" },
+        { "@type": "ListItem", "position": 3, "name": "BIM 是什麼？從 3D 建模，到建築資訊模型", "item": "https://tenghui.com.tw/article-bim-what-is-bim.html" }
+      ]
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://tenghui.com.tw/img/logo-icon.png"
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "BIM 是什麼？3D BIM、4D BIM 與建築資訊模型一次看懂",
+      "description": "BIM 是什麼？解密 BIM 與 3D 建模的本質差異，解析 3D BIM、4D BIM 在設計、工程協調與施工階段的應用，以及自建、外包與合作導入模式。",
+      "datePublished": "2026-10-01",
+      "dateModified": "2026-10-02",
+      "author": {
+        "@type": "Person",
+        "name": "李瑩昱",
+        "jobTitle": "專業顧問",
+        "knowsAbout": ["BIM", "建築資訊", "數位工程", "3D放樣"]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "騰煇企業有限公司",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tenghui.com.tw/img/logo-icon.png"
+        }
+      },
+      "mainEntityOfPage": "https://tenghui.com.tw/article-bim-what-is-bim.html"
     },
-    "mainEntityOfPage": "https://tenghui.com.tw/article-bim-what-is-bim.html"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "BIM 是不是就是 3D 建模？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。3D 建模主要描述幾何形狀；BIM 則進一步整合建築幾何與工程資訊。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BIM 一定要做到 4D 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。應依專案目標與需求決定 BIM 應用程度。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "BIM 只能用在大型建築嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不一定。是否採用 BIM，以及做到什麼程度，應依專案規模、複雜度、需求與成本評估。"
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <!-- JS Semantic Layer Configuration -->
+  <script>
+    window.articleSemantic = {
+      primaryTopic: "BIM",
+      primaryEntity: "Building Information Modeling",
+      relatedEntities: ["3D BIM", "4D BIM", "建築資訊模型", "BIM 協作", "建築工程", "建築師"],
+      audience: ["建築師", "建築師事務所", "工程團隊", "PCM"],
+      questions: ["BIM 是什麼？", "BIM 和一般 3D 建模有什麼不同？", "3D BIM 是什麼？", "4D BIM 是什麼？", "BIM 一定要自己建立嗎？"],
+      relatedArticles: ["/article-pcm-what-is-pcm.html", "/article-bep-bim-execution-plan.html"],
+      relatedServices: ["/services.html#grc", "/services.html#renovation"]
+    };
   </script>
 </head>
 <body>
 
+  <!-- 頁首 Header -->
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo-wrap" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
@@ -257,19 +396,35 @@
     </div>
   </header>
 
+  <!-- 文章主體內容 -->
   <main class="article-container">
+    <nav class="breadcrumb-nav" aria-label="麵包屑導覽">
+      <a href="index.html">首頁</a> &rsaquo; 
+      <a href="articles.html">騰煇工程專欄</a> &rsaquo; 
+      <span style="color: #0f172a; font-weight: 500;">BIM 是什麼？</span>
+    </nav>
+
     <header class="article-header">
       <span class="article-tag">CONCEPT COLUMN ｜ 建築工程基礎詞彙</span>
       <h1 class="article-title">BIM 是什麼？從 3D 建模，到建築資訊模型</h1>
       <p class="article-subtitle">第一次聽到 BIM，很多人想到的可能是「把建築畫成 3D」。但 3D 模型，並不等於 BIM。</p>
-      <div class="article-meta">
-        <span>騰煇建築工程知識專欄</span>
-        <span>・</span>
-        <span>閱讀時間約 6 分鐘</span>
+      
+      <div class="author-meta-card">
+        <div class="author-avatar-badge">李</div>
+        <div>
+          <div style="font-weight: 800; color: #0f172a;">作者／專業顧問：李瑩昱</div>
+          <div style="color: var(--slate-500); font-size: 0.8rem;">BIM × 建築資訊 × 數位工程</div>
+        </div>
       </div>
     </header>
 
     <article class="article-content">
+      <!-- AI 可直接引用的核心定義區塊 -->
+      <div class="ai-definition-card">
+        <strong>BIM（Building Information Modeling）核心定義：</strong>
+        BIM 可以理解為將建築幾何模型與工程資訊整合，並讓資訊在不同工程階段（設計、施工、竣工與維護）持續建立、使用與交接的數位化協作方法。
+      </div>
+
       <p>BIM 的全名是 <strong>Building Information Modeling</strong>，中文通常稱為「建築資訊模型」。它不只是把建築從 2D 圖面變成立體模型，而是將建築的幾何資訊與工程資訊整合到數位模型中，讓模型可以在不同階段持續被使用。</p>
 
       <h2>BIM 裡的「I」，其實才是關鍵</h2>
@@ -291,10 +446,12 @@
 
       <h2>3D 模型與 BIM，有什麼不同？</h2>
 
-      <p>一個單純的 3D 模型，主要是在描述：「這棟建築長什麼樣子。」</p>
-      <p>而 BIM 進一步處理：「這個構件是什麼？它在哪裡？尺寸是多少？與其他構件有什麼關係？」</p>
+      <div class="ai-definition-card">
+        <strong>3D BIM 與一般 3D 建模差異：</strong>
+        3D 建模主要描述建築幾何外觀（看見建築）；3D BIM 則進一步將構件屬性、材料、尺寸與工程關係載入三維模型中（建築資訊載體）。
+      </div>
 
-      <p>因此，<strong>3D 模型</strong>比較偏向「看見建築」；<strong>BIM</strong> 則進一步讓模型成為「建築資訊的載體」。這也是 BIM 能夠延伸到設計檢討、工程協調、施工模擬等應用的原因。</p>
+      <p>一個單純的 3D 模型，主要是在描述：「這棟建築長什麼樣子。」而 BIM 進一步處理：「這個構件是什麼？它在哪裡？尺寸是多少？與其他構件有什麼關係？」</p>
 
       <h2>BIM 可以用在哪些階段？</h2>
 
@@ -312,6 +469,11 @@
 
       <h2>3D BIM 與 4D BIM 差在哪裡？</h2>
 
+      <div class="ai-definition-card">
+        <strong>4D BIM 定義：</strong>
+        4D BIM 是在 3D 空間幾何模型的基礎上加入「時間與施工時序」，用以動態模擬與呈現工程不同階段的施工進程。
+      </div>
+
       <p><strong>3D BIM（空間）</strong>：回答「建築是什麼樣子？」</p>
       <p><strong>4D BIM（時間）</strong>：進一步加入「這些構件什麼時候施工？」，將模型與施工時序結合，讓工程不只是看見最後完成的建築，也能理解施工如何一步一步進行。</p>
 
@@ -323,29 +485,23 @@
 
       <p>因此 BIM 更接近一種<strong>數位化的建築資訊協作方式</strong>。它不是單純的一套繪圖軟體，也不是「只要會畫 3D 就叫 BIM」。</p>
 
-      <p>真正需要理解的是：一個專案需要哪些 BIM 資訊？誰建立？誰使用？什麼時候交付？又如何從一個階段交給下一個階段？當 BIM 從「建模」走向「工程應用」，這些問題就會越來越重要。</p>
-
       <h2>BIM 要怎麼進入實務？</h2>
 
       <p>理解 BIM 是什麼之後，下一個問題通常會是：「公司要怎麼真正把 BIM 用起來？」這件事不只是購買一套軟體。實際執行 BIM，會涉及「軟體＋硬體＋模型建立＋資訊整理＋專業人員＋工作流程＋後續修改＋跨專業協作」。</p>
-
-      <p>因此，更值得思考的問題不是「公司要不要買 BIM 軟體？」，而是：</p>
-
-      <blockquote class="pull-quote">
-        這個專案需要什麼 BIM 成果？誰建立？誰使用？又如何交給下一個階段？
-      </blockquote>
 
       <h3>BIM 一定要自己養一個團隊嗎？</h3>
 
       <p>不一定。有些組織可能因為案量穩定、BIM 使用頻率高，而逐步建立內部能力；也可能有些事務所 BIM 案量不固定，但特定專案確實需要，因此採取外部 BIM 專業支援或內外部合作。</p>
 
-      <p>內政部建築研究所過去也曾研究建築師事務所自建或外包 BIM 模型的決策，將 BIM 模型建置方式區分為<strong>自建、外包與合作</strong>。不同人員規模、BIM 技術能力與資源條件的事務所，適合的投入方式並不一定相同。</p>
+      <p>內政部建築研究所過去曾研究建築師事務所自建或外包 BIM 模型的決策，將 BIM 模型建置方式區分為<strong>自建、外包與合作</strong>。不同人員規模、BIM 技術能力與資源條件的事務所，適合的投入方式並不一定相同。</p>
 
       <p>因此，BIM 導入沒有唯一答案，組織可以依專案規模、案量、內部人力、技術能力與後續需求選擇不同方式。</p>
 
-      <p>但無論由誰建立模型，都還有一個更重要的問題：「模型建立之後，誰來接著使用？」如果設計變更，誰修改？如果進入施工階段，誰深化？如果不同專業需要協調，誰整合？如果模型要交給下一個單位，資訊怎麼交接？</p>
-
-      <p>這些問題其實又回到 BIM 的核心：<strong>BIM 不只是建立一個模型，而是讓資訊能夠在專案需要的不同階段被持續使用。</strong></p>
+      <!-- 語意內鏈引導 Banner -->
+      <div class="semantic-nav-banner">
+        <p>BIM 解決的是建築資訊如何建立、整合與使用；但當專案進入多專業協作後，工程本身又需要如何被管理？</p>
+        <a href="article-pcm-what-is-pcm.html">前往了解下一篇：PCM 是什麼？建築工程中的專案管理，到底在管理什麼？ &rarr;</a>
+      </div>
 
       <!-- FAQ 區塊 -->
       <section class="faq-section">
@@ -367,10 +523,21 @@
         </div>
       </section>
 
+      <!-- 參考資料區塊 -->
+      <section class="reference-section">
+        <h3>參考資料與官方研究來源</h3>
+        <ul>
+          <li>內政部建築研究所：〈建築資訊模型（BIM）技術於建築生命週期各階段應用之研究〉</li>
+          <li>內政部建築研究所：〈我國建築師事務所自建或外包 BIM 模型的決策研究〉</li>
+          <li>行政院公共工程委員會：〈公共工程運用建築資訊建模（BIM）專區 & 施工階段 BIM 建置規範〉</li>
+          <li>騰煇企業第一手工程資料：〈騰煇 3D BIM / 3D 電腦建模與放樣說明〉</li>
+        </ul>
+      </section>
+
       <!-- 文章導覽區域 -->
       <div class="article-nav-switcher">
         <a href="articles.html" style="font-weight: 700; color: var(--slate-600); text-decoration: none;">&larr; 返回專欄總覽</a>
-        <a href="article-pcm-what-is-pcm.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：PCM 是什麼？專案管理在管理什麼？ &rarr;</a>
+        <a href="article-pcm-what-is-pcm.html" style="font-weight: 800; color: var(--accent-red); text-decoration: none;">下一篇：02 PCM 是什麼？ &rarr;</a>
       </div>
     </article>
   </main>
