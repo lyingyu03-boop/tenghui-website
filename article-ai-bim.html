@@ -346,6 +346,13 @@
               { badge: "STEP 06 / 06 ｜ 完工落地 (細部 4/4)", img: "img/grc-workflow/yayuan-c4.jpg", fit: "contain", stepIdx: 5 }
             ];
 
+            // 💥 預先載入所有 6 大步驟工程圖片至快取記憶體 (實現 0ms 瞬間切換)
+            if (typeof window !== 'undefined') {
+              artGrcSlides.forEach(s => {
+                const p = new Image(); p.src = s.img;
+              });
+            }
+
             let curArtGrcIdx = 0;
             function renderArtGrcSlide(idx) {
               const data = artGrcSlides[idx];
@@ -354,13 +361,10 @@
               const dots = document.querySelectorAll('#artGrcSlideDots .grc-tab-btn');
 
               if (img && badge) {
-                img.style.opacity = '0.2';
-                setTimeout(() => {
-                  img.src = data.img;
-                  img.style.objectFit = data.fit;
-                  badge.innerText = data.badge;
-                  img.style.opacity = '1';
-                }, 150);
+                img.src = data.img;
+                img.style.objectFit = data.fit;
+                badge.innerText = data.badge;
+                img.style.opacity = '1';
               }
 
               if (dots.length) {
