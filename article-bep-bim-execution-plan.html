@@ -563,6 +563,109 @@
       }
     }
 
+  
+/* 🚀 全站防溢出與手機選單切換修正 */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+@media (max-width: 960px) {
+  .nav-menu:not(.is-open) {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: block !important;
+  }
+}
+
+/* 🚀 圓形節點時間軸 (絕不裁切、完全居中) */
+.timeline-process-container {
+  position: relative;
+  margin: 36px 0 48px 0;
+  padding-left: 54px !important;
+}
+.timeline-process-container::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 24px !important;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-red) 0%, #cbd5e1 70%, #e2e8f0 100%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-node {
+  position: absolute;
+  left: -30px !important;
+  top: 0;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--accent-red);
+  color: var(--accent-red);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 2;
+}
+
+.timeline-content-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 22px 26px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
+}
+.timeline-content-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+@media (max-width: 640px) {
+  .timeline-process-container {
+    padding-left: 42px !important;
+  }
+  .timeline-process-container::before {
+    left: 18px !important;
+  }
+  .timeline-node {
+    left: -24px !important;
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    border-width: 2.5px;
+  }
+  .timeline-content-card {
+    padding: 16px 18px;
+    border-radius: 12px;
+  }
+  .timeline-card-title {
+    font-size: 1.05rem;
+  }
+  .timeline-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+}
+
   </style>
 
   <!-- Structured Data JSON-LD -->
