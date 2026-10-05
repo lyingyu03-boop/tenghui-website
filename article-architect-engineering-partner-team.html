@@ -747,6 +747,63 @@ html, body {
   }
 }
 
+  
+    /* 🚀 標題與旁側紅線品質提升 (Full-Height Rounded Bar & Tight Line Height) */
+    .article-content h2, h2, .sec-heading {
+      position: relative !important;
+      font-family: 'Noto Serif TC', serif !important;
+      font-size: 1.45rem !important;
+      font-weight: 900 !important;
+      color: #0f172a !important;
+      margin-top: 48px !important;
+      margin-bottom: 20px !important;
+      padding-left: 18px !important;
+      line-height: 1.35 !important;
+      letter-spacing: -0.2px !important;
+      border: none !important;
+      word-break: keep-all !important;
+      word-wrap: break-word !important;
+    }
+
+    .article-content h2::before, h2::before, .sec-heading::before {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important;
+      top: 4px !important;
+      bottom: 4px !important;
+      width: 5px !important;
+      background: var(--accent-red, #b91c1c) !important;
+      border-radius: 3px !important;
+    }
+
+    .article-content h2::after, h2::after, .sec-heading::after {
+      display: none !important;
+    }
+
+    /* 📱 手機與平板標題極致響應式微調 */
+    @media (max-width: 768px) {
+      .article-content h2, h2, .sec-heading {
+        font-size: 1.28rem !important;
+        line-height: 1.35 !important;
+        margin-top: 36px !important;
+        margin-bottom: 16px !important;
+        padding-left: 16px !important;
+      }
+      .article-content h2::before, h2::before, .sec-heading::before {
+        top: 3px !important;
+        bottom: 3px !important;
+        width: 4px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .article-content h2, h2, .sec-heading {
+        font-size: 1.18rem !important;
+        line-height: 1.38 !important;
+        padding-left: 14px !important;
+      }
+    }
+
   </style>
 
   <!-- Structured Data JSON-LD -->
@@ -856,7 +913,7 @@ html, body {
 
       <p>一個建築專案，很少只由一個專業完成。從建築設計到結構、機電、BIM、材料、製造、施工與管理，不同專業會在不同階段加入。因此，未來的建築師需要的可能不只是更多供應商，而是一群真正了解彼此工作方式，可以長期合作的專業夥伴。</p>
 
-      <h2>設計完成後，實際施工還有一段距離</h2>
+      <h2>設計完成，離實際施工還有一段距離</h2>
 
       <p>一張完成的立面圖，看起來可能已經非常完整。但真正進入工程階段後，還會出現：這個造型怎麼深化？尺寸怎麼確認？構件怎麼分割？材料怎麼選？能不能製作？怎麼運送？怎麼安裝？最終表面效果怎麼完成？</p>
 
@@ -864,11 +921,11 @@ html, body {
         設計 &rarr; 工程 中間，其實存在一大段需要專業協作的過程。
       </blockquote>
 
-      <h2>但建築師不一定需要把所有能力都養在自己公司裡</h2>
+      <h2>建築師不必在內部維持所有工程團隊</h2>
 
       <p>這也是「固定合作團隊」真正的意義。一個建築師事務所不一定需要每天都維持完整的 BIM 團隊、特殊造型工程團隊、預鑄製造團隊、塗裝工程團隊與施工團隊。但某些專案，確實可能同時需要這些專業。</p>
 
-      <h2>那麼，騰煇可以接住哪些部分？</h2>
+      <h2>那麼，騰煇能支援哪些工程環節？</h2>
 
       <p>這也是騰煇目前逐步累積與提供的能力：</p>
 
