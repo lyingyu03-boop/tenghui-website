@@ -388,6 +388,170 @@
       gap: 16px;
     }
 
+  
+    /* 🚀 圓形節點單軸時間軸 (Single Axis Vertical Timeline) */
+    .timeline-process-container {
+      position: relative;
+      margin: 32px 0 48px 0;
+      padding-left: 36px;
+    }
+    .timeline-process-container::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      bottom: 16px;
+      left: 17px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent-red) 0%, #cbd5e1 70%, #e2e8f0 100%);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -36px;
+      top: 0;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--accent-red);
+      color: var(--accent-red);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+      z-index: 2;
+    }
+
+    .timeline-content-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-left: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      transition: all 0.25s ease;
+    }
+    .timeline-content-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .timeline-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .timeline-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .timeline-card-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .timeline-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 10px !important;
+    }
+    .timeline-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      margin-top: 4px;
+    }
+    .timeline-card-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* 📱📱📱 手機與平板極致響應式優化 (Mobile & Tablet RWD) */
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 24px 16px 60px 16px !important;
+      }
+      .article-title {
+        font-size: 1.65rem !important;
+        line-height: 1.4 !important;
+      }
+      .article-subtitle {
+        font-size: 1.0rem !important;
+        line-height: 1.65 !important;
+      }
+      .concept-box, .reference-section, .semantic-nav-banner, .ai-definition-card, .pull-quote {
+        padding: 20px 20px !important;
+        margin: 32px 0 !important;
+        border-radius: 12px !important;
+      }
+      .pull-quote {
+        font-size: 1.05rem !important;
+        line-height: 1.75 !important;
+      }
+      .article-nav-switcher {
+        flex-direction: column !important;
+        gap: 14px !important;
+        text-align: center !important;
+        padding: 18px 20px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .timeline-process-container {
+        padding-left: 20px;
+      }
+      .timeline-process-container::before {
+        left: 11px;
+      }
+      .timeline-node {
+        left: -20px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.82rem;
+        border-width: 2.5px;
+      }
+      .timeline-content-card {
+        padding: 16px 18px;
+        margin-left: 10px;
+        border-radius: 12px;
+      }
+      .timeline-card-title {
+        font-size: 1.05rem;
+      }
+      .timeline-card-desc {
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+    }
+
   </style>
 
   <!-- Structured Data JSON-LD -->

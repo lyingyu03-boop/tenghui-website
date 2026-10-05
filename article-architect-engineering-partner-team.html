@@ -480,6 +480,170 @@
       text-decoration: underline;
     }
 
+  
+    /* 🚀 圓形節點單軸時間軸 (Single Axis Vertical Timeline) */
+    .timeline-process-container {
+      position: relative;
+      margin: 32px 0 48px 0;
+      padding-left: 36px;
+    }
+    .timeline-process-container::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      bottom: 16px;
+      left: 17px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent-red) 0%, #cbd5e1 70%, #e2e8f0 100%);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -36px;
+      top: 0;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--accent-red);
+      color: var(--accent-red);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+      z-index: 2;
+    }
+
+    .timeline-content-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-left: 16px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+      transition: all 0.25s ease;
+    }
+    .timeline-content-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .timeline-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .timeline-card-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .timeline-card-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #475569;
+      background: #f1f5f9;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .timeline-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 10px !important;
+    }
+    .timeline-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--accent-red);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      margin-top: 4px;
+    }
+    .timeline-card-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    /* 📱📱📱 手機與平板極致響應式優化 (Mobile & Tablet RWD) */
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 24px 16px 60px 16px !important;
+      }
+      .article-title {
+        font-size: 1.65rem !important;
+        line-height: 1.4 !important;
+      }
+      .article-subtitle {
+        font-size: 1.0rem !important;
+        line-height: 1.65 !important;
+      }
+      .concept-box, .reference-section, .semantic-nav-banner, .ai-definition-card, .pull-quote {
+        padding: 20px 20px !important;
+        margin: 32px 0 !important;
+        border-radius: 12px !important;
+      }
+      .pull-quote {
+        font-size: 1.05rem !important;
+        line-height: 1.75 !important;
+      }
+      .article-nav-switcher {
+        flex-direction: column !important;
+        gap: 14px !important;
+        text-align: center !important;
+        padding: 18px 20px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .timeline-process-container {
+        padding-left: 20px;
+      }
+      .timeline-process-container::before {
+        left: 11px;
+      }
+      .timeline-node {
+        left: -20px;
+        width: 30px;
+        height: 30px;
+        font-size: 0.82rem;
+        border-width: 2.5px;
+      }
+      .timeline-content-card {
+        padding: 16px 18px;
+        margin-left: 10px;
+        border-radius: 12px;
+      }
+      .timeline-card-title {
+        font-size: 1.05rem;
+      }
+      .timeline-card-desc {
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+    }
+
   </style>
 
   <!-- Structured Data JSON-LD -->
@@ -607,36 +771,91 @@
 
       
       <!-- 🚀 視覺化重點呈現：騰煇參與環節 6 大矩陣卡片 -->
+      
+      <!-- 🚀 視覺化時間軸：騰煇參與環節 01~06 -->
       <div style="margin: 44px 0;">
-        <div style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; margin-bottom: 24px; padding-left: 12px; border-left: 4px solid var(--accent-red);">
+        <div style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; margin-bottom: 28px; padding-left: 12px; border-left: 4px solid var(--accent-red);">
           騰煇在設計走向工程中可參與的環節
         </div>
 
-        <div class="partner-steps-grid">
+        <div class="timeline-process-container">
           <!-- 01 -->
-          <div class="partner-step-card">
-            <div>
-              <div class="partner-step-header">
-                <span class="partner-step-number">01</span>
-                <span class="partner-step-tag">BIM 數位放樣</span>
+          <div class="timeline-item">
+            <div class="timeline-node">01</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">3D BIM 建模與放樣</div>
+                <span class="timeline-card-tag">BIM 數位放樣</span>
               </div>
-              <div class="partner-step-title">3D BIM 建模與放樣</div>
-              <p class="partner-step-desc">從 2D 圖面建立 3D 模型，進行衝突問題確認與圖面修改，協助設計資訊無縫往工程施工階段延伸。</p>
+              <p class="timeline-card-desc">從 2D 圖面建立 3D 模型，進行衝突問題確認與圖面修改，協助設計資訊無縫往工程施工階段延伸。</p>
+              <a href="https://www.instagram.com/reel/DdnkTSPjhom/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="timeline-card-link">了解 3D BIM 服務 &rarr;</a>
             </div>
-            <a href="https://www.instagram.com/reel/DdnkTSPjhom/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="partner-step-link">了解 3D BIM 服務 &rarr;</a>
           </div>
 
           <!-- 02 -->
-          <div class="partner-step-card">
-            <div>
-              <div class="partner-step-header">
-                <span class="partner-step-number">02</span>
-                <span class="partner-step-tag">數位開模與預鑄</span>
+          <div class="timeline-item">
+            <div class="timeline-node">02</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">工廠預鑄生產</div>
+                <span class="timeline-card-tag">數位開模與預鑄</span>
               </div>
-              <div class="partner-step-title">工廠預鑄生產</div>
-              <p class="partner-step-desc">從數位設計走向實體構件：圖面評估 &rarr; 3D 建模/數位開模 &rarr; 工廠 GRC 預鑄 &rarr; 現場吊掛組裝。</p>
+              <p class="timeline-card-desc">從數位設計走向實體構件：圖面評估 &rarr; 3D 建模/數位開模 &rarr; 工廠 GRC 預鑄 &rarr; 現場吊掛組裝。</p>
             </div>
           </div>
+
+          <!-- 03 -->
+          <div class="timeline-item">
+            <div class="timeline-node">03</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">GRC 特殊造型工程</div>
+                <span class="timeline-card-tag">造型實踐與工藝</span>
+              </div>
+              <p class="timeline-card-desc">提供曲面、弧線、特殊立面、歐式與仿生造型的材料與實體構件實現可能。</p>
+              <a href="https://www.instagram.com/reel/DazKFfwkkwY/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="timeline-card-link">了解 GRC 工程 &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 04 -->
+          <div class="timeline-item">
+            <div class="timeline-node">04</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">造型 × PPG 塗裝</div>
+                <span class="timeline-card-tag">耐候質感塗裝</span>
+              </div>
+              <p class="timeline-card-desc">從構件製作到最終 PPG 專業建築塗料表面質感效果，一體化統包完成。</p>
+            </div>
+          </div>
+
+          <!-- 05 -->
+          <div class="timeline-item">
+            <div class="timeline-node">05</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">跨專業工程整合</div>
+                <span class="timeline-card-tag">全流程統包</span>
+              </div>
+              <p class="timeline-card-desc">從工廠製作、運輸、現場安裝到塗裝確認，讓不同專業在同一個專案裡持續精準銜接。</p>
+              <a href="https://www.instagram.com/reel/Dd8V1G2Dz32/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="timeline-card-link">了解外牆翻新整合 &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 06 -->
+          <div class="timeline-item">
+            <div class="timeline-node">06</div>
+            <div class="timeline-content-card">
+              <div class="timeline-card-header">
+                <div class="timeline-card-title">永續與 ESG 碳足跡</div>
+                <span class="timeline-card-tag">綠建築標章</span>
+              </div>
+              <p class="timeline-card-desc">公開 ISO 14064-1 溫室氣體盤查與 ISO 14067 GRC 產品碳足跡聲明，完全回應綠建築標準。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
           <!-- 03 -->
           <div class="partner-step-card">
@@ -691,12 +910,12 @@
       </div>
 
 
-      <h2>騰煇想成為的，不是取代建築師</h2>
+      <h2>騰煇的角色：讓建築設計精準落地的工程夥伴</h2>
 
       <p>建築師負責設計、空間與建築意圖；工程團隊則協助深化、材料、製造與施工。不同專業在不同位置上共同完成一個建築。</p>
 
       <blockquote class="pull-quote">
-        騰煇不是要取代建築師的設計，而是希望成為設計進入工程階段後，可以一起工作的專業夥伴。
+        騰煇專注於將建築師的創意思想，透過數位建模與精準預鑄，完美轉化為高品質的實體工程。
       </blockquote>
 
       <!-- 品牌標語卡片 -->
