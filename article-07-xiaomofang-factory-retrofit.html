@@ -617,7 +617,7 @@
     <div class="container article-editorial-wrap" style="max-width: 960px;">
       
       <!-- 專題文章頭部 (對齊附圖三官方格式) -->
-      <div style="border-bottom: 2px solid #0f172a; padding-bottom: 24px; margin-bottom: 36px;" class="reveal-quiet">
+      <div style="border-bottom: 2px solid #0f172a; padding-bottom: 24px; margin-bottom: 36px;" >
         <span style="font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 700; color: #64748b; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px;">ARCHITECTURAL INSIGHTS ｜ 騰煇建築與工程誌</span>
         <h1 class="article-hero-title" style="font-family: 'Noto Serif TC', serif; font-size: 2.2rem; font-weight: 900; color: #0f172a; line-height: 1.4; margin-bottom: 16px;">
           為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？
@@ -1033,5 +1033,22 @@
     }
   </script>
 
+  <!-- JS 滾動顯現腳本 -->
+  <script>
+    (function() {
+      const quietEls = document.querySelectorAll('.reveal-quiet');
+      if (quietEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        quietEls.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
 </body>
 </html>
