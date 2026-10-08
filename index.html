@@ -183,10 +183,18 @@
 
       <!-- 右側選單與社群連結 -->
             <div class="nav-right-wrap">
-        <nav>
+                <nav>
           <ul class="nav-menu" id="navMenu">
             <li><a href="index.html" class="nav-link active">首頁</a></li>
-            <li><a href="about.html" class="nav-link">關於騰煇</a></li>
+            <li class="dropdown">
+              <a href="about.html" class="nav-link">關於騰煇</a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html#company" class="dropdown-item">公司簡介</a></li>
+                <li><a href="about.html#history" class="dropdown-item">發展歷程</a></li>
+                <li><a href="about.html#philosophy" class="dropdown-item">品牌三核心</a></li>
+              </ul>
+            </li>
+            <li><a href="consultant-lin-ming-kai.html" class="nav-link">專業顧問</a></li>
             <li class="dropdown">
               <a href="services.html" class="nav-link">服務項目</a>
               <ul class="dropdown-menu">
@@ -196,10 +204,28 @@
               </ul>
             </li>
             <li><a href="process.html" class="nav-link">工程流程</a></li>
-            <li><a href="projects.html" class="nav-link">案例分享</a></li>
-            <li><a href="articles.html" class="nav-link">工程專欄</a></li>
-            <li><a href="faq.html" class="nav-link">常見問題</a></li>
-            <li><a href="contact.html" class="nav-link">聯絡我們</a></li>
+            <li class="dropdown">
+              <a href="projects.html" class="nav-link">案例分享</a>
+              <ul class="dropdown-menu">
+                <li><a href="projects.html#grc-cases" class="dropdown-item">GRC 造型工程實績</a></li>
+                <li><a href="projects.html#ppg-cases" class="dropdown-item">PPG 外牆塗料實績</a></li>
+                <li><a href="projects.html#renovation-cases" class="dropdown-item">外牆翻新與廠辦實績</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="articles.html" class="nav-link">工程專欄</a>
+              <ul class="dropdown-menu">
+                <li><a href="articles.html" class="dropdown-item">建築與立面誌</a></li>
+                <li><a href="consultant-lin-ming-kai.html#articles" class="dropdown-item">林明凱 ｜ 專業觀點</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="nav-link">更多</a>
+              <ul class="dropdown-menu">
+                <li><a href="faq.html" class="dropdown-item">常見問題</a></li>
+                <li><a href="contact.html" class="dropdown-item">聯絡我們</a></li>
+              </ul>
+            </li>
           </ul>
         </nav>
 

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>林明凱 ｜ 建築數位化與 BIM 專業顧問 ｜ 騰煇企業 TENG SELENDOR</title>
+  <meta name="description" content="林明凱顧問專頁：建築數位化、3D/4D BIM 資訊模型、跨專業工程協作與 AI 在建築工程實務應用之專業觀點與交流。">
+  <meta name="keywords" content="林明凱, 林明凱顧問, BIM 顧問, 建築數位化, 3D BIM, 4D BIM, BEP, PCM, 騰煇顧問">
+  
+  <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="canonical" href="https://tenghui.com.tw/consultant-lin-ming-kai.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20261008">
+  
+  <style>
+    :root {
+      --primary-dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --border-color: #e2e8f0;
+      --bg-warm: #fafafa;
+    }
+
+    /* 顧問形象 Hero 特效 */
+    .consultant-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 70px 0 65px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .consultant-hero-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .consultant-avatar-box {
+      width: 100%;
+      height: 320px;
+      border-radius: 20px;
+      background: #334155;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .consultant-tag-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .consultant-tag {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      color: #cbd5e1;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* 觀點卡片 */
+    .viewpoint-card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .viewpoint-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(15,23,42,0.08);
+    }
+
+    /* 區塊標題增強 */
+    .sec-block-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #0f172a;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .sec-block-sub {
+      font-size: 1.02rem;
+      color: #64748b;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 860px) {
+      .consultant-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .consultant-avatar-box {
+        margin: 0 auto;
+        max-width: 260px;
+        height: 280px;
+      }
+      .consultant-tag-group {
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "林明凱",
+    "jobTitle": "建築數位化與 BIM 顧問",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "騰煇企業有限公司",
+      "url": "https://tenghui.com.tw"
+    },
+    "knowsAbout": ["BIM", "3D BIM", "4D BIM", "BEP", "PCM", "建築資訊模型", "數位建築", "AI 建築應用"],
+    "url": "https://tenghui.com.tw/consultant-lin-ming-kai.html"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ================= 頁首導覽列 Header ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-wrap">
+        <img decoding="async" loading="lazy" src="img/logo-icon.png" alt="騰煇企業標誌" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-company-name">騰煇企業有限公司</span>
+          <span class="brand-company-en">TENG SELENDOR ENTERPRISE CO., LTD.</span>
+        </div>
+      </a>
+
+      <div class="nav-right-wrap">
+                <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li class="dropdown">
+              <a href="about.html" class="nav-link">關於騰煇</a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html#company" class="dropdown-item">公司簡介</a></li>
+                <li><a href="about.html#history" class="dropdown-item">發展歷程</a></li>
+                <li><a href="about.html#philosophy" class="dropdown-item">品牌三核心</a></li>
+              </ul>
+            </li>
+            <li><a href="consultant-lin-ming-kai.html" class="nav-link active">專業顧問</a></li>
+            <li class="dropdown">
+              <a href="services.html" class="nav-link">服務項目</a>
+              <ul class="dropdown-menu">
+                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
+                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
+                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li class="dropdown">
+              <a href="projects.html" class="nav-link">案例分享</a>
+              <ul class="dropdown-menu">
+                <li><a href="projects.html#grc-cases" class="dropdown-item">GRC 造型工程實績</a></li>
+                <li><a href="projects.html#ppg-cases" class="dropdown-item">PPG 外牆塗料實績</a></li>
+                <li><a href="projects.html#renovation-cases" class="dropdown-item">外牆翻新與廠辦實績</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="articles.html" class="nav-link">工程專欄</a>
+              <ul class="dropdown-menu">
+                <li><a href="articles.html" class="dropdown-item">建築與立面誌</a></li>
+                <li><a href="consultant-lin-ming-kai.html#articles" class="dropdown-item">林明凱 ｜ 專業觀點</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="nav-link">更多</a>
+              <ul class="dropdown-menu">
+                <li><a href="faq.html" class="dropdown-item">常見問題</a></li>
+                <li><a href="contact.html" class="dropdown-item">聯絡我們</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="social-icons-group">
+          <a href="https://www.facebook.com/tenghui1991/reels/" target="_blank" class="social-icon-btn" title="FB"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/tenghui1991/" target="_blank" class="social-icon-btn" title="IG"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts" target="_blank" class="social-icon-btn" title="YT"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="選單">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Section 01 ｜ Hero 人物頭像與專業定位 ================= -->
+  <section class="consultant-hero">
+    <div class="container">
+              <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">首頁</a></li>
+            <li class="dropdown">
+              <a href="about.html" class="nav-link">關於騰煇</a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html#company" class="dropdown-item">公司簡介</a></li>
+                <li><a href="about.html#history" class="dropdown-item">發展歷程</a></li>
+                <li><a href="about.html#philosophy" class="dropdown-item">品牌三核心</a></li>
+              </ul>
+            </li>
+            <li><a href="consultant-lin-ming-kai.html" class="nav-link active">專業顧問</a></li>
+            <li class="dropdown">
+              <a href="services.html" class="nav-link">服務項目</a>
+              <ul class="dropdown-menu">
+                <li><a href="services.html#grc" class="dropdown-item">GRC 特殊造型工程</a></li>
+                <li><a href="services.html#ppg" class="dropdown-item">建築外牆防護塗料</a></li>
+                <li><a href="services.html#renovation" class="dropdown-item">外牆翻新整合工程</a></li>
+              </ul>
+            </li>
+            <li><a href="process.html" class="nav-link">工程流程</a></li>
+            <li class="dropdown">
+              <a href="projects.html" class="nav-link">案例分享</a>
+              <ul class="dropdown-menu">
+                <li><a href="projects.html#grc-cases" class="dropdown-item">GRC 造型工程實績</a></li>
+                <li><a href="projects.html#ppg-cases" class="dropdown-item">PPG 外牆塗料實績</a></li>
+                <li><a href="projects.html#renovation-cases" class="dropdown-item">外牆翻新與廠辦實績</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="articles.html" class="nav-link">工程專欄</a>
+              <ul class="dropdown-menu">
+                <li><a href="articles.html" class="dropdown-item">建築與立面誌</a></li>
+                <li><a href="consultant-lin-ming-kai.html#articles" class="dropdown-item">林明凱 ｜ 專業觀點</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="nav-link">更多</a>
+              <ul class="dropdown-menu">
+                <li><a href="faq.html" class="dropdown-item">常見問題</a></li>
+                <li><a href="contact.html" class="dropdown-item">聯絡我們</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+      <div class="consultant-hero-grid">
+        <!-- 顧問人物形象照預留區塊 -->
+        <div class="consultant-avatar-box">
+          <div style="font-size: 3rem; font-weight: 900; color: #64748b; margin-bottom: 8px;">林明凱</div>
+          <div style="font-size: 0.85rem; color: #94a3b8; letter-spacing: 1px;">PROFESSIONAL ADVISOR</div>
+        </div>
+
+        <!-- 顧問核心定調與職稱 -->
+        <div>
+          <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #60a5fa; letter-spacing: 2.5px; text-transform: uppercase;">PROFESSIONAL CONSULTANT</span>
+          <h1 style="font-family: 'Noto Serif TC', serif; font-size: clamp(2.0rem, 4vw, 2.8rem); font-weight: 900; color: #ffffff; margin: 12px 0 16px 0;">林明凱</h1>
+          <div style="font-size: 1.35rem; font-weight: 700; color: #e2e8f0; margin-bottom: 18px;">建築數位化與 BIM 顧問</div>
+          <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.8; max-width: 640px;">
+            專注於 BIM、建築資訊與數位工具在建築工程實務中的應用，促進建築設計、3D 模型與工地現場施工之間的跨專業溝通與資訊整合。
+          </p>
+
+          <div class="consultant-tag-group">
+            <span class="consultant-tag">BIM</span>
+            <span class="consultant-tag">建築資訊</span>
+            <span class="consultant-tag">數位建築</span>
+            <span class="consultant-tag">AI 應用</span>
+            <span class="consultant-tag" style="background: rgba(96,165,250,0.15); color: #93c5fd; border-color: rgba(96,165,250,0.3);">[待顧問確認]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 02 ｜ 為什麼騰煇有這位顧問？ ================= -->
+  <section style="padding: 70px 0; background: #ffffff;">
+    <div class="container" style="max-width: 880px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">COLLABORATION PURPOSE</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">從工程現場，延伸到建築數位化</h2>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 36px 40px; font-size: 1.08rem; color: #334155; line-height: 1.95; box-shadow: 0 4px 20px rgba(15,23,42,0.03);">
+        <p style="margin-bottom: 20px;">
+          建築工程不只需要材料與施工技術，也需要設計、模型、資訊與工程之間的溝通協作。
+        </p>
+        <p style="margin: 0;">
+          騰煇企業持續導入 3D 建模與數位放樣技術，並透過專業顧問交流，進一步關注 BIM、建築資訊與 AI 等數位工具在工程實務中的落地應用，將既有數位工程技術進一步深化發展。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 03 ｜ 專業關注 (Professional Focus) ================= -->
+  <section style="padding: 70px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container" style="max-width: 1040px;">
+      <div style="text-align: center; margin-bottom: 45px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">PROFESSIONAL FOCUS</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">專業關注領域</h2>
+        <p class="sec-block-sub">聚焦建築生命週期中的數位化轉型、資訊協作與未來科技應用</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+        <!-- Card 1 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.03);">
+          <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">BIM</div>
+          <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 14px;">Building Information Modeling</div>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">建築資訊模型建置、3D/4D 空間時序模擬與工程界面整合檢討。</p>
+          <div style="margin-top: 14px; font-size: 0.75rem; color: #94a3b8;">[待顧問確認]</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.03);">
+          <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">建築資訊</div>
+          <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 14px;">Building Information</div>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">跨團隊數據傳遞、元件屬性定義與工程執行計畫 (BEP) 規範。</p>
+          <div style="margin-top: 14px; font-size: 0.75rem; color: #94a3b8;">[待顧問確認]</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.03);">
+          <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">數位建築</div>
+          <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 14px;">Digital Architecture</div>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">數位幾何放樣、3D 電腦開模與前衛曲面造型之工程落地實務。</p>
+          <div style="margin-top: 14px; font-size: 0.75rem; color: #94a3b8;">[待顧問確認]</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(15,23,42,0.03);">
+          <div style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">AI × 建築</div>
+          <div style="font-size: 0.85rem; color: #64748b; font-weight: 600; margin-bottom: 14px;">AI in Architecture</div>
+          <p style="font-size: 0.92rem; color: #475569; line-height: 1.7; margin: 0;">人工智慧生成設計概念與 3D BIM 工程實務之間的轉譯與銜接。</p>
+          <div style="margin-top: 14px; font-size: 0.75rem; color: #94a3b8;">[待顧問確認]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 04 ｜ 專業經歷 (Professional Experience) ================= -->
+  <section style="padding: 70px 0; background: #ffffff;">
+    <div class="container" style="max-width: 880px;">
+      <div style="text-align: center; margin-bottom: 45px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">EXPERIENCE</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">專業經歷</h2>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 36px 40px; box-shadow: 0 4px 20px rgba(15,23,42,0.03);">
+        <div style="border-left: 3px solid #cbd5e1; padding-left: 24px; display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; color: #2563eb; margin-bottom: 4px;">[待顧問確認 - 起訖年份]</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 6px;">[待顧問確認 - 職務與服務單位 01]</div>
+            <p style="font-size: 0.94rem; color: #64748b; margin: 0;">負責主要研究計畫、BIM 專案主持或跨領域顧問諮詢服務。</p>
+          </div>
+
+          <div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; color: #2563eb; margin-bottom: 4px;">[待顧問確認 - 起訖年份]</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 6px;">[待顧問確認 - 職務與服務單位 02]</div>
+            <p style="font-size: 0.94rem; color: #64748b; margin: 0;">推動建築數位化轉型與相關專業領域實踐。</p>
+          </div>
+
+          <div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 800; color: #059669; margin-bottom: 4px;">現在 ｜ Present</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 6px;">騰煇企業 ｜ 建築數位化與 BIM 顧問</div>
+            <p style="font-size: 0.94rem; color: #64748b; margin: 0;">參與建築數位化相關專業交流、內容發展與工程實務交流。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 05 ｜ 教學與專業活動 (Teaching & Professional Activities) ================= -->
+  <section style="padding: 70px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container" style="max-width: 880px;">
+      <div style="text-align: center; margin-bottom: 45px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">TEACHING & ACTIVITIES</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">教學與專業活動</h2>
+        <p class="sec-block-sub">承接未來相關專業課程、研討會與學術交流資訊</p>
+      </div>
+
+      <!-- 課程活動卡片模組預留區 -->
+      <div style="background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 16px; padding: 36px; text-align: center; color: #64748b;">
+        <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">內政部建築研究所 ｜ 專業課程合作 [待顧問確認]</div>
+        <p style="font-size: 0.95rem; line-height: 1.8; max-width: 600px; margin: 0 auto 20px auto; color: #475569;">
+          未來相關講授課程、工作坊與專業講座資訊將於正式確認後在此發布，並優先提供官方原汁原味課程連結。
+        </p>
+        <span style="display: inline-block; font-size: 0.85rem; background: #f1f5f9; color: #64748b; padding: 6px 16px; border-radius: 20px; font-weight: 700;">[課程時間與詳細資訊待顧問資料正式更新]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 06 ｜ 林明凱 ｜ 專業觀點 ================= -->
+  <section id="articles" style="padding: 70px 0; background: #ffffff;">
+    <div class="container" style="max-width: 1080px;">
+      <div style="text-align: center; margin-bottom: 45px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">EXPERT INSIGHTS</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">林明凱 ｜ 專業觀點</h2>
+        <p class="sec-block-sub">從 BIM、工程資訊到建築數位化，持續整理建築設計與工程實務中的數位議題</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px;">
+        <!-- 觀點 01 -->
+        <article class="viewpoint-card">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/bim-01-cover.webp" alt="BIM 是什麼？從 3D 建模，到建築資訊模型" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(37,99,235,0.92); color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 16px;">建築設計與工程協作</span>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; flex-grow: 1;">
+            <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 8px;">林明凱專業觀點 01</div>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 10px;">
+              <a href="article-bim-what-is-bim.html" style="color: inherit; text-decoration: none;">BIM 是什麼？從 3D 建模，到建築資訊模型</a>
+            </h3>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">解密 BIM 與 3D 建模的本質差異，解析 3D BIM、4D BIM 在設計與工程協作的實際核心價值...</p>
+            <a href="article-bim-what-is-bim.html" style="font-weight: 800; color: #2563eb; text-decoration: none; font-size: 0.9rem;">閱讀觀點文章 &rarr;</a>
+          </div>
+        </article>
+
+        <!-- 觀點 02 -->
+        <article class="viewpoint-card">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/pcm-02-cover.webp" alt="PCM 是什麼？" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(37,99,235,0.92); color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 16px;">建築設計與工程協作</span>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; flex-grow: 1;">
+            <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 8px;">林明凱專業觀點 02</div>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 10px;">
+              <a href="article-pcm-what-is-pcm.html" style="color: inherit; text-decoration: none;">PCM 是什麼？建築工程中的專案管理，到底在管理什麼？</a>
+            </h3>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">解析專業營建管理 (PCM) 的核心職責與價值，從跨團隊溝通、進度成本管控到風險排解...</p>
+            <a href="article-pcm-what-is-pcm.html" style="font-weight: 800; color: #2563eb; text-decoration: none; font-size: 0.9rem;">閱讀觀點文章 &rarr;</a>
+          </div>
+        </article>
+
+        <!-- 觀點 03 -->
+        <article class="viewpoint-card">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/bep-03-cover.webp" alt="BEP 是什麼？" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(37,99,235,0.92); color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 16px;">建築設計與工程協作</span>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; flex-grow: 1;">
+            <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 8px;">林明凱專業觀點 03</div>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 10px;">
+              <a href="article-bep-bim-execution-plan.html" style="color: inherit; text-decoration: none;">BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？</a>
+            </h3>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">深入了解 BIM 執行計畫 (BEP) 的重要性與架構，統一專案目標、建模標準與交付規範...</p>
+            <a href="article-bep-bim-execution-plan.html" style="font-weight: 800; color: #2563eb; text-decoration: none; font-size: 0.9rem;">閱讀觀點文章 &rarr;</a>
+          </div>
+        </article>
+
+        <!-- 觀點 04 -->
+        <article class="viewpoint-card">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/architect-04-cover.webp" alt="未來的建築師" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(37,99,235,0.92); color: #ffffff; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 16px;">建築設計與工程協作</span>
+          </div>
+          <div style="padding: 22px; display: flex; flex-direction: column; flex-grow: 1;">
+            <div style="font-size: 0.8rem; color: #64748b; margin-bottom: 8px;">林明凱專業觀點 04</div>
+            <h3 style="font-family: 'Noto Serif TC', serif; font-size: 1.25rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 10px;">
+              <a href="article-architect-engineering-partner-team.html" style="color: inherit; text-decoration: none;">未來的建築師，可能都需要一個固定的合作團隊</a>
+            </h3>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.7; margin-bottom: 18px; flex-grow: 1;">探討現代建築高度複雜化趨勢下，建築師與專業工程夥伴、BIM 團隊的深度整合模式...</p>
+            <a href="article-architect-engineering-partner-team.html" style="font-weight: 800; color: #2563eb; text-decoration: none; font-size: 0.9rem;">閱讀觀點文章 &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 07 ｜ 與騰煇的合作 ================= -->
+  <section style="padding: 70px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container" style="max-width: 880px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #2563eb; letter-spacing: 2px; text-transform: uppercase;">PRACTICE INTEGRATION</span>
+        <h2 class="sec-block-title" style="margin-top: 10px;">與騰煇的合作</h2>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 36px 40px; box-shadow: 0 4px 20px rgba(15,23,42,0.03);">
+        <p style="font-size: 1.05rem; color: #334155; line-height: 1.9; margin-bottom: 28px;">
+          林明凱顧問參與騰煇建築數位化相關的專業交流與內容發展，協助從 BIM、工程資訊與數位工具等角度，建立建築設計與工程實務之間的連結。
+        </p>
+
+        <div style="border-top: 1px solid #e2e8f0; padding-top: 24px;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a; margin-bottom: 14px;">相關數位工程與實務連結：</div>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="article-bim-what-is-bim.html" style="font-size: 0.88rem; color: #2563eb; background: #eff6ff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;">3D BIM 資訊模型</a>
+            <a href="article-pcm-what-is-pcm.html" style="font-size: 0.88rem; color: #2563eb; background: #eff6ff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;">4D BIM 時序模擬</a>
+            <a href="projects.html#grc-cases" style="font-size: 0.88rem; color: #2563eb; background: #eff6ff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;">數位工程案例實績</a>
+            <a href="articles.html" style="font-size: 0.88rem; color: #2563eb; background: #eff6ff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 700;">騰煇建築與立面誌</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Section 08 ｜ 專案諮詢 CTA 入口 ================= -->
+  <section style="padding: 75px 0; background: #0f172a; color: #ffffff; text-align: center;">
+    <div class="container" style="max-width: 760px;">
+      <span style="font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 800; color: #60a5fa; letter-spacing: 2px; text-transform: uppercase;">PROJECT CONSULTATION</span>
+      <h2 style="font-family: 'Noto Serif TC', serif; font-size: 2.1rem; font-weight: 900; color: #ffffff; margin: 12px 0 16px 0;">專案諮詢與技術交流</h2>
+      <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.85; margin-bottom: 32px;">
+        若您的建築專案、事務所團隊有 BIM 導入、跨專業工程協作或數位放樣需求，歡迎與我們預約專案諮詢。
+      </p>
+      <a href="contact.html" style="display: inline-block; background: #2563eb; color: #ffffff; font-weight: 800; font-size: 1.05rem; padding: 14px 36px; border-radius: 30px; text-decoration: none; transition: all 0.25s ease; box-shadow: 0 10px 25px rgba(37,99,235,0.4);">
+        預約專案諮詢 &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= 頁尾 Footer ================= -->
+  <footer class="site-footer" style="background: #0f172a; color: #a1a1aa; padding: 50px 0; border-top: 1px solid #1e293b;">
+    <div class="container footer-inner" style="max-width: 1040px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px;">
+      <div>
+        <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 8px;">騰煇企業有限公司</h4>
+        <p style="font-size: 0.88rem;">外牆工程，找騰煇 ｜ 騰煇企業，實現你的不可能</p>
+        <p style="font-size: 0.82rem; color: #71717a; margin-top: 8px;">40年外牆工程整合專家：GRC特殊造型、3D電腦建模、PPG外牆塗料系統。</p>
+      </div>
+      <div style="font-size: 0.85rem;">
+        <p>台中據點：台中市大甲區武陵里興安路321巷102號 ｜ 電話：04-26872899</p>
+        <p>高雄據點：高雄市三民區寶華里陽明路58巷4號 ｜ 電話：07-3800486</p>
+        <p>信箱：w862726@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        mobileToggle.textContent = isOpen ? '✕' : '☰';
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+    }
+  </script>
+</body>
+</html>
