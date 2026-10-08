@@ -519,5 +519,39 @@ html, body {
     });
   </script>
 
+
+  <!-- Filter 篩選邏輯腳本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('#filterBar .filter-btn');
+      const articleCards = document.querySelectorAll('.article-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filter = this.dataset.filter;
+
+          // Toggle button active state
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+            b.style.background = '#ffffff';
+            b.style.color = '#475569';
+          });
+          this.classList.add('active');
+          this.style.background = '#0f172a';
+          this.style.color = '#ffffff';
+
+          // Filter cards
+          articleCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
