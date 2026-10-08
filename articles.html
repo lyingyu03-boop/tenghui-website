@@ -286,7 +286,20 @@ html, body {
       
     }
 
-  </style>
+  
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 768px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -347,26 +360,26 @@ html, body {
   <main style="padding: 50px 0 80px 0; background: #f8fafc;">
     <div class="container" style="max-width: 1080px;">
       
-      <!--  三大 Filter 頁籤分類按鈕 (根據專欄分流規範) -->
+      <!-- 三大 Filter 頁籤分類按鈕 -->
       <div id="filterBar" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 45px;">
         <button class="filter-btn active" data-filter="all" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #0f172a; color: #ffffff; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;">全部文章</button>
-        <button class="filter-btn" data-filter="problemMaintenance" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;"> 問題與建築維護</button>
-        <button class="filter-btn" data-filter="materialEngineering" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;"> 材料與工程</button>
-        <button class="filter-btn" data-filter="designCollaboration" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;"> 建築設計與工程協作</button>
+        <button class="filter-btn" data-filter="problemMaintenance" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;">問題與建築維護</button>
+        <button class="filter-btn" data-filter="materialEngineering" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;">材料與工程</button>
+        <button class="filter-btn" data-filter="designCollaboration" style="padding: 10px 22px; border-radius: 30px; border: 1px solid #cbd5e1; background: #ffffff; color: #475569; font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: all 0.25s ease;">建築設計與工程協作</button>
       </div>
 
-      <!--  8 篇專欄文章 Card Grid -->
-      <div id="articlesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px;">
+      <!-- 8 篇專欄文章 Card Grid (固定一排 2 個) -->
+      <div id="articlesGrid" class="two-col-grid">
         
         <!-- 卡片 1: BIM 01 -->
         <article class="article-card reveal-quiet" data-category="designCollaboration" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/articles/bim-01-cover.png" alt="BIM 是什麼？從 3D 建模，到建築資訊模型" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 建築設計與工程協作</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/bim-01-cover.png" alt="BIM 是什麼？從 3D 建模，到建築資訊模型" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">建築設計與工程協作</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 10 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-bim-what-is-bim.html" style="color: inherit; text-decoration: none;">BIM 是什麼？從 3D 建模，到建築資訊模型</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">解析 BIM 建築資訊模型的核心精神，從 3D 幾何結構到元件資訊數據整合，打造設計、施工與營運維護的高效協作流程...</p>
@@ -376,13 +389,13 @@ html, body {
 
         <!-- 卡片 2: PCM 02 -->
         <article class="article-card reveal-quiet" data-category="designCollaboration" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/articles/pcm-02-cover.png" alt="PCM 是什麼？建築工程中的專案管理，到底在管理什麼？" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 建築設計與工程協作</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/pcm-02-cover.png" alt="PCM 是什麼？建築工程中的專案管理，到底在管理什麼？" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">建築設計與工程協作</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 10 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-pcm-what-is-pcm.html" style="color: inherit; text-decoration: none;">PCM 是什麼？建築工程中的專案管理，到底在管理什麼？</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">解析專業營建管理 (PCM) 的核心職責與價值，從跨團隊溝通、進度成本管控到風險排解，確保建築專案完美落地...</p>
@@ -392,13 +405,13 @@ html, body {
 
         <!-- 卡片 3: BEP 03 -->
         <article class="article-card reveal-quiet" data-category="designCollaboration" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/articles/bep-03-cover.png" alt="BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 建築設計與工程協作</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/bep-03-cover.png" alt="BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">建築設計與工程協作</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 10 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-bep-bim-execution-plan.html" style="color: inherit; text-decoration: none;">BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">深入了解 BIM 執行計畫 (BEP) 的重要性與架構，統一專案目標、建模標準、協作介面與交付規範，讓 BIM 不再是空口白話...</p>
@@ -408,13 +421,13 @@ html, body {
 
         <!-- 卡片 4: Architect 04 -->
         <article class="article-card reveal-quiet" data-category="designCollaboration" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/articles/architect-04-cover.png" alt="未來的建築師，可能都需要一個固定的合作團隊" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 建築設計與工程協作</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/articles/architect-04-cover.png" alt="未來的建築師，可能都需要一個固定的合作團隊" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">建築設計與工程協作</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 10 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-architect-engineering-partner-team.html" style="color: inherit; text-decoration: none;">未來的建築師，可能都需要一個固定的合作團隊</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">探討現代建築高度複雜化趨勢下，建築師與專業工程夥伴、BIM 團隊、材料專家的深度整合模式，共同實現前衛造型與高品質建築...</p>
@@ -424,13 +437,13 @@ html, body {
 
         <!-- 卡片 5: AI & 3D BIM 放樣 -->
         <article class="article-card reveal-quiet" data-category="designCollaboration" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/projects/grc-yayuan.jpg" alt="AI 能畫出前衛外牆，但實務該如何落地？" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 建築設計與工程協作</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/projects/grc-yayuan.jpg" alt="AI 能畫出前衛外牆，但實務該如何落地？" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(37,99,235,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">建築設計與工程協作</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 8 月專題 ｜ 閱讀時間約 3 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-ai-bim.html" style="color: inherit; text-decoration: none;">AI 能畫出前衛外牆，但實務該如何落地？解析從概念 Render 到實體表皮的 4 大工程挑戰</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">當數位工具解放了建築師的幾何筆觸，現場工地卻面臨構件分割、3D BIM 放樣與風壓負載的考驗。看騰煇如何無縫植入「雅園新潮 GRC 雙曲拱門」實例...</p>
@@ -440,13 +453,13 @@ html, body {
 
         <!-- 卡片 6: GRC 工程全解析 -->
         <article class="article-card reveal-quiet" data-category="materialEngineering" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/projects/humei-dijing.jpg" alt="GRC工程全解析" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(147,51,234,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 材料與工程</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/projects/humei-dijing.jpg" alt="GRC工程全解析" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(147,51,234,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">材料與工程</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 8 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-grc.html" style="color: inherit; text-decoration: none;">GRC工程全解析：GRC是什麼？特點、造型原理、常見應用與騰煇案例</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">玻璃纖維強化水泥 (GRC) 是什麼？為何能打造高難度造型？剖析輕量減震、A1 級不燃與騰煇毫米級公差控制，巡禮雅園新潮與梅山天主堂案例...</p>
@@ -456,13 +469,13 @@ html, body {
 
         <!-- 卡片 7: GRC 假石造景 vs 真石材對比 -->
         <article class="article-card reveal-quiet" data-category="materialEngineering" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/projects/grc-rockscape-wuling.jpg" alt="GRC 假石造景與真石材對比" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(147,51,234,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 材料與工程</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/projects/grc-rockscape-wuling.jpg" alt="GRC 假石造景與真石材對比" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(147,51,234,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">材料與工程</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 8 月專題 ｜ 閱讀時間約 4 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-stone.html" style="color: inherit; text-decoration: none;">GRC 假石造景與真石材對比：工程效益、結構輕量化與 PPG 臻石漆工法全解析</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">解析 GRC 假石與天然真石材之工程考量差異：結合 PPG 臻石漆質感還原、15-25mm 薄型化輕量構造、3D BIM 建模放樣與隱藏水電管線機能...</p>
@@ -472,13 +485,13 @@ html, body {
 
         <!-- 卡片 8: 廠辦外牆拉皮整修與企業形象專題 -->
         <article class="article-card reveal-quiet" data-category="problemMaintenance" style="background: #ffffff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
-          <div style="position: relative; height: 230px; overflow: hidden;">
-            <img decoding="async" loading="lazy" src="img/projects/xiaomofang_named/07_完工照片_現場實景全景.jpg" alt="為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position: absolute; top: 14px; left: 14px; background: rgba(234,88,12,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;"> 問題與建築維護</span>
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #0f172a;">
+            <img decoding="async" loading="lazy" src="img/projects/xiaomofang_named/07_完工照片_現場實景全景.jpg" alt="為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;">
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(234,88,12,0.92); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.76rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">問題與建築維護</span>
           </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex-grow: 1;">
             <div style="font-size: 0.82rem; color: #64748b; margin-bottom: 8px;">2026 年 9 月專題 ｜ 閱讀時間約 3 分鐘</div>
-            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
+            <h2 style="font-family: 'Noto Serif TC', serif; font-size: 1.35rem; font-weight: 900; color: #0f172a; line-height: 1.45; margin-bottom: 12px;">
               <a href="article-07-xiaomofang-factory-retrofit.html" style="color: inherit; text-decoration: none;">為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？</a>
             </h2>
             <p style="font-size: 0.92rem; color: #475569; line-height: 1.75; margin-bottom: 20px; flex-grow: 1;">廠辦不只是生產與辦公空間，更是客戶與求職者看見的實體環境。解析老舊廠辦外觀如何重新思考，從現況評估到立面、色彩與工程整合...</p>
