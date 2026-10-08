@@ -897,7 +897,17 @@ html, body {
           <div style="color: var(--slate-500); font-size: 0.8rem;">騰煇建築與工程誌</div>
         </div>
       </div>
-    </heade      <p>內政部建築研究所過去的 BIM 研究也將 BIM 應用延伸至設計、施工、竣工驗收與設施管理等不同階段，代表 BIM 本身並不只停留在設計建模。</p>
+    </header>
+
+    <article class="article-content">
+
+      <!-- 專欄封面圖片 -->
+      <div class="article-hero-img-box" style="margin-bottom: 32px;">
+        <img decoding="async" fetchpriority="high" src="img/articles/bim-01-cover.webp" alt="BIM 是什麼？從 3D 建模，到建築資訊模型">
+        <div class="article-photo-caption">Photo Credit: 騰煇企業 ｜ 3D BIM 建築資訊模型與工程落地</div>
+      </div>
+
+      <p>內政部建築研究所過去的 BIM 研究也將 BIM 應用延伸至設計、施工、竣工驗收與設施管理等不同階段，代表 BIM 本身並不只停留在設計建模。</p>
 
       <h2>3D 模型與 BIM，有什麼不同？</h2>
 
@@ -910,7 +920,7 @@ html, body {
 
 
       <!-- 💡 概念圖解：BIM 冰山效應 -->
-      <div class="article-hero-img-box reveal-quiet" style="margin: 36px 0;">
+      <div class="article-hero-img-box" style="margin: 36px 0;">
         <img decoding="async" loading="lazy" src="img/articles/bim-01-diagram.webp" alt="BIM 冰山圖解：超越 3D 模型的可見幾何，涵蓋工程資訊與生命週期數據">
         <div class="article-photo-caption">圖解觀念：BIM 冰山效應 — 超越 3D 可見幾何模型，包含構件屬性、材料、尺寸與生命週期工程數據</div>
       </div>
@@ -1036,6 +1046,23 @@ html, body {
       </div>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const quietEls = document.querySelectorAll('.reveal-quiet');
+      if (quietEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        quietEls.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
 
 </body>
 </html>
