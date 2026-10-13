@@ -371,6 +371,164 @@
       display: block;
     }
 
+    /* ===== 幻燈片組件 (Project Archive Slideshow) ===== */
+    .slideshow-wrap {
+      max-width: 1040px;
+      margin: 0 auto 50px auto;
+      background: #ffffff;
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .slideshow-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      background: #fbfbfc;
+    }
+    .slideshow-counter {
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 1.5px;
+    }
+    .slideshow-current-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .slideshow-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #18181b;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .slideshow-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+    .slideshow-img.active {
+      display: block;
+    }
+    .slide-arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: #18181b;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+    .slide-arrow-btn:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .slide-arrow-prev { left: 16px; }
+    .slide-arrow-next { right: 16px; }
+
+    .slideshow-nav-tags {
+      display: flex;
+      gap: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      border-top: 1px solid var(--border-hairline);
+      background: #ffffff;
+      scrollbar-width: thin;
+    }
+    .slide-tag-btn {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--border-hairline);
+      background: #f8fafc;
+      color: var(--text-muted);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .slide-tag-btn:hover, .slide-tag-btn.active {
+      background: #18181b;
+      color: #ffffff;
+      border-color: #18181b;
+    }
+    .slideshow-caption-box {
+      padding: 16px 24px;
+      background: #fafafa;
+      border-top: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .slideshow-desc {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    .slideshow-hint {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-family: var(--font-en);
+      letter-spacing: 1px;
+    }
+
+    /* Lightbox Modal */
+    .slide-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .slide-lightbox.active {
+      display: flex;
+    }
+    .slide-lightbox-img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .slide-lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      color: #ffffff;
+      font-size: 2rem;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
     /* ===== Section 05: 專業歷程清單 (/ CAREER & MILESTONES /) ===== */
     .career-section {
       padding: 20px 0 100px 0;
@@ -724,6 +882,56 @@
     </div>
   </section>
 
+  <!-- ================= Section 03b: 完整作品影像簡報 (/ PROJECT ARCHIVE /) ================= -->
+  <section style="padding: 20px 0 100px 0;">
+    <div class="arch-container">
+
+      <div class="arch-section-header">
+        <span class="arch-section-tag">/ PROJECT ARCHIVE /</span>
+        <div class="arch-hairline"></div>
+      </div>
+
+      <p style="font-size: 1rem; color: var(--text-light); line-height: 1.9; max-width: 780px; margin-bottom: 36px;">
+        以下為林明凱顧問歷年代表性案例之完整影像紀錄，涵蓋設計、BIM 工程、VR/AR 沉浸視覺、大型製造業數位化與建設工程應用等多個面向。
+      </p>
+
+      <!-- 分類篩選標籤 -->
+      <div class="slideshow-nav-tags" id="slideshowTags">
+        <button class="slide-tag-btn active" data-filter="all">全部</button>
+        <button class="slide-tag-btn" data-filter="design">設計・視覺</button>
+        <button class="slide-tag-btn" data-filter="bim">BIM・工程放樣</button>
+        <button class="slide-tag-btn" data-filter="yacht">遊艇・製造業</button>
+        <button class="slide-tag-btn" data-filter="vrar">VR/AR・即時演算</button>
+        <button class="slide-tag-btn" data-filter="construction">建設・基礎工程</button>
+        <button class="slide-tag-btn" data-filter="aigc">AIGC・騰煇</button>
+      </div>
+
+      <!-- 幻燈片主體 -->
+      <div class="slideshow-wrap" id="slideshowWrap">
+        <div class="slideshow-topbar">
+          <div class="slideshow-current-title" id="slideTitle">台中南屯 ─ 道路工程 BIM 施工輔助視覺化</div>
+          <div class="slideshow-counter"><span id="slideCurrentNum">1</span> / <span id="slideTotalNum">10</span></div>
+        </div>
+        <div class="slideshow-stage" id="slideshowStage">
+          <!-- images injected by JS -->
+          <button class="slide-arrow-btn slide-arrow-prev" id="slidePrev" aria-label="上一張">&#8592;</button>
+          <button class="slide-arrow-btn slide-arrow-next" id="slideNext" aria-label="下一張">&#8594;</button>
+        </div>
+        <div class="slideshow-caption-box">
+          <p class="slideshow-desc" id="slideDesc">左右箭頭或鍵盤方向鍵換頁・點擊圖片放大</p>
+          <span class="slideshow-hint">CLICK TO ENLARGE</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="slide-lightbox" id="slideLightbox">
+    <span class="slide-lightbox-close" id="lightboxClose">&#215;</span>
+    <img class="slide-lightbox-img" id="lightboxImg" src="" alt="作品放大檢視">
+  </div>
+
   <!-- ================= Section 04: 3D Workflow Mixer (/ WORKFLOW /) ================= -->
   <section class="workflow-section">
     <div class="arch-container">
@@ -894,6 +1102,168 @@
         document.body.style.overflow = isOpen ? 'hidden' : '';
       });
     }
+
+    /* ============================================================
+       Project Archive Slideshow
+    ============================================================ */
+    const SLIDES = [
+      /* ── 設計・視覺 ── */
+      { file: 'slide_02.png',  tag: 'design', title: '嘉義文化建設計畫 ─ 競圖概念草案', desc: '地方文化建設概念設計，CAD 設計草案階段' },
+      { file: 'slide_03.png',  tag: 'design', title: '台中南屯 ─ 道路工程 BIM 施工輔助視覺化', desc: 'BIM 點雲掃描與道路工程施工順序模擬' },
+      { file: 'slide_04.png',  tag: 'design', title: '台灣輸配電工程 ─ 電桿基礎工程 3D 放樣', desc: '電力工程基礎設施精確 3D 定位放樣' },
+      { file: 'slide_05.png',  tag: 'design', title: '護國禪寺暨中鋼大樓外牆 ─ 雙曲面 GRC 設計', desc: 'GRC 雙曲面幾何運算與精密模具生成' },
+
+      /* ── BIM・工程放樣 ── */
+      { file: 'slide_06.png',  tag: 'bim', title: '建設案 ─ BIM 協同放樣服務', desc: '建設公司 BIM 與機電協同整合輔助' },
+      { file: 'slide_07.png',  tag: 'bim', title: '大型橋梁工程 ─ BIM 結構分析視覺化', desc: '橋梁結構 BIM 模型與施工階段分析' },
+      { file: 'slide_08.png',  tag: 'bim', title: '跨部門 BIM 整合平台示範', desc: 'OpenBIM 多專業協同資料流架構示範' },
+      { file: 'slide_09.png',  tag: 'bim', title: '建築工地 BIM 現場比對系統', desc: 'BIM 模型與現場掃描點雲即時比對' },
+
+      /* ── 遊艇・製造業 ── */
+      { file: 'slide_11.png',  tag: 'yacht', title: '嘉鴻遊艇 ─ 豪華遊艇流體力學 3D 曲面建模', desc: '頂級帆船遊艇 NURBS 曲面精密建模與水動力模擬' },
+      { file: 'slide_12.jpg',  tag: 'yacht', title: '嘉鴻遊艇 ─ 製造數位化 CAD/CAM 協同', desc: '造船業製造端 CAD/CAM 數位整合協同體系' },
+      { file: 'slide_13.jpg',  tag: 'yacht', title: '嘉鴻遊艇 ─ 國際頂級帆船全艙模型', desc: '55 英尺豪華帆船全艙室 3D 精細化建模' },
+      { file: 'slide_14.jpg',  tag: 'yacht', title: '嘉鴻遊艇 ─ 即時渲染視覺化交付', desc: '遊艇銷售用 Real-time 即時渲染視覺展示材料' },
+
+      /* ── VR/AR・即時演算 ── */
+      { file: 'slide_15.jpg',  tag: 'vrar', title: '大型建設案 ─ VR 沉浸式空間預覽系統', desc: 'Unreal Engine VR 建築空間互動預覽平台' },
+      { file: 'slide_16.jpg',  tag: 'vrar', title: '地產預售 ─ AR 室內裝潢即時疊合', desc: '手機 AR 室內裝潢材質即時上色與疊合呈現' },
+      { file: 'slide_17.jpg',  tag: 'vrar', title: '建築展館 ─ 即時 3D 互動導覽系統', desc: '展館專用 real-time 3D 互動地圖導覽' },
+      { file: 'slide_18.jpg',  tag: 'vrar', title: '景觀設計 ─ AIGC 意境圖生成輔助', desc: 'AIGC 工具輔助早期概念設計意境圖生成' },
+
+      /* ── 建設・基礎工程 ── */
+      { file: 'slide_19.jpg',  tag: 'construction', title: '台中建設案 ─ 地下室基礎工程 BIM 模型', desc: '地下室基礎及擋土結構 3D 施工模擬' },
+      { file: 'slide_20.jpg',  tag: 'construction', title: '高雄建設案 ─ 外牆帷幕板 BIM 細部設計', desc: '帷幕牆系統 BIM 精細拆板與施工圖生成' },
+      { file: 'slide_21.jpg',  tag: 'construction', title: '橋梁結構補強 ─ 鋼構 BIM 設計', desc: '既有橋梁結構補強鋼構設計與整合' },
+      { file: 'slide_22.png',  tag: 'construction', title: '都市更新案 ─ 外牆 GRC 特殊造型整合', desc: 'GRC 外牆特殊造型工程從設計到製造全流程整合' },
+
+      /* ── AIGC・騰煇 ── */
+      { file: 'slide_23.png',  tag: 'aigc', title: '騰煇 AIGC ─ 外牆工程 AI 輔助概念提案', desc: 'AIGC + 工程團隊協同，快速生成外牆概念意境提案' },
+      { file: 'slide_25.png',  tag: 'aigc', title: '騰煇數位轉型 ─ BIM 與 AI 融合工作流', desc: '導入 AI 工具升級 BIM 工作流，縮短設計週期' },
+      { file: 'slide_26.png',  tag: 'aigc', title: '騰煇 ─ 3D Workflow Mixer 架構說明', desc: '跨越商業與開源軟體生態的無縫工程數位流' },
+      { file: 'slide_27.png',  tag: 'aigc', title: '騰煇顧問加入 ─ 數位能力升級路線圖', desc: '顧問加入後協同騰煇共同推動數位製造能力升級' },
+      { file: 'slide_28.png',  tag: 'aigc', title: '騰煇 ─ AIGC 外牆材質快速提案展示', desc: 'AI 生成外牆材質、色彩、紋理方案，提升提案效率' },
+      { file: 'slide_31.png',  tag: 'aigc', title: '騰煇 ─ 數位顧問技術能力矩陣', desc: '橫跨設計、BIM、VR/AR、AIGC 的全面技術能力概覽' },
+      { file: 'slide_32.png',  tag: 'aigc', title: '騰煇 ─ 高精 3D 施工放樣技術示範', desc: '現場施工放樣高精度 3D 定位，零誤差安裝' },
+      { file: 'slide_33.png',  tag: 'aigc', title: '騰煇 × 顧問 ─ 首年協同行動計畫', desc: '顧問正式加入後第一年協同升級的具體行動方案' },
+    ];
+
+    const BASE = 'img/consultant/slides/';
+    let currentFilter = 'all';
+    let filteredSlides = [...SLIDES];
+    let currentIndex = 0;
+
+    const stage     = document.getElementById('slideshowStage');
+    const titleEl   = document.getElementById('slideTitle');
+    const descEl    = document.getElementById('slideDesc');
+    const currentEl = document.getElementById('slideCurrentNum');
+    const totalEl   = document.getElementById('slideTotalNum');
+    const lightbox  = document.getElementById('slideLightbox');
+    const lbImg     = document.getElementById('lightboxImg');
+    const lbClose   = document.getElementById('lightboxClose');
+
+    function buildImgEl(slide) {
+      const img = document.createElement('img');
+      img.src   = BASE + slide.file;
+      img.alt   = slide.title;
+      img.className = 'slideshow-img';
+      img.loading = 'lazy';
+      img.addEventListener('click', () => openLightbox(img.src, slide.title));
+      return img;
+    }
+
+    function renderSlides() {
+      // Remove old images (keep arrow buttons)
+      const existing = stage.querySelectorAll('.slideshow-img');
+      existing.forEach(el => el.remove());
+      // Inject new set
+      filteredSlides.forEach((s, i) => {
+        const img = buildImgEl(s);
+        if (i === 0) img.classList.add('active');
+        // Insert before first arrow button
+        stage.insertBefore(img, stage.querySelector('.slide-arrow-btn'));
+      });
+      currentIndex = 0;
+      updateMeta();
+    }
+
+    function showSlide(idx) {
+      const imgs = stage.querySelectorAll('.slideshow-img');
+      imgs.forEach(el => el.classList.remove('active'));
+      imgs[idx].classList.add('active');
+      currentIndex = idx;
+      updateMeta();
+    }
+
+    function updateMeta() {
+      const s = filteredSlides[currentIndex];
+      if (!s) return;
+      totalEl.textContent   = filteredSlides.length;
+      currentEl.textContent = currentIndex + 1;
+      titleEl.textContent   = s.title;
+      descEl.textContent    = s.desc;
+    }
+
+    function navigate(delta) {
+      const len = filteredSlides.length;
+      const next = (currentIndex + delta + len) % len;
+      showSlide(next);
+    }
+
+    document.getElementById('slidePrev').addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+    document.getElementById('slideNext').addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        return;
+      }
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+
+    /* Category filter */
+    document.querySelectorAll('.slide-tag-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.slide-tag-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        filteredSlides = currentFilter === 'all'
+          ? [...SLIDES]
+          : SLIDES.filter(s => s.tag === currentFilter);
+        renderSlides();
+      });
+    });
+
+    /* Lightbox */
+    function openLightbox(src, title) {
+      lbImg.src = src;
+      lbImg.alt = title;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+    /* Touch swipe support */
+    let touchStartX = 0;
+    stage.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', e => {
+      const delta = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 50) navigate(delta < 0 ? 1 : -1);
+    });
+
+    /* Auto-advance every 6 seconds */
+    let autoTimer = setInterval(() => navigate(1), 6000);
+    stage.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    stage.addEventListener('mouseleave', () => { autoTimer = setInterval(() => navigate(1), 6000); });
+
+    /* Init */
+    renderSlides();
   </script>
 </body>
 </html>
