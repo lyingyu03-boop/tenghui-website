@@ -16,37 +16,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261013b">
+  <link rel="stylesheet" href="css/style.css?v=20261013white">
   
   <style>
-    /* ================= 專業形象攝影棚灰階質感排版系統 (Studio Photography Slate Grey) ================= */
+    /* ================= 和光同塵 極簡建築排版系統 ================= */
     :root {
-      --bg-pure: #44464d !important;             /* 形象照真實無縫攝影灰（明顯有別於死黑，優雅沉穩的棚拍灰） */
-      --bg-subtle: #383a41 !important;           /* 次階微深攝影灰 */
-      --bg-surface: #26272c !important;          /* 模組卡片深曜石灰底（對應顧問身穿之黑衣黑褲，層次鮮明俐落） */
-      --bg-surface-elevated: #32333a !important; /* 浮起卡片底色 */
-      
-      --text-main: #ffffff !important;           /* 純鈦白高對比標題（極致清晰、高雅） */
-      --text-muted: #d4d6e0 !important;          /* 柔和霧銀白（正文副標題，極佳閱讀感） */
-      --text-light: #a4a7b4 !important;          /* 低調冷灰（註解、英文 Tag） */
-      --text-accent: #f0ede6 !important;         /* 精煉亮點 */
-      --accent-linen: #cbb698 !important;        /* 亞麻休閒西裝溫潤金棕色 */
-
-      --border-hairline: rgba(255, 255, 255, 0.12) !important;     /* 輕透邊框線 */
-      --border-subtle: rgba(255, 255, 255, 0.2) !important;       /* 次級邊框 */
-      --border-highlight: rgba(255, 255, 255, 0.35) !important;    /* Hover 高亮框線 */
-      --border-dark: #ffffff !important;         /* 對比邊框 */
-
+      --bg-pure: #ffffff;
+      --bg-subtle: #fcfcfc;
+      --bg-muted: #f8fafc;
+      --text-main: #18181b;
+      --text-muted: #52525b;
+      --text-light: #71717a;
+      --border-hairline: #e4e4e7;
+      --border-dark: #18181b;
       --font-serif: 'Noto Serif TC', serif;
       --font-sans: 'Noto Sans TC', sans-serif;
       --font-en: 'Outfit', sans-serif;
     }
 
-    html, body {
-      background-color: #44464d !important;
-      background: radial-gradient(ellipse at 50% 16%, #585a64 0%, #464850 48%, #36373e 100%) !important;
-      background-attachment: fixed !important;
-      color: #ffffff !important;
+    body {
+      background-color: var(--bg-pure);
+      color: var(--text-main);
       font-family: var(--font-sans);
       letter-spacing: 0.02em;
       line-height: 1.85;
@@ -55,56 +45,15 @@
       padding: 0;
     }
 
-    /* 強制覆蓋所有 section，避免 style.css 帶入白色背景，保持攝影棚灰階質感一致 */
-    section,
-    .philosophy-section,
-    .workflow-section,
-    .career-section,
-    .works-section,
-    .archive-section,
-    .inquiry-section,
-    .profile-hero-section {
-      background-color: transparent !important;
-      background: transparent !important;
-    }
-
-    .archive-section {
-      background-color: rgba(36, 37, 43, 0.65) !important;
-      background: rgba(36, 37, 43, 0.65) !important;
-    }
-
-    /* 頂部導覽列棚拍灰質感覆蓋 */
-    .site-header {
-      background: rgba(54, 56, 63, 0.94) !important;
-      border-bottom: 1px solid var(--border-hairline) !important;
-      backdrop-filter: blur(14px) !important;
-    }
-    .brand-company-name {
-      color: #ffffff !important;
-    }
-    .brand-company-en {
-      color: #a4a7b4 !important;
-    }
-    .nav-link {
-      color: #d4d6e0 !important;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: #ffffff !important;
-    }
-    .mobile-toggle {
-      color: #ffffff !important;
-    }
-
     /* 內部審閱浮水印提示條 */
     .draft-badge-bar {
-      background: #2e2f35;
-      color: #d4d6e0;
+      background: #27272a;
+      color: #fafafa;
       text-align: center;
       padding: 10px 20px;
       font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: 1.5px;
-      border-bottom: 1px solid var(--border-hairline);
     }
 
     /* 容器設定 */
@@ -145,7 +94,7 @@
       margin-top: 14px;
     }
 
-    /* ===== Section 01: 人物主視覺 ===== */
+    /* ===== Section 01: 人物主視覺 (對照 Team 總監頁) ===== */
     .profile-hero-section {
       padding: 90px 0 100px 0;
       background: var(--bg-pure);
@@ -160,10 +109,9 @@
 
     .profile-portrait-wrap {
       width: 100%;
-      background: #36373e;
+      background: #18181b;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
@@ -344,16 +292,14 @@
     .work-single-box {
       width: 100%;
       margin-bottom: 20px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
+      background: #f8fafc;
       overflow: hidden;
     }
 
     .work-img-frame {
       width: 100%;
       height: 100%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
+      background: #f1f5f9;
       overflow: hidden;
       position: relative;
     }
@@ -395,7 +341,7 @@
 
     .work-tech-desc {
       font-size: 0.88rem;
-      color: var(--text-muted);
+      color: var(--text-light);
       line-height: 1.6;
       margin: 0;
     }
@@ -404,7 +350,7 @@
       font-family: var(--font-en);
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--text-accent);
+      color: var(--text-main);
       letter-spacing: 1px;
     }
 
@@ -416,10 +362,10 @@
 
     .workflow-img-box {
       width: 100%;
-      background: var(--bg-surface);
+      background: #ffffff;
       border: 1px solid var(--border-hairline);
-      padding: 16px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      padding: 12px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
       margin-bottom: 24px;
     }
 
@@ -427,41 +373,39 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: contrast(1.02);
     }
 
     /* ===== 雙軌對照架構: 騰煇實體製造 x 顧問數位大腦 ===== */
     .dual-matrix-wrap {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 32px;
     }
     .dual-track-card {
       border: 1px solid var(--border-hairline);
-      background: var(--bg-subtle);
-      padding: 24px 26px;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      background: #fafafb;
+      padding: 22px 24px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .dual-track-card:hover {
-      border-color: var(--border-highlight);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      border-color: #cbd5e1;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
     }
     .dual-track-card.active-collab {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-left: 3px solid #e4e4e7;
+      background: #ffffff;
+      border-left: 3px solid #18181b;
     }
     .dual-track-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--border-hairline);
     }
     .dual-track-title {
       font-family: var(--font-serif);
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-main);
     }
@@ -507,8 +451,8 @@
     /* ===== 橫向底片放映帶 (Filmstrip Component) ===== */
     .filmstrip-container {
       margin-top: 28px;
-      background: #232429;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #09090b;
+      border: 1px solid #27272a;
       padding: 16px 18px;
       position: relative;
     }
@@ -540,7 +484,7 @@
       scroll-snap-type: x mandatory;
       padding-bottom: 10px;
       scrollbar-width: thin;
-      scrollbar-color: #52525b #1c1d22;
+      scrollbar-color: #52525b #18181b;
       -webkit-overflow-scrolling: touch;
       cursor: grab;
     }
@@ -548,7 +492,7 @@
       height: 5px;
     }
     .filmstrip-track::-webkit-scrollbar-track {
-      background: #1c1d22;
+      background: #18181b;
     }
     .filmstrip-track::-webkit-scrollbar-thumb {
       background: #52525b;
@@ -558,11 +502,11 @@
       flex: 0 0 160px;
       height: 110px;
       scroll-snap-align: start;
-      background: #1c1d22;
+      background: #18181b;
       overflow: hidden;
       cursor: zoom-in;
       position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
     @media (max-width: 768px) {
@@ -712,22 +656,19 @@
       font-family: var(--font-en);
       font-size: 0.88rem;
       font-weight: 600;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 14px 42px;
-      color: #f4f4f5;
-      border: 1px solid #52525b;
+      padding: 14px 40px;
+      color: var(--text-main);
+      border: 1px solid var(--border-dark);
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.3s ease;
+      background: transparent;
     }
 
     .arch-btn:hover {
-      background: #f4f4f5;
-      color: #09090b;
-      border-color: #f4f4f5;
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
+      background: var(--text-main);
+      color: #ffffff;
     }
 
     /* 響應式佈局 */
@@ -1209,7 +1150,7 @@
   </section>
 
   <!-- ================= Section 03b: 更多重大專案實績底片庫 (/ PROJECT ARCHIVE /) ================= -->
-  <section class="archive-section" style="padding: 20px 0 90px 0; background: var(--bg-subtle); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
+  <section class="archive-section" style="padding: 20px 0 90px 0; background: #fafafa; border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
     <div class="arch-container">
       <div class="arch-section-header">
         <span class="arch-section-tag">/ MORE ARCHIVES & ENGINEERING /</span>
@@ -1753,7 +1694,7 @@
   </section>
 
   <!-- ================= 頁尾 Footer ================= -->
-  <footer class="site-footer" style="background: #2b2c32; color: #b8bac4; padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.12);">
+  <footer class="site-footer" style="background: #18181b; color: #a1a1aa; padding: 60px 0; border-top: 1px solid #27272a;">
     <div class="container footer-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px;">
       <div>
         <h4 style="color: #ffffff; font-size: 1.1rem; margin: 0 0 10px 0; font-weight: 700;">騰煇企業有限公司</h4>
