@@ -15,16 +15,23 @@
   <link rel="stylesheet" href="css/style.css?v=20261008">
   
   <style>
-    /* ================= 和光同塵 極簡建築排版系統 ================= */
+    /* ================= 建築暗調極簡黑色美學排版系統 (Architectural Obsidian Dark) ================= */
     :root {
-      --bg-pure: #ffffff;
-      --bg-subtle: #fcfcfc;
-      --bg-muted: #f8fafc;
-      --text-main: #18181b;
-      --text-muted: #52525b;
-      --text-light: #71717a;
-      --border-hairline: #e4e4e7;
-      --border-dark: #18181b;
+      --bg-pure: #09090b;             /* 深邃曜石黑主底色 */
+      --bg-subtle: #121215;           /* 微次階深灰 */
+      --bg-surface: #18181b;          /* 模組卡片深灰底色 */
+      --bg-surface-elevated: #222226; /* 浮起卡片底色 */
+      
+      --text-main: #f4f4f5;           /* 鈦銀白（主要高對比閱讀色，不刺眼） */
+      --text-muted: #a1a1aa;          /* 霧灰銀（正文副標題） */
+      --text-light: #71717a;          /* 沉著鐵灰（註解、英文 Tag） */
+      --text-accent: #e4e4e7;         /* 精煉白銀亮點 */
+
+      --border-hairline: #27272a;     /* 極細深色分隔線 */
+      --border-subtle: #3f3f46;       /* 次級邊框 */
+      --border-highlight: #52525b;    /* Hover 高亮框線 */
+      --border-dark: #f4f4f5;         /* 對比邊框（在暗底中對應淺白） */
+
       --font-serif: 'Noto Serif TC', serif;
       --font-sans: 'Noto Sans TC', sans-serif;
       --font-en: 'Outfit', sans-serif;
@@ -41,15 +48,38 @@
       padding: 0;
     }
 
+    /* 頂部導覽列暗色覆蓋 */
+    .site-header {
+      background: rgba(9, 9, 11, 0.88) !important;
+      border-bottom: 1px solid var(--border-hairline) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+    .brand-company-name {
+      color: #f4f4f5 !important;
+    }
+    .brand-company-en {
+      color: #71717a !important;
+    }
+    .nav-link {
+      color: #a1a1aa !important;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: #ffffff !important;
+    }
+    .mobile-toggle {
+      color: #f4f4f5 !important;
+    }
+
     /* 內部審閱浮水印提示條 */
     .draft-badge-bar {
-      background: #27272a;
-      color: #fafafa;
+      background: #18181b;
+      color: #a1a1aa;
       text-align: center;
       padding: 10px 20px;
       font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: 1.5px;
+      border-bottom: 1px solid var(--border-hairline);
     }
 
     /* 容器設定 */
@@ -90,7 +120,7 @@
       margin-top: 14px;
     }
 
-    /* ===== Section 01: 人物主視覺 (對照 Team 總監頁) ===== */
+    /* ===== Section 01: 人物主視覺 ===== */
     .profile-hero-section {
       padding: 90px 0 100px 0;
       background: var(--bg-pure);
@@ -107,7 +137,8 @@
       width: 100%;
       background: #18181b;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-hairline);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
       position: relative;
     }
 
@@ -116,6 +147,7 @@
       height: auto;
       display: block;
       object-fit: cover;
+      filter: contrast(1.04);
     }
 
     .profile-meta-role {
@@ -288,14 +320,16 @@
     .work-single-box {
       width: 100%;
       margin-bottom: 20px;
-      background: #f8fafc;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
       overflow: hidden;
     }
 
     .work-img-frame {
       width: 100%;
       height: 100%;
-      background: #f1f5f9;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
       overflow: hidden;
       position: relative;
     }
@@ -337,7 +371,7 @@
 
     .work-tech-desc {
       font-size: 0.88rem;
-      color: var(--text-light);
+      color: var(--text-muted);
       line-height: 1.6;
       margin: 0;
     }
@@ -346,7 +380,7 @@
       font-family: var(--font-en);
       font-size: 0.88rem;
       font-weight: 600;
-      color: var(--text-main);
+      color: var(--text-accent);
       letter-spacing: 1px;
     }
 
@@ -358,10 +392,10 @@
 
     .workflow-img-box {
       width: 100%;
-      background: #ffffff;
+      background: var(--bg-surface);
       border: 1px solid var(--border-hairline);
-      padding: 12px;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+      padding: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       margin-bottom: 24px;
     }
 
@@ -369,39 +403,41 @@
       width: 100%;
       height: auto;
       display: block;
+      filter: contrast(1.02);
     }
 
     /* ===== 雙軌對照架構: 騰煇實體製造 x 顧問數位大腦 ===== */
     .dual-matrix-wrap {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 28px;
     }
     .dual-track-card {
       border: 1px solid var(--border-hairline);
-      background: #fafafb;
-      padding: 22px 24px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: var(--bg-subtle);
+      padding: 24px 26px;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
     .dual-track-card:hover {
-      border-color: #cbd5e1;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      border-color: var(--border-highlight);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
     .dual-track-card.active-collab {
-      background: #ffffff;
-      border-left: 3px solid #18181b;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid #e4e4e7;
     }
     .dual-track-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--border-hairline);
     }
     .dual-track-title {
       font-family: var(--font-serif);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       font-weight: 700;
       color: var(--text-main);
     }
@@ -652,19 +688,22 @@
       font-family: var(--font-en);
       font-size: 0.88rem;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      padding: 14px 40px;
-      color: var(--text-main);
-      border: 1px solid var(--border-dark);
+      padding: 14px 42px;
+      color: #f4f4f5;
+      border: 1px solid #52525b;
       text-decoration: none;
-      transition: all 0.3s ease;
-      background: transparent;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .arch-btn:hover {
-      background: var(--text-main);
-      color: #ffffff;
+      background: #f4f4f5;
+      color: #09090b;
+      border-color: #f4f4f5;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
     }
 
     /* 響應式佈局 */
@@ -1146,7 +1185,7 @@
   </section>
 
   <!-- ================= Section 03b: 更多重大專案實績底片庫 (/ PROJECT ARCHIVE /) ================= -->
-  <section class="archive-section" style="padding: 20px 0 90px 0; background: #fafafa; border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
+  <section class="archive-section" style="padding: 20px 0 90px 0; background: var(--bg-subtle); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
     <div class="arch-container">
       <div class="arch-section-header">
         <span class="arch-section-tag">/ MORE ARCHIVES & ENGINEERING /</span>
