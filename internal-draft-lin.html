@@ -53,6 +53,24 @@
       padding: 0;
     }
 
+    /* 強制覆蓋所有 section，避免 style.css 的 .philosophy-section 帶入 background: #ffffff */
+    section,
+    .philosophy-section,
+    .workflow-section,
+    .career-section,
+    .works-section,
+    .archive-section,
+    .inquiry-section,
+    .profile-hero-section {
+      background-color: #09090b !important;
+      background: #09090b !important;
+    }
+
+    .archive-section {
+      background-color: #121215 !important;
+      background: #121215 !important;
+    }
+
     /* 頂部導覽列暗色覆蓋 */
     .site-header {
       background: rgba(9, 9, 11, 0.88) !important;
