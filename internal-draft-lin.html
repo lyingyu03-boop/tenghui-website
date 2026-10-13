@@ -697,8 +697,8 @@
     }
 
     /* ===== Section 07: 騰煇工程整合 (/ COLLABORATION & INTEGRATION /) ===== */
-    .collab-section {
-      padding: 60px 0 100px 0;
+        .collab-section {
+      padding: 70px 0 100px 0;
       background: var(--bg-pure);
       border-top: 1px solid var(--border-hairline);
     }
@@ -706,36 +706,30 @@
     .dual-matrix-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 36px;
+      gap: 32px;
       margin-top: 36px;
-      margin-bottom: 50px;
+      margin-bottom: 36px;
     }
 
     .dual-track-card {
       border: 1px solid var(--border-hairline);
       background: #fafafc;
-      padding: 26px 28px;
+      padding: 28px 30px;
       border-radius: 2px;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .dual-track-card:hover {
       border-color: #cbd5e1;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-    }
-
-    .dual-track-card.active-collab {
-      background: #ffffff;
-      border-left: 3px solid #18181b;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
 
     .dual-track-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--border-hairline);
     }
 
@@ -744,11 +738,12 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-main);
+      letter-spacing: 0.5px;
     }
 
     .dual-track-tag {
       font-family: var(--font-en);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--text-light);
       letter-spacing: 1.5px;
@@ -760,7 +755,7 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 22px;
     }
 
     .dual-track-item {
@@ -777,42 +772,115 @@
     }
 
     .dual-item-name {
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-top: 2px;
+      margin-top: 4px;
+      line-height: 1.5;
     }
 
     .dual-item-desc {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      margin-top: 3px;
-      line-height: 1.6;
+      margin-top: 4px;
+      line-height: 1.65;
     }
 
-    .vision-block {
-      max-width: 900px;
-      background: #fafafc;
+    /* 工作流程區塊：從設計到現場 */
+    .collab-workflow-block {
       border: 1px solid var(--border-hairline);
-      border-left: 3px solid var(--border-dark);
-      padding: 32px 36px;
+      background: #ffffff;
+      padding: 34px 36px;
       border-radius: 2px;
     }
 
-    .vision-title {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin: 0 0 16px 0;
-      line-height: 1.6;
+    .collab-workflow-header {
+      margin-bottom: 24px;
     }
 
-    .vision-p {
-      font-size: 0.98rem;
+    .collab-workflow-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 8px 0;
+      line-height: 1.4;
+    }
+
+    .collab-workflow-desc {
+      font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 2;
-      margin-bottom: 16px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .collab-flow-steps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .collab-step-item {
+      flex: 1;
+      padding: 18px 20px;
+      background: #fafafc;
+      border: 1px solid var(--border-hairline);
+      border-radius: 2px;
+      transition: border-color 0.2s ease;
+    }
+
+    .collab-step-item:hover {
+      border-color: #cbd5e1;
+    }
+
+    .collab-step-num {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .collab-step-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .collab-step-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .collab-step-arrow {
+      color: #94a3b8;
+      font-size: 1.15rem;
+      font-family: var(--font-en);
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 820px) {
+      .collab-flow-steps {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .collab-step-arrow {
+        text-align: center;
+        transform: rotate(90deg);
+        margin: 2px 0;
+      }
+      .collab-workflow-block {
+        padding: 24px 20px;
+      }
+      .dual-track-card {
+        padding: 22px 20px;
+      }
     }
 
     .vision-p:last-child {
@@ -983,6 +1051,195 @@
         font-size: 1.7rem;
       }
     }
+  
+    /* ===== 建築專刊式大版面排版系統 (Editorial Monograph Layout) ===== */
+    .monograph-case {
+      margin-bottom: 110px;
+      padding-bottom: 70px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .monograph-case:last-child {
+      border-bottom: none;
+      margin-bottom: 20px;
+      padding-bottom: 0;
+    }
+
+    .monograph-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .monograph-grid.monograph-grid-reverse {
+      grid-template-columns: 0.85fr 1.15fr;
+    }
+
+    .monograph-media-col {
+      width: 100%;
+    }
+
+    .monograph-dual-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .monograph-photo-card {
+      width: 100%;
+      background: #f8fafc;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .monograph-photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+    }
+    .monograph-photo-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .monograph-photo-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .monograph-single-photo {
+      width: 100%;
+      background: #f8fafc;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.07);
+      transition: transform 0.4s ease;
+    }
+    .monograph-single-photo:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.11);
+    }
+    .monograph-single-photo img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .monograph-single-photo:hover img {
+      transform: scale(1.03);
+    }
+
+    .monograph-photo-caption {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.74rem;
+      font-family: var(--font-en);
+      color: var(--text-light);
+      letter-spacing: 0.8px;
+      background: #ffffff;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .monograph-text-col {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .monograph-meta-tag {
+      font-family: var(--font-en);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .monograph-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 8px 0;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .monograph-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .monograph-p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.95;
+      margin: 0 0 16px 0;
+    }
+
+    .monograph-spec-block {
+      margin-top: 14px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-hairline);
+    }
+    .monograph-spec-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      font-family: var(--font-en);
+      color: var(--text-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .monograph-spec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .monograph-spec-tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-main);
+      background: #f4f4f5;
+      padding: 5px 12px;
+      border-radius: 2px;
+      letter-spacing: 0.4px;
+    }
+
+    @media (max-width: 992px) {
+      .monograph-grid,
+      .monograph-grid.monograph-grid-reverse {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .monograph-case {
+        margin-bottom: 70px;
+        padding-bottom: 50px;
+      }
+      .monograph-photo-card img {
+        height: 220px;
+      }
+      .monograph-single-photo img {
+        height: 260px;
+      }
+    }
+    @media (max-width: 640px) {
+      .monograph-dual-photos {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .monograph-title {
+        font-size: 1.5rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1362,6 +1619,7 @@
   </section>
 
   <!-- ================= Section 05: 代表案例 (/ SELECTED WORKS /) ================= -->
+    <!-- ================= Section 05: 代表案例 (/ SELECTED WORKS /) ================= -->
   <section class="works-section" id="works">
     <div class="arch-container">
       
@@ -1369,127 +1627,158 @@
         <span class="arch-section-tag">/ SELECTED WORKS /</span>
         <h2 class="section-lead-title">代表專案案例：AIGC、BIM 放樣與工業級曲面</h2>
         <p class="section-lead-desc">
-          精選代表性實體工程與高階製造案例。大圖呈現最終落地之建築姿態，下方橫向底片帶完整收錄實務放樣、BIM 拆件、曲面演算之連貫技術幀。
+          以建築刊物開闊版面呈現代表案例之落地姿態。大圖跨距展開幾何意圖與實體工程細節，將技術難題、解題思維與現場放樣完整展開；全系列連續技術影格已收錄於下方實績檔案庫中。
         </p>
         <div class="arch-hairline"></div>
       </div>
 
-      <!-- 嵌入既有代表作品區塊（包含橫向底片帶） -->
-      <!-- 作品 01: 台中雅園會館 -->
-      <article class="work-item-block">
-        <div class="work-dual-grid">
-          <div class="work-img-frame" style="aspect-ratio: 16 / 10;">
-            <img src="img/consultant/yayuan-aigc-model-01.png" alt="台中雅園會館 AIGC 數位雙曲造型模型" loading="lazy">
-          </div>
-          <div class="work-img-frame" style="aspect-ratio: 16 / 10;">
-            <img src="img/consultant/yayuan-grc-arch-real.jpg" alt="台中雅園會館 GRC 雙曲拱門現場實體工程竣工照" loading="lazy">
-          </div>
-        </div>
-        <div class="work-caption-bar">
-          <div class="work-title-group">
-            <h3 class="work-main-title">台中雅園會館新潮餐廳｜AIGC 造型概念轉化實體工程落地實務</h3>
-            <p class="work-tech-desc">技術範疇：Midjourney 參數生成・3D 幾何放樣切分・GRC 雙曲拱門翻模・PPG 專業外牆塗料系統</p>
-          </div>
-          <div class="work-year-tag">2024 / ARCHITECTURE</div>
-        </div>
-        <!-- 橫向底片放映帶: 騰輝企業辦公空間與展示規劃 -->
-        <div class="filmstrip-container">
-          <div class="filmstrip-header">
-            <span class="filmstrip-tag">/ 企業空間規劃與實體呈現底片 /</span>
-            <span class="filmstrip-meta">DESIGN & WORKSPACE ・ 23 FRAMES</span>
-          </div>
-          <div class="filmstrip-track">
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image115.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image115.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image116.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image116.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image117.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image117.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image122.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image122.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image129.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image129.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image99.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image99.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image133.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image133.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image134.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image134.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image118.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image118.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image119.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image119.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image123.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image123.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image124.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image124.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image130.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image130.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image132.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image132.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image135.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image135.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image120.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image120.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image121.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image121.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image125.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image125.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image126.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image126.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image127.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image127.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image128.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image128.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image136.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image136.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
-            </div>
-            <div class="filmstrip-frame" data-full="img/consultant/photos/image131.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
-              <img src="img/consultant/photos/thumbs/image131.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+      <!-- 代表案例 01: 台中雅園會館 (左圖右文) -->
+      <article class="monograph-case">
+        <div class="monograph-grid">
+          
+          <!-- 左側：視覺對比展示 (AIGC 3D 模型 vs 現場實體工程竣工照) -->
+          <div class="monograph-media-col">
+            <div class="monograph-dual-photos">
+              <div class="monograph-photo-card">
+                <img src="img/consultant/yayuan-aigc-model-01.png" alt="台中雅園會館 AIGC 數位雙曲造型模型" loading="lazy">
+                <span class="monograph-photo-caption">01 / CONCEPT MODEL：AIGC 數位雙曲造型演算模型</span>
+              </div>
+              <div class="monograph-photo-card">
+                <img src="img/consultant/yayuan-grc-arch-real.jpg" alt="台中雅園會館 GRC 雙曲拱門現場實體工程竣工照" loading="lazy">
+                <span class="monograph-photo-caption">02 / BUILT REALITY：現場 GRC 雙曲預鑄構件竣工實景</span>
+              </div>
             </div>
           </div>
-          <div class="filmstrip-footer">Revit / Lumion 企業總部辦公室空間設計、展示動線與外牆材質空間呈現</div>
+
+          <!-- 右側：深度專業敘事 -->
+          <div class="monograph-text-col">
+            <div class="monograph-meta-tag">2024 / ARCHITECTURE & AIGC</div>
+            <h3 class="monograph-title">台中雅園會館新潮餐廳</h3>
+            <div class="monograph-subtitle">AIGC 造型概念轉化實體工程落地實務</div>
+            
+            <p class="monograph-p">
+              打破生成式 AI 僅能停留在概念效果圖的傳統侷限。林明凱顧問深入營造現場，引導 Midjourney 雙曲造型探索，並以參數化演算法進行曲率分級與 3D 空間網格切分。
+            </p>
+            <p class="monograph-p">
+              後端無縫銜接騰煇 Albert 廠長 40 年 GRC 預鑄翻模工藝與 PPG 原廠高耐候塗裝系統；透過精確的三維放樣點位，徹底消弭雙曲造型在開模與現場吊裝間的公差挑戰，成功於 2024 年將全雙曲流動拱門精準落實於城市建築地景之中。
+            </p>
+
+            <div class="monograph-spec-block">
+              <div class="monograph-spec-label">技術範疇與工法整合 /</div>
+              <div class="monograph-spec-tags">
+                <span class="monograph-spec-tag">Midjourney 參數生成</span>
+                <span class="monograph-spec-tag">3D 幾何放樣切分</span>
+                <span class="monograph-spec-tag">GRC 雙曲拱門翻模</span>
+                <span class="monograph-spec-tag">PPG 外牆高耐候塗裝</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </article>
-      <!-- 作品 02: 護國禪寺 ＆ 中鋼大樓 -->
-      <article class="work-item-block">
-        <div class="work-dual-grid">
-          <div class="work-img-frame" style="aspect-ratio: 16 / 10;">
-            <img src="img/consultant/temple-bim.jpg" alt="圓山臨濟護國禪寺 BIM 仿古木構造拆解" loading="lazy">
+
+      <!-- 代表案例 02: 圓山臨濟護國禪寺 ＆ 高雄中鋼大樓 (右圖左文 鏡像對稱) -->
+      <article class="monograph-case">
+        <div class="monograph-grid monograph-grid-reverse">
+          
+          <!-- 左側：深度專業敘事 -->
+          <div class="monograph-text-col">
+            <div class="monograph-meta-tag">2007 - 2012 / HERITAGE & BIM ENGINEERING</div>
+            <h3 class="monograph-title">圓山臨濟護國禪寺 ＆ 高雄中鋼大樓</h3>
+            <div class="monograph-subtitle">跨尺度幾何放樣：從百年古蹟大木作到超高層異形幕牆</div>
+            
+            <p class="monograph-p">
+              協同肯望科技（KWTG），展現跨尺度建築資訊模型（BIM）之精確掌握度。於圓山護國禪寺古蹟案中，以 Revit 將繁複的仿古大木構斗拱進行高精準度逆向拆解與木構空間復原。
+            </p>
+            <p class="monograph-p">
+              面對高雄中鋼大樓非對稱、多角度立體扭轉的複雜外帷幕工程，提供毫米級之立體空間放樣坐標圖說交付，確保每一處鋼構件在高空懸吊對接時達成零碰撞、零公差衝突，樹立台灣大型標竿工程的 BIM 協同典範。
+            </p>
+
+            <div class="monograph-spec-block">
+              <div class="monograph-spec-label">技術範疇與工法整合 /</div>
+              <div class="monograph-spec-tags">
+                <span class="monograph-spec-tag">Autodesk Revit BIM</span>
+                <span class="monograph-spec-tag">仿古大木構三維復原</span>
+                <span class="monograph-spec-tag">超高層異形幕牆放樣</span>
+                <span class="monograph-spec-tag">肯望科技 (KWTG) 建築協同</span>
+              </div>
+            </div>
           </div>
-          <div class="work-img-frame" style="aspect-ratio: 16 / 10;">
-            <img src="img/consultant/chinasteel-bim.jpg" alt="高雄中鋼大樓複雜帷幕立體放樣" loading="lazy">
+
+          <!-- 右側：視覺對比展示 -->
+          <div class="monograph-media-col">
+            <div class="monograph-dual-photos">
+              <div class="monograph-photo-card">
+                <img src="img/consultant/temple-bim.jpg" alt="圓山臨濟護國禪寺 BIM 仿古木構造拆解" loading="lazy">
+                <span class="monograph-photo-caption">01 / HERITAGE BIM：圓山臨濟護國禪寺仿古木構拆解模型</span>
+              </div>
+              <div class="monograph-photo-card">
+                <img src="img/consultant/chinasteel-bim.jpg" alt="高雄中鋼大樓複雜帷幕立體放樣" loading="lazy">
+                <span class="monograph-photo-caption">02 / CURTAIN WALL：高雄中鋼大樓複雜幾何立體放樣模型</span>
+              </div>
+            </div>
           </div>
+
         </div>
-        <div class="work-caption-bar">
-          <div class="work-title-group">
-            <h3 class="work-main-title">圓山臨濟護國禪寺 ＆ 高雄中鋼大樓｜跨尺度 BIM 幾何放樣</h3>
-            <p class="work-tech-desc">技術範疇：Autodesk Revit 建築資訊模型・古蹟幾何精確測量・超高層異形幕牆放樣圖說交付</p>
+      </article>
+
+      <!-- 代表案例 03: 嘉鴻遊艇 Horizon Yachts (左圖右文) -->
+      <article class="monograph-case">
+        <div class="monograph-grid">
+          
+          <!-- 左側：視覺展示 (超寬景自然比例無框照片) -->
+          <div class="monograph-media-col">
+            <div class="monograph-single-photo">
+              <img src="img/consultant/horizon-yacht.jpg" alt="嘉鴻遊艇 Horizon Yachts 豪華遊艇精密曲面建模" loading="lazy">
+              <span class="monograph-photo-caption">HORIZON YACHTS：國際豪華遊艇流體力學流線曲面與高精密 CAD/CAM 數位流</span>
+            </div>
           </div>
-          <div class="work-year-tag">2007 - 2012 / BIM & HERITAGE</div>
+
+          <!-- 右側：深度專業敘事 -->
+          <div class="monograph-text-col">
+            <div class="monograph-meta-tag">2004 - 2012 / CAD/CAM DIGITAL TRANSFORMATION</div>
+            <h3 class="monograph-title">嘉鴻遊艇 Horizon Yachts</h3>
+            <div class="monograph-subtitle">國際豪華遊艇製造體系 3D CAD/CAM 數位轉型</div>
+            
+            <p class="monograph-p">
+              協助國際頂級豪華造船集團進行完整 3D 數位化升級。將高難度流體力學流線曲面設計、船舶內部多維空間管線佈局，與大型模具 CNC 加工數位流全面打通。
+            </p>
+            <p class="monograph-p">
+              在長達 8 年的高端製造協同中，建立了大型製造業毫米級之公差控制能力與跨工種協作規範；如今，這份工業級高精密製造經驗成功反哺導入當代建築雙曲外牆工程，為當代建築外牆工程提供穩健的曲面建模與圖面整理支援。
+            </p>
+
+            <div class="monograph-spec-block">
+              <div class="monograph-spec-label">技術範疇與工法整合 /</div>
+              <div class="monograph-spec-tags">
+                <span class="monograph-spec-tag">流體力學曲面建模</span>
+                <span class="monograph-spec-tag">製造業 CAD/CAM 數位流</span>
+                <span class="monograph-spec-tag">CNC 精密模具協同</span>
+                <span class="monograph-spec-tag">毫米級製造公差管理</span>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <!-- 橫向底片放映帶: 肯望科技 KWTG 建築 BIM 協同工程 -->
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ================= Section 06: 完整作品檔案 (/ PROJECT ARCHIVE /) ================= -->
+  <section class="archive-section" id="archive" style="padding: 40px 0 100px 0; background: #fafafa; border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
+    <div class="arch-container">
+      <div class="arch-section-header">
+        <span class="arch-section-tag">/ PROJECT ARCHIVE /</span>
+        <h2 class="section-lead-title">完整實績檔案庫：跨領域 30 年數位工程圖輯</h2>
+        <p class="section-lead-desc">
+          完整收錄歷年 276 幅工程放樣、BIM 幾何、流體建模、公共設施與沉浸式虛擬空間之實務影格。點擊任一縮圖即可開啟高解析圖說檢視，支援滑鼠按住拖曳與滾輪水平滑動。
+        </p>
+        <div class="arch-hairline"></div>
+      </div>
+
+      <!-- 檔案 01: 肯望科技 KWTG 重大工程 BIM 放樣 -->
+      <!-- 橫向底片放映帶: 肯望科技 KWTG 建築 BIM 協同工程 -->
         <div class="filmstrip-container">
           <div class="filmstrip-header">
             <span class="filmstrip-tag">/ 肯望科技 KWTG 重大工程 BIM 放樣底片帶 /</span>
@@ -1518,24 +1807,9 @@
               <img src="img/consultant/photos/thumbs/image187.webp" alt="肯望科技 KWTG 建築 BIM 協同工程" loading="lazy">
             </div>
           </div>
-          <div class="filmstrip-footer">1012 南港中信 CTCB II｜1008 中國信託企業總部｜1008 翔譽之心｜0908 中鋼大樓帷幕幾何｜0905 元璋玻璃｜0903 馬尼拉住宅案｜0901 彌勒大道博風設計工程</div>
-        </div>
-      </article>
-      <!-- 作品 03: 嘉鴻遊艇 Horizon Yachts -->
-      <article class="work-item-block">
-        <div class="work-single-box" style="aspect-ratio: 21 / 9;">
-          <div class="work-img-frame">
-            <img src="img/consultant/horizon-yacht.jpg" alt="嘉鴻遊艇 Horizon Yachts 豪華遊艇精密曲面建模" loading="lazy">
-          </div>
-        </div>
-        <div class="work-caption-bar">
-          <div class="work-title-group">
-            <h3 class="work-main-title">嘉鴻遊艇 Horizon Yachts｜國際豪華遊艇製造體系 3D CAD/CAM 數位轉型</h3>
-            <p class="work-tech-desc">技術範疇：流體力學流線曲面建模・製造業 CAD/CAM 數位化協同體系・國際級頂級遊艇即時視覺化</p>
-          </div>
-          <div class="work-year-tag">2004 - 2012 / INDUSTRIAL TRANSFORMATION</div>
-        </div>
-        <!-- 橫向底片放映帶: 嘉鴻遊艇 Horizon Yachts 數位流曲面專案 -->
+
+      <!-- 檔案 02: 嘉鴻遊艇 Horizon Yachts 全系列曲面紀錄 -->
+      <!-- 橫向底片放映帶: 嘉鴻遊艇 Horizon Yachts 數位流曲面專案 -->
         <div class="filmstrip-container">
           <div class="filmstrip-header">
             <span class="filmstrip-tag">/ Horizon Yachts 豪華遊艇曲面與艙室全紀錄底片帶 /</span>
@@ -1618,27 +1892,87 @@
               <img src="img/consultant/photos/thumbs/image174.webp" alt="嘉鴻遊艇 Horizon Yachts 數位流曲面專案" loading="lazy">
             </div>
           </div>
-          <div class="filmstrip-footer">1211.P136｜1103.E87.interior｜1010.H110｜0912.V100｜0909.140｜0907.A106V｜0905.J87｜0904.T88｜0804.J88｜0404.Horizon 全系列遊艇流線建模</div>
-        </div>
-      </article>
-    </div>
-  </section>
 
-    </div>
-  </section>
+      <!-- 檔案 03: 騰輝企業辦公空間規劃 -->
+      <!-- 橫向底片放映帶: 騰輝企業辦公空間與展示規劃 -->
+        <div class="filmstrip-container">
+          <div class="filmstrip-header">
+            <span class="filmstrip-tag">/ 企業空間規劃與實體呈現底片 /</span>
+            <span class="filmstrip-meta">DESIGN & WORKSPACE ・ 23 FRAMES</span>
+          </div>
+          <div class="filmstrip-track">
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image115.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image115.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image116.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image116.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image117.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image117.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image122.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image122.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image129.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image129.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image99.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image99.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image133.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image133.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image134.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image134.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image118.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image118.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image119.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image119.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image123.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image123.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image124.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image124.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image130.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image130.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image132.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image132.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image135.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image135.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image120.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image120.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image121.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image121.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image125.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image125.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image126.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image126.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image127.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image127.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image128.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image128.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image136.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image136.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+            <div class="filmstrip-frame" data-full="img/consultant/photos/image131.jpg" data-caption="騰輝企業辦公空間與展示規劃 (2019)">
+              <img src="img/consultant/photos/thumbs/image131.webp" alt="騰輝企業辦公空間與展示規劃" loading="lazy">
+            </div>
+          </div>
 
-  <!-- ================= Section 06: 完整作品檔案 (/ PROJECT ARCHIVE /) ================= -->
-  <!-- ================= Section 06: 完整作品檔案 (/ PROJECT ARCHIVE /) ================= -->
-  <section class="archive-section" id="archive" style="padding: 20px 0 90px 0; background: #fafafa; border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);">
-    <div class="arch-container">
-      <div class="arch-section-header">
-        <span class="arch-section-tag">/ MORE ARCHIVES & ENGINEERING /</span>
-        <div class="arch-hairline"></div>
-      </div>
-      <p style="font-size: 1rem; color: var(--text-light); line-height: 1.9; max-width: 820px; margin-bottom: 40px;">
-        歷年橫跨食品製造、公共交通、即時渲染與前沿動畫之技術實務底片紀錄。左右滑動即可檢視完整工程幀數，點擊任意縮圖開啟無損原始影像。
-      </p>
-        <!-- 橫向底片放映帶: 食品大廠企業空間規劃 -->
+      <!-- 橫向底片放映帶: 食品大廠企業空間規劃 -->
         <div class="filmstrip-container">
           <div class="filmstrip-header">
             <span class="filmstrip-tag">/ 工程實績底片放映 /</span>
@@ -1998,91 +2332,102 @@
           </div>
           <div class="filmstrip-footer">CGCG 宏廣卡通動畫 Junior 3ds Max 專案｜遠雄建設 內湖動畫案視覺製作</div>
         </div>
+
     </div>
   </section>
 
-  <!-- ================= Section 07: 騰煇工程整合 (/ ENGINEERING COLLABORATION /) ================= -->
-  <section class="collab-section" id="collaboration">
+
+<section class="collab-section" id="collaboration">
     <div class="arch-container">
       
       <div class="arch-section-header">
         <span class="arch-section-tag">/ ENGINEERING COLLABORATION /</span>
-        <h2 class="section-lead-title">專業分工與深度協同：顧問數位大腦 × 騰煇實體製造</h2>
+        <h2 class="section-lead-title">數位設計與工程實務的協作</h2>
         <p class="section-lead-desc">
-          林明凱顧問個人之數位設計、BIM 放樣與視覺整合能力，與騰煇企業 42 年 GRC 翻模工藝、PPG 耐候塗裝及第三方查驗碳足跡認證清楚劃分、深度連結。
+          從造型建模、圖面整理到 GRC 構件製作與塗裝，依專案需求整合設計資料與工程流程。
         </p>
         <div class="arch-hairline"></div>
       </div>
 
-      <!-- 雙軌對照矩陣 -->
+      <!-- 雙欄工作分工矩陣 -->
       <div class="dual-matrix-grid">
         
-        <!-- 軌道一：騰煇 42 年工程製造底蘊 -->
+        <!-- 左欄：工程製作與材料應用 -->
         <div class="dual-track-card">
           <div class="dual-track-header">
-            <span class="dual-track-title">騰煇工程實體製造底蘊</span>
-            <span class="dual-track-tag">/ 42-YEAR CRAFT /</span>
+            <span class="dual-track-title">工程製作與材料應用</span>
+            <span class="dual-track-tag">/ FABRICATION &amp; MATERIAL /</span>
           </div>
           <ul class="dual-track-list">
             <li class="dual-track-item">
               <span class="dual-item-badge">01 / FABRICATION</span>
-              <span class="dual-item-name">GRC 雙曲預鑄構件生產</span>
-              <span class="dual-item-desc">Albert 廠長 40 年模具翻模與高抗折預鑄纖維水泥砂漿實體製造工藝，解決現場曲面成型難題。</span>
+              <span class="dual-item-name">GRC 構件製作與造型工藝</span>
+              <span class="dual-item-desc">依專案造型與施工需求，進行 GRC 構件的製作、細節處理及現場施作協調。</span>
             </li>
             <li class="dual-track-item">
-              <span class="dual-item-badge">02 / PROTECTION</span>
-              <span class="dual-item-name">PPG 高耐候氟碳塗裝系統</span>
-              <span class="dual-item-desc">全球一級塗裝原廠認證抗紫外線老化、高鹽霧防蝕外牆漆面工法，確保外觀歷久彌新。</span>
-            </li>
-            <li class="dual-track-item">
-              <span class="dual-item-badge">03 / SUSTAINABILITY</span>
-              <span class="dual-item-name">ISO 14064-1 / 14067 碳足跡查驗</span>
-              <span class="dual-item-desc">騰煇企業完成第三方溫室氣體盤查與產品碳足跡查驗，符合當代低碳綠建築採購指標。</span>
+              <span class="dual-item-badge">02 / SURFACE FINISHING</span>
+              <span class="dual-item-name">PPG 塗料與表面處理</span>
+              <span class="dual-item-desc">依基材、設計效果與使用環境，評估塗裝系統及表面質感需求。</span>
             </li>
           </ul>
         </div>
 
-        <!-- 軌道二：顧問 30 年數位運算大腦 -->
-        <div class="dual-track-card active-collab">
+        <!-- 右欄：數位設計與圖面整合 -->
+        <div class="dual-track-card">
           <div class="dual-track-header">
-            <span class="dual-track-title">顧問個人數位協同大腦</span>
-            <span class="dual-track-tag">/ DIGITAL BRAIN /</span>
+            <span class="dual-track-title">數位設計與圖面整合</span>
+            <span class="dual-track-tag">/ DIGITAL &amp; INTEGRATION /</span>
           </div>
           <ul class="dual-track-list">
             <li class="dual-track-item">
-              <span class="dual-item-badge">01 / CONCEPT</span>
-              <span class="dual-item-name">參數化 AIGC 造型運算</span>
-              <span class="dual-item-desc">朝陽碩士專題深度研究，引導 AI 幾何探索並轉化為實體營造可建構語彙。</span>
+              <span class="dual-item-badge">01 / 3D MODELING</span>
+              <span class="dual-item-name">3D 建模與造型溝通</span>
+              <span class="dual-item-desc">透過數位模型呈現造型與細節，協助團隊在製作前理解設計意圖。</span>
             </li>
             <li class="dual-track-item">
-              <span class="dual-item-badge">02 / COMPUTATION</span>
-              <span class="dual-item-name">BIM 空間幾何與精確放樣</span>
-              <span class="dual-item-desc">Revit / OpenBIM 跨尺度結構拆件、現場三維雷射掃描與無誤差放樣點位交付。</span>
-            </li>
-            <li class="dual-track-item">
-              <span class="dual-item-badge">03 / INTEGRATION</span>
-              <span class="dual-item-name">製造業跨域 CAD/CAM 數位流</span>
-              <span class="dual-item-desc">將嘉鴻豪華遊艇 8 年高精密流體曲面與 CNC 開模協同經驗導入建築外牆立面。</span>
+              <span class="dual-item-badge">02 / DOCUMENTATION</span>
+              <span class="dual-item-name">圖面與製作資料整理</span>
+              <span class="dual-item-desc">依專案需求整理模型、圖面與構件資訊，作為設計溝通及工程協調的參考。</span>
             </li>
           </ul>
         </div>
 
       </div>
 
-      <!-- 深度協同與願景區塊 -->
-      <div class="vision-block">
-        <h3 class="vision-title">
-          顧問攜手騰煇：消弭前端幾何想像與工廠開模施工的斷層
-        </h3>
-        <p class="vision-p">
-          建築外牆的工程挑戰，往往在於「設計端的幾何想像」與「工廠端的開模施工」之間缺乏共通的語言。建築師在數位模型中精雕細琢的雙曲造型，若缺乏精確的 3D 放樣與可製造性分析，往往在營造階段面臨昂貴的模具損耗與施工公差。
-        </p>
-        <p class="vision-p">
-          林明凱顧問加入騰煇後，專注於建構無縫的「虛實銜接體系」——運用參數化演算法與 BIM 幾何拆件，在前端即完成每一塊 GRC 預鑄構件的曲率分級、模具受力分析與排版編號；後端則無縫串接 Albert 廠長帶領的 40 年實體預鑄工藝、高精度 3D 列印模具翻模與 PPG 原廠認證高耐候防護塗裝。
-        </p>
-        <p class="vision-p">
-          雙方的協同，不僅是技術工具的導入，更為營造業樹立了一種踏實的創新路徑：不盲目追求虛擬概念，而是以土木工程的扎實規範為底線，結合前沿數位智慧與深厚工匠製造力，共同協助建築師、事務所與業主，將最具挑戰性的外牆立面精準且安全地落地於城市地景之中。
-        </p>
+      <!-- 下方工作流程區塊：從設計到現場 -->
+      <div class="collab-workflow-block">
+        <div class="collab-workflow-header">
+          <h3 class="collab-workflow-title">從設計到現場</h3>
+          <p class="collab-workflow-desc">
+            依專案需求整合設計資料與工程資訊，協助相關人員理解造型、細節及製作需求。實際流程依專案內容調整。
+          </p>
+        </div>
+
+        <div class="collab-flow-steps">
+          <div class="collab-step-item">
+            <div class="collab-step-num">01</div>
+            <div class="collab-step-title">設計構想</div>
+            <div class="collab-step-note">造型定位與意圖溝通</div>
+          </div>
+          <div class="collab-step-arrow" aria-hidden="true">→</div>
+          <div class="collab-step-item">
+            <div class="collab-step-num">02</div>
+            <div class="collab-step-title">模型與圖面</div>
+            <div class="collab-step-note">3D 拆解與幾何整理</div>
+          </div>
+          <div class="collab-step-arrow" aria-hidden="true">→</div>
+          <div class="collab-step-item">
+            <div class="collab-step-num">03</div>
+            <div class="collab-step-title">構件製作</div>
+            <div class="collab-step-note">GRC 翻模與實體成型</div>
+          </div>
+          <div class="collab-step-arrow" aria-hidden="true">→</div>
+          <div class="collab-step-item">
+            <div class="collab-step-num">04</div>
+            <div class="collab-step-title">塗裝與工程協調</div>
+            <div class="collab-step-note">表面防護與現場安裝</div>
+          </div>
+        </div>
       </div>
 
     </div>
