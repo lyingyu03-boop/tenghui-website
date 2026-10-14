@@ -19,28 +19,62 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "林明凱",
-    "alternateName": "Lin Ming-Kai",
-    "jobTitle": "數位工程顧問",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "騰煇企業有限公司",
-      "url": "https://tenghui.com.tw"
-    },
-    "alumniOf": [
+    "@graph": [
       {
-        "@type": "EducationalOrganization",
-        "name": "明新工業專科學校土木工程科"
+        "@type": "WebPage",
+        "@id": "https://tenghui.com.tw/internal-draft-lin.html#webpage",
+        "url": "https://tenghui.com.tw/internal-draft-lin.html",
+        "name": "林明凱 ｜ 數位工程顧問 ｜ 騰煇企業 TENG SPLENDOR",
+        "description": "從數位設計走向工程應用的整合型顧問林明凱：土木工程底蘊、BIM 幾何放樣、製造業 CAD/CAM 數位流到 AIGC GRC 實體建築落地實務。",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "首頁",
+              "item": "https://tenghui.com.tw/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "專業顧問 林明凱",
+              "item": "https://tenghui.com.tw/internal-draft-lin.html"
+            }
+          ]
+        }
       },
       {
-        "@type": "EducationalOrganization",
-        "name": "朝陽科技大學視覺傳達設計研究所"
+        "@type": "Person",
+        "@id": "https://tenghui.com.tw/internal-draft-lin.html#person",
+        "name": "林明凱",
+        "alternateName": "Lin Ming-Kai",
+        "jobTitle": "數位工程顧問",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "騰煇企業有限公司",
+          "url": "https://tenghui.com.tw/"
+        },
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "明新工業專科學校土木工程科"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "朝陽科技大學視覺傳達設計研究所"
+          }
+        ],
+        "email": "vizken@3design.biz",
+        "telephone": "+886-937-860-022",
+        "description": "從數位設計走向工程應用的整合型顧問，專注於 BIM 幾何放樣、建築視覺化、VR/AR 與 AIGC 在實體 GRC 外牆工程之應用。",
+        "sameAs": [
+          "https://www.arch.org.tw/News/news_more?id=c58ccd641bba4e198be1527e97750ca0",
+          "https://www.tabc.org.tw/tw/modules/news/article.php?storyid=2824&uid=14",
+          "https://www.sce.pccu.edu.tw/courses/YAD8sample"
+        ]
       }
-    ],
-    "email": "vizken@3design.biz",
-    "telephone": "+886-937-860-022",
-    "description": "從數位設計走向工程應用的整合型顧問，專注於 BIM 幾何放樣、建築視覺化、VR/AR 與 AIGC 在實體 GRC 外牆工程之應用。"
+    ]
   }
   </script>
 
@@ -1735,6 +1769,34 @@
       }
     }
 
+  
+    /* ===== 第三方官方佐證連結 (Understated Authority Links) ===== */
+    .authority-text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      color: #52525b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #d4d4d8;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+      line-height: 1.5;
+    }
+    .authority-text-link:hover, .authority-text-link:focus {
+      color: #000000;
+      text-decoration-color: #000000;
+    }
+    .monograph-authority-wrap {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-hairline);
+    }
+    .timeline-authority-wrap {
+      margin-top: 8px;
+      padding-top: 6px;
+    }
+
   </style>
 </head>
 <body>
@@ -1954,6 +2016,11 @@
             <p class="timeline-desc">
               曾任 Autodesk 種子教師，任教於資策會、恆毅教育機構與華夏技術學院，開設 AutoCAD、3ds Max 及 Revit BIM 整合實務課程，累積逾 20 年專業教學資歷。
             </p>
+            <div class="timeline-authority-wrap">
+              <a href="https://www.sce.pccu.edu.tw/courses/YAD8sample" target="_blank" rel="noopener noreferrer" class="authority-text-link">
+                中國文化大學推廣教育部｜3D MAX 教學課程紀錄 ↗
+              </a>
+            </div>
           </div>
         </div>
 
@@ -2029,6 +2096,11 @@
             <p class="timeline-desc">
               受聘擔任騰煇企業數位顧問，協助團隊將 AIGC 造型概念轉化為實體 GRC 構件製作，參與台中雅園會館外牆工程。
             </p>
+            <div class="timeline-authority-wrap">
+              <a href="https://www.tabc.org.tw/tw/modules/news/article.php?storyid=2824&amp;uid=14" target="_blank" rel="noopener noreferrer" class="authority-text-link">
+                台灣建築中心｜建築資訊模型與數位孿生專題演講 ↗
+              </a>
+            </div>
           </div>
         </div>
 
@@ -2170,6 +2242,12 @@
                 <span class="monograph-spec-tag">GRC 預鑄構件協同</span>
                 <span class="monograph-spec-tag">PPG 耐候塗裝評估</span>
               </div>
+            </div>
+
+            <div class="monograph-authority-wrap">
+              <a href="https://www.arch.org.tw/News/news_more?id=c58ccd641bba4e198be1527e97750ca0" target="_blank" rel="noopener noreferrer" class="authority-text-link">
+                台北市建築師公會｜雅園會館 AIGC 應用案例 ↗
+              </a>
             </div>
           </div>
 
