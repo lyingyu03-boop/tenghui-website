@@ -104,47 +104,6 @@
       letter-spacing: 1.5px;
     }
 
-    /* 內部跳轉次導覽列 (Sub-nav Pills) */
-    .subnav-strip {
-      background: #fafafc;
-      border-bottom: 1px solid var(--border-hairline);
-      position: sticky;
-      top: 76px;
-      z-index: 90;
-      padding: 8px 0;
-      backdrop-filter: blur(12px);
-    }
-    .subnav-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      white-space: nowrap;
-    }
-    .subnav-inner::-webkit-scrollbar {
-      display: none;
-    }
-    .subnav-pill {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 5px 14px;
-      border-radius: 20px;
-      border: 1px solid var(--border-hairline);
-      background: #ffffff;
-      transition: all 0.2s ease;
-      letter-spacing: 0.5px;
-    }
-    .subnav-pill:hover {
-      color: #000000;
-      border-color: #a1a1aa;
-      background: #f4f4f5;
-    }
 
     /* 容器設定 */
     .arch-container {
@@ -1275,19 +1234,6 @@
     </div>
   </header>
 
-  <!-- 內部跳轉次導覽列 (Sub-nav Pills) -->
-  <div class="subnav-strip">
-    <div class="subnav-inner">
-      <a href="#profile" class="subnav-pill">01 顧問首屏</a>
-      <a href="#capabilities" class="subnav-pill">02 核心能力</a>
-      <a href="#career" class="subnav-pill">03 職涯歷程</a>
-      <a href="#workflow" class="subnav-pill">04 工作流程</a>
-      <a href="#works" class="subnav-pill">05 代表案例</a>
-      <a href="#archive" class="subnav-pill">06 作品檔案</a>
-      <a href="#collaboration" class="subnav-pill">07 騰煇工程整合</a>
-      <a href="#contact" class="subnav-pill">08 合作洽詢</a>
-    </div>
-  </div>
 
   <!-- ================= Section 01: 人物首屏 (/ PROFILE /) ================= -->
   <section class="profile-hero-section" id="profile">
