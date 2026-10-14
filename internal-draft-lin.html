@@ -12,7 +12,7 @@
   <meta property="og:type" content="profile">
   <meta property="og:title" content="林明凱 ｜ 數位工程顧問 ｜ 騰煇企業 TENG SPLENDOR">
   <meta property="og:description" content="從數位設計走向工程應用的整合型顧問：BIM 幾何放樣、建築視覺化、VR/AR 到 AIGC GRC 實體工程落地。">
-  <meta property="og:image" content="https://tenghui.com.tw/img/consultant/lin-portrait.jpg">
+  <meta property="og:image" content="https://tenghui.com.tw/img/consultant/lin-portrait.webp">
   <meta property="og:url" content="https://tenghui.com.tw/internal-draft-lin.html">
 
   <!-- JSON-LD 結構化資料 (Schema Markup) -->
@@ -51,6 +51,8 @@
 
   <link rel="icon" href="img/favicon-logo.png?v=4" type="image/png">
   <link rel="apple-touch-icon" href="img/favicon-logo.png?v=4">
+  <link rel="preload" as="image" href="img/consultant/lin-portrait.webp">
+  <link rel="preload" as="image" href="img/consultant/yayuan-aigc-model-01.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -299,67 +301,85 @@
     }
 
     /* ===== Section 02: Digital x Design x Draw 能力架構 ===== */
+    /* ===== Section 02: 核心能力 (極簡建築刊物佈局，無厚重卡片) ===== */
     .capability-section {
-      padding: 40px 0 90px 0;
+      padding: 40px 0 80px 0;
       background: var(--bg-pure);
-      border-top: 1px solid var(--border-hairline);
     }
 
     .capability-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 40px;
-      margin-top: 40px;
+      margin-top: 36px;
     }
 
     .capability-col {
-      position: relative;
-      padding-top: 24px;
-      border-top: 2px solid var(--border-dark);
+      /* 去除厚重卡片邊框與灰底，回歸高雅建築刊物風 */
+      background: transparent;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .capability-tag {
       font-family: var(--font-en);
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 2px;
       color: var(--text-light);
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      letter-spacing: 2px;
       display: block;
+      margin-bottom: 8px;
     }
 
     .capability-title {
       font-family: var(--font-serif);
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--text-main);
-      margin: 0 0 14px 0;
+      margin: 0 0 10px 0;
       line-height: 1.4;
     }
 
     .capability-desc {
-      font-size: 0.93rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.9;
-      margin-bottom: 22px;
+      line-height: 1.75;
+      margin-bottom: 16px;
     }
 
     .capability-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .capability-pill {
       font-family: var(--font-en);
       font-size: 0.74rem;
-      font-weight: 600;
-      background: #f4f4f5;
-      color: var(--text-muted);
+      font-weight: 500;
+      background: #f4f4f5; /* 保留喜歡的淺灰色軟體標籤 */
+      color: #27272a;
       padding: 4px 10px;
       border-radius: 2px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width: 860px) {
+      .capability-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+      .capability-col {
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--border-hairline);
+      }
+      .capability-col:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
     }
 
     /* ===== Section 03: 職涯與教學經歷 (/ CAREER & MILESTONES /) ===== */
@@ -564,28 +584,39 @@
       position: relative;
     }
 
+    /* ===== 工程實績標題：黑灰各一行，灰色縮小 ===== */
     .filmstrip-header {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 16px;
-      padding: 0 4px 10px 4px;
-      border-bottom: 1px solid var(--border-hairline);
+      flex-direction: column; /* 黑灰色各一行！ */
+      align-items: flex-start;
+      gap: 3px;
+      margin-bottom: 12px;
     }
 
     .filmstrip-tag {
-      font-family: var(--font-en);
-      font-size: 0.78rem;
+      font-family: var(--font-sans);
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--text-main);
-      letter-spacing: 2px;
+      letter-spacing: 0.4px;
+      line-height: 1.4;
     }
 
     .filmstrip-meta {
       font-family: var(--font-en);
-      font-size: 0.74rem;
+      font-size: 0.68rem; /* 灰色字級縮小 */
+      font-weight: 600;
       color: var(--text-light);
       letter-spacing: 1px;
+    }
+
+    @media (max-width: 640px) {
+      .filmstrip-tag {
+        font-size: 0.88rem;
+      }
+      .filmstrip-meta {
+        font-size: 0.64rem;
+      }
     }
 
     .filmstrip-track {
@@ -683,29 +714,40 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.03);
     }
 
+    /* ===== 協同雙欄標題：黑灰各一行，中文標題永不斷行 ===== */
     .dual-track-header {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
+      flex-direction: column; /* 標題獨立一行，英文標註獨立一行 */
+      align-items: flex-start;
+      gap: 3px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--border-hairline);
     }
 
     .dual-track-title {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--text-main);
       letter-spacing: 0.5px;
+      line-height: 1.35;
+      white-space: nowrap; /* 確保中文字詞永不斷行 */
     }
 
     .dual-track-tag {
       font-family: var(--font-en);
-      font-size: 0.72rem;
+      font-size: 0.68rem; /* 灰色英文縮小 */
       font-weight: 700;
       color: var(--text-light);
       letter-spacing: 1.5px;
+    }
+
+    @media (max-width: 480px) {
+      .dual-track-title {
+        font-size: 1.02rem;
+        white-space: normal;
+      }
     }
 
     .dual-track-list {
@@ -1280,11 +1322,88 @@
       margin-right: 6px;
     }
 
-    /* 首屏人物肖像在手機端的緊湊收斂 */
+    /* 首屏人物肖像在手機端：不裁切等比縮小、雙欄並列、寬敞不壅擠 */
     @media (max-width: 768px) {
       .profile-hero-section {
-        padding: 24px 0 44px 0 !important;
+        padding: 24px 0 40px 0 !important;
       }
+      .profile-hero-grid {
+        display: grid !important;
+        grid-template-columns: 115px 1fr !important; /* 兩欄式！ */
+        gap: 16px !important;
+        align-items: start !important;
+      }
+      .profile-portrait-wrap {
+        width: 115px !important;
+        max-width: 115px !important;
+        margin: 0 !important;
+        border-radius: 2px !important;
+        overflow: hidden !important;
+        border: 1px solid var(--border-hairline) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+        background: #fafafc !important;
+      }
+      .profile-portrait-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important; /* 完整人物不裁切！ */
+        display: block !important;
+      }
+      .profile-text-content {
+        min-width: 0 !important;
+      }
+      .profile-meta-role {
+        font-size: 0.68rem !important;
+        letter-spacing: 1.5px !important;
+        margin-bottom: 2px !important;
+      }
+      .profile-role-zh {
+        font-size: 0.86rem !important;
+        line-height: 1.3 !important;
+      }
+      .profile-role-zh span {
+        font-size: 0.72rem !important;
+        margin-top: 2px !important;
+      }
+      .profile-name-zh {
+        font-size: 1.6rem !important;
+        margin: 3px 0 8px 0 !important;
+        line-height: 1.15 !important;
+      }
+      .profile-info-block {
+        margin-bottom: 12px !important;
+      }
+      .profile-label {
+        font-size: 0.76rem !important;
+        margin-bottom: 3px !important;
+      }
+      .profile-desc {
+        font-size: 0.82rem !important;
+        line-height: 1.58 !important;
+      }
+      .profile-contact-row {
+        margin-top: 14px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        align-items: stretch !important;
+      }
+      .profile-contact-pill {
+        padding: 6px 10px !important;
+        font-size: 0.76rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        gap: 6px !important;
+      }
+      .profile-contact-row .arch-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        padding: 7px 10px !important;
+        font-size: 0.76rem !important;
+      }
+    }
       .profile-hero-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
@@ -1541,6 +1660,81 @@
       }
     }
 
+      .nobrk { display: inline-block; white-space: nowrap; }
+  
+    /* ===== 從設計到現場：一體化緊湊工序進程面板 ===== */
+    .collab-stepper-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      background: #fafafc;
+      border: 1px solid var(--border-hairline);
+      padding: 20px 24px;
+      border-radius: 3px;
+    }
+    .stepper-node {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stepper-badge {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #18181b;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stepper-body {
+      min-width: 0;
+    }
+    .stepper-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .stepper-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    .stepper-sep {
+      color: #a1a1aa;
+      font-family: var(--font-en);
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    @media (max-width: 860px) {
+      .collab-stepper-grid {
+        grid-template-columns: 1fr 1fr; /* 手機端改為緊湊 2x2 格網，高僅 90px，一眼讀懂！ */
+        gap: 14px 16px;
+        padding: 16px 18px;
+      }
+      .stepper-sep {
+        display: none;
+      }
+      .stepper-node {
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .stepper-title {
+        font-size: 0.88rem;
+      }
+      .stepper-desc {
+        font-size: 0.74rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1584,7 +1778,7 @@
         
         <!-- 左側：肖像大圖 -->
         <div class="profile-portrait-wrap">
-          <img src="img/consultant/lin-portrait.jpg" alt="騰煇企業數位工程顧問 林明凱" class="profile-portrait-img">
+          <img src="img/consultant/lin-portrait.webp" alt="騰煇企業數位工程顧問 林明凱" class="profile-portrait-img">
         </div>
 
         <!-- 右側：結構化資料與核心定位 -->
@@ -1808,21 +2002,6 @@
           </div>
         </div>
 
-        <!-- 07: 2014 - 2022 -->
-        <div class="timeline-item">
-          <div class="timeline-marker"><div class="timeline-dot"></div></div>
-          <div class="timeline-content">
-            <div class="timeline-badge-row">
-              <span class="timeline-year">2014 - 2022</span>
-              <span class="timeline-category">RESEARCH &amp; AI</span>
-            </div>
-            <h3 class="timeline-title">朝陽科技大學視覺傳達設計研究所碩士</h3>
-            <p class="timeline-desc">
-              師承邱勇標教授/建築師，碩士論文深入探討「人工智慧在建築工程之可行性應用」，建立 AI 輔助設計與營造工程結合的研究基礎。
-            </p>
-          </div>
-        </div>
-
         <!-- 08: 2020 - 2022 -->
         <div class="timeline-item">
           <div class="timeline-marker"><div class="timeline-dot"></div></div>
@@ -1922,7 +2101,7 @@
 
       <!-- 工作流架構圖 -->
       <div class="workflow-img-box">
-        <img src="img/consultant/3d-workflow-mixer.png" alt="數位整合工作流程架構" loading="lazy">
+        <img src="img/consultant/3d-workflow-mixer.webp" alt="數位整合工作流程架構" loading="lazy">
       </div>
 
       <div class="work-caption-bar" style="border-top: none; padding-top: 0;">
@@ -1960,11 +2139,11 @@
           <div class="monograph-media-col">
             <div class="monograph-dual-photos">
               <div class="monograph-photo-card">
-                <img src="img/consultant/yayuan-aigc-model-01.png" alt="台中雅園會館 AIGC 數位雙曲造型模型" loading="lazy">
+                <img src="img/consultant/yayuan-aigc-model-01.webp" alt="台中雅園會館 AIGC 數位雙曲造型模型" loading="lazy">
                 <span class="monograph-photo-caption">01 / 概念模型：AIGC 數位雙曲造型演算模型</span>
               </div>
               <div class="monograph-photo-card">
-                <img src="img/consultant/yayuan-grc-arch-real.jpg" alt="台中雅園會館 GRC 雙曲拱門現場實體工程竣工照" loading="lazy">
+                <img src="img/consultant/yayuan-grc-arch-real.webp" alt="台中雅園會館 GRC 雙曲拱門現場實體工程竣工照" loading="lazy">
                 <span class="monograph-photo-caption">02 / 完工實景：現場 GRC 雙曲預鑄構件竣工實景</span>
               </div>
             </div>
@@ -2004,7 +2183,7 @@
           <!-- 左側：深度專業敘事 -->
           <div class="monograph-text-col">
             <div class="monograph-meta-tag">2007 - 2012 / HERITAGE & BIM ENGINEERING</div>
-            <h3 class="monograph-title">圓山臨濟護國禪寺 ＆ 高雄中鋼大樓</h3>
+            <h3 class="monograph-title">圓山臨濟護國禪寺 ＆ <span class="nobrk">高雄中鋼大樓</span></h3>
             <div class="monograph-subtitle">BIM 與幾何放樣協作</div>
             
             <p class="monograph-p">
@@ -2029,11 +2208,11 @@
           <div class="monograph-media-col">
             <div class="monograph-dual-photos">
               <div class="monograph-photo-card">
-                <img src="img/consultant/temple-bim.jpg" alt="圓山臨濟護國禪寺 BIM 仿古木構造拆解" loading="lazy">
+                <img src="img/consultant/temple-bim.webp" alt="圓山臨濟護國禪寺 BIM 仿古木構造拆解" loading="lazy">
                 <span class="monograph-photo-caption">01 / 古蹟 BIM：圓山臨濟護國禪寺仿古木構拆解模型</span>
               </div>
               <div class="monograph-photo-card">
-                <img src="img/consultant/chinasteel-bim.jpg" alt="高雄中鋼大樓複雜帷幕立體放樣" loading="lazy">
+                <img src="img/consultant/chinasteel-bim.webp" alt="高雄中鋼大樓複雜帷幕立體放樣" loading="lazy">
                 <span class="monograph-photo-caption">02 / 帷幕放樣：高雄中鋼大樓幾何放樣模型</span>
               </div>
             </div>
@@ -2049,7 +2228,7 @@
           <!-- 左側：視覺展示 (超寬景自然比例無框照片) -->
           <div class="monograph-media-col">
             <div class="monograph-single-photo">
-              <img src="img/consultant/horizon-yacht.jpg" alt="嘉鴻遊艇 Horizon Yachts 豪華遊艇精密曲面建模" loading="lazy">
+              <img src="img/consultant/horizon-yacht.webp" alt="嘉鴻遊艇 Horizon Yachts 豪華遊艇精密曲面建模" loading="lazy">
               <span class="monograph-photo-caption">Horizon Yachts：豪華遊艇流線曲面與 CAD/CAM 數位建模</span>
             </div>
           </div>
@@ -2723,31 +2902,49 @@
           </p>
         </div>
 
-        <div class="collab-flow-steps">
-          <div class="collab-step-item">
-            <div class="collab-step-num">01</div>
-            <div class="collab-step-title">設計構想</div>
-            <div class="collab-step-note">造型定位與意圖溝通</div>
+        <!-- 一體化緊湊工序進程面板 (Desktop 4欄橫向，Mobile 2x2 緊湊格網，不再分散稀疏) -->
+        <div class="collab-stepper-grid">
+          
+          <div class="stepper-node">
+            <div class="stepper-badge">01</div>
+            <div class="stepper-body">
+              <div class="stepper-title">設計構想</div>
+              <div class="stepper-desc">造型定位與意圖溝通</div>
+            </div>
           </div>
-          <div class="collab-step-arrow" aria-hidden="true">→</div>
-          <div class="collab-step-item">
-            <div class="collab-step-num">02</div>
-            <div class="collab-step-title">模型與圖面</div>
-            <div class="collab-step-note">3D 拆解與幾何整理</div>
+
+          <div class="stepper-sep" aria-hidden="true">→</div>
+
+          <div class="stepper-node">
+            <div class="stepper-badge">02</div>
+            <div class="stepper-body">
+              <div class="stepper-title">模型與圖面</div>
+              <div class="stepper-desc">3D 拆解與幾何整理</div>
+            </div>
           </div>
-          <div class="collab-step-arrow" aria-hidden="true">→</div>
-          <div class="collab-step-item">
-            <div class="collab-step-num">03</div>
-            <div class="collab-step-title">構件製作</div>
-            <div class="collab-step-note">GRC 翻模與實體成型</div>
+
+          <div class="stepper-sep" aria-hidden="true">→</div>
+
+          <div class="stepper-node">
+            <div class="stepper-badge">03</div>
+            <div class="stepper-body">
+              <div class="stepper-title">構件製作</div>
+              <div class="stepper-desc">GRC 翻模與實體成型</div>
+            </div>
           </div>
-          <div class="collab-step-arrow" aria-hidden="true">→</div>
-          <div class="collab-step-item">
-            <div class="collab-step-num">04</div>
-            <div class="collab-step-title">塗裝與工程協調</div>
-            <div class="collab-step-note">表面防護與現場安裝</div>
+
+          <div class="stepper-sep" aria-hidden="true">→</div>
+
+          <div class="stepper-node">
+            <div class="stepper-badge">04</div>
+            <div class="stepper-body">
+              <div class="stepper-title">塗裝與工程協調</div>
+              <div class="stepper-desc">表面防護與現場安裝</div>
+            </div>
           </div>
+
         </div>
+
       </div>
 
     </div>
