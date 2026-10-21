@@ -159,6 +159,146 @@
       border-top: 1px solid var(--border-color);
     }
 
+    /* 前後對比滑桿互動組件 (Before/After Slider) */
+    .ba-slider-container {
+      width: 100%;
+      max-width: 580px;
+      margin: 28px auto 26px auto;
+    }
+    .ba-viewport-shell {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 571 / 580;
+      border-radius: 4px;
+      overflow: hidden;
+      user-select: none;
+      touch-action: none;
+      cursor: ew-resize;
+      background: #18181b;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .ba-img-after-full {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
+    }
+    .ba-img-before-clip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 2;
+      clip-path: inset(0 50% 0 0);
+      border-right: 2px solid #ffffff;
+    }
+    .ba-handle-divider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: #ffffff;
+      z-index: 4;
+      transform: translateX(-50%);
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .ba-handle-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border-radius: 50%;
+      color: #1c1c1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .ba-tag-case {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 5;
+      background: rgba(24, 24, 27, 0.82);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .ba-tag-before {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      z-index: 5;
+      background: rgba(24, 24, 27, 0.82);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .ba-tag-after {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      z-index: 5;
+      background: rgba(24, 24, 27, 0.82);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .ba-caption-box {
+      font-size: 0.84rem;
+      color: var(--slate-600);
+      padding: 12px 14px;
+      background: #fafafc;
+      border: 1px solid var(--border-color);
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      line-height: 1.65;
+    }
+    .ba-caption-top {
+      font-weight: 700;
+      color: var(--slate-800);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .ba-caption-hint {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--slate-500);
+      background: #f1f2f4;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
     /* 淺色建築刊物封面卡片 (依設計原則：淺色、低對比漸層、清楚留白) */
     .article-cover-banner {
       background: linear-gradient(135deg, #fbfbfb 0%, #f1f2f4 100%);
@@ -815,16 +955,41 @@
 
         <p><strong>工程配合與適用評估：</strong>GRC 構件是否適合納入外牆更新，仍須依建築現況、原有結構承載、既有工程圖說與現場安裝條件綜合評估。</p>
 
-        <!-- GRC 實績照片展示卡片 -->
-        <div class="article-hero-box" style="margin: 28px 0 24px 0;">
-          <img decoding="async" loading="lazy" src="img/projects/grc-jinshi-longyue.jpg" alt="金石龍悅 GRC 造型工程實績" style="max-height: 540px; object-fit: cover; object-position: center;">
-          <div class="article-hero-caption">
-            GRC 造型構件應用實景 ｜ 金石龍悅（騰煇 GRC 工程實績）
+        <!-- 澎湖土銀外牆更新前後對比滑桿互動展示 -->
+        <div class="ba-slider-container">
+          <div class="ba-viewport-shell" id="facadeBaShell" title="左右滑動比對外牆更新前後效果">
+            <!-- 底層完工後照片 (AFTER) -->
+            <img class="ba-img-after-full" id="facadeAfterImg" decoding="async" loading="lazy" src="img/projects/penghu-landbank-after.jpg" alt="澎湖土地銀行外牆更新後完工實景">
+            <!-- 頂層施工前照片 (BEFORE) -->
+            <img class="ba-img-before-clip" id="facadeBeforeImg" decoding="async" loading="lazy" src="img/projects/penghu-landbank-before.jpg" alt="澎湖土地銀行外牆更新前原有磁磚外觀">
+            <!-- 中間滑桿分割線與控制圓鈕 -->
+            <div class="ba-handle-divider" id="facadeHandleLine">
+              <div class="ba-handle-circle" aria-label="拖曳比對滑桿">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18181b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="8 7 3 12 8 17"></polyline>
+                  <polyline points="16 7 21 12 16 17"></polyline>
+                  <line x1="12" y1="4" x2="12" y2="20" stroke="#a1a1aa" stroke-width="1.5"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 標籤 -->
+            <div class="ba-tag-case">澎湖馬公 ｜ 土地銀行外牆更新</div>
+            <div class="ba-tag-before">BEFORE 施工前</div>
+            <div class="ba-tag-after">AFTER 完工後</div>
+          </div>
+          <div class="ba-caption-box">
+            <div class="ba-caption-top">
+              <span>外牆修繕塗裝 ✕ GRC 造型線板與拱圈構件 ｜ 澎湖土地銀行實績</span>
+              <span class="ba-caption-hint">&harr; 左右拖曳滑桿即時比對</span>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--slate-500); line-height: 1.6;">
+              原建物面臨表面磁磚陳舊老化與外觀斑駁問題；經由外牆耐候塗裝系統翻新，並配合女兒牆簷口與立面弧拱增設 GRC 輕量造型構件，呈現煥然一新的建築立面表情。
+            </div>
           </div>
         </div>
 
-        <p style="font-size: 0.92rem; color: var(--slate-600);">
-          若欲參考更多 GRC 造型構件在不同類型建築上的實際應用案例，歡迎瀏覽騰煇官網：<a href="projects.html" style="color: var(--primary-dark); font-weight: 700; text-decoration: underline;">工程案例分享 &rarr;</a>
+        <p style="font-size: 0.92rem; color: var(--slate-600); margin-top: 18px;">
+          若欲參考更多 GRC 造型構件與塗裝更新在不同類型建築上的實際應用案例，歡迎瀏覽騰煇官網：<a href="projects.html" style="color: var(--primary-dark); font-weight: 700; text-decoration: underline;">工程案例分享 &rarr;</a>
         </p>
 
         <h2 id="owner-check">04　委託外牆更新前，業主可以先確認什麼？</h2>
@@ -939,6 +1104,46 @@
         document.body.style.overflow = isOpen ? 'hidden' : '';
       });
     }
+
+    // 澎湖土銀外牆更新前後對比滑桿互動 (Clip-Path 原生平滑控制)
+    (function initFacadeBaSlider() {
+      const shell = document.getElementById('facadeBaShell');
+      const beforeImg = document.getElementById('facadeBeforeImg');
+      const handleLine = document.getElementById('facadeHandleLine');
+      if (!shell || !beforeImg || !handleLine) return;
+
+      let isDragging = false;
+
+      function updateSlider(clientX) {
+        const rect = shell.getBoundingClientRect();
+        let x = clientX - rect.left;
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        const pct = (x / rect.width) * 100;
+        const insetRight = 100 - pct;
+
+        beforeImg.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
+        handleLine.style.left = `${pct}%`;
+      }
+
+      shell.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        try { shell.setPointerCapture(e.pointerId); } catch(err) {}
+        updateSlider(e.clientX);
+      });
+      shell.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        updateSlider(e.clientX);
+      });
+      shell.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        try { shell.releasePointerCapture(e.pointerId); } catch(err) {}
+      });
+      shell.addEventListener('pointercancel', (e) => {
+        isDragging = false;
+        try { shell.releasePointerCapture(e.pointerId); } catch(err) {}
+      });
+    })();
   </script>
 
 </body>
