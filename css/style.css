@@ -2128,6 +2128,23 @@ img {
 .article-hero-img-box:hover img {
   transform: scale(1.02);
 }
+.article-diagram-box {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 36px 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+.article-diagram-box img {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  display: block;
+}
 .article-photo-caption {
   font-size: 0.85rem;
   color: #64748b;
