@@ -326,78 +326,44 @@
         </div>
       </div>
 
-      <!-- 💥 騰煇社群短影音大圖輪播劇院 (Full-Bleed Video Theater Carousel) -->
+      <!-- 💥 騰煇社群短影音大圖輪播劇院 (直式內嵌播放劇院) -->
       <div class="section-header" style="margin-top: 50px;">
         <span class="section-tag">OFFICIAL SHORT VIDEOS</span>
-        <h2 class="section-title">騰煇社群短影音</h2>
-        <p style="font-size: 0.92rem; color: #475569; margin-top: 8px;">點擊播放按鈕即可跳轉觀看官方最新短影音紀錄</p>
+        <h2 class="section-title">騰煇官方短影音 (22 篇全紀錄)</h2>
+        <p style="font-size: 0.92rem; color: #475569; margin-top: 8px;">支援頁面直接內嵌播放，點選下方案例即可切換欣賞最新工程實務短片</p>
       </div>
 
       <div class="video-theater-container" id="videoTheater">
-        <!-- 主展示大圖劇院區 -->
+        <!-- 主展示大圖劇院區 (直接內嵌 HTML5 影片播放器) -->
         <div class="vt-main-card">
-          <div class="vt-img-wrap">
-            <img decoding="async" loading="lazy" src="img/videos/雅園新潮-封面.jpg" id="vtMainImg" alt="雅園新潮工程紀錄">
-            <div class="vt-play-overlay">
-              <a href="https://www.instagram.com/tenghui1991/" target="_blank" id="vtPlayLink" class="vt-play-btn" title="立即播放短影音">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </a>
-            </div>
-            <span class="vt-cat-badge" id="vtCatBadge">INSTAGRAM REEL</span>
+          <div class="vt-img-wrap" style="position: relative; background: #000000; display: flex; align-items: center; justify-content: center;">
+            <video id="vtMainVideo" playsinline controls preload="none" poster="img/videos/01-yayuan.webp" style="width: 100%; height: 100%; object-fit: contain; background: #000000;">
+              <source id="vtMainSource" src="videos/reels/01-yayuan.mp4" type="video/mp4">
+              您的瀏覽器不支援影片播放。
+            </video>
+            <span class="vt-cat-badge" id="vtCatBadge">OFFICIAL REEL</span>
           </div>
 
           <div class="vt-info-panel">
-            <span class="vt-counter" id="vtCounter">REEL 01 / 09</span>
+            <span class="vt-counter" id="vtCounter">REEL 01 / 22</span>
             <h3 id="vtTitle">全台首創 AI 建築實體化：雅園新潮 GRC 工程</h3>
             <p id="vtDesc">透過 3D 電腦放樣與開模技術，將立面構想真實落地佇立。</p>
-            <div style="margin-top: 24px;">
-              <a href="https://www.instagram.com/tenghui1991/" target="_blank" id="vtCtaBtn" class="btn-hero-cta" style="background: #3a3a3f; color: #ffffff; padding: 12px 24px;">▶ 播放官方短影音</a>
+            <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <button type="button" id="vtPlayToggleBtn" onclick="toggleMainVideo()" class="btn-hero-cta" style="background: #1e293b; color: #ffffff; padding: 12px 24px; border: none; cursor: pointer; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                <span id="vtPlayIcon">▶</span> <span id="vtPlayText">播放影片</span>
+              </button>
+              <button type="button" onclick="nextVideoSlide()" class="btn-hero-cta" style="background: transparent; color: #334155; border: 1px solid #cbd5e1; padding: 12px 18px; cursor: pointer; border-radius: 8px; font-weight: 600;">下一部 &rarr;</button>
             </div>
           </div>
 
           <!-- 前後切換按鈕 -->
-          <button class="vt-arrow vt-arrow-prev" onclick="prevVideoSlide()">&lsaquo;</button>
-          <button class="vt-arrow vt-arrow-next" onclick="nextVideoSlide()">&rsaquo;</button>
+          <button class="vt-arrow vt-arrow-prev" onclick="prevVideoSlide()" aria-label="上一部">&lsaquo;</button>
+          <button class="vt-arrow vt-arrow-next" onclick="nextVideoSlide()" aria-label="下一部">&rsaquo;</button>
         </div>
 
-        <!-- 底部 9 大縮圖導覽頁籤 -->
-        <div class="vt-thumbs-bar">
-          <div class="vt-thumb active" onclick="goVideoSlide(0)">
-            <img decoding="async" loading="lazy" src="img/videos/雅園新潮-封面.jpg" alt="雅園新潮">
-            <span>01. 雅園新潮</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(1)">
-            <img decoding="async" loading="lazy" src="img/videos/三井Outlet_室內滑雪場-封面.jpg" alt="三井 Outlet">
-            <span>02. 三井 Outlet</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(2)">
-            <img decoding="async" loading="lazy" src="img/videos/梅山天主堂GRC-封面.jpg" alt="梅山天主堂">
-            <span>03. 梅山天主堂</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(3)">
-            <img decoding="async" loading="lazy" src="img/videos/日出喜餅BF-封面.jpg" alt="日出喜餅">
-            <span>04. 日出喜餅</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(4)">
-            <img decoding="async" loading="lazy" src="img/videos/金石龍悅_女聲版-封面.jpg" alt="金石龍悅">
-            <span>05. 金石龍悅</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(5)">
-            <img decoding="async" loading="lazy" src="img/videos/PPG後製清水模塗料-封面.jpg" alt="PPG 清水模">
-            <span>06. PPG 清水模</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(6)">
-            <img decoding="async" loading="lazy" src="img/videos/PPG彈性佩能漆-封面.jpg" alt="PPG 佩能漆">
-            <span>07. PPG 佩能漆</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(7)">
-            <img decoding="async" loading="lazy" src="img/videos/封面_知名建築系列_1.png" alt="設計與工程">
-            <span>08. 設計與工程</span>
-          </div>
-          <div class="vt-thumb" onclick="goVideoSlide(8)">
-            <img decoding="async" loading="lazy" src="img/videos/貓頭鷹-封面.jpg" alt="公共藝術">
-            <span>09. 公共藝術</span>
-          </div>
+        <!-- 底部 22 支縮圖導覽列 -->
+        <div class="vt-thumbs-bar" id="vtThumbsBar">
+          <!-- 由 JS 自動渲染 22 支縮圖 -->
         </div>
       </div>
 
@@ -460,130 +426,353 @@
   </footer>
 
   <script>
-    // 💥 9 大社群短影音劇院輪播邏輯
+    // 💥 騰煇 22 大官方短影音資料庫
     const videoSlidesData = [
       {
-        counter: "REEL 01 / 09",
-        cat: "INSTAGRAM REEL",
+        id: "01",
+        counter: "REEL 01 / 22",
+        cat: "GRC 工程實例",
+        shortTitle: "雅園新潮 GRC",
         title: "全台首創 AI 建築實體化：雅園新潮 GRC 工程",
         desc: "透過 3D 電腦放樣與開模技術，將立面構想真實落地佇立。",
-        img: "img/videos/雅園新潮-封面.jpg",
-        url: "https://www.instagram.com/tenghui1991/"
+        video: "videos/reels/01-yayuan.mp4",
+        poster: "img/videos/01-yayuan.webp"
       },
       {
-        counter: "REEL 02 / 09",
-        cat: "FACEBOOK REEL",
+        id: "02",
+        counter: "REEL 02 / 22",
+        cat: "特殊曲面工程",
+        shortTitle: "三井室內雪場",
         title: "三井 Outlet 室內滑雪場 GRC 特殊造型工程",
         desc: "挑戰室內雪場特殊曲面與濕度要求，高精度預鑄開模與現場安全防護組裝。",
-        img: "img/videos/三井Outlet_室內滑雪場-封面.jpg",
-        url: "https://www.facebook.com/tenghui1991/reels/"
+        video: "videos/reels/02-mitsui-outlet.mp4",
+        poster: "img/videos/02-mitsui-outlet.webp"
       },
       {
-        counter: "REEL 03 / 09",
-        cat: "YOUTUBE SHORTS",
+        id: "03",
+        counter: "REEL 03 / 22",
+        cat: "宗教建築浮雕",
+        shortTitle: "梅山天主堂浮雕",
         title: "聖殿光影的工藝實踐：梅山天主堂 GRC 浮雕",
-        desc: "古典幾何浮雕與幾何線條細緻刻劃，實現宗教建築莊嚴美感與耐久防護。",
-        img: "img/videos/梅山天主堂GRC-封面.jpg",
-        url: "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts"
+        desc: "古典幾何浮雕與細緻線條刻劃，實現宗教建築莊嚴美感與耐久防護。",
+        video: "videos/reels/03-meishan-church.mp4",
+        poster: "img/videos/03-meishan-church.webp"
       },
       {
-        counter: "REEL 04 / 09",
-        cat: "INSTAGRAM REEL",
+        id: "04",
+        counter: "REEL 04 / 22",
+        cat: "立面美學重塑",
+        shortTitle: "日出喜餅立面",
         title: "重塑立面美學巔峰：日出喜餅 (BF 施工實況)",
         desc: "老建築立面美學重塑，整合 GRC 造型構件與後製清水模塗料護層。",
-        img: "img/videos/日出喜餅BF-封面.jpg",
-        url: "https://www.instagram.com/tenghui1991/"
+        video: "videos/reels/04-dawn-cake.mp4",
+        poster: "img/videos/04-dawn-cake.webp"
       },
       {
-        counter: "REEL 05 / 09",
-        cat: "FACEBOOK REEL",
+        id: "05",
+        counter: "REEL 05 / 22",
+        cat: "經典大樓線條",
+        shortTitle: "金石龍悅線條",
         title: "立面風格的整體呈現：金石龍悅 GRC 線條",
         desc: "精準控制分割縫與構件縫隙，為大樓立面增添大氣磅礡的經典線條美學。",
-        img: "img/videos/金石龍悅_女聲版-封面.jpg",
-        url: "https://www.facebook.com/tenghui1991/reels/"
+        video: "videos/reels/05-jinshi-longyue.mp4",
+        poster: "img/videos/05-jinshi-longyue.webp"
       },
       {
-        counter: "REEL 06 / 09",
-        cat: "YOUTUBE SHORTS",
+        id: "06",
+        counter: "REEL 06 / 22",
+        cat: "PPG 建築塗料",
+        shortTitle: "PPG 後製清水模",
         title: "PPG 奈米級後製清水模塗料系統實作",
         desc: "具備高透氣不透水特性，防塵耐污附著力達 1.4MPa，為建築打造質感清水模立面。",
-        img: "img/videos/PPG後製清水模塗料-封面.jpg",
-        url: "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts"
+        video: "videos/reels/06-ppg-fair-faced.mp4",
+        poster: "img/videos/06-ppg-fair-faced.webp"
       },
       {
-        counter: "REEL 07 / 09",
-        cat: "INSTAGRAM REEL",
+        id: "07",
+        counter: "REEL 07 / 22",
+        cat: "PPG 建築塗料",
+        shortTitle: "PPG 彈性佩能漆",
         title: "長效守護建築立面：PPG 彈性佩能漆工程",
         desc: "優良抗 UV 耐候性與低溫彈性，有效覆蓋外牆龜裂紋，預防壁癌滲水。",
-        img: "img/videos/PPG彈性佩能漆-封面.jpg",
-        url: "https://www.instagram.com/tenghui1991/"
+        video: "videos/reels/07-ppg-paintex.mp4",
+        poster: "img/videos/07-ppg-paintex.webp"
       },
       {
-        counter: "REEL 08 / 09",
-        cat: "FACEBOOK REEL",
-        title: "設計決定樣貌；工程決定實現｜知名建築系列",
-        desc: "美感，由設計定義。耐久，由工程守護。40年外牆工程整合經驗的實力展現。",
-        img: "img/videos/封面_知名建築系列_1.png",
-        url: "https://www.facebook.com/tenghui1991/reels/"
+        id: "08",
+        counter: "REEL 08 / 22",
+        cat: "知名建築系列",
+        shortTitle: "高第建築工藝",
+        title: "設計決定樣貌；工程決定實現｜高第建築工藝探討",
+        desc: "美感由設計定義，耐久由工程守護。40 年外牆工程整合經驗的實力展現。",
+        video: "videos/reels/08-gaudi-architecture.mp4",
+        poster: "img/videos/08-gaudi-architecture.webp"
       },
       {
-        counter: "REEL 09 / 09",
-        cat: "YOUTUBE SHORTS",
+        id: "09",
+        counter: "REEL 09 / 22",
+        cat: "公共藝術工程",
+        shortTitle: "貓頭鷹公共藝術",
         title: "公共藝術是怎麼完成的？｜貓頭鷹 GRC 造型工程",
         desc: "大型公共藝術裝置預鑄開模與現場高精度吊掛安裝全紀錄。",
-        img: "img/videos/貓頭鷹-封面.jpg",
-        url: "https://www.youtube.com/@%E9%A8%B0%E7%85%87%E4%BC%81%E6%A5%AD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/shorts"
+        video: "videos/reels/09-owl-public-art.mp4",
+        poster: "img/videos/09-owl-public-art.webp"
+      },
+      {
+        id: "10",
+        counter: "REEL 10 / 22",
+        cat: "傳統信仰工藝",
+        shortTitle: "南鯤鯓廟宇造景",
+        title: "傳統信仰與現代工藝：南鯤鯓廟宇造景工程",
+        desc: "廟宇文化與 GRC 仿石細節融合，傳承古典神韻且具備高抗候耐久性。",
+        video: "videos/reels/10-nankunshen.mp4",
+        poster: "img/videos/10-nankunshen.webp"
+      },
+      {
+        id: "11",
+        counter: "REEL 11 / 22",
+        cat: "流線曲面工程",
+        shortTitle: "札哈·哈蒂曲面",
+        title: "向大師致敬：札哈·哈蒂流線曲面工程探討",
+        desc: "解構參數化曲面與自由曲體，工程團隊如何克服幾何放樣的極限挑戰。",
+        video: "videos/reels/11-zaha-hadid.mp4",
+        poster: "img/videos/11-zaha-hadid.webp"
+      },
+      {
+        id: "12",
+        counter: "REEL 12 / 22",
+        cat: "大型地標雕塑",
+        shortTitle: "雄鷹展翅雕塑",
+        title: "雄鷹展翅立體雕塑：大型地標構件工程",
+        desc: "大型展翼老鷹造型雕塑，高抗拉輕量化 GRC 打造無死角動態美感。",
+        video: "videos/reels/12-eagle-monument.mp4",
+        poster: "img/videos/12-eagle-monument.webp"
+      },
+      {
+        id: "13",
+        counter: "REEL 13 / 22",
+        cat: "頂級別墅塗裝",
+        shortTitle: "大甲頂級別墅",
+        title: "大甲頂級別墅：外牆塗裝與滴水條防護實務",
+        desc: "細部決定成敗！配置專利防污滴水條與長效抗候塗層，讓豪宅長年無黑水痕。",
+        video: "videos/reels/13-dajia-villa.mp4",
+        poster: "img/videos/13-dajia-villa.webp"
+      },
+      {
+        id: "14",
+        counter: "REEL 14 / 22",
+        cat: "造型地景工程",
+        shortTitle: "土鳳造型地景",
+        title: "土鳳造型地景工程：自然質感與立體呈現",
+        desc: "融入自然地貌意象，結合特殊模具紋理與高強韌水泥配方複合施作。",
+        video: "videos/reels/14-earth-phoenix.mp4",
+        poster: "img/videos/14-earth-phoenix.webp"
+      },
+      {
+        id: "15",
+        counter: "REEL 15 / 22",
+        cat: "塗料極限實測",
+        shortTitle: "PPG 塗料實測",
+        title: "PPG 建築塗料極限性能實測：抗拉裂與耐刷洗",
+        desc: "親自實驗給你看！高彈性塗層延展抗裂耐候，真實數據見證防護力。",
+        video: "videos/reels/15-ppg-experiment.mp4",
+        poster: "img/videos/15-ppg-experiment.webp"
+      },
+      {
+        id: "16",
+        counter: "REEL 16 / 22",
+        cat: "細部防污配件",
+        shortTitle: "專利導水板安裝",
+        title: "外牆塗裝好了 窗台呢？｜專利導水板安裝實錄",
+        desc: "告別窗台眼淚黑斑！鋁合金導水配件將雨水精準拋離立面，徹底阻絕污染。",
+        video: "videos/reels/16-drip-sill.mp4",
+        poster: "img/videos/16-drip-sill.webp"
+      },
+      {
+        id: "17",
+        counter: "REEL 17 / 22",
+        cat: "建材知識科普",
+        shortTitle: "什麼是 GRC？",
+        title: "什麼是 GRC？耐候、輕量、造型無限的現代建材",
+        desc: "玻璃纖維強化水泥的構造特點、物理特性與建築立面應用全解析。",
+        video: "videos/reels/17-grc-introduction.mp4",
+        poster: "img/videos/17-grc-introduction.webp"
+      },
+      {
+        id: "18",
+        counter: "REEL 18 / 22",
+        cat: "複合飾板工法",
+        shortTitle: "仿石漆×金屬飾板",
+        title: "仿石漆 × 金屬複合飾板：輕量大氣的現代工藝",
+        desc: "打破石材厚重限制，以薄塗仿石系統包覆金屬基底，創造優雅商空立面。",
+        video: "videos/reels/18-granite-metal-panel.mp4",
+        poster: "img/videos/18-granite-metal-panel.webp"
+      },
+      {
+        id: "19",
+        counter: "REEL 19 / 22",
+        cat: "數位放樣工程",
+        shortTitle: "3D BIM 預鑄放樣",
+        title: "從 3D BIM 數位模型到工地現場預鑄放樣",
+        desc: "提前檢討干涉與吊點受力，讓複雜立面在工地 100% 精準吻合。",
+        video: "videos/reels/19-bim-workflow.mp4",
+        poster: "img/videos/19-bim-workflow.webp"
+      },
+      {
+        id: "20",
+        counter: "REEL 20 / 22",
+        cat: "廠辦拉皮更新",
+        shortTitle: "企業廠辦翻新",
+        title: "企業廠辦立面翻新：從老舊褪色到現代俐落風貌",
+        desc: "不影響產線正常運作下的高效率外牆拉皮整合工法，大幅提升企業資產形象。",
+        video: "videos/reels/20-factory-renovation.mp4",
+        poster: "img/videos/20-factory-renovation.webp"
+      },
+      {
+        id: "21",
+        counter: "REEL 21 / 22",
+        cat: "歐式經典會館",
+        shortTitle: "挪威森林會館",
+        title: "挪威森林休閒會館：GRC 歐式線板與立面造型",
+        desc: "浪漫古典歐式迴廊與深淺陰影層次，GRC 預鑄成型的典雅空間表情。",
+        video: "videos/reels/21-norway-forest.mp4",
+        poster: "img/videos/21-norway-forest.webp"
+      },
+      {
+        id: "22",
+        counter: "REEL 22 / 22",
+        cat: "海島耐候更新",
+        shortTitle: "澎湖土銀外牆更新",
+        title: "澎湖土地銀行外牆更新：海島鹽霧環境的耐候考驗",
+        desc: "舊磁磚全面更新為典雅灰調高耐候系統，並增設 GRC 造型拱圈簷口蛻變重生。",
+        video: "videos/reels/22-penghu-landbank.mp4",
+        poster: "img/videos/22-penghu-landbank.webp"
       }
     ];
 
     let currentVideoIdx = 0;
 
-    function renderVideoSlide(index) {
+    function renderVideoSlide(index, autoPlay = false) {
       currentVideoIdx = index;
       const data = videoSlidesData[index];
 
-      const img = document.getElementById('vtMainImg');
+      const video = document.getElementById('vtMainVideo');
       const counter = document.getElementById('vtCounter');
       const cat = document.getElementById('vtCatBadge');
       const title = document.getElementById('vtTitle');
       const desc = document.getElementById('vtDesc');
-      const playLink = document.getElementById('vtPlayLink');
-      const ctaBtn = document.getElementById('vtCtaBtn');
       const thumbs = document.querySelectorAll('.vt-thumb');
+      const playIcon = document.getElementById('vtPlayIcon');
+      const playText = document.getElementById('vtPlayText');
 
       thumbs.forEach((t, i) => {
-        if (i === index) t.classList.add('active');
-        else t.classList.remove('active');
+        if (i === index) {
+          t.classList.add('active');
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          t.classList.remove('active');
+        }
       });
-
-      if (img) {
-        img.style.opacity = '0.2';
-        setTimeout(() => {
-          img.src = data.img;
-          img.style.opacity = '1';
-        }, 180);
-      }
 
       if (counter) counter.innerText = data.counter;
       if (cat) cat.innerText = data.cat;
       if (title) title.innerText = data.title;
       if (desc) desc.innerText = data.desc;
-      if (playLink) playLink.href = data.url;
-      if (ctaBtn) ctaBtn.href = data.url;
+
+      if (video) {
+        const wasPlaying = !video.paused;
+        video.pause();
+        video.poster = data.poster;
+        video.src = data.video;
+        video.load();
+
+        if (autoPlay || wasPlaying) {
+          video.play().then(() => {
+            if (playIcon) playIcon.innerText = '⏸';
+            if (playText) playText.innerText = '暫停播放';
+          }).catch(() => {
+            if (playIcon) playIcon.innerText = '▶';
+            if (playText) playText.innerText = '播放影片';
+          });
+        } else {
+          if (playIcon) playIcon.innerText = '▶';
+          if (playText) playText.innerText = '播放影片';
+        }
+      }
+    }
+
+    function toggleMainVideo() {
+      const video = document.getElementById('vtMainVideo');
+      const playIcon = document.getElementById('vtPlayIcon');
+      const playText = document.getElementById('vtPlayText');
+      if (!video) return;
+
+      if (video.paused) {
+        video.play().then(() => {
+          if (playIcon) playIcon.innerText = '⏸';
+          if (playText) playText.innerText = '暫停播放';
+        }).catch(err => {
+          console.warn('Playback error:', err);
+        });
+      } else {
+        video.pause();
+        if (playIcon) playIcon.innerText = '▶';
+        if (playText) playText.innerText = '播放影片';
+      }
     }
 
     function nextVideoSlide() {
       let nextIdx = (currentVideoIdx + 1) % videoSlidesData.length;
-      renderVideoSlide(nextIdx);
+      renderVideoSlide(nextIdx, false);
     }
 
     function prevVideoSlide() {
       let prevIdx = (currentVideoIdx - 1 + videoSlidesData.length) % videoSlidesData.length;
-      renderVideoSlide(prevIdx);
+      renderVideoSlide(prevIdx, false);
     }
 
     function goVideoSlide(idx) {
-      renderVideoSlide(idx);
+      renderVideoSlide(idx, true);
+    }
+
+    function initVideoTheater() {
+      const thumbsBar = document.getElementById('vtThumbsBar');
+      if (thumbsBar) {
+        thumbsBar.innerHTML = videoSlidesData.map((item, idx) => `
+          <div class="vt-thumb ${idx === 0 ? 'active' : ''}" onclick="goVideoSlide(${idx})" title="${item.title}" style="cursor: pointer;">
+            <img src="${item.poster}" alt="${item.title}" loading="lazy">
+            <span>${item.id}. ${item.shortTitle}</span>
+          </div>
+        `).join('');
+      }
+
+      const video = document.getElementById('vtMainVideo');
+      if (video) {
+        video.addEventListener('play', () => {
+          const playIcon = document.getElementById('vtPlayIcon');
+          const playText = document.getElementById('vtPlayText');
+          if (playIcon) playIcon.innerText = '⏸';
+          if (playText) playText.innerText = '暫停播放';
+        });
+        video.addEventListener('pause', () => {
+          const playIcon = document.getElementById('vtPlayIcon');
+          const playText = document.getElementById('vtPlayText');
+          if (playIcon) playIcon.innerText = '▶';
+          if (playText) playText.innerText = '播放影片';
+        });
+        video.addEventListener('ended', () => {
+          const playIcon = document.getElementById('vtPlayIcon');
+          const playText = document.getElementById('vtPlayText');
+          if (playIcon) playIcon.innerText = '↺';
+          if (playText) playText.innerText = '重新播放';
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVideoTheater);
+    } else {
+      initVideoTheater();
     }
   </script>
 

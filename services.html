@@ -542,6 +542,8 @@
             if (targetIdx !== -1) renderGrcSlide(targetIdx);
           }
         </script>
+      </section>
+
       <!-- 2. 建築外牆高耐候塗料系統 (PPG 申紐麗漆) -->
       <section id="ppg" class="service-card-rwd">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
@@ -778,48 +780,50 @@
           外牆長效乾淨的關鍵細節！搭配專利鋁合金與不鏽鋼滴水條、導水板，有效導引雨水避免牆面產生髒污黑水痕。
         </p>
 
-        <!-- 💥 社群短影音實務展示 (4:3 比例 雙欄影音卡片) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 24px;">
+        <!-- 💥 細部配件實務短影音展示 (內嵌影音播放卡片) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
           
-          <!-- 左：導水板社群影片 -->
-          <a href="https://www.instagram.com/reel/DcxjrlMkuPy/" target="_blank" class="ig-video-card" style="position: relative; display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-decoration: none;">
-            <div style="aspect-ratio: 4/3; width: 100%; overflow: hidden; background: #0f172a; position: relative;">
-              <img decoding="async" loading="lazy" src="img/videos/ig-cover-dripsil.webp" alt="導水板社群影片" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" class="video-cover-img">
-              <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.2) 60%, transparent 100%);"></div>
-              
-              <!-- 播放按鈕圖示 -->
-              <div class="play-btn-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: #0f172a; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
+          <!-- 左：導水板實務影片 (16.導水板) -->
+          <div class="embedded-video-card" style="background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; display: flex; flex-direction: column;">
+            <div style="position: relative; width: 100%; height: 380px; background: #000000; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+              <video id="accVideo1" preload="none" playsinline controls poster="img/videos/16-drip-sill.webp" style="width: 100%; height: 100%; object-fit: contain; display: block; background: #000000;">
+                <source src="videos/reels/16-drip-sill.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+              </video>
+            </div>
+            <div style="padding: 18px 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="display: inline-block; background: #0f172a; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.5px;">窗台配件實務</span>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin: 0 0 6px 0; line-height: 1.4;">外牆塗裝好了 窗台呢？｜專利導水板安裝實錄</h4>
+                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin: 0;">告別窗台眼淚黑斑！鋁合金導水配件將雨水精準拋離立面，徹底阻絕窗角黑水痕污染。</p>
               </div>
-
-              <!-- 底部資訊標籤 -->
-              <div style="position: absolute; bottom: 18px; left: 18px; right: 18px; color: #ffffff;">
-                <span style="display: inline-block; background: #e1306c; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.5px;">IG REEL 短影音</span>
-                <h4 style="font-size: 1.05rem; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; line-height: 1.4;">外牆塗裝好了 窗台呢？ (導水板案例)</h4>
-                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.85); margin: 0;">點擊開啟 Instagram 觀看完整短影音 ➔</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94a3b8;">40 秒實務紀錄</span>
+                <button type="button" onclick="const v=document.getElementById('accVideo1'); v.paused ? v.play() : v.pause();" style="border: none; background: #0f172a; color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer;">▶ 播放影片</button>
               </div>
             </div>
-          </a>
+          </div>
 
-          <!-- 右：PPG佩能漆X滴水條 8年案例 -->
-          <a href="https://www.instagram.com/reel/Db7jE-HjQYO/" target="_blank" class="ig-video-card" style="position: relative; display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-decoration: none;">
-            <div style="aspect-ratio: 4/3; width: 100%; overflow: hidden; background: #0f172a; position: relative;">
-              <img decoding="async" loading="lazy" src="img/videos/ig-cover-ppg8yr.webp" alt="PPG佩能漆X滴水條 8年案例社群影片" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" class="video-cover-img">
-              <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.2) 60%, transparent 100%);"></div>
-              
-              <!-- 播放按鈕圖示 -->
-              <div class="play-btn-circle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: rgba(255,255,255,0.92); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-                <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; fill: #0f172a; margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
+          <!-- 右：大甲別墅滴水條實務 (13.大甲別墅) -->
+          <div class="embedded-video-card" style="background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; display: flex; flex-direction: column;">
+            <div style="position: relative; width: 100%; height: 380px; background: #000000; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+              <video id="accVideo2" preload="none" playsinline controls poster="img/videos/13-dajia-villa.webp" style="width: 100%; height: 100%; object-fit: contain; display: block; background: #000000;">
+                <source src="videos/reels/13-dajia-villa.mp4" type="video/mp4">
+                您的瀏覽器不支援影片播放。
+              </video>
+            </div>
+            <div style="padding: 18px 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <span style="display: inline-block; background: #0f172a; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.5px;">滴水條實務</span>
+                <h4 style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin: 0 0 6px 0; line-height: 1.4;">大甲頂級別墅：外牆塗裝與滴水條防護實務</h4>
+                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.6; margin: 0;">細部決定成敗！配置專利防污滴水條與長效抗候塗層，讓豪宅外牆歷久彌新不留污痕。</p>
               </div>
-
-              <!-- 底部資訊標籤 -->
-              <div style="position: absolute; bottom: 18px; left: 18px; right: 18px; color: #ffffff;">
-                <span style="display: inline-block; background: #e1306c; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.5px;">IG REEL 短影音</span>
-                <h4 style="font-size: 1.05rem; font-weight: 800; color: #ffffff; margin: 0 0 4px 0; line-height: 1.4;">PPG 彈性佩能漆 × 滴水條 (8 年實績驗證)</h4>
-                <p style="font-size: 0.8rem; color: rgba(255,255,255,0.85); margin: 0;">點擊開啟 Instagram 觀看完整短影音 ➔</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.78rem; color: #94a3b8;">45 秒實務紀錄</span>
+                <button type="button" onclick="const v=document.getElementById('accVideo2'); v.paused ? v.play() : v.pause();" style="border: none; background: #0f172a; color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 6px; cursor: pointer;">▶ 播放影片</button>
               </div>
             </div>
-          </a>
+          </div>
 
         </div>
       </section>
