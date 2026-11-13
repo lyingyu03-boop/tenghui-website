@@ -1085,6 +1085,51 @@
       transition: background 0.2s ease;
       white-space: nowrap;
     }
+    
+    .caption-share-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 5px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .caption-share-btn:hover {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #ffffff;
+    }
+    .caption-share-btn.copied {
+      background: #10b981;
+      color: #ffffff;
+      border-color: #10b981;
+    }
+    .btn-card-share {
+      background: transparent;
+      color: #64748b;
+      border: 1px solid #e2e8f0;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+    .btn-card-share:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
     .caption-cta-btn:hover {
       background: #dc2626;
     }
@@ -1252,7 +1297,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(0)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-01')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1276,7 +1327,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(1)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-02')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1300,7 +1357,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(2)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-03')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1324,7 +1387,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(3)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-04')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1348,7 +1417,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(4)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-05')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1372,7 +1447,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(5)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-06')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1396,7 +1477,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(6)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-07')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1420,7 +1507,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(7)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-grc.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-08')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-grc.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1444,7 +1537,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(8)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-09')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1468,7 +1567,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(9)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-10')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1492,7 +1597,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(10)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-ai-bim.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-11')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-ai-bim.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1516,7 +1627,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(11)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-12')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1540,7 +1657,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(12)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-13')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1564,7 +1687,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(13)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-14')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1588,7 +1717,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(14)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-15')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-ppg-coatings.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1612,7 +1747,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(15)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="articles.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-16')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="articles.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1636,7 +1777,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(16)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-grc.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-17')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-grc.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1660,7 +1807,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(17)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-stone.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-18')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-stone.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1684,7 +1837,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(18)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-bim-what-is-bim.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-19')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-bim-what-is-bim.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1708,7 +1867,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(19)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-07-xiaomofang-factory-retrofit.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-20')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-07-xiaomofang-factory-retrofit.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1732,7 +1897,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(20)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-21')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="projects.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1756,7 +1927,13 @@
               <button class="btn-play-trigger" onclick="openReelModal(21)">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> 觀看影片
               </button>
-              <a href="article-facade-renovation-2026.html" class="btn-case-link">工程案例 ↗</a>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="btn-card-share" onclick="copyReelLink(event, 'reel-22')" title="複製專屬分享連結">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>分享</span>
+                </button>
+                <a href="article-facade-renovation-2026.html" class="btn-case-link">工程案例 ↗</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1798,6 +1975,10 @@
           <h3 class="stage-project-title" id="modalProjectTitle">台中 雅園新潮 ｜ GRC 雙曲面工程</h3>
         </div>
         <div class="stage-caption-cta">
+          <button class="caption-share-btn" id="modalShareBtn" title="複製此部影片專屬分享連結">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            <span id="modalShareText">分享連結</span>
+          </button>
           <a href="contact.html" class="caption-cta-btn">專案諮詢</a>
           <a href="#" class="caption-detail-link" id="modalDetailLink">工程案例 ↗</a>
         </div>
@@ -1955,6 +2136,48 @@
       });
     }
 
+    
+    // 複製分享連結功能 (一鍵複製專屬 URL)
+    window.copyReelLink = function(event, reelId) {
+      if (event) event.stopPropagation();
+      const shareUrl = `https://tenghui.com.tw/reels.html#${reelId}`;
+      const btn = event ? event.currentTarget : null;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        if (btn) {
+          const origHtml = btn.innerHTML;
+          btn.innerHTML = '<span>已複製 ✓</span>';
+          btn.style.borderColor = '#10b981';
+          btn.style.color = '#10b981';
+          setTimeout(() => {
+            btn.innerHTML = origHtml;
+            btn.style.borderColor = '';
+            btn.style.color = '';
+          }, 2000);
+        }
+      }).catch(() => {
+        prompt('請複製此部影片專屬分享連結：', shareUrl);
+      });
+    };
+
+    const modalShareBtn = document.getElementById('modalShareBtn');
+    const modalShareText = document.getElementById('modalShareText');
+    if (modalShareBtn) {
+      modalShareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const currentReel = reelsData[currentReelIndex];
+        const shareUrl = `https://tenghui.com.tw/reels.html#${currentReel.id}`;
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          modalShareBtn.classList.add('copied');
+          modalShareText.textContent = '已複製連結！';
+          setTimeout(() => {
+            modalShareBtn.classList.remove('copied');
+            modalShareText.textContent = '分享連結';
+          }, 2000);
+        }).catch(() => {
+          prompt('請複製此部影片專屬分享連結：', shareUrl);
+        });
+      });
+    }
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeReelModal);
     if (modalNextBtn) modalNextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
