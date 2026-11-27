@@ -3,7 +3,8 @@
  * 功能：
  * 1. 建築專業權威基準（自然非整數基數）+ 真人每次造訪/重整即時累加
  * 2. 文章目錄頁 (articles.html) 與各專題內頁即時雙向連動 (支援 pageshow / bfcache)
- * 3. 整合 Google Analytics 4 (GA4) 深度閱讀事件（進度 50%、完讀、諮詢轉化）
+ * 3. 整合 Google Analytics 4 (GA4: G-GZMFTBL9TT) 全站即時事件紀錄
+ * 4. 記錄真實商業轉化事件（加 LINE、撥打電話、CAD 上傳、50% 深入閱讀、90% 完讀）
  */
 
 (function () {
@@ -25,6 +26,33 @@
 
   const DEFAULT_BASE_VIEW = 1583;
 
+  // 記錄真實行為事件日誌（持久化保存於瀏覽器，提供後台即時核對）
+  function logRealEvent(eventName, details) {
+    try {
+      const logs = JSON.parse(localStorage.getItem('th_event_logs') || '[]');
+      const newEntry = {
+        id: 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4),
+        time: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false }),
+        timestamp: Date.now(),
+        event: eventName,
+        page: window.location.pathname.split('/').pop() || 'index.html',
+        title: document.title.split('｜')[0].trim(),
+        details: details || {}
+      };
+      logs.unshift(newEntry);
+      // 保留最新 150 筆真實紀錄
+      if (logs.length > 150) logs.pop();
+      localStorage.setItem('th_event_logs', JSON.stringify(logs));
+
+      // 同時累加事件計數器
+      const countKey = 'th_counter_' + eventName;
+      const count = parseInt(localStorage.getItem(countKey) || '0', 10) + 1;
+      localStorage.setItem(countKey, count.toString());
+    } catch (e) {
+      console.warn('Logging error:', e);
+    }
+  }
+
   // 格式化數字 (例如: 2437 -> 2,437)
   function formatNumber(num) {
     return Number(num).toLocaleString('en-US');
@@ -42,6 +70,9 @@
     let extra = parseInt(localStorage.getItem('th_views_' + articleId) || '0', 10);
     extra += 1;
     localStorage.setItem('th_views_' + articleId, extra.toString());
+
+    // 寫入本地真實日誌
+    logRealEvent('article_view', { articleId: articleId, totalViews: extra });
 
     // GA4 內部精準分析事件觸發
     if (typeof window.gtag === 'function') {
@@ -114,6 +145,7 @@
 
       if (!triggered50 && scrollPercent >= 50) {
         triggered50 = true;
+        logRealEvent('article_progress_50', { articleId: articleId, percent: 50 });
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'article_read_progress', {
             article_id: articleId,
@@ -124,6 +156,7 @@
 
       if (!triggeredComplete && scrollPercent >= 90) {
         triggeredComplete = true;
+        logRealEvent('article_complete_90', { articleId: articleId, percent: 90 });
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'article_read_complete', {
             article_id: articleId,
@@ -133,6 +166,50 @@
       }
     }, { passive: true });
   }
+
+  // 全站自動監聽加 LINE 與撥打電話點擊 (轉化動作)
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('a');
+    if (!target) return;
+    const href = target.getAttribute('href') || '';
+
+    // 1. 點擊加 LINE 官方諮詢
+    if (href.includes('line.me') || href.includes('line.naver.jp')) {
+      const label = target.textContent.trim().slice(0, 30) || '加 LINE 諮詢按鈕';
+      logRealEvent('click_line', { label: label, href: href });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'click_line', {
+          event_category: 'conversion',
+          event_label: label,
+          page_location: window.location.href
+        });
+      }
+    } 
+    // 2. 點擊撥打業務專線
+    else if (href.startsWith('tel:')) {
+      const phoneNum = href.replace('tel:', '');
+      logRealEvent('click_phone', { phone: phoneNum });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'click_phone', {
+          event_category: 'conversion',
+          phone_number: phoneNum,
+          page_location: window.location.href
+        });
+      }
+    }
+  });
+
+  // 全站自動監聽表單諮詢送出
+  document.addEventListener('submit', function(e) {
+    const form = e.target;
+    logRealEvent('form_submit', { formId: form.id || 'inquiry_form', action: form.action || 'submit' });
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'conversion',
+        page_location: window.location.href
+      });
+    }
+  });
 
   // 頁面載入後自動執行 (支援一般載入與 bfcache pageshow)
   if (document.readyState === 'loading') {
@@ -149,6 +226,7 @@
   window.TengHuiAnalytics = {
     getViews: getViews,
     incrementView: incrementView,
-    formatNumber: formatNumber
+    formatNumber: formatNumber,
+    logRealEvent: logRealEvent
   };
 })();
