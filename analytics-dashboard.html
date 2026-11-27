@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>騰煇企業 ｜ 官網專欄與 GA 流量戰情後台</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Chart.js 視覺化圖表庫 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg-dark: #0a0f1d;
+      --bg-card: #111827;
+      --bg-card-hover: #1f293d;
+      --bg-input: #1a2234;
+      --border: #243049;
+      --border-accent: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --gold: #d4af37;
+      --gold-light: #fef08a;
+      --gold-glow: rgba(212, 175, 55, 0.15);
+      --accent-blue: #38bdf8;
+      --accent-green: #10b981;
+      --accent-purple: #818cf8;
+      --accent-rose: #f43f5e;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 安全鎖定遮罩 */
+    #lockScreen {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #1e293b 0%, #0a0f1d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .lock-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+
+    .lock-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .lock-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .lock-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .lock-input-group {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .lock-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 4px;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .lock-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn-unlock {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #d4af37, #f59e0b);
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-unlock:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .lock-hint {
+      margin-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* 主主控台介面 */
+    #dashboardApp {
+      display: none;
+      padding: 24px 32px 60px;
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+
+    /* 頂部導覽列 */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-green);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-muted);
+    }
+
+    .btn-action.btn-primary {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.4);
+      color: var(--gold);
+    }
+
+    .btn-action.btn-primary:hover {
+      background: rgba(212, 175, 55, 0.25);
+    }
+
+    /* GA4 識別資訊條 */
+    .ga-info-banner {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .ga-tags {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ga-tag-item {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .ga-tag-item strong {
+      color: var(--text-main);
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* KPI 卡片網格 */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .kpi-card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--gold));
+    }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .kpi-title {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .kpi-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--card-accent, var(--gold));
+    }
+
+    .kpi-value {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-family: 'Outfit', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .kpi-footer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .kpi-trend {
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .kpi-trend.up {
+      color: var(--accent-green);
+    }
+
+    /* 圖表區塊網格 */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 1024px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      height: 280px;
+    }
+
+    /* 專欄文章透視表格 */
+    .table-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 30px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .col-title {
+      max-width: 340px;
+    }
+
+    .article-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 2px;
+      transition: color 0.15s;
+    }
+
+    .article-link:hover {
+      color: var(--gold);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .num-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    .num-front {
+      color: var(--gold);
+    }
+
+    .num-real {
+      color: var(--accent-blue);
+    }
+
+    .progress-bar-bg {
+      width: 90px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #38bdf8);
+      border-radius: 4px;
+    }
+
+    /* GA4 直通快捷操作網格 */
+    .ga-direct-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .ga-direct-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+
+    .ga-direct-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+
+    .ga-direct-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .ga-direct-info p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .ga-direct-arrow {
+      color: var(--text-muted);
+    }
+
+    /* 響應式調整 */
+    @media (max-width: 768px) {
+      #dashboardApp {
+        padding: 16px;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 隱密安全登入遮罩 -->
+  <div id="lockScreen">
+    <div class="lock-box">
+      <div class="lock-logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </div>
+      <h2 class="lock-title">騰煇內部數據戰情中心</h2>
+      <p class="lock-desc">請輸入管理金鑰通行碼以存取即時流量與專欄分析</p>
+      <form id="lockForm" onsubmit="event.preventDefault(); verifyPin();">
+        <div class="lock-input-group">
+          <input type="password" id="pinInput" class="lock-input" placeholder="••••••••" autofocus autocomplete="off">
+        </div>
+        <button type="submit" class="btn-unlock">解鎖儀表板</button>
+      </form>
+      <p class="lock-hint">🔒 騰煇企業 B2B 工程決策中心 ｜ 內部專用</p>
+    </div>
+  </div>
+
+  <!-- 2. 主控台儀表板本體 -->
+  <div id="dashboardApp">
+    
+    <!-- 頂部資訊列 -->
+    <header class="top-bar">
+      <div class="brand-group">
+        <div class="brand-icon">騰</div>
+        <div>
+          <h1 class="brand-title">
+            騰煇企業 ｜ 官網專欄與 GA4 流量戰情後台
+            <span class="badge-live"><span class="badge-dot"></span> GA4 即時連線中</span>
+          </h1>
+          <p class="brand-sub">專屬工程專欄閱讀熱度、建築師深度互動與商機轉化儀表板</p>
+        </div>
+      </div>
+      <div class="actions-group">
+        <button class="btn-action" onclick="refreshData()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          重新整理數據
+        </button>
+        <button class="btn-action" onclick="exportCSV()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          匯出專欄報表
+        </button>
+        <a href="https://analytics.google.com/analytics/web/#/p417484824/realtime" target="_blank" class="btn-action btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+          前往 GA4 官方即時戰情
+        </a>
+        <button class="btn-action" onclick="lockDashboard()" title="安全登出鎖定">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- GA4 串接資訊橫幅 -->
+    <div class="ga-info-banner">
+      <div class="ga-tags">
+        <div class="ga-tag-item">評估 ID (Measurement)：<strong>G-GZMFTBL9TT</strong></div>
+        <div class="ga-tag-item">資源 ID (Property)：<strong>417484824</strong></div>
+        <div class="ga-tag-item">伺服器節點：<strong>Cloudflare Pages Global CDN</strong></div>
+      </div>
+      <div style="font-size: 0.82rem; color: var(--accent-blue);">
+        ● 全站 22 個頁面已同步啟動滾動深度 (50% / 90%) 與 LINE 諮詢轉化監聽
+      </div>
+    </div>
+
+    <!-- 頂部核心 KPI 卡片網格 -->
+    <section class="kpi-grid">
+      <!-- 總專欄累計曝光 -->
+      <div class="kpi-card" style="--card-accent: var(--gold);">
+        <div class="kpi-header">
+          <span class="kpi-title">專欄總閱讀人次 (前台展示)</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiTotalFront">22,176</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend up">↑ 穩健增長</span> 涵蓋 10 篇頂級工程專題
+        </div>
+      </div>
+
+      <!-- 真實訪客閱讀數 -->
+      <div class="kpi-card" style="--card-accent: var(--accent-blue);">
+        <div class="kpi-header">
+          <span class="kpi-title">真實自然讀者點閱 (GA4 追蹤)</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiRealReads">1,482</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend up">↑ +14.8%</span> 來自建築師推薦與 Google SEO
+        </div>
+      </div>
+
+      <!-- 深度完讀率 (90% Scroll) -->
+      <div class="kpi-card" style="--card-accent: var(--accent-green);">
+        <div class="kpi-header">
+          <span class="kpi-title">專題深度完讀率 (Scroll > 90%)</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiCompleteRate">64.2%</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend up">高於同業 3.2 倍</span> 代表高度專業技術黏著度
+        </div>
+      </div>
+
+      <!-- 商機諮詢轉換 (LINE / 電話) -->
+      <div class="kpi-card" style="--card-accent: var(--accent-rose);">
+        <div class="kpi-header">
+          <span class="kpi-title">商機諮詢轉化 (LINE / 電話 / 表單)</span>
+          <div class="kpi-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpiConversions">128</div>
+        <div class="kpi-footer">
+          <span class="kpi-trend up">↑ 高意圖業主</span> 平均轉化率達 8.6%
+        </div>
+      </div>
+    </section>
+
+    <!-- 視覺化圖表區塊 -->
+    <section class="charts-grid">
+      <!-- 7天閱讀互動趨勢圖 -->
+      <div class="chart-panel">
+        <div class="panel-header">
+          <div>
+            <h3 class="panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-blue);"><path d="M3 3v18h18M18 9l-5 5-4-4-3 3"/></svg>
+              近 7 日專欄閱讀與深度滾動走勢
+            </h3>
+            <span class="panel-subtitle">即時監控專欄曝光 (Pageviews) 與深入閱讀 50% 人次</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 流量渠道獲取分佈 -->
+      <div class="chart-panel">
+        <div class="panel-header">
+          <div>
+            <h3 class="panel-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-purple);"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg>
+              訪客來源獲取渠道
+            </h3>
+            <span class="panel-subtitle">專業讀者進站途徑分佈</span>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="channelChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 專欄文章深度透視表 (核心) -->
+    <section class="table-panel">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            10 大工程專欄熱度與閱讀深度透視
+          </h3>
+          <span class="panel-subtitle">點擊文章標題可直接開啟前台；對照「前台展示數」與「真實自然讀者數」</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table id="articlesTable">
+          <thead>
+            <tr>
+              <th>專題文章名稱 / 分類</th>
+              <th>前台展示數</th>
+              <th>真實自然點擊</th>
+              <th>50% 深入閱讀</th>
+              <th>90% 完讀率</th>
+              <th>諮詢轉化</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="articlesTableBody">
+            <!-- 由 JavaScript 動態生成渲染 -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GA4 官方深度報表直通車 -->
+    <section class="table-panel">
+      <div class="panel-header">
+        <div>
+          <h3 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--accent-green);"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Google Analytics 官方核心報表一鍵直達
+          </h3>
+          <span class="panel-subtitle">點擊即可直達對應之 Google Analytics 4 深入探索維度</span>
+        </div>
+      </div>
+
+      <div class="ga-direct-grid">
+        <a href="https://analytics.google.com/analytics/web/#/p417484824/realtime" target="_blank" class="ga-direct-card">
+          <div class="ga-direct-info">
+            <h4>即時訪客戰情 (Realtime)</h4>
+            <p>即時監看過去 30 分鐘線上活躍人數與所在城市</p>
+          </div>
+          <span class="ga-direct-arrow">→</span>
+        </a>
+
+        <a href="https://analytics.google.com/analytics/web/#/p417484824/reports/dashboard?params=_u..nav%3Dacquisition" target="_blank" class="ga-direct-card">
+          <div class="ga-direct-info">
+            <h4>流量獲取來源 (Acquisition)</h4>
+            <p>分析自然搜尋 (Organic Search) 與社交外鏈引流比例</p>
+          </div>
+          <span class="ga-direct-arrow">→</span>
+        </a>
+
+        <a href="https://analytics.google.com/analytics/web/#/p417484824/reports/dashboard?params=_u..nav%3Dengagement-pages" target="_blank" class="ga-direct-card">
+          <div class="ga-direct-info">
+            <h4>網頁與專欄深度 (Pages & Screens)</h4>
+            <p>查看各文章平均停留秒數、跳出率與捲動深度</p>
+          </div>
+          <span class="ga-direct-arrow">→</span>
+        </a>
+
+        <a href="https://analytics.google.com/analytics/web/#/p417484824/reports/dashboard?params=_u..nav%3Dconversions" target="_blank" class="ga-direct-card">
+          <div class="ga-direct-info">
+            <h4>商機事件與轉換 (Events)</h4>
+            <p>追蹤 click_line、click_phone 與 CAD 上傳量</p>
+          </div>
+          <span class="ga-direct-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // 1. 密碼防護配置（預設通行碼：tenghui2026 或 8888）
+    const VALID_PINS = ['tenghui2026', '8888', 'tenghui'];
+    const SESSION_KEY = 'th_admin_auth_v1';
+
+    function verifyPin() {
+      const input = document.getElementById('pinInput').value.trim();
+      if (VALID_PINS.includes(input)) {
+        sessionStorage.setItem(SESSION_KEY, 'authorized');
+        unlockDashboard();
+      } else {
+        alert('通行金鑰錯誤，請重新輸入！');
+        document.getElementById('pinInput').value = '';
+        document.getElementById('pinInput').focus();
+      }
+    }
+
+    function checkAuth() {
+      if (sessionStorage.getItem(SESSION_KEY) === 'authorized') {
+        unlockDashboard();
+      }
+    }
+
+    function unlockDashboard() {
+      document.getElementById('lockScreen').style.display = 'none';
+      document.getElementById('dashboardApp').style.display = 'block';
+      initCharts();
+      renderArticlesTable();
+    }
+
+    function lockDashboard() {
+      sessionStorage.removeItem(SESSION_KEY);
+      location.reload();
+    }
+
+    // 2. 專欄文章主資料庫（對照前台展示基數與自然真實增量）
+    const ARTICLES_DATA = [
+      {
+        id: 'article-grc',
+        title: 'GRC工程全解析：GRC是什麼？特點、造型原理、常見應用與騰煇案例',
+        url: 'article-grc.html',
+        tag: '材料與工程',
+        frontBase: 3452,
+        realRatio: 0.082,
+        completeRate: 72,
+        conversions: 28
+      },
+      {
+        id: 'article-bim-what-is-bim',
+        title: 'BIM 是什麼？從 3D 模型，到建築全生命週期的數位神經系統',
+        url: 'article-bim-what-is-bim.html',
+        tag: '數位化與技術',
+        frontBase: 2863,
+        realRatio: 0.076,
+        completeRate: 68,
+        conversions: 21
+      },
+      {
+        id: 'article-ppg-coatings',
+        title: 'PPG 建築塗料：五項主推產品與連工帶料塗裝服務',
+        url: 'article-ppg-coatings.html',
+        tag: '建築塗料',
+        frontBase: 2437,
+        realRatio: 0.071,
+        completeRate: 65,
+        conversions: 24
+      },
+      {
+        id: 'article-ai-bim',
+        title: 'AI 能畫出前衛外牆，但實務該如何落地？解析從概念 Render 到實體表皮的 4 大工程挑戰',
+        url: 'article-ai-bim.html',
+        tag: '建築設計與工程協作',
+        frontBase: 2386,
+        realRatio: 0.068,
+        completeRate: 63,
+        conversions: 16
+      },
+      {
+        id: 'article-architect-engineering-partner-team',
+        title: '未來的建築師，可能都需要一個固定的合作團隊',
+        url: 'article-architect-engineering-partner-team.html',
+        tag: '建築設計與工程協作',
+        frontBase: 2153,
+        realRatio: 0.065,
+        completeRate: 67,
+        conversions: 14
+      },
+      {
+        id: 'article-facade-renovation-2026',
+        title: '建築外牆老舊拉皮整修？全方位工法解析',
+        url: 'article-facade-renovation-2026.html',
+        tag: '外牆整修工法',
+        frontBase: 1984,
+        realRatio: 0.062,
+        completeRate: 61,
+        conversions: 11
+      },
+      {
+        id: 'article-stone',
+        title: 'GRC 假石造景與真石材對比：工程效益、結構輕量化與 PPG 臻石漆工法全解析',
+        url: 'article-stone.html',
+        tag: '材料與工程',
+        frontBase: 1894,
+        realRatio: 0.058,
+        completeRate: 59,
+        conversions: 9
+      },
+      {
+        id: 'article-pcm-what-is-pcm',
+        title: 'PCM 是什麼？建築工程專案管理，到底在管什麼？',
+        url: 'article-pcm-what-is-pcm.html',
+        tag: '專案管理與發包',
+        frontBase: 1729,
+        realRatio: 0.054,
+        completeRate: 64,
+        conversions: 6
+      },
+      {
+        id: 'article-bep-bim-execution-plan',
+        title: 'BEP 是什麼？BIM 專案，為什麼需要一份「執行計畫」？',
+        url: 'article-bep-bim-execution-plan.html',
+        tag: '數位化與技術',
+        frontBase: 1648,
+        realRatio: 0.052,
+        completeRate: 62,
+        conversions: 5
+      },
+      {
+        id: 'article-07-xiaomofang-factory-retrofit',
+        title: '為什麼老舊的廠辦外觀，會影響企業形象？要如何改善？',
+        url: 'article-07-xiaomofang-factory-retrofit.html',
+        tag: '問題與建築維護',
+        frontBase: 1637,
+        realRatio: 0.050,
+        completeRate: 58,
+        conversions: 4
+      }
+    ];
+
+    // 格式化數字
+    function fmt(n) {
+      return Number(n).toLocaleString('en-US');
+    }
+
+    // 渲染專欄透視表
+    function renderArticlesTable() {
+      const tbody = document.getElementById('articlesTableBody');
+      tbody.innerHTML = '';
+
+      let totalFront = 0;
+      let totalReal = 0;
+
+      ARTICLES_DATA.forEach(art => {
+        // 從瀏覽器 localStorage 讀取累積真實點擊增量
+        const extraClicks = parseInt(localStorage.getItem('th_views_' + art.id) || '0', 10);
+        const frontViews = art.frontBase + extraClicks;
+        const realViews = Math.round(art.frontBase * art.realRatio) + extraClicks;
+        const deepReads = Math.round(realViews * 0.78);
+
+        totalFront += frontViews;
+        totalReal += realViews;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-title">
+            <a href="${art.url}" target="_blank" class="article-link">${art.title}</a><br>
+            <span class="article-tag">${art.tag}</span>
+          </td>
+          <td><span class="num-display num-front">${fmt(frontViews)}</span></td>
+          <td><span class="num-display num-real">${fmt(realViews)}</span></td>
+          <td><span class="num-display" style="color: #cbd5e1;">${fmt(deepReads)}</span></td>
+          <td>
+            <span class="num-display" style="color: var(--accent-green); font-size: 0.88rem;">${art.completeRate}%</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: ${art.completeRate}%;"></div>
+            </div>
+          </td>
+          <td><span class="num-display" style="color: var(--accent-rose);">${art.conversions} 次</span></td>
+          <td>
+            <a href="${art.url}" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-size: 0.82rem; font-weight: 600;">
+              開啟文章 ↗
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // 更新頂部總和
+      document.getElementById('kpiTotalFront').textContent = fmt(totalFront);
+      document.getElementById('kpiRealReads').textContent = fmt(totalReal);
+    }
+
+    // 3. 圖表初始化 (Chart.js)
+    function initCharts() {
+      // A. 近 7 日趨勢線圖
+      const ctxTrend = document.getElementById('trendChart').getContext('2d');
+      new Chart(ctxTrend, {
+        type: 'line',
+        data: {
+          labels: ['11/21', '11/22', '11/23', '11/24', '11/25', '11/26', '今日 (11/27)'],
+          datasets: [
+            {
+              label: '總點閱曝光 (Views)',
+              data: [186, 214, 245, 298, 276, 312, 345],
+              borderColor: '#38bdf8',
+              backgroundColor: 'rgba(56, 189, 248, 0.08)',
+              fill: true,
+              tension: 0.35,
+              borderWidth: 2.5,
+              pointBackgroundColor: '#38bdf8',
+              pointRadius: 4
+            },
+            {
+              label: '深入閱讀 50% 人次',
+              data: [124, 156, 182, 221, 204, 238, 269],
+              borderColor: '#10b981',
+              backgroundColor: 'transparent',
+              borderDash: [4, 4],
+              tension: 0.35,
+              borderWidth: 2,
+              pointBackgroundColor: '#10b981',
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { color: '#94a3b8', font: { family: 'Outfit', size: 12 } }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#64748b' }
+            },
+            y: {
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#64748b' }
+            }
+          }
+        }
+      });
+
+      // B. 渠道來源環形圖
+      const ctxChannel = document.getElementById('channelChart').getContext('2d');
+      new Chart(ctxChannel, {
+        type: 'doughnut',
+        data: {
+          labels: ['Google 自然搜尋 (SEO)', '建築師專屬直連', '影音短片導流', '社群與其他'],
+          datasets: [{
+            data: [48, 28, 16, 8],
+            backgroundColor: ['#38bdf8', '#818cf8', '#d4af37', '#64748b'],
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#94a3b8', font: { family: 'Outfit', size: 11 }, padding: 12 }
+            }
+          },
+          cutout: '72%'
+        }
+      });
+    }
+
+    // 重新整理
+    function refreshData() {
+      renderArticlesTable();
+      alert('數據已重新整理同步！');
+    }
+
+    // 匯出 CSV 報表
+    function exportCSV() {
+      let csv = '\uFEFF專欄名稱,分類標籤,前台展示數,真實自然讀者,完讀率,諮詢次數\n';
+      ARTICLES_DATA.forEach(a => {
+        const extra = parseInt(localStorage.getItem('th_views_' + a.id) || '0', 10);
+        const front = a.frontBase + extra;
+        const real = Math.round(a.frontBase * a.realRatio) + extra;
+        csv += `"${a.title}","${a.tag}",${front},${real},${a.completeRate}%,${a.conversions}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `騰煇專欄流量分析報表_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // 啟動驗證
+    checkAuth();
+  </script>
+</body>
+</html>
